@@ -38,7 +38,7 @@ TAO/orbsvcs/orbsvcs/Notify/Sequence/*.{h,i,inl}                   usr/include/or
 TAO/orbsvcs/orbsvcs/Notify/Structured/*.{h,i,inl}                 usr/include/orbsvcs/orbsvcs/Notify/Structured
 TAO/orbsvcs/orbsvcs/PortableGroup/*.{h,i,inl}                     usr/include/orbsvcs/orbsvcs/PortableGroup
 TAO/orbsvcs/orbsvcs/Property/*.{h,i,inl}                          usr/include/orbsvcs/orbsvcs/Property
-TAO/orbsvcs/orbsvcs/SSLIOP/*.{h,i,inl}                            usr/include/orbsvcs/orbsvcs/SSLIOP
+TAO/orbsvcs/orbsvcs/SSLIOP/*.{h,i,inl,pidl}                       usr/include/orbsvcs/orbsvcs/SSLIOP
 TAO/orbsvcs/orbsvcs/Sched/*.{h,i,inl}                             usr/include/orbsvcs/orbsvcs/Sched
 TAO/orbsvcs/orbsvcs/Security/*.{h,i,inl}                          usr/include/orbsvcs/orbsvcs/Security
 TAO/orbsvcs/orbsvcs/Time/*.{h,i,inl}                              usr/include/orbsvcs/orbsvcs/Time

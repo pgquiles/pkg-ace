@@ -1,3 +1,10 @@
+ace (5.3.1-8) unstable; urgency=low
+
+  * KM: Included the .pidl files in libtao-dev package. These
+    were needed by some .idl files. (Closes: #213568)
+
+ -- Konstantinos Margaritis <markos@debian.org>  Wed, 29 Oct 2003 23:46:01 +0200
+
 ace (5.3.1-7) unstable; urgency=low
 
   * BN: Changed maintainer to "Debian ACE+TAO maintainers
