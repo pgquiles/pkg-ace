@@ -1,7 +1,7 @@
 debian/tao-config                       usr/bin
 debian/tao-config.GNU                   usr/share/ace/TAO/
 TAO/TAO_IDL/tao_idl                     usr/bin
-TAO/utils/catior/catior                 usr/bin
+TAO/utils/catior/tao-catior             usr/bin
 TAO/utils/IOR-parser/ior-parser         usr/bin
 TAO/utils/nslist/ns{add,del,list}       usr/bin
 TAO/tao/*.{h,i,inl,idl}                 usr/include/tao

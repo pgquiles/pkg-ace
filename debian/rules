@@ -102,6 +102,8 @@ install: build
 	cp TAO/orbsvcs/TAO_Service/README TAO/orbsvcs/TAO_Service/README.TAO_Service
 	cp TAO/orbsvcs/Time_Service/README TAO/orbsvcs/Time_Service/README.Time_Service
 	cp TAO/orbsvcs/Trading_Service/README TAO/orbsvcs/Trading_Service/README.Trading_Service
+#	Rename the catior utility, it already exists in another package
+	cp TAO/utils/catior/catior TAO/utils/catior/tao-catior
 
 #	Fix permissions on examples
 #	chmod -x `find TAO/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
