@@ -1,0 +1,22 @@
+ACE for Debian
+--------------
+The following ACE features have been enabled in this package:
+
+	* Timeprobes
+	* Native C++ exceptions
+
+If the software you are compiling requires $ACE_ROOT to be set (for
+example, the tutorials), you may set it to /usr/share/ace.  For bash,
+the command to do this is
+
+  export ACE_ROOT=/usr/share/ace
+
+ -- Brian Nelson <pyro@debian.org>, Thu Aug 14 16:50:09 2003
+
+Update:
+Since TAO packages are now been created, it is possible that TAO_ROOT,
+may need to be set up, as follows: 
+
+  export TAO_ROOT=${ACE_ROOT}/TAO
+
+-- Konstantinos Margaritis <markos@debian.org>, Tue, 9 Sep 2003 10:41:14 +0300

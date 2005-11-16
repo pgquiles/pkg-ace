@@ -1,0 +1,9 @@
+ACEXML/common/*.{h,i,inl}         usr/include/ACEXML/common
+ACEXML/apps/svcconf/*.{h,i,inl}   usr/include/ACEXML/apps/svcconf
+ACEXML/parser/parser/*.{h,i,inl}  usr/include/ACEXML/parser/parser   
+ACEXML/common/libACEXML.a                              usr/lib
+ACEXML/common/libACEXML.so                             usr/lib
+ACEXML/parser/parser/libACEXML_Parser.a                usr/lib
+ACEXML/parser/parser/libACEXML_Parser.so               usr/lib
+ACEXML/apps/svcconf/libACEXML_XML_Svc_Conf_Parser.a    usr/lib
+ACEXML/apps/svcconf/libACEXML_XML_Svc_Conf_Parser.so   usr/lib

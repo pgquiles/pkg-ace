@@ -1,0 +1,6 @@
+debian/ace-config                 usr/bin
+debian/ace-config.GNU             usr/share/ace
+ace/*.{h,i,inl}                   usr/include/ace
+ace/libACE.a                      usr/lib
+ace/libACE.so                     usr/lib
+include                           usr/share/ace

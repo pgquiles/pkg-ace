@@ -1,0 +1,386 @@
+ace (5.3.1-6) unstable; urgency=low
+
+  * Added the ORB services .idl files that were left out from the 
+    libtao-orbsvcs-dev package. (Closes: #213568)
+
+ -- Konstantinos Margaritis <markos@debian.org>  Sun,  5 Oct 2003 12:31:21 +0300
+
+ace (5.3.1-5) unstable; urgency=low
+
+  * Regenerated .diff.gz so that it is no longer broken (Closes: #211501)
+  * Back out Debian-specific change in the way that CosNamingC.h is
+    included in TAO/utils/nslist/nslist.cpp.  I'm not sure why this was
+    changed in the first place, but it broke the build. (Closes: #213611)
+
+ -- Brian Nelson <pyro@debian.org>  Wed,  1 Oct 2003 10:28:54 -0700
+
+ace (5.3.1-4) unstable; urgency=low
+
+  * Moved the manpages back to -dev packages to follow policy.
+  * Now mostly lintian clean.
+  * provided manpages for a few executables.
+
+ -- Konstantinos Margaritis <markos@debian.org>  Wed, 17 Sep 2003 11:43:55 +0300
+
+ace (5.3.1-3) unstable; urgency=low
+
+  * Updated to new standards version 3.6.1
+  * Fixed the section of a couple of packages.
+  * Now the getrlimit, etc functions are always defined 
+    as ints. g++ 3.x does not complain anymore (Closes: #104681).
+
+ -- Konstantinos Margaritis <markos@debian.org>  Tue, 16 Sep 2003 10:31:03 +0300
+
+ace (5.3.1-2) unstable; urgency=low
+
+  * Now the following TAO packages are created:
+    libtao1.3.1, libtao-dev, libtao-doc, libtao-orbsvcs1.3.1,
+    libtao-orbsvcs-dev.
+  * Also included ACEXML library in two separate packages:
+    libacexml5.3.1, libacexml-dev.
+  * Full doxygen documentation not included due to size concerns.
+    (Closes: #108749).
+  * tao-config included in libtao-dev. (Closes: #159234).
+  * All -dev packages carry their respective examples in full and 
+    uncompressed. (Closes: #52145, #76967).
+  * libACE.a is compiled with thread support enabled. (Closes: #126717).
+    dbbalancer now builds successfully with -static.
+  * Moved all manpages to respective -doc pagkaces. (Closes: #73044).
+
+ -- Konstantinos Margaritis <markos@debian.org>  Tue,  9 Sep 2003 10:41:14 +0300
+
+ace (5.3.1-1) unstable; urgency=low
+
+  * New upstream release
+  * New maintainers for the package, Brian Nelson <pyro@debian.org> and
+    Konstantinos Margaritis <markos@debian.org> (Closes #199768)
+  * Removed build-dependency on versioned g++
+  * Bumped up standards version to 3.6.0
+  * Dropped version string from -dev package name
+  * libace-dev: downgrade tao to suggests (where did tao go anyway?)
+  * Use debian/compat for debhelper versioning
+  * Use dh_install instead of dh_movefiles, and dh_link instead of manual
+    ln.  The debian/rules file is a lot less hairy now.
+  * Reinstated a libace-doc package (Closes: #192338)
+  * Added symlinks to /usr/share/ace so that this directory can serve as
+    $ACE_ROOT.  Added a corresponding note to the README.Debian
+    file. (Closes: #80329)
+  * Removed the /usr/lib/libACE.so.5 and libACE_RMCast.so.5 symlinks, and
+    made the package names match the sonames.  The sonames now include the
+    full version string, so ACE libs of different versions from now on
+    should coexist nicely, even though upstream doesn't use a proper
+    versioning scheme.  (Closes: #147741)
+
+ -- Brian Nelson <pyro@debian.org>  Fri, 15 Aug 2003 00:15:59 -0700
+
+ace (5.2.4-1.2) unstable; urgency=low
+
+  * fix to previous NMU
+  * (Closes: #190792)
+
+ -- Konstantinos Margaritis <markos@debian.org>  Sat, 26 Apr 2003 19:18:49 +0300
+
+ace (5.2.4-1.1) unstable; urgency=low
+
+  * gcc-3.2 transition, NMU patch by Andreas Metzler <ametzler@debian.org> 
+  * (Closes: #188328)
+
+ -- Konstantinos Margaritis <markos@debian.org>  Fri, 11 Apr 2003 23:25:38 +0200
+
+ace (5.2.4-1) unstable; urgency=low
+
+  * New upstream.
+  * Incorporated below change from Goswin.  (Closes: #159236)
+
+ -- Ossama Othman <ossama@valinor.ece.uci.edu>  Sun, 15 Sep 2002 14:14:06 -0700
+
+ace (5.2.1-1.1) unstable; urgency=low
+
+  * debian/control: libace5.2-dev recommends tao
+  * ace-config: export ACE_ROOT
+              make -f /usr/share/ace/ace-config.GNU
+                test for tao-confg
+                unset MAKEs env vars to prevent extranous output
+  * debian/rules: install platform macros in
+        $(ACE_PREFIX)/share/ace/include/makeinclude/
+
+ -- Goswin Brederlow <goswin.brederlow@student.uni-tuebingen.de>  Mon, 02 Sep
+2002 02:37:25 +0200
+
+ace (5.2.1-1) unstable; urgency=low
+
+  * New upstream.
+  * Pulled in updated g++ configuration header and Linux Makefile rules
+    for ACE.  They allow implicit template instantiation to occur.
+  * Disabled support for the ACE_XT_Reactor.  Most folks never use it.
+
+ -- Ossama Othman <ossama@debian.org>  Mon, 25 Feb 2002 13:15:25 -0800
+
+ace (5.1.8-7) unstable; urgency=low
+
+  * Really removed the flex/lex checks in configure.in.
+
+ -- Ossama Othman <ossama@debian.org>  Wed, 28 Nov 2001 15:30:59 -0800
+
+ace (5.1.8-6) unstable; urgency=low
+
+  * Added "libtool" to Build-Depend field, and run libtoolize in `rules'
+    file to pull in links to recent config.sub, config.guess and
+    ltmain.sh revisions.  (Closes: #120141)
+  * Removed local autoconf test that checks if new() throws exception
+    on failure.  The test caused build hosts to come to a crawl.  g++
+    does indeed throw an exception.
+    Just configure that explicitly.  (Closes: #90731)
+  * Removed flex and yacc checks in configure.in.  They aren't necessary
+    to build ACE.
+  * Closed bug related to gcc internal compiler error.  (Closes: #85230)
+  * Removed unnecessary g++ dependency in control file.  (Closes: #84405)
+  * Added missing xlibs-dev dependency to libace5.1-dev package.
+
+ -- Ossama Othman <ossama@debian.org>  Mon, 26 Nov 2001 16:53:33 -0800
+
+ace (5.1.8-5.1) unstable; urgency=high
+
+  * NMU
+  * Added the missing build dependencies on flex and xlibs-dev.
+    (closes: #101170)
+
+ -- Adrian Bunk <bunk@fs.tum.de>  Sat, 10 Nov 2001 01:17:53 +0100
+
+ace (5.1.8-5) unstable; urgency=low
+
+  * libace5.1 and libace5.1-dev now conflict with their corresponding ACE
+    5.0 debian packages, since both sets of packages have files with the
+    same name.  libace5.1-dev also conflicts with libace4.6-dev.  (#74031)
+  * Added xlib6g-dev to the list of build dependencies.  The X11 libraries
+    aren't strictly necessary to build ACE, but the Debian packages enable    
+    ACE's XtReactor support.
+  * Updated `README.Debian'.  The Debian ACE packages are no longer built
+    using experimental ACE Configuration Project distributions.  They are
+    built using the upstream distribution's autoconf support (contributed
+    by the ACE Configuration Project).
+
+ -- Ossama Othman <ossama@debian.org>  Thu,  5 Oct 2000 17:35:56 -0700
+
+ace (5.1.8-4) unstable; urgency=low
+
+  * Updated configure script from new upstream since it detects the CDROM
+    and STREAMS ioctl conflict in current kernels and glibc 2.1.94.  This
+    fixes a seg fault that would occur in ACE applications that use the
+    ACE_Reactor.
+
+ -- Ossama Othman <ossama@debian.org>  Wed,  4 Oct 2000 14:43:48 -0700
+
+ace (5.1.8-3) unstable; urgency=low
+
+  * Rebuilt against glibc 2.1.94 (pre-2.2).
+
+ -- Ossama Othman <ossama@debian.org>  Fri, 29 Sep 2000 12:40:39 -0700
+
+ace (5.1.8-2) unstable; urgency=low
+
+  * Added missing Build-Depends and Build-Depends-Indep fields to the
+    control file.  (#70113)
+  * Corrected `debian/rules' so that it doesn't erase the installed
+    `config-all.h' header.
+
+ -- Ossama Othman <ossama@debian.org>  Sat, 23 Sep 2000 09:54:26 -0700
+
+ace (5.1.8-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Ossama Othman <ossama@debian.org>  Fri, 25 Aug 2000 15:45:01 -0700
+
+ace (5.0.7-4) frozen unstable; urgency=low
+
+  * Rebuilt the packages so that they get installed in the unstable
+    distribution archive, in addition to the frozen one.  (#58366)
+
+ -- Ossama Othman <ossama@debian.org>  Wed, 24 May 2000 15:15:21 -0700
+
+ace (5.0.7-3) frozen; urgency=high
+
+  * Updated libtool related files from latest libtool multi-language
+    branch snapshot.  Regenerated the configure script.  It now has the
+    appropriate deplibs regex.  Apparently, there was a problem with M4
+    quoting in the last package upload.  (#63932)
+  * Explicitly enable C++ exception support.  A fix to the configure
+    script caused this to be necessary since the configure script disables
+    exception handling by default.
+  * Updated `debian/rules' file to use debhelper v2 support.
+  * Updated download location in `debian/copyright'.
+
+ -- Ossama Othman <ossama@debian.org>  Fri, 19 May 2000 15:05:30 -0700
+
+ace (5.0.7-2) frozen; urgency=low
+
+  * Updated `acewindex.html' file so that it is no longer empty.  (#50704)
+  * Updated `ACE_Log_Msg.3' man page so that important information is
+    included when it is generated.  This patch was incorporated upstream.
+    (#51224)
+  * Replaced configure script and related files with current upstream
+    configure script.  Patched OS.{h,i} with llseek/lseek64 related
+    upstream fixes.  This should correct the lseek64 and llseek problems
+    encountered in the m68k port.  (#50094, #51074)
+  * Updated ace-config.in with latest upstream since the previous one was
+    missing a "-lACE" in the library list.
+  * Fixed "--infodir" and "--mandir" configure script options in `rules'
+    file.  They incorrectly used a the actual install prefix instead of
+    the debian package install prefix.  This fixes a problem where the
+    gperf-ace documentation wasn't being registered doc-base.
+
+ -- Ossama Othman <ossama@debian.org>  Mon, 17 Jan 2000 18:39:18 -0800
+
+ace (5.0.7-1) unstable; urgency=low
+
+  * New upstream.
+  * Enabled C++ template repository during build.  This will reduce
+    the size of the resulting binaries by about 20%.
+  * Updated copyright file.  (updated distribution terms contain
+    suggestions contributed by Richard M. Stallman)
+  * FHS updates.
+  * Added versioned shlibs dependencies via "-V" option for dh_makeshlibs.
+    This is important since new versions of libACE are not always binary
+    compatible with previous versions.
+  * Updated libace5.0-dev to use package dh_installinfo to install
+    gperf-ace.info file.
+  * Minor update to ACE documentation index.html file.
+  * Added ACE man pages in HTML format.
+
+ -- Ossama Othman <ossama@debian.org>  Fri, 29 Oct 1999 21:13:10 -0500
+
+ace (4.6.44-1) unstable; urgency=low
+
+  * New upstream.
+
+ -- Ossama Othman <ossama@debian.org>  Tue, 13 Jul 1999 20:23:11 -0500
+
+ace (4.6.42-1) unstable; urgency=low
+
+  * New upstream.
+
+ -- Ossama Othman <ossama@debian.org>  Sat, 26 Jun 1999 15:46:16 -0500
+
+ace (4.6.37-1) unstable; urgency=low
+
+  * New upstream.
+  * Added doc-base support.
+
+ -- Ossama Othman <ossama@debian.org>  Tue, 27 Apr 1999 13:28:53 -0500
+
+ace (4.6.31-2) unstable; urgency=low
+
+  * Removed clone.1 man page since ACE clone utility isn't needed
+    for the Debian packages.
+
+ -- Ossama Othman <ossama@debian.org>  Mon, 22 Mar 1999 14:47:50 -0600
+
+ace (4.6.31-1) unstable; urgency=low
+
+  * New upstream beta.
+  * Added ACE PROBLEM-REPORT-FORM to each package. (#34455)
+  * Rebuilt against glibc 2.1.  (#34573)
+  * Added check for struct siginfo_t in signal.h.  Thanks to
+    Konstantinos Margaritis <kmargar@cc.uoa.gr> for pointing this
+    configuration bug out. (#34678)
+
+ -- Ossama Othman <ossama@debian.org>  Sun, 24 Jan 1999 15:49:04 -0500
+
+ace (4.6.15-1) unstable; urgency=low
+
+  * Updated to ACE release 4.6.15.
+
+ -- Ossama Othman <ossama@debian.org>  Sat, 16 Jan 1999 18:47:25 -0500
+
+ace (4.6.13-1) unstable; urgency=low
+
+  * Updated to ACE release 4.6.13.
+
+ -- Ossama Othman <ossama@debian.org>  Thu, 14 Jan 1999 19:54:41 -0500
+
+ace (4.6.12-2) unstable; urgency=low
+
+  * Forgot to change libace4.6-dev dependency from version 4.6.7 to 4.6.12.
+
+ -- Ossama Othman <ossama@debian.org>  Thu, 14 Jan 1999 02:47:13 -0500
+
+ace (4.6.12-1) unstable; urgency=low
+
+  * Updated to ACE release 4.6.12.
+
+ -- Ossama Othman <ossama@debian.org>  Thu, 14 Jan 1999 01:17:16 -0500
+
+ace (4.6.7-1) unstable; urgency=low
+
+  * Force libtool to link "-lpthread" into ACE's inter-library dependencies
+    since the configure script detects that the "-pthread" flag can be used
+    which make it unneccessary to explicitly link to "-lpthread."  However, we
+    want the "-lpthread" dependency since not all users or programs use the
+    "-pthread" compiler flag.
+  * Fixed packaging bug where run-time library package tried to install/remove
+    the gperf-ace info file.
+  * Updated to ACE release 4.6.7.
+
+ -- Ossama Othman <ossama@debian.org>  Tue, 15 Dec 1998 16:29:10 -0500
+
+ace (4.6.5-3) unstable; urgency=low
+
+  * Enabled ACE debugging macros.
+  * Enabled ACE logging macros (LM_DEBUG and LM_INFO).
+
+ -- Ossama Othman <ossama@debian.org>  Tue,  8 Dec 1998 14:22:02 -0500
+
+ace (4.6.5-2) unstable; urgency=low
+
+  * Released ace-4.6.5-2 packages.
+  * gperf files (gperf, gperf.1 and gperf.info) will be installed as gperf-ace
+    to prevent conflicts with the existing Cygnus based gperf package.
+  * Corrected libACE compile list by removing template sources from the
+    libACE "SOURCES" make variable.
+
+ -- Ossama Othman <ossama@debian.org>  Thu,  3 Dec 1998 15:59:06 -0500
+
+ace (4.6.5-1) unstable; urgency=low
+
+  * Released ace-4.6.5-1 packages
+
+ -- Ossama Othman <othman@astrosun.tn.cornell.edu>  Tue,  1 Dec 1998 16:09:49 -0500
+
+ace (4.6.4-2) unstable; urgency=low
+
+  * Added libnsl to library check for t_accept() (not a Debian issue).
+  * Moved all pre-processor related lines to the first column of the M4 block
+    so that they will be in the first column of their respective test programs.
+  * Made definition of ACE_HAS_NONSTATIC_OBJECT_MANAGER a configure script
+    option since there was no working autoconf test for it.
+
+ -- Ossama Othman <othman@astrosun.tn.cornell.edu>  Mon, 30 Nov 1998 17:24:49 -0500
+
+ace (4.6.4-1) unstable; urgency=low
+
+  * Added "install-info" commands to postinst and prerm scripts.
+  * Added a "modernized" gperf.info to the distribution.
+  * Added "#ifndef" guards to PACKAGE, VERSION, DEBUG and NDEBUG macros in
+    acconfig.h to prevent redefinition when using ACE with a package that
+    defines them.
+  * Added Env_Value_T.cpp to list of template sources to be installed.
+  * Moved ace-config script to "-dev" package.
+  * Added gperf to the distribution.
+
+ -- Ossama Othman <othman@astrosun.tn.cornell.edu>  Fri, 13 Nov 1998 16:02:32 -0500
+
+ace (4.6.3-2) unstable; urgency=low
+
+  * Released ace-4.6.3-2 packages.
+  * Corrected ace-config and configure scripts so that the X11 libraries are
+    displayed correctly by the ace-config script.
+
+ -- Ossama Othman <othman@astrosun.tn.cornell.edu>  Thu, 12 Nov 1998 17:24:11 -0500
+
+ace (4.6.3-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Ossama Othman <othman@astrosun.tn.cornell.edu>  Thu, 12 Nov 1998 13:13:59 -0500
+

@@ -1,0 +1,156 @@
+#!/usr/bin/make -f
+
+# debian/rules file for the ACE Debian GNU/Linux package
+# written February 2002 by Ossama Othman <ossama@debian.org>
+# Modified August 2003 by Brian Nelson <pyro@debian.org>
+
+export ACE_ROOT = $(shell pwd)
+export TAO_ROOT = $(ACE_ROOT)/TAO
+export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(shell pwd)
+
+ACE_MAJOR_VERSION := $(shell grep ACE_MAJOR_VERSION ace/Version.h | sed -e 's/\#define ACE_MAJOR_VERSION //')
+ACE_VERSION := $(shell grep ACE_VERSION ace/Version.h | sed -e 's/\#define ACE_VERSION //' -e 's/"//g')
+
+TAO_MAJOR_VERSION := $(shell grep TAO_MAJOR_VERSION TAO/tao/Version.h | sed -e 's/\#define TAO_MAJOR_VERSION //')
+TAO_VERSION := $(shell grep TAO_MAJOR_VERSION TAO/tao/Version.h | sed -e 's/\#define TAO_MAJOR_VERSION //')
+
+ACE_OPTS = "probe=1 exceptions=1 threads=1 optimize=1 debug=0"
+	
+build: build-stamp
+build-stamp:
+	dh_testdir
+
+	cp debian/config/config.h ace
+	cp debian/config/platform_macros.GNU include/makeinclude
+
+	$(MAKE) -C ace shared_libs=1 static_libs=1
+	$(MAKE) -C ACEXML shared_libs=1 static_libs=1
+
+	$(MAKE) -C apps/gperf/src
+
+	cd $(TAO_ROOT) && LD_LIBRARY_PATH=$(ACE_ROOT)/ace make shared_libs=1
+
+	touch build-stamp
+
+clean:
+	dh_testdir
+	rm -f build-stamp install-stamp
+
+# HACK:   ACE's "realclean" target needs these.  *sigh*
+	cp debian/config/config.h ace
+	cp debian/config/platform_macros.GNU include/makeinclude
+
+	-$(MAKE) realclean shared_libs=1
+	-$(MAKE) realclean static_libs=1
+	-$(MAKE) -C TAO realclean shared_libs=1
+	-$(MAKE) -C TAO realclean static_libs=1
+
+	rm -f ace/*.{a,so*} ace/RMCast/*.{a,so*} apps/gperf/src/gperf-ace \
+	      apps/gperf/gperf-ace.1 apps/gperf/gperf-ace.info ace/config.h \
+	      include/makeinclude/platform_macros.GNU
+
+	rm -f TAO/utils/catior/README.catior
+	rm -f TAO/utils/IOR-parser/README.IOR-parser
+	rm -f TAO/utils/nslist/README.nslist
+	rm -f TAO/orbsvcs/README.orbsvcs
+	rm -f TAO/orbsvcs/Concurrency_Service/README.Concurrency_Service
+	rm -f TAO/orbsvcs/CosEvent_Service/README.CosEvent_Service
+	rm -f TAO/orbsvcs/IFR_Service/README.IFR_Service
+	rm -f TAO/orbsvcs/LoadBalancer/README.LoadBalancer
+	rm -f TAO/orbsvcs/Logging_Service/README.Logging_Service
+	rm -f TAO/orbsvcs/Naming_Service/README.Naming_Service
+	rm -f TAO/orbsvcs/Notify_Service/README.Notify_Service
+	rm -f TAO/orbsvcs/PSS/README.PSS
+	rm -f TAO/orbsvcs/TAO_Service/README.TAO_Service
+	rm -f TAO/orbsvcs/Time_Service/README.Time_Service
+	rm -f TAO/orbsvcs/Trading_Service/README.Trading_Service
+
+	dh_clean
+
+install:
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+
+#	We need to rename gperf so that it does not conflict with the
+#       existing Cygnus based gperf Debian package.
+	cp apps/gperf/src/gperf apps/gperf/src/gperf-ace
+	sed -e 's/gperf/gperf-ace/g' \
+            -e 's/GPERF/GPERF-ACE/g' \
+           apps/gperf/gperf.1 > \
+	   apps/gperf/gperf-ace.1
+	sed -e 's/gperf\.info/gperf-ace\.info/g' \
+            -e 's/(gperf)\.    /(gperf-ace)\./g' \
+           apps/gperf/gperf.info > \
+           apps/gperf/gperf-ace.info
+	
+#	Rename the TAO/utils README files
+	cp TAO/utils/catior/README TAO/utils/catior/README.catior
+	cp TAO/utils/IOR-parser/README TAO/utils/IOR-parser/README.IOR-parser
+	cp TAO/utils/nslist/README TAO/utils/nslist/README.nslist
+	cp TAO/orbsvcs/README TAO/orbsvcs/README.orbsvcs
+	cp TAO/orbsvcs/Concurrency_Service/README TAO/orbsvcs/Concurrency_Service/README.Concurrency_Service
+	cp TAO/orbsvcs/CosEvent_Service/README TAO/orbsvcs/CosEvent_Service/README.CosEvent_Service
+	cp TAO/orbsvcs/IFR_Service/README TAO/orbsvcs/IFR_Service/README.IFR_Service
+	cp TAO/orbsvcs/LoadBalancer/README TAO/orbsvcs/LoadBalancer/README.LoadBalancer
+	cp TAO/orbsvcs/Logging_Service/README TAO/orbsvcs/Logging_Service/README.Logging_Service
+	cp TAO/orbsvcs/Naming_Service/README TAO/orbsvcs/Naming_Service/README.Naming_Service
+	cp TAO/orbsvcs/Notify_Service/README TAO/orbsvcs/Notify_Service/README.Notify_Service
+	cp TAO/orbsvcs/PSS/README TAO/orbsvcs/PSS/README.PSS
+	cp TAO/orbsvcs/TAO_Service/README TAO/orbsvcs/TAO_Service/README.TAO_Service
+	cp TAO/orbsvcs/Time_Service/README TAO/orbsvcs/Time_Service/README.Time_Service
+	cp TAO/orbsvcs/Trading_Service/README TAO/orbsvcs/Trading_Service/README.Trading_Service
+
+#	Fix permissions on examples
+#	chmod -x `find TAO/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
+
+	dh_install
+
+#       Install the C++ template sources.
+	install -m 0644 `grep defined.*ACE_TEMPLATES_REQUIRE_SOURCE ace/*.h | uniq | sed -e 's/:.*$$//' -e 's/.h$$/.cpp/'` debian/libace-dev/usr/include/ace
+	install -m 0644 `grep defined.*ACE_TEMPLATES_REQUIRE_SOURCE ace/RMCast/*.h | uniq | sed -e 's/:.*$$//' -e 's/.h$$/.cpp/'` debian/libace-rmcast-dev/usr/include/ace/RMCast
+
+	sh debian/copy_template_sources.sh
+
+binary-indep: build install
+	dh_testdir -i
+	dh_testroot -i
+	dh_installdocs -i
+	dh_installexamples -i
+	dh_installman -i
+	dh_installchangelogs -i ChangeLog
+	dh_link -i
+	dh_compress -i -Xexamples -Xtutorials
+	dh_fixperms -i
+	dh_installdeb -i
+	dh_gencontrol -i
+	dh_md5sums -i
+	dh_builddeb -i
+
+binary-arch: build install
+	dh_testdir -a
+	dh_testroot -a
+	dh_installdocs -a -A
+	dh_installman -a
+	dh_installinfo -pgperf-ace apps/gperf/gperf-ace.info
+	dh_installchangelogs -a ChangeLog
+	dh_installchangelogs -pgperf-ace apps/gperf/ChangeLog
+	dh_strip -a
+	dh_link -a
+	dh_compress -a
+	dh_fixperms -a
+	dh_installdeb -a
+	dh_makeshlibs -a -V
+	dh_shlibdeps -a -lace
+	dh_gencontrol -a
+	dh_md5sums -a
+	dh_builddeb -a
+
+source diff:                                                                  
+	@echo >&2 'source and diff are obsolete - use dpkg-source -b'; false
+
+binary: binary-indep binary-arch
+
+.PHONY: build clean binary-indep binary-arch binary install

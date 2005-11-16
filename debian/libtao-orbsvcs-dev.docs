@@ -1,0 +1,4 @@
+TAO/VERSION
+TAO/orbsvcs/README.*
+TAO/orbsvcs/*/README.*
+TAO/orbsvcs/examples

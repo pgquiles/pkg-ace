@@ -1,0 +1,5 @@
+debian/tao-config.1
+TAO/man/man1/TAO_Concurrency_Service.1
+TAO/man/man1/TAO_CosEvent_Service.1
+TAO/man/man1/TAO_Event_Service.1
+TAO/man/man1/tao_idl.1

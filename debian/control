@@ -1,0 +1,233 @@
+Source: ace
+Section: devel
+Priority: optional
+Maintainer: Brian Nelson <pyro@debian.org>
+Uploaders: Konstantinos Margaritis <markos@debian.org>
+Build-Depends: debhelper (>= 4.1)
+Standards-Version: 3.6.1
+
+Package: libace5.3.1
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Replaces: libace5.2c102
+Conflicts: libace5.0, libace5.1, libace5.2, libace5.2c102
+Description: An Object-Oriented Network Programming Toolkit in C++
+ This package contains the run-time ACE library.
+ .
+ The ADAPTIVE Communication Environment (ACE) is a freely available open
+ source object-oriented (OO) framework that implements many core design
+ patterns for concurrent communication software. ACE provides a rich set
+ of reusable C++ wrappers and framework components that perform common
+ communication software tasks across a range of OS platforms. The
+ communication software tasks provided by ACE include event
+ demultiplexing and event handler dispatching, signal handling, service
+ initialization, interprocess communication, shared memory management,
+ message routing, dynamic (re)configuration of distributed services,
+ concurrent execution and synchronization.
+ .
+ ACE is targeted for developers of high-performance and real-time
+ communication services and applications. It simplifies the development
+ of OO network applications and services that utilize interprocess
+ communication, event demultiplexing, explicit dynamic linking, and
+ concurrency. In addition, ACE automates system configuration and
+ reconfiguration by dynamically linking services into applications at
+ run-time and executing these services in one or more processes or
+ threads.
+ .
+  Author: Douglas C. Schmidt <schmidt@uci.edu>
+  Homepage: http://www.cs.wustl.edu/~schmidt/ACE.html
+
+Package: libace-dev
+Architecture: any
+Section: libdevel
+Depends: libace5.3.1 (>= ${Source-Version}), libc6-dev
+Suggests: libace-doc, tao
+Replaces: libace5.2-dev
+Conflicts: libace4.6-dev, libace5.0-dev, libace5.1-dev, libace5.2-dev
+Description:  An Object-Oriented Network Programming Toolkit in C++
+ This package contains the header files and static libraries for the ACE
+ toolkit.
+ .
+ The ADAPTIVE Communication Environment (ACE) is a freely available open
+ source object-oriented (OO) framework that implements many core design
+ patterns for concurrent communication software. ACE provides a rich set
+ of reusable C++ wrappers and framework components that perform common
+ communication software tasks across a range of OS platforms. The
+ communication software tasks provided by ACE include event
+ demultiplexing and event handler dispatching, signal handling, service
+ initialization, interprocess communication, shared memory management,
+ message routing, dynamic (re)configuration of distributed services,
+ concurrent execution and synchronization.
+ .
+ ACE is targeted for developers of high-performance and real-time
+ communication services and applications. It simplifies the development
+ of OO network applications and services that utilize interprocess
+ communication, event demultiplexing, explicit dynamic linking, and
+ concurrency. In addition, ACE automates system configuration and
+ reconfiguration by dynamically linking services into applications at
+ run-time and executing these services in one or more processes or
+ threads.
+ .
+  Author: Douglas C. Schmidt <schmidt@uci.edu>
+  Homepage: http://www.cs.wustl.edu/~schmidt/ACE.html
+
+Package: libace-doc
+Architecture: all
+Section: doc
+Suggests: libace-dev
+Description: Documentation for the ADAPTIVE Communication Environment (ACE)
+ This package contains the ACE overview documentation, tutorials,
+ examples, and information regarding upstream development.
+ .
+ The ADAPTIVE Communication Environment (ACE) is a freely available open
+ source object-oriented (OO) framework that implements many core design
+ patterns for concurrent communication software. ACE provides a rich set
+ of reusable C++ wrappers and framework components that perform common
+ communication software tasks across a range of OS platforms. The
+ communication software tasks provided by ACE include event
+ demultiplexing and event handler dispatching, signal handling, service
+ initialization, interprocess communication, shared memory management,
+ message routing, dynamic (re)configuration of distributed services,
+ concurrent execution and synchronization.
+ .
+ ACE is targeted for developers of high-performance and real-time
+ communication services and applications. It simplifies the development
+ of OO network applications and services that utilize interprocess
+ communication, event demultiplexing, explicit dynamic linking, and
+ concurrency. In addition, ACE automates system configuration and
+ reconfiguration by dynamically linking services into applications at
+ run-time and executing these services in one or more processes or
+ threads.
+ .
+  Author: Douglas C. Schmidt <schmidt@uci.edu>
+  Homepage: http://www.cs.wustl.edu/~schmidt/ACE.html
+
+Package: libace-rmcast5.3.1
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Replaces: libace-rmcast5.2c102
+Conflicts: libace-rmcast5.2, libace-rmcast5.2c102
+Description: A reliable multicast library in C++
+ This package contains the reliable multicast framework run-time library
+ for ACE.
+ .
+ ACE_RMCast is a simple, small-scale reliable multicast framework for
+ ACE.  The framework is based on the ASX components of the ACE library:
+ the protocol is implemented as a stack of interchangeable "modules",
+ each one in charge of a very small task.  For example, one module
+ implements fragmentation and reassembly, other modules implement
+ retransmission, send ACK and NAK messages, and maintain receiver
+ membership.
+
+Package: libace-rmcast-dev
+Architecture: any
+Section: libdevel
+Depends: libace-rmcast5.3.1 (>= ${Source-Version}), libace-dev (>= ${Source-Version})
+Replaces: libace-rmcast5.2-dev
+Description: A reliable multicast library in C++
+ This package contains reliable multicast framework development files
+ for ACE.
+ .
+ ACE_RMCast is a simple, small-scale reliable multicast framework for
+ ACE.  The framework is based on the ASX components of the ACE library:
+ the protocol is implemented as a stack of interchangeable "modules",
+ each one in charge of a very small task.  For example, one module
+ implements fragmentation and reassembly, other modules implement
+ retransmission, send ACK and NAK messages, and maintain receiver
+ membership.
+
+Package: gperf-ace
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Description: Perfect hash function generator (ACE version)
+ gperf-ace is the ACE version of gperf.
+ .
+ Both gperf-ace and gperf were written by the same author, and have
+ basically the same options and functionality.  gperf-ace simply takes
+ advantage of the some of the features provided by the ACE library.
+
+Package: libacexml5.3.1
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: ACE XML PARSER Framework (runtime)
+ This package contains the run-time ACE library.
+ .
+ ACEXML is a small footprint and portable framework for integrating XML
+ parsing ability into user applications.  The framework is based on the
+ Simple API for XML (SAX 2.0) (http://www.saxproject.org/) by David 
+ Megginson.  A simple non-conformant XML parser is also included in the 
+ framework.
+
+Package: libacexml-dev
+Architecture: any
+Section: libdevel
+Depends: libacexml5.3.1 (>= ${Source-Version}), libc6-dev
+Description: ACE XML PARSER Framework (runtime)
+ This package contains the header files and static libraries for the ACE
+ toolkit.
+ .
+ ACEXML is a small footprint and portable framework for integrating XML
+ parsing ability into user applications.  The framework is based on the
+ Simple API for XML (SAX 2.0) (http://www.saxproject.org/) by David 
+ Megginson.  A simple non-conformant XML parser is also included in the 
+ framework.
+
+Package: libtao1.3.1
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Suggests: libtao-orbsvcs1.3.1
+Description: The ACE ORB, an open-source implementation of CORBA ORB
+ This package contains the run-time TAO libraries.
+ .
+ TAO is a freely available, open-source implementation of a CORBA 
+ 2.x-compliant ORB that supports real-time extensions. 
+
+Package: libtao-dev
+Architecture: any
+Section: libdevel
+Depends: libtao1.3.1 (>= ${Source-Version}), libace-dev, libc6-dev
+Suggests: libtao-doc, libtao-orbsvcs-dev
+Description: Development Files for TAO, The ACE ORB
+ This package contains the header files for the TAO toolkit. Due to the
+ size of the static libs (> 400MB) they have been left out.
+ .
+ TAO is a freely available, open-source implementation of a CORBA 
+ 2.x-compliant ORB that supports real-time extensions. 
+
+Package: libtao-doc
+Architecture: all
+Section: doc
+Suggests: libtao-dev
+Description: Documentation for TAO, The ACE ORB
+ This package contains the TAO overview documentation, tutorials,
+ examples, and information regarding upstream development.
+ .
+ TAO is a freely available, open-source implementation of a CORBA 
+ 2.x-compliant ORB that supports real-time extensions. 
+
+Package: libtao-orbsvcs1.3.1
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: The ACE ORB, an open-source implementation of CORBA ORB
+ This package contains the run-time TAO ORB services libraries.
+ .
+ TAO is a freely available, open-source implementation of a CORBA 
+ 2.x-compliant ORB that supports real-time extensions. 
+
+Package: libtao-orbsvcs-dev
+Architecture: any
+Section: libdevel
+Depends: libtao-orbsvcs1.3.1 (>= ${Source-Version}), libtao-dev
+Description: The ACE ORB, an open-source implementation of CORBA ORB
+ This package contains the header files for the TAO ORB Services.
+ Due to the size of the static libs (> 400MB) they have been left out.
+ The examples and some documentation have been included as well.
+ .
+ TAO is a freely available, open-source implementation of a CORBA 
+ 2.x-compliant ORB that supports real-time extensions. 
