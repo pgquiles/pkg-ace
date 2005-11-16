@@ -1,8 +1,8 @@
 Source: ace
 Section: devel
 Priority: optional
-Maintainer: Brian Nelson <pyro@debian.org>
-Uploaders: Konstantinos Margaritis <markos@debian.org>
+Maintainer: Debian ACE+TAO maintainers <pkg-ace-devel@lists.alioth.debian.org>
+Uploaders: Konstantinos Margaritis <markos@debian.org>, Brian Nelson <pyro@debian.org>
 Build-Depends: debhelper (>= 4.1)
 Standards-Version: 3.6.1
 
