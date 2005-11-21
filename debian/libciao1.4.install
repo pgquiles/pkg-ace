@@ -1,0 +1,11 @@
+TAO/CIAO/ciao/libCIAO_Client.so.*                     usr/lib
+TAO/CIAO/ciao/libCIAO_Container.so.*                  usr/lib
+TAO/CIAO/ciao/libCIAO_Server.so.*                     usr/lib
+TAO/CIAO/tools/XML_Helpers/libCIAO_XML_Helpers.so.*   usr/lib
+TAO/CIAO/tools/Assembly_Deployer/Assembly_Deployer                        usr/bin
+TAO/CIAO/tools/Assembly_Deployer/Assembly_Manager                         usr/bin
+TAO/CIAO/tools/ComponentServer/ComponentServer                            usr/bin
+TAO/CIAO/tools/Daemon/CIAO_Daemon                                         usr/bin
+TAO/CIAO/tools/Daemon/DaemonController                                    usr/bin
+TAO/CIAO/tools/RTComponentServer/RTComponentServer                        usr/bin
+TAO/CIAO/tools/ServerActivator/ServerActivator                            usr/bin

@@ -5,7 +5,7 @@
 probe=1
 
 # Enable support for the ACE_XT_Reactor.
-# xt_reactor=1
+xt_reactor=1
 
 # Enable native C++ exception support.
 exceptions=1
@@ -20,6 +20,17 @@ optimize=1
 # build.
 debug=0
 
+# Enable ssl support
+ssl=1
+
+# Enable security
+security=1
+
+# Enable RT CORBA
+rtcorba=1
+
+# Enable CORBA messaging
+corba_messaging=1
 
 include $(ACE_ROOT)/include/makeinclude/platform_linux.GNU
 

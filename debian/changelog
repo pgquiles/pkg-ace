@@ -1,3 +1,14 @@
+ace (5.4-1) unstable; urgency=low
+
+  * KM: new upstream release
+  * KM: Now builds also ACE+SSL library, Kokyu and CIAO libs.
+  * KM: Due to the orbsvcs executables we can't have 2 different versions
+    of the libtao-orbsvcs1.x package, so we have to replace. This doesn't apply
+    for libace5.x, libtao1.x or the rest of the libs.
+  * Closes: #229134 (fixed dependencies).
+
+ -- Konstantinos Margaritis <markos@debian.org>  Sun, 25 Jan 2004 13:33:20 +0200
+
 ace (5.3.1-8) unstable; urgency=low
 
   * KM: Included the .pidl files in libtao-dev package. These

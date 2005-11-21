@@ -1,0 +1,9 @@
+TAO/CIAO/ciao/*.{h,i,inl}                      usr/include/ciao
+TAO/CIAO/tools/Assembly_Deployer/*.{h,i,inl}   usr/include/ciao/Assembly_Deployer
+TAO/CIAO/tools/Daemon/*.{h,i,inl}              usr/include/ciao/Daemon
+TAO/CIAO/tools/XML_Helpers/*.{h,i,inl}         usr/include/ciao/XML_Helpers
+TAO/CIAO/tools/RTComponentServer/*.{h,i,inl}   usr/include/ciao/RTComponentServer
+TAO/CIAO/ciao/libCIAO_Client.so                         usr/lib
+TAO/CIAO/ciao/libCIAO_Container.so                      usr/lib
+TAO/CIAO/ciao/libCIAO_Server.so                         usr/lib
+TAO/CIAO/tools/XML_Helpers/libCIAO_XML_Helpers.so       usr/lib

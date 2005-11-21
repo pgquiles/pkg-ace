@@ -14,7 +14,7 @@ ACE_VERSION := $(shell grep ACE_VERSION ace/Version.h | sed -e 's/\#define ACE_V
 TAO_MAJOR_VERSION := $(shell grep TAO_MAJOR_VERSION TAO/tao/Version.h | sed -e 's/\#define TAO_MAJOR_VERSION //')
 TAO_VERSION := $(shell grep TAO_MAJOR_VERSION TAO/tao/Version.h | sed -e 's/\#define TAO_MAJOR_VERSION //')
 
-ACE_OPTS = "probe=1 exceptions=1 threads=1 optimize=1 debug=0"
+ACE_OPTS = "probe=1 exceptions=1 threads=1 optimize=1 debug=0 ssl=1"
 	
 build: build-stamp
 build-stamp:
@@ -27,8 +27,9 @@ build-stamp:
 	$(MAKE) -C ACEXML shared_libs=1 static_libs=1
 
 	$(MAKE) -C apps/gperf/src
+	$(MAKE) -C Kokyu shared_libs=1 static_libs=1
 
-	cd $(TAO_ROOT) && LD_LIBRARY_PATH=$(ACE_ROOT)/ace make shared_libs=1
+	cd $(TAO_ROOT) && LD_LIBRARY_PATH=$(ACE_ROOT)/ace make shared_libs=1 corba_messaging=1 rtcorba=1
 
 	touch build-stamp
 
@@ -49,12 +50,14 @@ clean:
 	      apps/gperf/gperf-ace.1 apps/gperf/gperf-ace.info ace/config.h \
 	      include/makeinclude/platform_macros.GNU
 
+	rm -f TAO/utils/catior/tao-catior
 	rm -f TAO/utils/catior/README.catior
 	rm -f TAO/utils/IOR-parser/README.IOR-parser
 	rm -f TAO/utils/nslist/README.nslist
 	rm -f TAO/orbsvcs/README.orbsvcs
 	rm -f TAO/orbsvcs/Concurrency_Service/README.Concurrency_Service
 	rm -f TAO/orbsvcs/CosEvent_Service/README.CosEvent_Service
+	rm -f TAO/orbsvcs/FT_ReplicationManager/README.FT_ReplicationManager
 	rm -f TAO/orbsvcs/IFR_Service/README.IFR_Service
 	rm -f TAO/orbsvcs/LoadBalancer/README.LoadBalancer
 	rm -f TAO/orbsvcs/Logging_Service/README.Logging_Service
@@ -90,9 +93,9 @@ install: build
 	cp TAO/utils/catior/README TAO/utils/catior/README.catior
 	cp TAO/utils/IOR-parser/README TAO/utils/IOR-parser/README.IOR-parser
 	cp TAO/utils/nslist/README TAO/utils/nslist/README.nslist
-	cp TAO/orbsvcs/README TAO/orbsvcs/README.orbsvcs
 	cp TAO/orbsvcs/Concurrency_Service/README TAO/orbsvcs/Concurrency_Service/README.Concurrency_Service
 	cp TAO/orbsvcs/CosEvent_Service/README TAO/orbsvcs/CosEvent_Service/README.CosEvent_Service
+	cp TAO/orbsvcs/FT_ReplicationManager/README TAO/orbsvcs/FT_ReplicationManager/README.FT_ReplicationManager
 	cp TAO/orbsvcs/IFR_Service/README TAO/orbsvcs/IFR_Service/README.IFR_Service
 	cp TAO/orbsvcs/LoadBalancer/README TAO/orbsvcs/LoadBalancer/README.LoadBalancer
 	cp TAO/orbsvcs/Logging_Service/README TAO/orbsvcs/Logging_Service/README.Logging_Service
@@ -105,15 +108,15 @@ install: build
 #	Rename the catior utility, it already exists in another package
 	cp TAO/utils/catior/catior TAO/utils/catior/tao-catior
 
-#	Fix permissions on examples
-#	chmod -x `find TAO/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
+#	Be lintian clean, fix permissions on examples
+	chmod -x `find TAO/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
+	chmod -x `find TAO/CIAO/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
+#	And on some header files
+	chmod -x `find TAO/orbsvcs -perm 755 ! -type d -a \( -name "*.h" -o -name "*.inl" \)`
 
 	dh_install
 
 #       Install the C++ template sources.
-	install -m 0644 `grep defined.*ACE_TEMPLATES_REQUIRE_SOURCE ace/*.h | uniq | sed -e 's/:.*$$//' -e 's/.h$$/.cpp/'` debian/libace-dev/usr/include/ace
-	install -m 0644 `grep defined.*ACE_TEMPLATES_REQUIRE_SOURCE ace/RMCast/*.h | uniq | sed -e 's/:.*$$//' -e 's/.h$$/.cpp/'` debian/libace-rmcast-dev/usr/include/ace/RMCast
-
 	sh debian/copy_template_sources.sh
 
 binary-indep: build install
@@ -145,7 +148,7 @@ binary-arch: build install
 	dh_fixperms -a
 	dh_installdeb -a
 	dh_makeshlibs -a -V
-	dh_shlibdeps -a -lace
+	dh_shlibdeps -a -l debian/libace5.4/usr/lib:debian/libacexml5.4/usr/lib:debian/libace-rmcast5.4/usr/lib:debian/libciao1.4/usr/lib:debian/libkokyu5.4/usr/lib:debian/libtao1.4/usr/lib:debian/libtao-orbsvcs1.4/usr/lib
 	dh_gencontrol -a
 	dh_md5sums -a
 	dh_builddeb -a
