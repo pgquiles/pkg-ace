@@ -20,6 +20,10 @@ build: build-stamp
 build-stamp:
 	dh_testdir
 
+# This hack applies Makefiles and .pl patches, but will produce
+# .rej files when invoked multiple times...
+	patch --forward -p1 < debian/debian.diff
+
 	cp debian/config/config.h ace
 	cp debian/config/platform_macros.GNU include/makeinclude
 

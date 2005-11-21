@@ -1,0 +1,592 @@
+--- ace-5.4.orig/ACEXML/Makefile
++++ ace-5.4/ACEXML/Makefile
+@@ -8,12 +8,12 @@
+ MFILES = \
+          common/Makefile.ACEXML \
+          parser/parser/Makefile.ACEXML_Parser \
+-         apps/svcconf/Makefile.ACEXML_XML_Svc_Conf_Parser \
+-         examples/SAXPrint/Makefile.SAXPrint \
+-         tests/Makefile.Transcoder_Test \
+-         tests/Makefile.NamespaceSupport_Test \
+-         tests/Makefile.HttpCharStream_Test \
+-         tests/Makefile.ContentHandler_Test
++         apps/svcconf/Makefile.ACEXML_XML_Svc_Conf_Parser
++#         examples/SAXPrint/Makefile.SAXPrint \
++#         tests/Makefile.Transcoder_Test \
++#         tests/Makefile.NamespaceSupport_Test \
++#         tests/Makefile.HttpCharStream_Test \
++#         tests/Makefile.ContentHandler_Test
+ 
+ $(TARGETS_NESTED):
+ 	@for file in $(MFILES); do \
+--- ace-5.4.orig/TAO/CIAO/Makefile
++++ ace-5.4/TAO/CIAO/Makefile
+@@ -18,9 +18,9 @@
+ 
+ INFO    = VERSION
+ 
+-ALT_DIRS = CIDLC \
+-           examples \
+-           tests
++ALT_DIRS = CIDLC 
++#           examples \
++#           tests
+ 
+ CLONE   = Makefile \
+ 	  CIDLC \
+--- ace-5.4.orig/TAO/CIAO/examples/Hello/descriptors/run_test_default.pl
++++ ace-5.4/TAO/CIAO/examples/Hello/descriptors/run_test_default.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/CIAO/examples/Hello/descriptors/run_test_remote.pl
++++ ace-5.4/TAO/CIAO/examples/Hello/descriptors/run_test_remote.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ #run_test_remote.pl,v 1.1 2003/12/03 00:46:12 lut Exp
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+--- ace-5.4.orig/TAO/Makefile
++++ ace-5.4/TAO/Makefile
+@@ -21,23 +21,19 @@
+ 
+ DIRS    = tao \
+           TAO_IDL \
+-          tests \
+           orbsvcs \
+-          examples \
+-          performance-tests \
+           utils \
+-	  docs/tutorials/Quoter \
+           CIAO
++#          tests \
++#          examples \
++#          performance-tests \
++#	  docs/tutorials/Quoter \
+ 
+ CLONE   = Makefile \
+           tao \
+           TAO_IDL \
+-          tests \
+           orbsvcs \
+-          examples \
+-          performance-tests \
+-          utils \
+-	  docs/tutorials/Quoter
++          utils 
+ 
+ #----------------------------------------------------------------------------
+ #       Include macros and targets
+--- ace-5.4.orig/TAO/examples/AMH/Sink_Server/run_test.pl
++++ ace-5.4/TAO/examples/AMH/Sink_Server/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Advanced/ch_12/run_test.pl
++++ ace-5.4/TAO/examples/Advanced/ch_12/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Advanced/ch_18/run_test.pl
++++ ace-5.4/TAO/examples/Advanced/ch_18/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Advanced/ch_21/run_test.pl
++++ ace-5.4/TAO/examples/Advanced/ch_21/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Advanced/ch_3/run_test.pl
++++ ace-5.4/TAO/examples/Advanced/ch_3/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Advanced/ch_8_and_10/run_test.pl
++++ ace-5.4/TAO/examples/Advanced/ch_8_and_10/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Advanced/run_test.pl
++++ ace-5.4/TAO/examples/Advanced/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Buffered_AMI/run_test.pl
++++ ace-5.4/TAO/examples/Buffered_AMI/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Buffered_Oneways/run_test.pl
++++ ace-5.4/TAO/examples/Buffered_Oneways/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Callback_Quoter/run_test.pl
++++ ace-5.4/TAO/examples/Callback_Quoter/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Load_Balancing/run_test.pl
++++ ace-5.4/TAO/examples/Load_Balancing/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Logging/run_test.pl
++++ ace-5.4/TAO/examples/Logging/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/OBV/Typed_Events/run_test.pl
++++ ace-5.4/TAO/examples/OBV/Typed_Events/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/POA/Adapter_Activator/run_test.pl
++++ ace-5.4/TAO/examples/POA/Adapter_Activator/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/POA/DSI/run_test.pl
++++ ace-5.4/TAO/examples/POA/DSI/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/POA/Default_Servant/run_test.pl
++++ ace-5.4/TAO/examples/POA/Default_Servant/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/POA/Explicit_Activation/run_test.pl
++++ ace-5.4/TAO/examples/POA/Explicit_Activation/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/POA/FindPOA/run_test.pl
++++ ace-5.4/TAO/examples/POA/FindPOA/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/POA/Forwarding/run_test.pl
++++ ace-5.4/TAO/examples/POA/Forwarding/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/POA/Loader/run_test.pl
++++ ace-5.4/TAO/examples/POA/Loader/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/POA/NewPOA/run_test.pl
++++ ace-5.4/TAO/examples/POA/NewPOA/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/POA/On_Demand_Activation/run_test.pl
++++ ace-5.4/TAO/examples/POA/On_Demand_Activation/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/POA/On_Demand_Loading/run_test.pl
++++ ace-5.4/TAO/examples/POA/On_Demand_Loading/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/POA/POA_BiDir/run_test.pl
++++ ace-5.4/TAO/examples/POA/POA_BiDir/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/POA/Reference_Counted_Servant/run_test.pl
++++ ace-5.4/TAO/examples/POA/Reference_Counted_Servant/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/POA/RootPOA/run_test.pl
++++ ace-5.4/TAO/examples/POA/RootPOA/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/POA/TIE/run_test.pl
++++ ace-5.4/TAO/examples/POA/TIE/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Persistent_Grid/run_test.pl
++++ ace-5.4/TAO/examples/Persistent_Grid/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/PluggableUDP/tests/Basic/run_test.pl
++++ ace-5.4/TAO/examples/PluggableUDP/tests/Basic/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/PluggableUDP/tests/Performance/run_test.pl
++++ ace-5.4/TAO/examples/PluggableUDP/tests/Performance/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/PluggableUDP/tests/SimplePerformance/run_test.pl
++++ ace-5.4/TAO/examples/PluggableUDP/tests/SimplePerformance/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Quoter/run_test.pl
++++ ace-5.4/TAO/examples/Quoter/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/RTCORBA/Activity/run_test.pl
++++ ace-5.4/TAO/examples/RTCORBA/Activity/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/RTScheduling/Fixed_Priority_Scheduler/run_test.pl
++++ ace-5.4/TAO/examples/RTScheduling/Fixed_Priority_Scheduler/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/RTScheduling/MIF_Scheduler/run_test.pl
++++ ace-5.4/TAO/examples/RTScheduling/MIF_Scheduler/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Simple/bank/run_test.pl
++++ ace-5.4/TAO/examples/Simple/bank/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Simple/echo/run_test.pl
++++ ace-5.4/TAO/examples/Simple/echo/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Simple/grid/run_test.pl
++++ ace-5.4/TAO/examples/Simple/grid/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Simple/time/run_test.pl
++++ ace-5.4/TAO/examples/Simple/time/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Simple/time-date/run_test.pl
++++ ace-5.4/TAO/examples/Simple/time-date/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/Simulator/DOVEBrowser/ecdata_patch.pl
++++ ace-5.4/TAO/examples/Simulator/DOVEBrowser/ecdata_patch.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -pi -S $0 ${1+"$@"}'
+     & eval 'exec perl -pi -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/TypeCode_Creation/run_test.pl
++++ ace-5.4/TAO/examples/TypeCode_Creation/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/examples/ior_corbaloc/run_test.pl
++++ ace-5.4/TAO/examples/ior_corbaloc/run_test.pl
+@@ -1,4 +1,6 @@
+-     eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
++#!/usr/bin/perl
++
++eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+   &  eval 'exec perl -S $0 $argv:q'
+   if 0;
+ 
+--- ace-5.4.orig/TAO/orbsvcs/Makefile
++++ ace-5.4/TAO/orbsvcs/Makefile
+@@ -43,10 +43,10 @@
+ 	Trading_Service \
+ 	LoadBalancer \
+ 	TAO_Service \
+-	PSS \
+-        tests \
+-	performance-tests \
+-        examples
++	PSS
++#        tests \
++#	performance-tests \
++#        examples
+ 
+ ifeq ($(minimum_corba),0)
+     ifneq (Compilers 4.2,$(findstring Compilers 4.2,$(CC_VERSION)))
+--- ace-5.4.orig/TAO/orbsvcs/Scheduling_Service/Makefile
++++ ace-5.4/TAO/orbsvcs/Scheduling_Service/Makefile
+@@ -23,7 +23,7 @@
+ #### If the TAO orbsvcs library wasn't built with sufficient components,
+ #### don't try to build here.
+ TAO_ORBSVCS := $(shell sh $(ACE_ROOT)/bin/ace_components --orbsvcs)
+-ifeq (RtSched,$(findstring RTSched,$(TAO_ORBSVCS)))
++ifeq (RTSched,$(findstring RTSched,$(TAO_ORBSVCS)))
+   BIN = $(BIN2)
+ endif # Sched
+ include $(ACE_ROOT)/include/makeinclude/rules.common.GNU
+--- ace-5.4.orig/TAO/orbsvcs/examples/CosEC/RtEC_Based/tests/Multiple/run_test.pl
++++ ace-5.4/TAO/orbsvcs/examples/CosEC/RtEC_Based/tests/Multiple/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/orbsvcs/examples/CosEC/RtEC_Based/tests/Multiple/run_test2.pl
++++ ace-5.4/TAO/orbsvcs/examples/CosEC/RtEC_Based/tests/Multiple/run_test2.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/orbsvcs/examples/CosEC/Simple/run_test.pl
++++ ace-5.4/TAO/orbsvcs/examples/CosEC/Simple/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/orbsvcs/examples/LoadBalancing/run_test.pl
++++ ace-5.4/TAO/orbsvcs/examples/LoadBalancing/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/orbsvcs/examples/Notify/Filter/run_test.pl
++++ ace-5.4/TAO/orbsvcs/examples/Notify/Filter/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/orbsvcs/examples/Notify/Lanes/run_test.pl
++++ ace-5.4/TAO/orbsvcs/examples/Notify/Lanes/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/orbsvcs/examples/Notify/Subscribe/run_test.pl
++++ ace-5.4/TAO/orbsvcs/examples/Notify/Subscribe/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/orbsvcs/examples/Notify/ThreadPool/run_test.pl
++++ ace-5.4/TAO/orbsvcs/examples/Notify/ThreadPool/run_test.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/orbsvcs/examples/RtEC/IIOPGateway/consumerec_crash.pl
++++ ace-5.4/TAO/orbsvcs/examples/RtEC/IIOPGateway/consumerec_crash.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/orbsvcs/examples/RtEC/IIOPGateway/run_test.pl
++++ ace-5.4/TAO/orbsvcs/examples/RtEC/IIOPGateway/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/orbsvcs/examples/RtEC/Simple/run_test.pl
++++ ace-5.4/TAO/orbsvcs/examples/RtEC/Simple/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/TAO/orbsvcs/examples/Security/Send_File/run_test.pl
++++ ace-5.4/TAO/orbsvcs/examples/Security/Send_File/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/examples/Export/run_test.pl
++++ ace-5.4/examples/Export/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/examples/IPC_SAP/SOCK_SAP/summarize
++++ ace-5.4/examples/IPC_SAP/SOCK_SAP/summarize
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -w -S $0 ${1+"$@"}'
+     & eval 'exec perl -w -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/examples/IPC_SAP/SSL_SAP/summarize
++++ ace-5.4/examples/IPC_SAP/SSL_SAP/summarize
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -w -S $0 ${1+"$@"}'
+     & eval 'exec perl -w -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/examples/QOS/Diffserv/run_test.pl
++++ ace-5.4/examples/QOS/Diffserv/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+--- ace-5.4.orig/examples/Reactor/WFMO_Reactor/run_test.pl
++++ ace-5.4/examples/Reactor/WFMO_Reactor/run_test.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
