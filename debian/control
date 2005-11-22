@@ -42,7 +42,7 @@ Package: libace-dev
 Architecture: any
 Section: libdevel
 Depends: libace5.4 (>= ${Source-Version}), libc6-dev
-Suggests: libace-doc, tao
+Suggests: libace-doc, libtao-dev
 Replaces: libace5.2-dev
 Conflicts: libace4.6-dev, libace5.0-dev, libace5.1-dev, libace5.2-dev
 Description:  An Object-Oriented Network Programming Toolkit in C++

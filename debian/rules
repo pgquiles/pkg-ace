@@ -15,7 +15,7 @@ TAO_MAJOR_VERSION := $(shell grep TAO_MAJOR_VERSION TAO/tao/Version.h | sed -e '
 TAO_VERSION := $(shell grep TAO_MAJOR_VERSION TAO/tao/Version.h | sed -e 's/\#define TAO_MAJOR_VERSION //')
 
 ACE_OPTS = "probe=1 exceptions=1 threads=1 optimize=1 debug=0 ssl=1"
-	
+
 build: build-stamp
 build-stamp:
 	dh_testdir
@@ -92,7 +92,7 @@ install: build
             -e 's/(gperf)\.    /(gperf-ace)\./g' \
            apps/gperf/gperf.info > \
            apps/gperf/gperf-ace.info
-	
+
 #	Rename the TAO/utils README files
 	cp TAO/utils/catior/README TAO/utils/catior/README.catior
 	cp TAO/utils/IOR-parser/README TAO/utils/IOR-parser/README.IOR-parser
@@ -113,10 +113,10 @@ install: build
 	cp TAO/utils/catior/catior TAO/utils/catior/tao-catior
 
 #	Be lintian clean, fix permissions on examples
-	chmod -x `find TAO/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
-	chmod -x `find TAO/CIAO/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
+	-chmod -x `find TAO/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
+	-chmod -x `find TAO/CIAO/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
 #	And on some header files
-	chmod -x `find TAO/orbsvcs -perm 755 ! -type d -a \( -name "*.h" -o -name "*.inl" \)`
+	-chmod -x `find TAO/orbsvcs -perm 755 ! -type d -a \( -name "*.h" -o -name "*.inl" \)`
 
 	dh_install
 

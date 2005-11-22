@@ -1,6 +1,9 @@
 #ifndef ACE_CONFIG_H
 #define ACE_CONFIG_H
 
+// Force tools to use ACE_GPERF instead of 'gperf'
+#define ACE_GPERF "gperf-ace"
+
 // Force exception support to be enabled.
 #define ACE_HAS_EXCEPTIONS 1
 

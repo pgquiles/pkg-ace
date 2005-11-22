@@ -1,3 +1,14 @@
+ace (5.4-2) unstable; urgency=low
+
+  * KM: Includes patch from Raphael Bossek <bossekr@debian.org> to handle
+    bug in tao_idl to use ACE_GPERF instead of plain gperf.
+  * BN: libace-dev now suggests libtao-dev instead of the non-existing tao
+    package. (Closes: #233488)
+  * BN: prepended a "-" to the chmod commands in debian/rules so that they
+    don't fail if used repeatedly.
+
+ -- Brian Nelson <pyro@debian.org>  Wed, 18 Feb 2004 02:23:07 -0800
+
 ace (5.4-1) unstable; urgency=low
 
   * KM: new upstream release
