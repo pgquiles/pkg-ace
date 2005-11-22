@@ -1,3 +1,12 @@
+ace (5.4-3) unstable; urgency=low
+
+  * KM: backported fixes from CVS to fix 64-bit pointer to int casting in
+    orbsvcs/RTCosScheduling files. This is to fix FTBFS bug in 64-bit archs,
+    until 5.4.1 is released (mid-march).
+    Closes: #233890
+
+ -- Konstantinos Margaritis <markos@debian.org>  Wed, 28 Feb 2004 15:53:30 +0200
+
 ace (5.4-2) unstable; urgency=low
 
   * KM: Includes patch from Raphael Bossek <bossekr@debian.org> to handle
