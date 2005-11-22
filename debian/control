@@ -42,7 +42,7 @@ Package: libace-dev
 Architecture: any
 Section: libdevel
 Depends: libace5.4 (>= ${Source-Version}), libc6-dev
-Suggests: libace-doc, libtao-dev
+Suggests: libace-doc, libtao-dev, ace+tao-utilities
 Replaces: libace5.2-dev
 Conflicts: libace4.6-dev, libace5.0-dev, libace5.1-dev, libace5.2-dev
 Description:  An Object-Oriented Network Programming Toolkit in C++
@@ -219,7 +219,7 @@ Package: libtao-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends}, libc6-dev
-Suggests: libtao-doc, libtao-orbsvcs-dev
+Suggests: libtao-doc, libtao-orbsvcs-dev, ace+tao-utilities
 Description: Development Files for TAO, The ACE ORB
  This package contains the header files for the TAO toolkit. Due to the
  size of the static libs (> 400MB) they have been left out.
@@ -275,6 +275,7 @@ Package: libciao-dev
 Architecture: any
 Section: libdevel
 Depends: libciao1.4, libtao-orbsvcs-dev
+Suggests: ace+tao-utilities
 Description: CIAO, TAO's implementation of CORBA Component Model (CCM)
  This package contains the header files for CIAO.
  The examples and some documentation have been included as well.
