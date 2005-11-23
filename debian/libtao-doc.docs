@@ -1,3 +1,4 @@
-TAO/docs/*
+TAO/docs
 TAO/examples
-TAO/utils/{catior,IOR-parser,nslist}/README.*
+TAO/utils/catior/README.catior
+TAO/utils/nslist/README.nslist

@@ -1,8 +1,9 @@
 debian/tao-config                            usr/bin
 debian/tao-config.GNU                        usr/share/ace/TAO/
+TAO/rules.tao.GNU                            usr/share/ace/TAO
+TAO/taoconfig.mk                             usr/share/ace/TAO
 TAO/TAO_IDL/tao_idl                          usr/bin
 TAO/utils/catior/tao-catior                  usr/bin
-TAO/utils/IOR-parser/ior-parser              usr/bin
 TAO/utils/nslist/ns{add,del,list}            usr/bin
 TAO/tao/*.{h,i,inl,idl,pidl}                 usr/include/tao
 TAO/tao/BiDir_GIOP/*.{h,i,inl,pidl}          usr/include/tao/BiDir_GIOP
@@ -45,5 +46,5 @@ TAO/tao/Strategies/libTAO_Strategies.so                 usr/lib
 TAO/tao/TypeCodeFactory/libTAO_TypeCodeFactory.so       usr/lib
 TAO/tao/Utils/libTAO_Utils.so                           usr/lib
 TAO/tao/Valuetype/libTAO_Valuetype.so                   usr/lib
-TAO/TAO_IDL/libTAO_IDL_FE_DLL.so                        usr/lib
-TAO/TAO_IDL/libTAO_IDL_BE_DLL.so                        usr/lib
+TAO/TAO_IDL/libTAO_IDL_FE.so                            usr/lib
+TAO/TAO_IDL/libTAO_IDL_BE.so                            usr/lib

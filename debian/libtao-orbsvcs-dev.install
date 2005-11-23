@@ -54,9 +54,9 @@ TAO/orbsvcs/orbsvcs/Sched/*.{h,i,inl}                             usr/include/or
 TAO/orbsvcs/orbsvcs/Security/*.{h,i,inl}                          usr/include/orbsvcs/orbsvcs/Security
 TAO/orbsvcs/orbsvcs/Time/*.{h,i,inl}                              usr/include/orbsvcs/orbsvcs/Time
 TAO/orbsvcs/orbsvcs/Trader/*.{h,i,inl}                            usr/include/orbsvcs/orbsvcs/Trader
-TAO/orbsvcs/IFR_Service/libTAO_IFR_BE_DLL.so     usr/lib
+TAO/orbsvcs/IFR_Service/libTAO_IFR_BE.so         usr/lib
 TAO/orbsvcs/PSS/libTAO_PSDL.so                   usr/lib
-TAO/orbsvcs/PSS/libTAO_PSDL_DataStore.so         usr/lib
+TAO/orbsvcs/PSS/libTAO_PSDL_Datastore.so         usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_AV.so                 usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_CosConcurrency.so     usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_CosEvent.so           usr/lib
@@ -71,7 +71,9 @@ TAO/orbsvcs/orbsvcs/libTAO_DsEventLogAdmin.so    usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_DsLogAdmin.so         usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_DsNotifyLogAdmin.so   usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_ETCL.so               usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_FTORB.so              usr/lib
+TAO/orbsvcs/orbsvcs/libTAO_FT_ServerORB.so       usr/lib
+TAO/orbsvcs/orbsvcs/libTAO_FT_ClientORB.so       usr/lib
+TAO/orbsvcs/orbsvcs/libTAO_FTORB_Utils.so        usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_FaultTolerance.so     usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_IFRService.so         usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_PortableGroup.so      usr/lib

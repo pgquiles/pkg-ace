@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Debian ACE+TAO maintainers <pkg-ace-devel@lists.alioth.debian.org>
 Uploaders: Konstantinos Margaritis <markos@debian.org>, Brian Nelson <pyro@debian.org>
-Build-Depends: debhelper (>= 4.1), libssl-dev, libqt3-headers, xlibs-dev (>= 4.2)
+Build-Depends: debhelper (>= 4.1), libssl-dev, libxerces25-dev
 Standards-Version: 3.6.1
 
 Package: libace5.4
@@ -72,6 +72,38 @@ Description:  An Object-Oriented Network Programming Toolkit in C++
   Author: Douglas C. Schmidt <schmidt@uci.edu>
   Homepage: http://www.cs.wustl.edu/~schmidt/ACE.html
 
+Package: mpc-ace
+Architecture: all
+Section: libdevel
+Depends: libace-dev (>= ${Source-Version}), perl-base, make
+Recommends: gperf-ace, libtao-dev
+Description:  A Makefile generator in Perl
+ This package contains the MakeProjectCreator (MPC) for the ACE
+ toolkit.
+ .
+ The ADAPTIVE Communication Environment (ACE) is a freely available open
+ source object-oriented (OO) framework that implements many core design
+ patterns for concurrent communication software. ACE provides a rich set
+ of reusable C++ wrappers and framework components that perform common
+ communication software tasks across a range of OS platforms. The
+ communication software tasks provided by ACE include event
+ demultiplexing and event handler dispatching, signal handling, service
+ initialization, interprocess communication, shared memory management,
+ message routing, dynamic (re)configuration of distributed services,
+ concurrent execution and synchronization.
+ .
+ ACE is targeted for developers of high-performance and real-time
+ communication services and applications. It simplifies the development
+ of OO network applications and services that utilize interprocess
+ communication, event demultiplexing, explicit dynamic linking, and
+ concurrency. In addition, ACE automates system configuration and
+ reconfiguration by dynamically linking services into applications at
+ run-time and executing these services in one or more processes or
+ threads.
+ .
+  Author: Douglas C. Schmidt <schmidt@uci.edu>
+  Homepage: http://www.cs.wustl.edu/~schmidt/ACE.html
+ 
 Package: libace-doc
 Architecture: all
 Section: doc

@@ -1,2 +1,14 @@
 TAO/VERSION
-TAO/orbsvcs/*/README.*
+TAO/orbsvcs/Concurrency_Service/README.Concurrency_Service
+TAO/orbsvcs/CosEvent_Service/README.CosEvent_Service
+TAO/orbsvcs/FT_ReplicationManager/README.FT_ReplicationManager
+TAO/orbsvcs/IFR_Service/README.IFR_Service
+TAO/orbsvcs/ImplRepo_Service/README.txt
+TAO/orbsvcs/LoadBalancer/README.LoadBalancer
+TAO/orbsvcs/Logging_Service/README.Logging_Service
+TAO/orbsvcs/Naming_Service/README.Naming_Service
+TAO/orbsvcs/Notify_Service/README.Notify_Service
+TAO/orbsvcs/PSS/README.PSS
+TAO/orbsvcs/TAO_Service/README.TAO_Service
+TAO/orbsvcs/Time_Service/README.Time_Service
+TAO/orbsvcs/Trading_Service/README.Trading_Service

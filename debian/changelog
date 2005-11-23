@@ -1,3 +1,31 @@
+ace (5.4.2.1-1) unstable; urgency=low
+
+  * Thomas Girard <thomas.g.girard@free.fr>
+    - New upstream release. (Closes: #243062)
+    - Do not link against Xt libs. (Closes: #251477)
+    - As such, libace-dev does not need to depend on libxt-dev nor xlibs-dev
+      (Closes: #253226)
+    - Add MPC.
+    - Patch ACE_IOStream to support g++ 3.3. (Closes: #243473)
+    - Patch MPC to honour `libout' and `install' keywords in GNUmakefile
+      generation. See DOC Bug#1915.
+    - Backport a fix to NotifyLoggingService from CVS.
+    - Make %S work in ACE_DEBUG.
+  * Konstantinos Margaritis
+    - Fixed missed path for libACE.so.5.4.2 in dh_shlibdeps
+    - Fixed incorrect timestamp of original archive (1970 etc).
+ 
+ -- Konstantinos Margaritis <markos@debian.org>  Thu,  2 Sep 2004 23:04:56 +0200
+ 
+ace (5.4.0.1-1.1) unstable; urgency=low
+
+  * Fixed ACE_NDEBUG configuration of ACE. (Closes: #242881)
+  * Build-depends on libqt3-headers removed qt_reactor not set.
+  * System capabilities will be determined by including <unistd.h> in
+    <ace/config.h>.
+
+ -- Raphael Bossek <bossekr@debian.org>  Thu,  8 Apr 2004 15:37:24 +0200
+
 ace (5.4.0.1-1) unstable; urgency=low
 
   * KM: release to fix the timestamp errors in the upstream source.

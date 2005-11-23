@@ -14,7 +14,9 @@ ACE_VERSION := $(shell grep ACE_VERSION ace/Version.h | sed -e 's/\#define ACE_V
 TAO_MAJOR_VERSION := $(shell grep TAO_MAJOR_VERSION TAO/tao/Version.h | sed -e 's/\#define TAO_MAJOR_VERSION //')
 TAO_VERSION := $(shell grep TAO_MAJOR_VERSION TAO/tao/Version.h | sed -e 's/\#define TAO_MAJOR_VERSION //')
 
-ACE_OPTS = "probe=1 exceptions=1 threads=1 optimize=1 debug=0 ssl=1"
+#  This settings are only active while building ACE & Co. but never active while
+#  user's applications are developed with ACE & Co.
+MAKEENV := CPPFLAGS="-DACE_NDEBUG -DACE_USE_RCSID"
 
 build: build-stamp
 build-stamp:
@@ -25,15 +27,28 @@ build-stamp:
 	patch --forward -p1 < debian/debian.diff
 
 	cp debian/config/config.h ace
-	cp debian/config/platform_macros.GNU include/makeinclude
+ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
+	echo "debug=1" > include/makeinclude/platform_macros.GNU
+	echo "optimize=0" >> include/makeinclude/platform_macros.GNU
+else
+	echo "debug=0" > include/makeinclude/platform_macros.GNU
+	echo "optimize=1" >> include/makeinclude/platform_macros.GNU
+endif
+	cat debian/config/platform_macros.GNU >> include/makeinclude/platform_macros.GNU
 
-	$(MAKE) -C ace shared_libs=1 static_libs=1
-	$(MAKE) -C ACEXML shared_libs=1 static_libs=1
+	$(MAKENEV) $(MAKE) -C ace shared_libs=1 static_libs=1
+	$(MAKEENV) $(MAKE) -C ACEXML shared_libs=1 static_libs=1
 
-	$(MAKE) -C apps/gperf/src
-	$(MAKE) -C Kokyu shared_libs=1 static_libs=1
+	$(MAKEENV) $(MAKE) -C apps/gperf/src
+#	We need to rename gperf so that it does not conflict with the
+#       existing Cygnus based gperf Debian package.
+	cp apps/gperf/src/gperf apps/gperf/src/gperf-ace
 
-	cd $(TAO_ROOT) && LD_LIBRARY_PATH=$(ACE_ROOT)/ace make shared_libs=1 corba_messaging=1 rtcorba=1
+	$(MAKEENV) $(MAKE) -C Kokyu shared_libs=1 static_libs=1
+
+	PATH=$(ACE_ROOT)/apps/gperf/src:$(PATH) LD_LIBRARY_PATH=$(ACE_ROOT)/lib $(MAKEENV) $(MAKE) -C TAO shared_libs=1 corba_messaging=1 rtcorba=1
+
+	PATH=$(ACE_ROOT)/apps/gperf/src:$(PATH) LD_LIBRARY_PATH=$(ACE_ROOT)/lib $(MAKEENV) $(MAKE) -C TAO/CIAO shared_libs=1
 
 	touch build-stamp
 
@@ -49,14 +64,14 @@ clean:
 	-$(MAKE) realclean static_libs=1
 	-$(MAKE) -C TAO realclean shared_libs=1
 	-$(MAKE) -C TAO realclean static_libs=1
+	-$(MAKE) -C TAO/CIAO realclean shared_libs=1
 
-	rm -f ace/*.{a,so*} ace/RMCast/*.{a,so*} apps/gperf/src/gperf-ace \
+	rm -f ace/*.{a,so*} ace/RMCast/*.{a,so*} bin/gperf-ace apps/gperf/src/gperf-ace \
 	      apps/gperf/gperf-ace.1 apps/gperf/gperf-ace.info ace/config.h \
 	      include/makeinclude/platform_macros.GNU
 
 	rm -f TAO/utils/catior/tao-catior
 	rm -f TAO/utils/catior/README.catior
-	rm -f TAO/utils/IOR-parser/README.IOR-parser
 	rm -f TAO/utils/nslist/README.nslist
 	rm -f TAO/orbsvcs/README.orbsvcs
 	rm -f TAO/orbsvcs/Concurrency_Service/README.Concurrency_Service
@@ -81,9 +96,6 @@ install: build
 	dh_clean -k
 	dh_installdirs
 
-#	We need to rename gperf so that it does not conflict with the
-#       existing Cygnus based gperf Debian package.
-	cp apps/gperf/src/gperf apps/gperf/src/gperf-ace
 	sed -e 's/gperf/gperf-ace/g' \
             -e 's/GPERF/GPERF-ACE/g' \
            apps/gperf/gperf.1 > \
@@ -95,7 +107,6 @@ install: build
 
 #	Rename the TAO/utils README files
 	cp TAO/utils/catior/README TAO/utils/catior/README.catior
-	cp TAO/utils/IOR-parser/README TAO/utils/IOR-parser/README.IOR-parser
 	cp TAO/utils/nslist/README TAO/utils/nslist/README.nslist
 	cp TAO/orbsvcs/Concurrency_Service/README TAO/orbsvcs/Concurrency_Service/README.Concurrency_Service
 	cp TAO/orbsvcs/CosEvent_Service/README TAO/orbsvcs/CosEvent_Service/README.CosEvent_Service
@@ -152,7 +163,7 @@ binary-arch: build install
 	dh_fixperms -a
 	dh_installdeb -a
 	dh_makeshlibs -a -V
-	dh_shlibdeps -a -l debian/libace5.4/usr/lib:debian/libacexml5.4/usr/lib:debian/libace-rmcast5.4/usr/lib:debian/libciao1.4/usr/lib:debian/libkokyu5.4/usr/lib:debian/libtao1.4/usr/lib:debian/libtao-orbsvcs1.4/usr/lib
+	dh_shlibdeps -a -l debian/tmp/usr/lib:debian/libacexml5.4/usr/lib:debian/libace-rmcast5.4/usr/lib:debian/libciao1.4/usr/lib:debian/libkokyu5.4/usr/lib:debian/libtao1.4/usr/lib:debian/libtao-orbsvcs1.4/usr/lib
 	dh_gencontrol -a
 	dh_md5sums -a
 	dh_builddeb -a
