@@ -12,7 +12,8 @@ ace (5.4.2.1-2) unstable; urgency=low
     - debian/config/platform_macros.GNU: Removed due to introduction of
       debian.features files. This file will be generated
     - debian/rules: Uses dpatch. Simplified clean target by removing temporary
-      ACE_wrappers subdirectory
+      ACE_wrappers subdirectory. Install ace-config and tao-config scripts
+      with executable bit (Closes: #278523)
     - debian/control: Added new reactor packages.
 
  -- Thomas Girard <thomas.g.girard@free.fr>  Mon, 18 Oct 2004 13:35:56 +0200
