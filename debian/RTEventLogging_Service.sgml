@@ -1,27 +1,27 @@
 <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook V4.1//EN" [
-  <!ENTITY applname "Event_Logging_Service">
-  <!ENTITY revision "$Revision: 1.2 $">
+  <!ENTITY applname "RTEvent_Logging_Service">
+  <!ENTITY revision "$Revision: 1.1 $">
   <!ENTITY man_tao_orb_options "<citerefentry><refentrytitle>TAO_ORB_Options</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
   <!ENTITY man_event_service "<citerefentry><refentrytitle>Event_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
   <!ENTITY man_basic_logging_service "<citerefentry><refentrytitle>Basic_Logging_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
   <!ENTITY man_notify_logging_service "<citerefentry><refentrytitle>Notify_Logging_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
-  <!ENTITY man_rt_event_logging_service "<citerefentry><refentrytitle>RTEvent_Logging_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
+  <!ENTITY man_event_logging_service "<citerefentry><refentrytitle>Event_Logging_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
   <!ENTITY man_naming_service "<citerefentry><refentrytitle>Naming_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
   <!ENTITY Naming_Service "<application>Naming_Service</application>">
-  <!ENTITY Event_Logging_Service "<application>Event_Logging_Service</application>">
-  <!ENTITY seealso "&man_tao_orb_options;, &man_event_service;, &man_basic_logging_service;, &man_notify_logging_service;, &man_rt_event_logging_service;, &man_naming_service;">
+  <!ENTITY RTEvent_Logging_Service "<application>RTEvent_Logging_Service</application>">
+  <!ENTITY seealso "&man_tao_orb_options;, &man_event_service;, &man_basic_logging_service;, &man_notify_logging_service;, &man_event_logging_service;, &man_naming_service;">
   <!ENTITY year "1999">
   <!ENTITY username "David Hanvey">
   <!ENTITY useremail "<email>&lt;d.hanvey@qub.ac.uk&gt;</email>">
 ]>
 <refentry>
   <refmeta>
-    <refentrytitle>EVENT_LOGGING_SERVICE</refentrytitle>
+    <refentrytitle>RTEVENT_LOGGING_SERVICE</refentrytitle>
     <manvolnum>1</manvolnum>
   </refmeta>
   <refnamediv>
     <refname>&applname;</refname>
-    <refpurpose>TAO Event Telecom Log Service</refpurpose>
+    <refpurpose>TAO RTEvent Telecom Log Service</refpurpose>
   </refnamediv>
   <refsynopsisdiv>
     <title>SYNOPSIS</title>
@@ -34,7 +34,7 @@
     <title>DESCRIPTION</title>
     <para>
       &applname; is an implementation of the Telecom Log Service that
-      integrates with the Event Service.
+      integrates with the RTEvent Service.
     </para>
     <para>
       The Telecom Log Service specification may be found on the OMG
@@ -43,7 +43,7 @@
     </para>
     <para>
      &applname; requires a running &Naming_Service; and registers with
-     it as `EventLogFactory'.
+     it as `RTEventLogFactory'.
     </para>
   </refsect1>
   <refsect1>
