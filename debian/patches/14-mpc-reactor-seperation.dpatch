@@ -422,7 +422,7 @@ diff -Nru ACE_wrappers.orig/tests/tests.mpc ACE_wrappers/tests/tests.mpc
  // QtTests.mpc,v 1.4 2004/01/28 19:28:00 elliott_c Exp
  
 -project(*server): taoexe, portableserver, ace_qt, qt_moc {
-+project(*server): taoexe, portableserver, ace_qtreactor {
++project(*server): taoexe, portableserver, tao_qtreactor {
    requires += qt
  
    MOC_Files {
@@ -431,7 +431,17 @@ diff -Nru ACE_wrappers.orig/tests/tests.mpc ACE_wrappers/tests/tests.mpc
  }
  
 -project(*client): taoexe, ace_qt, qt_moc {
-+project(*client): taoexe, ace_qtreactor {
++project(*client): taoexe, tao_qtreactor {
    requires += qt
  
    MOC_Files {
+--- ACE_wrappers/bin/MakeProjectCreator/config/tao_qtreactor.mpb.orig	1970-01-01 01:00:00.000000000 +0100
++++ ACE_wrappers/bin/MakeProjectCreator/config/tao_qtreactor.mpb	2004-10-29 07:46:04.000000000 +0200
+@@ -0,0 +1,7 @@
++// -*- MPC -*-
++
++project : taolib, ace_qtreactor {
++  requires += qt_reactor
++  after    += TAO_QtReactor
++  libs     += TAO_QtReactor
++}
