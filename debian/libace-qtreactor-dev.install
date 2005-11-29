@@ -1,0 +1,3 @@
+ace/libACE_QtReactor.so	usr/lib
+ace/libACE_QtReactor.a	usr/lib
+ace/QtReactor.h         usr/include/ace

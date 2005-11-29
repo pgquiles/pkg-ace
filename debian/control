@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Debian ACE+TAO maintainers <pkg-ace-devel@lists.alioth.debian.org>
 Uploaders: Konstantinos Margaritis <markos@debian.org>, Brian Nelson <pyro@debian.org>
-Build-Depends: debhelper (>= 4.1), libssl-dev, libxerces25-dev
+Build-Depends: debhelper (>= 4.1), libssl-dev, dpatch (>= 2.0.10), xlibs-dev (>= 4.3), libfltk1.1-dev (>= 1.1.4), libqt3-mt-dev (>= 3:3.3.3), tk8.4-dev (>= 8.4.7), wxwin2.4-headers (>= 2.4.2)
 Standards-Version: 3.6.1
 
 Package: libace5.4
@@ -41,7 +41,7 @@ Description: An Object-Oriented Network Programming Toolkit in C++
 Package: libace-dev
 Architecture: any
 Section: libdevel
-Depends: libace5.4 (>= ${Source-Version}), libc6-dev
+Depends: libace5.4 (= ${Source-Version}), libc6-dev
 Suggests: libace-doc, libtao-dev, ace+tao-utilities
 Replaces: libace5.2-dev
 Conflicts: libace4.6-dev, libace5.0-dev, libace5.1-dev, libace5.2-dev
@@ -75,8 +75,8 @@ Description:  An Object-Oriented Network Programming Toolkit in C++
 Package: mpc-ace
 Architecture: all
 Section: libdevel
-Depends: libace-dev (>= ${Source-Version}), perl-base, make
-Recommends: gperf-ace, libtao-dev
+Depends: libace-dev (= ${Source-Version}), perl
+Recommends: gperf-ace, libtao-dev, make
 Description:  A Makefile generator in Perl
  This package contains the MakeProjectCreator (MPC) for the ACE
  toolkit.
@@ -156,7 +156,7 @@ Description: A reliable multicast library in C++
 Package: libace-rmcast-dev
 Architecture: any
 Section: libdevel
-Depends: libace-rmcast5.4 (>= ${Source-Version}), libace-dev (>= ${Source-Version})
+Depends: libace-rmcast5.4 (= ${Source-Version}), libace-dev (= ${Source-Version})
 Replaces: libace-rmcast5.2-dev
 Description: A reliable multicast library in C++
  This package contains reliable multicast framework development files
@@ -197,7 +197,7 @@ Description: ACE XML PARSER Framework (runtime)
 Package: libacexml-dev
 Architecture: any
 Section: libdevel
-Depends: libacexml5.4 (>= ${Source-Version}), libc6-dev
+Depends: libacexml5.4 (= ${Source-Version}), libc6-dev
 Description: ACE XML PARSER Framework (development)
  This package contains the header files and static libraries for the ACE
  toolkit.
@@ -226,7 +226,7 @@ Package: libkokyu-dev
 Architecture: any
 Section: libdevel
 Depends: libkokyu5.4 (>= ${Source-Version})
-Suggests: libtao-dev, libtao-orbsvcs-dev
+Suggests: libtao-dev (= ${Source-Version}), libtao-orbsvcs-dev (= ${Source-Version})
 Description: Kokyu middleware for TAO
  This package contains the development files for Kokyu.
  .
@@ -250,7 +250,7 @@ Description: The ACE ORB, an open-source implementation of CORBA ORB
 Package: libtao-dev
 Architecture: any
 Section: libdevel
-Depends: ${shlibs:Depends}, libc6-dev
+Depends: ${shlibs:Depends}, libc6-dev, libace-dev (= ${Source-Version})
 Suggests: libtao-doc, libtao-orbsvcs-dev, ace+tao-utilities
 Description: Development Files for TAO, The ACE ORB
  This package contains the header files for the TAO toolkit. Due to the
@@ -262,7 +262,7 @@ Description: Development Files for TAO, The ACE ORB
 Package: libtao-doc
 Architecture: all
 Section: doc
-Suggests: libtao-dev
+Suggests: libtao-dev (= ${Source-Version})
 Description: Documentation for TAO, The ACE ORB
  This package contains the TAO overview documentation, tutorials,
  examples, and information regarding upstream development.
@@ -284,7 +284,7 @@ Description: The ACE ORB, an open-source implementation of CORBA ORB
 Package: libtao-orbsvcs-dev
 Architecture: any
 Section: libdevel
-Depends: libtao-orbsvcs1.4, libtao-dev
+Depends: libtao-orbsvcs1.4 (= ${Source-Version}), libtao-dev (= ${Source-Version})
 Description: The ACE ORB, an open-source implementation of CORBA ORB
  This package contains the header files for the TAO ORB Services.
  Due to the size of the static libs (> 400MB) they have been left out.
@@ -306,7 +306,7 @@ Description: CIAO, TAO's implementation of CORBA Component Model (CCM)
 Package: libciao-dev
 Architecture: any
 Section: libdevel
-Depends: libciao1.4, libtao-orbsvcs-dev
+Depends: libciao1.4 (= ${Source-Version}), libtao-orbsvcs-dev (= ${Source-Version})
 Suggests: ace+tao-utilities
 Description: CIAO, TAO's implementation of CORBA Component Model (CCM)
  This package contains the header files for CIAO.
@@ -314,3 +314,192 @@ Description: CIAO, TAO's implementation of CORBA Component Model (CCM)
  .
  CIAO is TAO's implementation of CORBA Component Model (CCM) specially
  optimized for distributed real-time embedded (DRE) systems
+
+Package: libace-qtreactor5.4
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: GUI Integrated Reactors for ACE: Qt Reactor
+ Recognizing the need to write reactor-based GUI applications, the ACE
+ community has created several reactor extensions for use with X Window
+ System. Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit. By using these reactors, your GUI application can remain
+ single threaded yet still respond to both GUI events, such as button presses,
+ any your own application events.
+ .
+ The ACE_QtReactor extends both the ACE_Select_Reactor and the Trolltech Qt
+ library's QObjects class. Rather then using select(), the QtWaitForMultipleEvents()
+ function is used.
+
+Package: libace-qtreactor-dev
+Architecture: any
+Section: devel
+Depends: libace-qtreactor5.4 (= ${Source-Version}), libace-dev (= ${Source-Version}), libqt3-dev (>= 2:3.0.3-20020329)
+Description: GUI Integrated Reactors for ACE: Qt Reactor (development files)
+ Recognizing the need to write reactor-based GUI applications, the ACE
+ community has created several reactor extensions for use with X Window
+ System. Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit. By using these reactors, your GUI application can remain
+ single threaded yet still respond to both GUI events, such as button presses,
+ any your own application events.
+ .
+ The ACE_QtReactor extends both the ACE_Select_Reactor and the Trolltech Qt
+ library's QObjects class. Rather then using select(), the QtWaitForMultipleEvents()
+ function is used.
+ .
+ This packages contains development files.
+
+Package: libace-xtreactor5.4
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: GUI Integrated Reactors for ACE: Xt Reactor
+ Recognizing the need to write reactor-based GUI applications, the ACE
+ community has created several reactor extensions for use with X Window
+ System. Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit. By using these reactors, your GUI application can remain
+ single threaded yet still respond to both GUI events, such as button presses,
+ any your own application events.
+ .
+ The ACE_XtReactor extends both the ACE_Select_Reactor and the X Toolkit library
+ function XtWaitForMultipleEvents().
+
+Package: libace-xtreactor-dev
+Architecture: any
+Section: devel
+Depends: libace-xtreactor5.4 (= ${Source-Version}), libace-dev (= ${Source-Version}), libxt-dev (>= 4.3.0)
+Description: GUI Integrated Reactors for ACE: Xt Reactor (development files)
+ Recognizing the need to write reactor-based GUI applications, the ACE
+ community has created several reactor extensions for use with X Window
+ System. Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit. By using these reactors, your GUI application can remain
+ single threaded yet still respond to both GUI events, such as button presses,
+ any your own application events.
+ .
+ The ACE_XtReactor extends both the ACE_Select_Reactor and the X Toolkit library
+ function XtWaitForMultipleEvents().
+ .
+ This packages contains development files.
+
+Package: libace-tkreactor5.4
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: GUI Integrated Reactors for ACE: Tk Reactor
+ Recognizing the need to write reactor-based GUI applications, the ACE
+ community has created several reactor extensions for use with X Window
+ System. Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit. By using these reactors, your GUI application can remain
+ single threaded yet still respond to both GUI events, such as button presses,
+ any your own application events.
+ .
+ The ACE_TkReactor provides reactor functionality arounde the popular Tcl/Tk
+ library. The underlying Tcl/Tk method used is Tcl_DoOneEvent().
+
+Package: libace-tkreactor-dev
+Architecture: any
+Section: devel
+Depends: libace-tkreactor5.4 (= ${Source-Version}), libace-dev (= ${Source-Version}), tk8.4-dev (>= 8.3.3)
+Description: GUI Integrated Reactors for ACE: Tk Reactor (development files)
+ Recognizing the need to write reactor-based GUI applications, the ACE
+ community has created several reactor extensions for use with X Window
+ System. Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit. By using these reactors, your GUI application can remain
+ single threaded yet still respond to both GUI events, such as button presses,
+ any your own application events.
+ .
+ The ACE_TkReactor provides reactor functionality arounde the popular Tcl/Tk
+ library. The underlying Tcl/Tk method used is Tcl_DoOneEvent().
+ .
+ Thie package contains development files.
+
+Package: libace-flreactor5.4
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: GUI Integrated Reactors for ACE: FastLight Reactor
+ Recognizing the need to write reactor-based GUI applications, the ACE
+ community has created several reactor extensions for use with X Window
+ System. Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit. By using these reactors, your GUI application can remain
+ single threaded yet still respond to both GUI events, such as button presses,
+ any your own application events.
+ .
+ The ACE_FlReactor integrates with the FastLight toolkit's Fl::wait() method.
+
+Package: libace-flreactor-dev
+Architecture: any
+Section: devel
+Depends: libace-flreactor5.4 (= ${Source-Version}), libace-dev (= ${Source-Version}), libfltk1-dev (>= 1.0.11)
+Description: GUI Integrated Reactors for ACE: FastLight Reactor (development files)
+ Recognizing the need to write reactor-based GUI applications, the ACE
+ community has created several reactor extensions for use with X Window
+ System. Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit. By using these reactors, your GUI application can remain
+ single threaded yet still respond to both GUI events, such as button presses,
+ any your own application events.
+ .
+ The ACE_FlReactor integrates with the FastLight toolkit's Fl::wait() method.
+ .
+ Thie package contains development files.
+
+Package: libtao-qtreactor1.4
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: GUI Integrated Reactors for TAO: Qt Reactor
+ Recognizing the need to write reactor-based GUI applications, the ACE
+ community has created several reactor extensions for use with X Window
+ System. Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit. By using these reactors, your GUI application can remain
+ single threaded yet still respond to both GUI events, such as button presses,
+ any your own application events.
+ .
+ The TAO_QtResource_Factory extends both the TAO_Default_Resource_Factory class.
+
+Package: libtao-qtreactor-dev
+Architecture: any
+Section: devel
+Depends: libtao-qtreactor1.4 (= ${Source-Version}), libtao-dev (= ${Source-Version}), libqt3-dev (>= 2:3.0.3-20020329) 
+Description: GUI Integrated Reactors for TAO: Qt Reactor (development files)
+ Recognizing the need to write reactor-based GUI applications, the ACE
+ community has created several reactor extensions for use with X Window
+ System. Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit. By using these reactors, your GUI application can remain
+ single threaded yet still respond to both GUI events, such as button presses,
+ any your own application events.
+ .
+ The TAO_QtResource_Factory extends the TAO_Default_Resource_Factory class.
+ .
+ This package contains development files.
+
+Package: libtao-xtreactor1.4
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: GUI Integrated Reactors for TAO: Xt Reactor (development files)
+ Recognizing the need to write reactor-based GUI applications, the ACE
+ community has created several reactor extensions for use with X Window
+ System. Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit. By using these reactors, your GUI application can remain
+ single threaded yet still respond to both GUI events, such as button presses,
+ any your own application events.
+ .
+ The TAO_XT_Resource_Factory extends the TAO_Default_Resource_Factory class.
+
+Package: libtao-xtreactor-dev
+Architecture: any
+Section: libs
+Depends: libtao-xtreactor1.4 (= ${Source-Version}), libtao-dev (= ${Source-Version}), libxt-dev (>= 4.3.0)
+Description: GUI Integrated Reactors for TAO: Xt Reactor (development files)
+ Recognizing the need to write reactor-based GUI applications, the ACE
+ community has created several reactor extensions for use with X Window
+ System. Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit. By using these reactors, your GUI application can remain
+ single threaded yet still respond to both GUI events, such as button presses,
+ any your own application events.
+ .
+ The TAO_XT_Resource_Factory extends the TAO_Default_Resource_Factory class.
+ .
+ This package contains development files.
+

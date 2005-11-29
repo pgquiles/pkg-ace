@@ -89,3 +89,6 @@ TAO/orbsvcs/orbsvcs/libTAO_RT_Notification.so    usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_SSLIOP.so             usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_Security.so           usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_Svc_Utils.so          usr/lib
+TAO/orbsvcs/orbsvcs/libTAO_FTRT_EventChannel.so  usr/lib
+TAO/orbsvcs/orbsvcs/libTAO_FtRtEvent.so          usr/lib
+TAO/orbsvcs/orbsvcs/libTAO_FTRT_ClientORB.so     usr/lib

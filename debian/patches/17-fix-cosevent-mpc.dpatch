@@ -1,0 +1,19 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 17-fix-cosevent-mpc.dpatch by Raphael Bossek <bossekr@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fix CosEvent IDL compile order
+
+@DPATCH@
+
+--- ACE_wrappers/TAO/orbsvcs/orbsvcs/CosEvent.mpc.orig	2004-10-27 15:14:03.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/CosEvent.mpc	2004-10-27 15:15:48.000000000 +0200
+@@ -3,6 +3,8 @@
+ project (CosEvent) : ec_typed_events, orbsvcslib, messaging, core, naming {
+   sharedname   = TAO_CosEvent
+   avoids      += minimum_corba
++  // bossekr@debian.org: CosEventComm is need by CosTypedEventCom
++  before      += ec_typed_events
+ 
+   // Warning : The idlflags must match exactly those used in
+   //           CosNotification, because we don't know which project

@@ -1,0 +1,16 @@
+01-perl-she-bang
+02-simplify-makefiles
+04-debian-bug243473
+05-mpc-honour-libout
+06-fix-notify-logging-service
+09-clean-o-files-and-empty-depends
+12-mpc-honour-libout-fix
+13-scripts-shebang-fix
+14-mpc-reactor-seperation
+15-fix-fltk-include
+16-fix-tests
+19-disable-dance-mpc
+79-prepatch-dummy-mark
+80-update-makefile
+81-patch-idlstubs-order-cossevent
+90-patch-mpc-basedir

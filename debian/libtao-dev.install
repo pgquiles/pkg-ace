@@ -1,5 +1,3 @@
-debian/tao-config                            usr/bin
-debian/tao-config.GNU                        usr/share/ace/TAO/
 TAO/rules.tao.GNU                            usr/share/ace/TAO
 TAO/taoconfig.mk                             usr/share/ace/TAO
 TAO/TAO_IDL/tao_idl                          usr/bin

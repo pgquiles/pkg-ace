@@ -1,0 +1,53 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 04-debian-bug243473.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Patch ACE_IOStream to support g++ 3.3. Taken verbatim from http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=243473
+
+@DPATCH@
+
+Index: ACE_wrappers/ace/config-g++-common.h
+===================================================================
+--- ACE_wrappers.orig/ace/config-g++-common.h	2004-09-02 18:01:16.643039464 +0200
++++ ACE_wrappers/ace/config-g++-common.h	2004-09-02 23:09:32.686213504 +0200
+@@ -56,6 +56,14 @@
+ # undef  ACE_USES_OLD_IOSTREAMS
+ #endif /* __GNUC__ >= 2.97 */
+ 
++#if __GNUC__ > 3 || (__GNUC__ == 3 && __GNUC_MINOR__ >= 2 )
++# define ACE_LACKS_UNBUFFERED_STREAMBUF
++# define ACE_LACKS_LINEBUFFERED_STREAMBUF
++# define ACE_LACKS_IOSTREAM_FX
++# define ACE_LACKS_CHAR_RIGHT_SHIFTS
++# define ACE_USES_NEW_IOSTREAMS
++#endif
++
+   // __EXCEPTIONS is defined with -fexceptions, the egcs default.  It
+   // is not defined with -fno-exceptions, the ACE default for g++.
+   // ACE_HAS_EXCEPTIONS is defined in
+Index: ACE_wrappers/ace/IOStream.h
+===================================================================
+--- ACE_wrappers.orig/ace/IOStream.h	2004-09-02 18:01:16.644039312 +0200
++++ ACE_wrappers/ace/IOStream.h	2004-09-02 23:09:32.687213352 +0200
+@@ -31,7 +31,7 @@
+ // by its config.h file.
+ // This restriction is recorded in Bugzilla entry 857.
+ #if defined (ACE_HAS_STANDARD_CPP_LIBRARY) && (ACE_HAS_STANDARD_CPP_LIBRARY == 1)
+-#  if !defined (ACE_USES_OLD_IOSTREAMS) && !defined (ACE_LACKS_ACE_IOSTREAM)
++#  if !defined (ACE_USES_OLD_IOSTREAMS) && !defined (ACE_USES_NEW_IOSTREAMS) && !defined (ACE_LACKS_ACE_IOSTREAM)
+ #    define ACE_LACKS_ACE_IOSTREAM
+ #  endif /* !ACE_USES_OLD_IOSTREAMS && !ACE_LACKS_ACE_IOSTREAM */
+ #endif /* ACE_HAS_STANDARD_CPP_LIBRARY */
+@@ -477,9 +477,9 @@
+         inline virtual MT& operator<<(__omanip_ func) CODE2 \
+         inline virtual MT& operator<<(__manip_ func)  CODE2
+ 
+-#  if defined (ACE_LACKS_SIGNED_CHAR)
+-  #define GET_FUNC_SET1(MT,CODE,CODE2) GET_FUNC_SET0(MT,CODE,CODE2)
+-  #define PUT_FUNC_SET1(MT,CODE,CODE2) PUT_FUNC_SET0(MT,CODE,CODE2)
++#  if defined (ACE_LACKS_SIGNED_CHAR) || defined(ACE_LACKS_CHAR_RIGHT_SHIFTS)
++#    define GET_FUNC_SET1(MT,CODE,CODE2) GET_FUNC_SET0(MT,CODE,CODE2)
++#    define PUT_FUNC_SET1(MT,CODE,CODE2) PUT_FUNC_SET0(MT,CODE,CODE2)
+ #  else
+ #    if defined (ACE_LACKS_CHAR_STAR_RIGHT_SHIFTS)
+   #define GET_FUNC_SET1(MT,CODE,CODE2) \

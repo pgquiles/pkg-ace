@@ -4,88 +4,124 @@
 # written February 2002 by Ossama Othman <ossama@debian.org>
 # Modified August 2003 by Brian Nelson <pyro@debian.org>
 
-export ACE_ROOT = $(shell pwd)
+SRCDIR = ACE_wrappers
+ARCHIVE = ACE+TAO+CIAO-5.4.2-20040631.tar.gz
+
+export ACE_ROOT = $(shell pwd)/$(SRCDIR)
 export TAO_ROOT = $(ACE_ROOT)/TAO
 export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(shell pwd)
 
-ACE_MAJOR_VERSION := $(shell grep ACE_MAJOR_VERSION ace/Version.h | sed -e 's/\#define ACE_MAJOR_VERSION //')
-ACE_VERSION := $(shell grep ACE_VERSION ace/Version.h | sed -e 's/\#define ACE_VERSION //' -e 's/"//g')
+# Ok, this does not work for the first call of debian/rules
+# because the $(SRCDIR) does not exists. Do not worry about
+# this because `dpkg-buildpackge' calls 'debian/rules' multiple
+# times.
+ACE_MAJOR_VERSION := $(shell grep ACE_MAJOR_VERSION $(SRCDIR)/ace/Version.h 2>/dev/null | sed -e 's/\#define ACE_MAJOR_VERSION //')
+ACE_VERSION := $(shell grep ACE_VERSION $(SRCDIR)/ace/Version.h 2>/dev/null | sed -e 's/\#define ACE_VERSION //' -e 's/"//g')
 
-TAO_MAJOR_VERSION := $(shell grep TAO_MAJOR_VERSION TAO/tao/Version.h | sed -e 's/\#define TAO_MAJOR_VERSION //')
-TAO_VERSION := $(shell grep TAO_MAJOR_VERSION TAO/tao/Version.h | sed -e 's/\#define TAO_MAJOR_VERSION //')
+TAO_MAJOR_VERSION := $(shell grep TAO_MAJOR_VERSION $(SRCDIR)/TAO/tao/Version.h 2>/dev/null | sed -e 's/\#define TAO_MAJOR_VERSION //')
+TAO_VERSION := $(shell grep TAO_MAJOR_VERSION $(SRCDIR)/TAO/tao/Version.h 2>/dev/null | sed -e 's/\#define TAO_MAJOR_VERSION //')
 
-#  This settings are only active while building ACE & Co. but never active while
-#  user's applications are developed with ACE & Co.
-MAKEENV := CPPFLAGS="-DACE_NDEBUG -DACE_USE_RCSID"
+# This dpatch is only a place holder. The `perpatch' targets stops
+# here by default.
+PREPATCH_MARK_DPATCH_NAME = 79-prepatch-dummy-mark.dpatch
+UNTIL_DPATCH_NAME = $(PREPATCH_MARK_DPATCH_NAME)
+
+# This patch contens the result of the update-makefile target. THe
+# idear is to speed up the build proccess using this patch instead
+# of calling MakeProjectCreator.
+MAKEFILE_DPATCH_NAME = 80-update-makefile
+MAKEFILE_DPATCH_FILENAME = debian/patches/$(MAKEFILE_DPATCH_NAME).dpatch
+
+# Used by `dpatch' target.
+DPATCH_NAME = temp.dpatch
+DPATCH_DESC = No description.
+
+$(ACE_ROOT):	$(ARCHIVE)
+	tar -xzf "$^"
+	#find "$(SRCDIR)" -exec touch -cr debian/rules {} \;
+	touch $@
+
+patch:	patch-stamp
+patch-stamp:	$(ACE_ROOT)
+	dpatch --workdir $(ACE_ROOT) apply-all
+	touch $@
+
+unpatch:	clean $(ACE_ROOT)
+
+$(ACE_ROOT)/debian.features:	$(ACE_ROOT)
+	cat debian/config/debian.features > "$@"
+	echo "// Added by debian/rules based on \$$(DEB_BUILD_OPTIONS)" >> "$@"
+ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
+	echo "debug=1" > "$@"
+	echo "optimize=0" >> "$@"
+else
+	echo "debug=0" >> "$@"
+	echo "optimize=1" >> "$@"
+endif
+
+$(ACE_ROOT)/include/makeinclude/platform_macros.GNU:	$(ACE_ROOT)/debian.features
+	sed -e 's/^\/\//#/g' "$^" > "$@"
+	echo >> "$@"
+	echo "LINK.cc=override" >> "$@"
+	echo "LINK.cc.override=\$$(PURELINK) \$$(PRELINK) \$$(CXX) \$$(CCFLAGS) \$$(CPPFLAGS) \$$(PTDIRS)" >> "$@"
+	echo >> "$@"
+	echo "include \$$(ACE_ROOT)/include/makeinclude/platform_linux.GNU" >> "$@"
+
+# Prepare a ACE_wrappers directory where most of the patches are applied.
+# We skip the $(MAKEFILE_DPATCH_NAME) dpatch because the intention is to
+# create a new one. The fix-mpc-basedir.dpatch can not be applied too. If
+# other the MakeProjectCreator tools won't work. To achieve that a dummy
+# dpatch file is used: $(PREPATCH_MARK_DPATCH_NAME)
+prepatch:	$(ACE_ROOT)
+	dpatch --workdir $(ACE_ROOT) apply-until $(UNTIL_DPATCH_NAME)
+	$(MAKE) -f debian/rules $(ACE_ROOT)/debian.features
+	rm -rf debian/patched
+
+prepatchtwo:	$(ACE_ROOT).orig
+$(ACE_ROOT).orig:
+	$(MAKE) -f debian/rules clean
+	$(MAKE) -f debian/rules prepatch UNTIL_DPATCH_NAME=$(PREPATCH_MARK_DPATCH_NAME)
+	mv "$(ACE_ROOT)" "$(ACE_ROOT).orig.tmp"
+	$(MAKE) -f debian/rules prepatch UNTIL_DPATCH_NAME=$(PREPATCH_MARK_DPATCH_NAME)
+	mv "$(ACE_ROOT).orig.tmp" "$(ACE_ROOT).orig"
+
+dpatch:	$(ACE_ROOT).orig $(ACE_ROOT)
+	diff -Nru "$(SRCDIR).orig" "$(SRCDIR)" | dpatch patch-template -p "$(DPATCH_NAME)" "$(DPATCH_DESC)" > "$(DPATCH_NAME).dpatch"
+
+# update-makefile is a special target dedicated for creation of a new
+# dpatch after changing the debian/config/debian.feature file.
+update-makefile:	prepatchtwo
+	cd $(ACE_ROOT) && $(ACE_ROOT)/bin/mwc.pl -feature_file "$(ACE_ROOT)/debian.features" -recurse -hierarchy -relative ACE_ROOT=$(ACE_ROOT) -exclude TAO/TAOACE.mwc,TAO/CIAO/CIAOTAO.mwc
+	$(MAKE) -f debian/rules dpatch DPATCH_NAME="$(MAKEFILE_DPATCH_NAME)" DPATCH_DESC="MakeProjectCreator generated Makefiles"
+	mv "$(MAKEFILE_DPATCH_NAME).dpatch" "$(MAKEFILE_DPATCH_FILENAME)"
 
 build: build-stamp
-build-stamp:
+build-stamp:	patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 	dh_testdir
 
-# This hack applies Makefiles and .pl patches, but will produce
-# .rej files when invoked multiple times...
-	patch --forward -p1 < debian/debian.diff
+	cp debian/config/config.h $(ACE_ROOT)/ace
 
-	cp debian/config/config.h ace
-ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
-	echo "debug=1" > include/makeinclude/platform_macros.GNU
-	echo "optimize=0" >> include/makeinclude/platform_macros.GNU
-else
-	echo "debug=0" > include/makeinclude/platform_macros.GNU
-	echo "optimize=1" >> include/makeinclude/platform_macros.GNU
-endif
-	cat debian/config/platform_macros.GNU >> include/makeinclude/platform_macros.GNU
+	$(MAKE) -C $(ACE_ROOT)/ace
+	$(MAKE) -C $(ACE_ROOT)/ACEXML
 
-	$(MAKENEV) $(MAKE) -C ace shared_libs=1 static_libs=1
-	$(MAKEENV) $(MAKE) -C ACEXML shared_libs=1 static_libs=1
-
-	$(MAKEENV) $(MAKE) -C apps/gperf/src
+	$(MAKE) -C $(ACE_ROOT)/apps/gperf/src
 #	We need to rename gperf so that it does not conflict with the
-#       existing Cygnus based gperf Debian package.
-	cp apps/gperf/src/gperf apps/gperf/src/gperf-ace
+#   existing Cygnus based gperf Debian package.
+	ln -sf gperf $(ACE_ROOT)/bin/gperf-ace
 
-	$(MAKEENV) $(MAKE) -C Kokyu shared_libs=1 static_libs=1
+	$(MAKE) -C $(ACE_ROOT)/Kokyu
 
-	PATH=$(ACE_ROOT)/apps/gperf/src:$(PATH) LD_LIBRARY_PATH=$(ACE_ROOT)/lib $(MAKEENV) $(MAKE) -C TAO shared_libs=1 corba_messaging=1 rtcorba=1
+	$(MAKE) -C $(TAO_ROOT)
 
-	PATH=$(ACE_ROOT)/apps/gperf/src:$(PATH) LD_LIBRARY_PATH=$(ACE_ROOT)/lib $(MAKEENV) $(MAKE) -C TAO/CIAO shared_libs=1
+	$(MAKE) -C $(TAO_ROOT)/CIAO/CIDLC
 
-	touch build-stamp
+	$(MAKE) -C $(TAO_ROOT)/CIAO
+
+	touch "$@" 
 
 clean:
 	dh_testdir
-	rm -f build-stamp install-stamp
-
-# HACK:   ACE's "realclean" target needs these.  *sigh*
-	cp debian/config/config.h ace
-	cp debian/config/platform_macros.GNU include/makeinclude
-
-	-$(MAKE) realclean shared_libs=1
-	-$(MAKE) realclean static_libs=1
-	-$(MAKE) -C TAO realclean shared_libs=1
-	-$(MAKE) -C TAO realclean static_libs=1
-	-$(MAKE) -C TAO/CIAO realclean shared_libs=1
-
-	rm -f ace/*.{a,so*} ace/RMCast/*.{a,so*} bin/gperf-ace apps/gperf/src/gperf-ace \
-	      apps/gperf/gperf-ace.1 apps/gperf/gperf-ace.info ace/config.h \
-	      include/makeinclude/platform_macros.GNU
-
-	rm -f TAO/utils/catior/tao-catior
-	rm -f TAO/utils/catior/README.catior
-	rm -f TAO/utils/nslist/README.nslist
-	rm -f TAO/orbsvcs/README.orbsvcs
-	rm -f TAO/orbsvcs/Concurrency_Service/README.Concurrency_Service
-	rm -f TAO/orbsvcs/CosEvent_Service/README.CosEvent_Service
-	rm -f TAO/orbsvcs/FT_ReplicationManager/README.FT_ReplicationManager
-	rm -f TAO/orbsvcs/IFR_Service/README.IFR_Service
-	rm -f TAO/orbsvcs/LoadBalancer/README.LoadBalancer
-	rm -f TAO/orbsvcs/Logging_Service/README.Logging_Service
-	rm -f TAO/orbsvcs/Naming_Service/README.Naming_Service
-	rm -f TAO/orbsvcs/Notify_Service/README.Notify_Service
-	rm -f TAO/orbsvcs/PSS/README.PSS
-	rm -f TAO/orbsvcs/TAO_Service/README.TAO_Service
-	rm -f TAO/orbsvcs/Time_Service/README.Time_Service
-	rm -f TAO/orbsvcs/Trading_Service/README.Trading_Service
+	rm -rf *-stamp *-stampT *.tmp "$(SRCDIR)" "$(SRCDIR).orig" debian/patched
 
 	dh_clean
 
@@ -98,38 +134,47 @@ install: build
 
 	sed -e 's/gperf/gperf-ace/g' \
             -e 's/GPERF/GPERF-ACE/g' \
-           apps/gperf/gperf.1 > \
-	   apps/gperf/gperf-ace.1
+           $(ACE_ROOT)/apps/gperf/gperf.1 > \
+	   $(ACE_ROOT)/apps/gperf/gperf-ace.1
 	sed -e 's/gperf\.info/gperf-ace\.info/g' \
             -e 's/(gperf)\.    /(gperf-ace)\./g' \
-           apps/gperf/gperf.info > \
-           apps/gperf/gperf-ace.info
+           $(ACE_ROOT)/apps/gperf/gperf.info > \
+           $(ACE_ROOT)/apps/gperf/gperf-ace.info
 
-#	Rename the TAO/utils README files
-	cp TAO/utils/catior/README TAO/utils/catior/README.catior
-	cp TAO/utils/nslist/README TAO/utils/nslist/README.nslist
-	cp TAO/orbsvcs/Concurrency_Service/README TAO/orbsvcs/Concurrency_Service/README.Concurrency_Service
-	cp TAO/orbsvcs/CosEvent_Service/README TAO/orbsvcs/CosEvent_Service/README.CosEvent_Service
-	cp TAO/orbsvcs/FT_ReplicationManager/README TAO/orbsvcs/FT_ReplicationManager/README.FT_ReplicationManager
-	cp TAO/orbsvcs/IFR_Service/README TAO/orbsvcs/IFR_Service/README.IFR_Service
-	cp TAO/orbsvcs/LoadBalancer/README TAO/orbsvcs/LoadBalancer/README.LoadBalancer
-	cp TAO/orbsvcs/Logging_Service/README TAO/orbsvcs/Logging_Service/README.Logging_Service
-	cp TAO/orbsvcs/Naming_Service/README TAO/orbsvcs/Naming_Service/README.Naming_Service
-	cp TAO/orbsvcs/Notify_Service/README TAO/orbsvcs/Notify_Service/README.Notify_Service
-	cp TAO/orbsvcs/PSS/README TAO/orbsvcs/PSS/README.PSS
-	cp TAO/orbsvcs/TAO_Service/README TAO/orbsvcs/TAO_Service/README.TAO_Service
-	cp TAO/orbsvcs/Time_Service/README TAO/orbsvcs/Time_Service/README.Time_Service
-	cp TAO/orbsvcs/Trading_Service/README TAO/orbsvcs/Trading_Service/README.Trading_Service
+#	Rename the $(TAO_ROOT)/utils README files
+	cp $(TAO_ROOT)/utils/catior/README $(TAO_ROOT)/utils/catior/README.catior
+	cp $(TAO_ROOT)/utils/nslist/README $(TAO_ROOT)/utils/nslist/README.nslist
+	cp $(TAO_ROOT)/orbsvcs/Concurrency_Service/README $(TAO_ROOT)/orbsvcs/Concurrency_Service/README.Concurrency_Service
+	cp $(TAO_ROOT)/orbsvcs/CosEvent_Service/README $(TAO_ROOT)/orbsvcs/CosEvent_Service/README.CosEvent_Service
+	cp $(TAO_ROOT)/orbsvcs/FT_ReplicationManager/README $(TAO_ROOT)/orbsvcs/FT_ReplicationManager/README.FT_ReplicationManager
+	cp $(TAO_ROOT)/orbsvcs/IFR_Service/README $(TAO_ROOT)/orbsvcs/IFR_Service/README.IFR_Service
+	cp $(TAO_ROOT)/orbsvcs/LoadBalancer/README $(TAO_ROOT)/orbsvcs/LoadBalancer/README.LoadBalancer
+	cp $(TAO_ROOT)/orbsvcs/Logging_Service/README $(TAO_ROOT)/orbsvcs/Logging_Service/README.Logging_Service
+	cp $(TAO_ROOT)/orbsvcs/Naming_Service/README $(TAO_ROOT)/orbsvcs/Naming_Service/README.Naming_Service
+	cp $(TAO_ROOT)/orbsvcs/Notify_Service/README $(TAO_ROOT)/orbsvcs/Notify_Service/README.Notify_Service
+	cp $(TAO_ROOT)/orbsvcs/PSS/README $(TAO_ROOT)/orbsvcs/PSS/README.PSS
+	cp $(TAO_ROOT)/orbsvcs/TAO_Service/README $(TAO_ROOT)/orbsvcs/TAO_Service/README.TAO_Service
+	cp $(TAO_ROOT)/orbsvcs/Time_Service/README $(TAO_ROOT)/orbsvcs/Time_Service/README.Time_Service
+	cp $(TAO_ROOT)/orbsvcs/Trading_Service/README $(TAO_ROOT)/orbsvcs/Trading_Service/README.Trading_Service
 #	Rename the catior utility, it already exists in another package
-	cp TAO/utils/catior/catior TAO/utils/catior/tao-catior
+	cp $(TAO_ROOT)/utils/catior/catior $(TAO_ROOT)/utils/catior/tao-catior
 
 #	Be lintian clean, fix permissions on examples
-	-chmod -x `find TAO/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
-	-chmod -x `find TAO/CIAO/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
+	-chmod -x `find $(TAO_ROOT)/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
+	-chmod -x `find $(TAO_ROOT)/CIAO/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
 #	And on some header files
-	-chmod -x `find TAO/orbsvcs -perm 755 ! -type d -a \( -name "*.h" -o -name "*.inl" \)`
+	-chmod -x `find $(TAO_ROOT)/orbsvcs -perm 755 ! -type d -a \( -name "*.h" -o -name "*.inl" \)`
 
-	dh_install
+	dh_install --sourcedir=$(ACE_ROOT)
+	# Additional tool for ACE and TAO
+	$(INSTALL) -m 755 -o root -g root debian/ace-config     debian/libace-dev/usr/bin/ace-config
+	$(INSTALL) -m 644 -o root -g root debian/ace-config.GNU debian/libace-dev/usr/share/ace/ace-config.GNU
+	$(INSTALL) -m 755 -o root -g root debian/tao-config     debian/libtao-dev/usr/bin/tao-config
+	$(INSTALL) -m 644 -o root -g root debian/tao-config.GNU debian/libtao-dev/usr/share/ace/TAO/tao-config.GNU
+	# Fix duplicate files within reactor packages and main packages
+	for fname_ in `cat debian/libace-*reactor-dev.install debian/libtao-*reactor-dev.install|grep include|cut -f 1 -d ' '|sed -e 's,^ace/,debian/libace-dev/usr/include/ace\/,g;s,^TAO/,debian/libtao-dev/usr/include/,g'`; do \
+		rm -f $$fname_; \
+	done
 
 #       Install the C++ template sources.
 	sh debian/copy_template_sources.sh
@@ -140,7 +185,7 @@ binary-indep: build install
 	dh_installdocs -i
 	dh_installexamples -i
 	dh_installman -i
-	dh_installchangelogs -i ChangeLog
+	dh_installchangelogs -i $(ACE_ROOT)/ChangeLog
 	dh_link -i
 	dh_compress -i -Xexamples -Xtutorials
 	dh_fixperms -i
@@ -154,9 +199,9 @@ binary-arch: build install
 	dh_testroot -a
 	dh_installdocs -a -A
 	dh_installman -a
-	dh_installinfo -pgperf-ace apps/gperf/gperf-ace.info
-	dh_installchangelogs -a ChangeLog
-	dh_installchangelogs -pgperf-ace apps/gperf/ChangeLog
+	dh_installinfo -pgperf-ace $(ACE_ROOT)/apps/gperf/gperf-ace.info
+	dh_installchangelogs -a $(ACE_ROOT)/ChangeLog
+	dh_installchangelogs -pgperf-ace $(ACE_ROOT)/apps/gperf/ChangeLog
 	dh_strip -a
 	dh_link -a
 	dh_compress -a
@@ -173,4 +218,4 @@ source diff:
 
 binary: binary-indep binary-arch
 
-.PHONY: build clean binary-indep binary-arch binary install
+.PHONY: build clean binary-indep binary-arch binary install patch unpatch prepatch prepatchtwo update-makefile

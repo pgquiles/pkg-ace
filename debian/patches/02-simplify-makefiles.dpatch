@@ -1,0 +1,90 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 02-simplify-makefiles.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Comment some uneeded targets to speed up compilation.
+
+@DPATCH@
+
+Index: ACE_wrappers/TAO/CIAO/DAnCE/GNUmakefile
+===================================================================
+--- ACE_wrappers.orig/TAO/CIAO/DAnCE/GNUmakefile	2004-09-02 16:50:55.000000000 +0200
++++ ACE_wrappers/TAO/CIAO/DAnCE/GNUmakefile	2004-09-02 18:31:36.645357056 +0200
+@@ -29,5 +29,5 @@
+ 	$(KEEP_GOING)@cd DomainApplicationManager && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd ExecutionManager && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd RepositoryManager && $(MAKE) -f $(MAKEFILE) $(@)
+-	$(KEEP_GOING)@cd tests && $(MAKE) -f $(MAKEFILE) $(@)
++#	$(KEEP_GOING)@cd tests && $(MAKE) -f $(MAKEFILE) $(@)
+ 
+Index: ACE_wrappers/GNUmakefile
+===================================================================
+--- ACE_wrappers.orig/GNUmakefile	2004-09-02 17:03:47.000000000 +0200
++++ ACE_wrappers/GNUmakefile	2004-09-02 18:31:36.646356904 +0200
+@@ -26,9 +26,9 @@
+ 	$(KEEP_GOING)@cd ASNMP && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd ACEXML && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd apps && $(MAKE) -f $(MAKEFILE) $(@)
+-	$(KEEP_GOING)@cd examples && $(MAKE) -f $(MAKEFILE) $(@)
++#	$(KEEP_GOING)@cd examples && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd netsvcs && $(MAKE) -f $(MAKEFILE) $(@)
+-	$(KEEP_GOING)@cd performance-tests && $(MAKE) -f $(MAKEFILE) $(@)
+-	$(KEEP_GOING)@cd tests && $(MAKE) -f $(MAKEFILE) $(@)
++#	$(KEEP_GOING)@cd performance-tests && $(MAKE) -f $(MAKEFILE) $(@)
++#	$(KEEP_GOING)@cd tests && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd websvcs && $(MAKE) -f $(MAKEFILE) $(@)
+ 
+Index: ACE_wrappers/apps/GNUmakefile
+===================================================================
+--- ACE_wrappers.orig/apps/GNUmakefile	2004-09-02 17:02:35.000000000 +0200
++++ ACE_wrappers/apps/GNUmakefile	2004-09-02 18:31:36.646356904 +0200
+@@ -21,11 +21,11 @@
+ 
+ REMAINING_TARGETS := $(TARGETS_NESTED:.nested=)
+ $(REMAINING_TARGETS):
+-	$(KEEP_GOING)@cd Gateway && $(MAKE) -f $(MAKEFILE) $(@)
+-	$(KEEP_GOING)@cd JAWS && $(MAKE) -f $(MAKEFILE) $(@)
+-	$(KEEP_GOING)@cd JAWS3 && $(MAKE) -f $(MAKEFILE) $(@)
+-	$(KEEP_GOING)@cd drwho && $(MAKE) -f $(MAKEFILE) $(@)
++#	$(KEEP_GOING)@cd Gateway && $(MAKE) -f $(MAKEFILE) $(@)
++#	$(KEEP_GOING)@cd JAWS && $(MAKE) -f $(MAKEFILE) $(@)
++#	$(KEEP_GOING)@cd JAWS3 && $(MAKE) -f $(MAKEFILE) $(@)
++#	$(KEEP_GOING)@cd drwho && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd gperf && $(MAKE) -f $(MAKEFILE) $(@)
+-	$(KEEP_GOING)@cd mkcsregdb && $(MAKE) -f $(MAKEFILE) $(@)
+-	$(KEEP_GOING)@cd soreduce && $(MAKE) -f $(MAKEFILE) $(@)
++#	$(KEEP_GOING)@cd mkcsregdb && $(MAKE) -f $(MAKEFILE) $(@)
++#	$(KEEP_GOING)@cd soreduce && $(MAKE) -f $(MAKEFILE) $(@)
+ 
+Index: ACE_wrappers/TAO/GNUmakefile
+===================================================================
+--- ACE_wrappers.orig/TAO/GNUmakefile	2004-09-02 16:57:38.000000000 +0200
++++ ACE_wrappers/TAO/GNUmakefile	2004-09-02 18:31:36.646356904 +0200
+@@ -24,9 +24,9 @@
+ 	$(KEEP_GOING)@cd TAO_IDL && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd tao && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd orbsvcs && $(MAKE) -f $(MAKEFILE) $(@)
+-	$(KEEP_GOING)@cd examples && $(MAKE) -f $(MAKEFILE) $(@)
++#	$(KEEP_GOING)@cd examples && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd docs && $(MAKE) -f $(MAKEFILE) $(@)
+-	$(KEEP_GOING)@cd performance-tests && $(MAKE) -f $(MAKEFILE) $(@)
+-	$(KEEP_GOING)@cd tests && $(MAKE) -f $(MAKEFILE) $(@)
++#	$(KEEP_GOING)@cd performance-tests && $(MAKE) -f $(MAKEFILE) $(@)
++#	$(KEEP_GOING)@cd tests && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd utils && $(MAKE) -f $(MAKEFILE) $(@)
+ 
+Index: ACE_wrappers/TAO/orbsvcs/GNUmakefile
+===================================================================
+--- ACE_wrappers.orig/TAO/orbsvcs/GNUmakefile	2004-09-02 16:36:11.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/GNUmakefile	2004-09-02 18:31:44.584150176 +0200
+@@ -42,7 +42,7 @@
+ 	$(KEEP_GOING)@cd Dump_Schedule && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd CosEvent_Service && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd Concurrency_Service && $(MAKE) -f $(MAKEFILE) $(@)
+-	$(KEEP_GOING)@cd performance-tests && $(MAKE) -f $(MAKEFILE) $(@)
+-	$(KEEP_GOING)@cd tests && $(MAKE) -f $(MAKEFILE) $(@)
+-	$(KEEP_GOING)@cd examples && $(MAKE) -f $(MAKEFILE) $(@)
++#	$(KEEP_GOING)@cd performance-tests && $(MAKE) -f $(MAKEFILE) $(@)
++#	$(KEEP_GOING)@cd tests && $(MAKE) -f $(MAKEFILE) $(@)
++#	$(KEEP_GOING)@cd examples && $(MAKE) -f $(MAKEFILE) $(@)
+ 

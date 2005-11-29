@@ -1,3 +1,22 @@
+ace (5.4.2.1-2) unstable; urgency=low
+
+  * Thomas Girard <thomas.g.girard@free.fr>
+    - Much lintian cleaning.
+    - Integrate upstream MPC patch to honour `libout' and `install' keywords.
+    - Repackage FTRT_EventChannel.
+    - Bug 242881 was closed in the previous upload. (Closes: #242881)
+    - debian/control: libtao-dev should depend on libace-dev.
+      (Closes: #277052)
+  * Raphael Bossek <bossekr@debian.org>
+    - debian/config/debian.features: MPC configuration for Debian GNU/Linux added
+    - debian/config/platform_macros.GNU: Removed due to introduction of
+      debian.features files. This file will be generated
+    - debian/rules: Uses dpatch. Simplified clean target by removing temporary
+      ACE_wrappers subdirectory
+    - debian/control: Added new reactor packages.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Mon, 18 Oct 2004 13:35:56 +0200
+
 ace (5.4.2.1-1) unstable; urgency=low
 
   * Thomas Girard <thomas.g.girard@free.fr>

@@ -1,0 +1,39 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 06-fix-notify-logging-service.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Prevent NotifyLoggingService from crashing. Obtained from CVS (see http://groups.yahoo.com/group/tao-bugs/message/3915)
+
+@DPATCH@
+
+Index: ACE_wrappers/TAO/orbsvcs/orbsvcs/Log/LogMgr_i.cpp
+===================================================================
+--- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/Log/LogMgr_i.cpp	2004-09-02 16:32:59.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/Log/LogMgr_i.cpp	2004-09-02 23:10:48.153740696 +0200
+@@ -5,6 +5,7 @@
+            "LogMgr_i.cpp,v 1.17 2003/04/30 12:31:00 elliott_c Exp")
+ 
+ TAO_LogMgr_i::TAO_LogMgr_i (void)
++: max_id_(0)
+ {
+   // No-Op.
+ }
+Index: ACE_wrappers/TAO/orbsvcs/orbsvcs/Log/NotifyLogFactory_i.cpp
+===================================================================
+--- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/Log/NotifyLogFactory_i.cpp	2004-09-02 16:32:58.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/Log/NotifyLogFactory_i.cpp	2004-09-02 23:10:48.154740544 +0200
+@@ -185,11 +185,12 @@
+   ACE_CHECK_RETURN (notify_log._retn ());
+ 
+   // Add to the Hash table..
+-  if (hash_map_.bind (id, notify_log.in ()) == -1)
++  if (hash_map_.bind (id, 
++		      DsNotifyLogAdmin::NotifyLog::_duplicate (notify_log.in ())) == -1)
+     ACE_THROW_RETURN (CORBA::INTERNAL (),
+                       DsNotifyLogAdmin::NotifyLog::_nil ());
+ 
+-  notifier_->object_creation (notify_log.in (),
++  notifier_->object_creation (DsNotifyLogAdmin::NotifyLog::_duplicate (notify_log.in ()),
+                               id ACE_ENV_ARG_PARAMETER);
+   ACE_CHECK_RETURN (DsNotifyLogAdmin::NotifyLog::_nil ());
+ 

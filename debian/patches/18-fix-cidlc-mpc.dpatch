@@ -1,0 +1,28 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 18-fix-cidlc-mpc.dpatch by Raphael Bossek <bossekr@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Create CIDLC tool
+
+@DPATCH@
+
+--- ACE_wrappers/TAO/CIAO/CIAO.mwc.orig	2004-10-27 20:03:42.000000000 +0200
++++ ACE_wrappers/TAO/CIAO/CIAO.mwc	2004-10-27 20:03:48.000000000 +0200
+@@ -2,6 +2,7 @@
+ // CIAO.mwc,v 1.8 2004/07/04 16:15:47 bala Exp
+ 
+ workspace {
++  CIDLC
+   ciao
+   tools
+   DAnCE
+--- ACE_wrappers/TAO/CIAO/CIAOTAO.mwc.orig	2004-10-27 20:04:32.000000000 +0200
++++ ACE_wrappers/TAO/CIAO/CIAOTAO.mwc	2004-10-27 20:04:37.000000000 +0200
+@@ -11,6 +11,7 @@
+   ../orbsvcs/orbsvcs/Svc_Utils.mpc
+   ../orbsvcs/orbsvcs/Security.mpc
+   ../orbsvcs/orbsvcs/IFRService.mpc
++  CIDLC
+   DAnCE
+   ciao
+   tools

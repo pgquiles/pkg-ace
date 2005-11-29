@@ -1,0 +1,659 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 01-perl-she-bang.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Add #!/usr/bin/perl where needed.
+
+@DPATCH@
+
+Index: ACE_wrappers/TAO/CIAO/examples/Hello/descriptors/run_test_default.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/CIAO/examples/Hello/descriptors/run_test_default.pl	2004-09-02 16:51:52.000000000 +0200
++++ ACE_wrappers/TAO/CIAO/examples/Hello/descriptors/run_test_default.pl	2004-09-02 22:31:38.147995872 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/examples/IPC_SAP/SSL_SAP/summarize
+===================================================================
+--- ACE_wrappers.orig/examples/IPC_SAP/SSL_SAP/summarize	2004-09-02 17:05:46.000000000 +0200
++++ ACE_wrappers/examples/IPC_SAP/SSL_SAP/summarize	2004-09-02 22:31:38.147995872 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -w -S $0 ${1+"$@"}'
+     & eval 'exec perl -w -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/POA/Adapter_Activator/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/POA/Adapter_Activator/run_test.pl	2004-09-02 16:58:02.000000000 +0200
++++ ACE_wrappers/TAO/examples/POA/Adapter_Activator/run_test.pl	2004-09-02 22:31:38.148995720 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/PluggableUDP/tests/SimplePerformance/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/PluggableUDP/tests/SimplePerformance/run_test.pl	2004-09-02 16:58:34.000000000 +0200
++++ ACE_wrappers/TAO/examples/PluggableUDP/tests/SimplePerformance/run_test.pl	2004-09-02 22:31:38.148995720 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Simple/time-date/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Simple/time-date/run_test.pl	2004-09-02 16:58:54.000000000 +0200
++++ ACE_wrappers/TAO/examples/Simple/time-date/run_test.pl	2004-09-02 22:31:38.148995720 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/examples/IPC_SAP/SOCK_SAP/summarize
+===================================================================
+--- ACE_wrappers.orig/examples/IPC_SAP/SOCK_SAP/summarize	2004-09-02 17:05:39.000000000 +0200
++++ ACE_wrappers/examples/IPC_SAP/SOCK_SAP/summarize	2004-09-02 22:31:38.149995568 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -w -S $0 ${1+"$@"}'
+     & eval 'exec perl -w -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/RTCORBA/Activity/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/RTCORBA/Activity/run_test.pl	2004-09-02 16:59:00.000000000 +0200
++++ ACE_wrappers/TAO/examples/RTCORBA/Activity/run_test.pl	2004-09-02 22:31:38.149995568 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/RTScheduling/Fixed_Priority_Scheduler/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/RTScheduling/Fixed_Priority_Scheduler/run_test.pl	2004-09-02 16:58:16.000000000 +0200
++++ ACE_wrappers/TAO/examples/RTScheduling/Fixed_Priority_Scheduler/run_test.pl	2004-09-02 22:31:38.150995416 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/RTScheduling/MIF_Scheduler/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/RTScheduling/MIF_Scheduler/run_test.pl	2004-09-02 16:58:14.000000000 +0200
++++ ACE_wrappers/TAO/examples/RTScheduling/MIF_Scheduler/run_test.pl	2004-09-02 22:31:38.150995416 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/AMH/Sink_Server/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/AMH/Sink_Server/run_test.pl	2004-09-02 16:59:05.000000000 +0200
++++ ACE_wrappers/TAO/examples/AMH/Sink_Server/run_test.pl	2004-09-02 22:31:38.150995416 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/POA/On_Demand_Loading/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/POA/On_Demand_Loading/run_test.pl	2004-09-02 16:57:57.000000000 +0200
++++ ACE_wrappers/TAO/examples/POA/On_Demand_Loading/run_test.pl	2004-09-02 22:31:38.151995264 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/POA/NewPOA/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/POA/NewPOA/run_test.pl	2004-09-02 16:58:01.000000000 +0200
++++ ACE_wrappers/TAO/examples/POA/NewPOA/run_test.pl	2004-09-02 22:31:38.151995264 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/PluggableUDP/tests/Basic/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/PluggableUDP/tests/Basic/run_test.pl	2004-09-02 16:58:31.000000000 +0200
++++ ACE_wrappers/TAO/examples/PluggableUDP/tests/Basic/run_test.pl	2004-09-02 22:31:38.151995264 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/examples/QOS/Diffserv/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/examples/QOS/Diffserv/run_test.pl	2004-09-02 17:04:25.000000000 +0200
++++ ACE_wrappers/examples/QOS/Diffserv/run_test.pl	2004-09-02 22:31:38.152995112 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/POA/FindPOA/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/POA/FindPOA/run_test.pl	2004-09-02 16:57:53.000000000 +0200
++++ ACE_wrappers/TAO/examples/POA/FindPOA/run_test.pl	2004-09-02 22:31:38.152995112 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Buffered_Oneways/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Buffered_Oneways/run_test.pl	2004-09-02 16:58:12.000000000 +0200
++++ ACE_wrappers/TAO/examples/Buffered_Oneways/run_test.pl	2004-09-02 22:31:38.152995112 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Quoter/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Quoter/run_test.pl	2004-09-02 16:58:36.000000000 +0200
++++ ACE_wrappers/TAO/examples/Quoter/run_test.pl	2004-09-02 22:31:38.153994960 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Advanced/ch_21/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Advanced/ch_21/run_test.pl	2004-09-02 16:58:23.000000000 +0200
++++ ACE_wrappers/TAO/examples/Advanced/ch_21/run_test.pl	2004-09-02 22:31:38.153994960 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Load_Balancing/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Load_Balancing/run_test.pl	2004-09-02 16:59:07.000000000 +0200
++++ ACE_wrappers/TAO/examples/Load_Balancing/run_test.pl	2004-09-02 22:31:38.153994960 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Simple/echo/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Simple/echo/run_test.pl	2004-09-02 16:58:56.000000000 +0200
++++ ACE_wrappers/TAO/examples/Simple/echo/run_test.pl	2004-09-02 22:31:38.154994808 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Logging/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Logging/run_test.pl	2004-09-02 16:58:11.000000000 +0200
++++ ACE_wrappers/TAO/examples/Logging/run_test.pl	2004-09-02 22:31:38.154994808 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Advanced/ch_8_and_10/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Advanced/ch_8_and_10/run_test.pl	2004-09-02 16:58:22.000000000 +0200
++++ ACE_wrappers/TAO/examples/Advanced/ch_8_and_10/run_test.pl	2004-09-02 22:31:38.154994808 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/POA/POA_BiDir/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/POA/POA_BiDir/run_test.pl	2004-09-02 16:58:00.000000000 +0200
++++ ACE_wrappers/TAO/examples/POA/POA_BiDir/run_test.pl	2004-09-02 22:31:38.155994656 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/POA/RootPOA/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/POA/RootPOA/run_test.pl	2004-09-02 16:57:58.000000000 +0200
++++ ACE_wrappers/TAO/examples/POA/RootPOA/run_test.pl	2004-09-02 22:31:38.155994656 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/POA/Reference_Counted_Servant/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/POA/Reference_Counted_Servant/run_test.pl	2004-09-02 16:57:54.000000000 +0200
++++ ACE_wrappers/TAO/examples/POA/Reference_Counted_Servant/run_test.pl	2004-09-02 22:31:38.155994656 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/POA/Forwarding/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/POA/Forwarding/run_test.pl	2004-09-02 16:58:04.000000000 +0200
++++ ACE_wrappers/TAO/examples/POA/Forwarding/run_test.pl	2004-09-02 22:31:38.156994504 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/bin/ace_ld
+===================================================================
+--- ACE_wrappers.orig/bin/ace_ld	2004-09-02 17:02:54.000000000 +0200
++++ ACE_wrappers/bin/ace_ld	2004-09-02 22:31:38.156994504 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Simple/grid/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Simple/grid/run_test.pl	2004-09-02 16:58:51.000000000 +0200
++++ ACE_wrappers/TAO/examples/Simple/grid/run_test.pl	2004-09-02 22:31:38.156994504 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/ior_corbaloc/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/ior_corbaloc/run_test.pl	2004-09-02 16:59:01.000000000 +0200
++++ ACE_wrappers/TAO/examples/ior_corbaloc/run_test.pl	2004-09-02 22:31:38.157994352 +0200
+@@ -1,4 +1,6 @@
+-     eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
++#!/usr/bin/perl
++
++eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+   &  eval 'exec perl -S $0 $argv:q'
+   if 0;
+ 
+Index: ACE_wrappers/TAO/examples/POA/On_Demand_Activation/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/POA/On_Demand_Activation/run_test.pl	2004-09-02 16:58:06.000000000 +0200
++++ ACE_wrappers/TAO/examples/POA/On_Demand_Activation/run_test.pl	2004-09-02 22:31:38.157994352 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/OBV/Typed_Events/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/OBV/Typed_Events/run_test.pl	2004-09-02 16:58:47.000000000 +0200
++++ ACE_wrappers/TAO/examples/OBV/Typed_Events/run_test.pl	2004-09-02 22:31:38.158994200 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Persistent_Grid/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Persistent_Grid/run_test.pl	2004-09-02 16:58:26.000000000 +0200
++++ ACE_wrappers/TAO/examples/Persistent_Grid/run_test.pl	2004-09-02 22:31:38.158994200 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/POA/Explicit_Activation/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/POA/Explicit_Activation/run_test.pl	2004-09-02 16:58:05.000000000 +0200
++++ ACE_wrappers/TAO/examples/POA/Explicit_Activation/run_test.pl	2004-09-02 22:31:38.158994200 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Buffered_AMI/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Buffered_AMI/run_test.pl	2004-09-02 16:58:29.000000000 +0200
++++ ACE_wrappers/TAO/examples/Buffered_AMI/run_test.pl	2004-09-02 22:31:38.159994048 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Advanced/ch_18/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Advanced/ch_18/run_test.pl	2004-09-02 16:58:21.000000000 +0200
++++ ACE_wrappers/TAO/examples/Advanced/ch_18/run_test.pl	2004-09-02 22:31:38.159994048 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/TypeCode_Creation/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/TypeCode_Creation/run_test.pl	2004-09-02 16:58:21.000000000 +0200
++++ ACE_wrappers/TAO/examples/TypeCode_Creation/run_test.pl	2004-09-02 22:31:38.159994048 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/CIAO/examples/Hello/descriptors/run_test_remote.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/CIAO/examples/Hello/descriptors/run_test_remote.pl	2004-09-02 16:51:52.000000000 +0200
++++ ACE_wrappers/TAO/CIAO/examples/Hello/descriptors/run_test_remote.pl	2004-09-02 22:31:38.160993896 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ #run_test_remote.pl,v 1.2 2004/05/25 02:19:36 lut Exp
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+Index: ACE_wrappers/TAO/examples/Advanced/ch_12/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Advanced/ch_12/run_test.pl	2004-09-02 16:58:24.000000000 +0200
++++ ACE_wrappers/TAO/examples/Advanced/ch_12/run_test.pl	2004-09-02 22:31:38.160993896 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Simple/time/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Simple/time/run_test.pl	2004-09-02 16:58:52.000000000 +0200
++++ ACE_wrappers/TAO/examples/Simple/time/run_test.pl	2004-09-02 22:31:38.160993896 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Advanced/ch_3/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Advanced/ch_3/run_test.pl	2004-09-02 16:58:25.000000000 +0200
++++ ACE_wrappers/TAO/examples/Advanced/ch_3/run_test.pl	2004-09-02 22:31:38.161993744 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/examples/Reactor/WFMO_Reactor/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/examples/Reactor/WFMO_Reactor/run_test.pl	2004-09-02 17:06:30.000000000 +0200
++++ ACE_wrappers/examples/Reactor/WFMO_Reactor/run_test.pl	2004-09-02 22:31:38.161993744 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/POA/TIE/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/POA/TIE/run_test.pl	2004-09-02 16:57:55.000000000 +0200
++++ ACE_wrappers/TAO/examples/POA/TIE/run_test.pl	2004-09-02 22:31:38.161993744 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Advanced/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Advanced/run_test.pl	2004-09-02 16:58:25.000000000 +0200
++++ ACE_wrappers/TAO/examples/Advanced/run_test.pl	2004-09-02 22:31:38.162993592 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Simple/bank/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Simple/bank/run_test.pl	2004-09-02 16:58:55.000000000 +0200
++++ ACE_wrappers/TAO/examples/Simple/bank/run_test.pl	2004-09-02 22:31:38.162993592 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/POA/Default_Servant/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/POA/Default_Servant/run_test.pl	2004-09-02 16:57:59.000000000 +0200
++++ ACE_wrappers/TAO/examples/POA/Default_Servant/run_test.pl	2004-09-02 22:31:38.162993592 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Callback_Quoter/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Callback_Quoter/run_test.pl	2004-09-02 16:58:57.000000000 +0200
++++ ACE_wrappers/TAO/examples/Callback_Quoter/run_test.pl	2004-09-02 22:31:38.163993440 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/PluggableUDP/tests/Performance/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/PluggableUDP/tests/Performance/run_test.pl	2004-09-02 16:58:32.000000000 +0200
++++ ACE_wrappers/TAO/examples/PluggableUDP/tests/Performance/run_test.pl	2004-09-02 22:31:38.163993440 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/POA/Loader/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/POA/Loader/run_test.pl	2004-09-02 16:58:08.000000000 +0200
++++ ACE_wrappers/TAO/examples/POA/Loader/run_test.pl	2004-09-02 22:31:38.163993440 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/Simulator/DOVEBrowser/ecdata_patch.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/Simulator/DOVEBrowser/ecdata_patch.pl	2004-09-02 16:57:47.000000000 +0200
++++ ACE_wrappers/TAO/examples/Simulator/DOVEBrowser/ecdata_patch.pl	2004-09-02 22:31:38.164993288 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -pi -S $0 ${1+"$@"}'
+     & eval 'exec perl -pi -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/examples/Export/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/examples/Export/run_test.pl	2004-09-02 17:05:56.000000000 +0200
++++ ACE_wrappers/examples/Export/run_test.pl	2004-09-02 22:31:38.164993288 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/examples/POA/DSI/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/examples/POA/DSI/run_test.pl	2004-09-02 16:57:52.000000000 +0200
++++ ACE_wrappers/TAO/examples/POA/DSI/run_test.pl	2004-09-02 22:31:38.164993288 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/orbsvcs/examples/RtEC/IIOPGateway/consumerec_crash.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/orbsvcs/examples/RtEC/IIOPGateway/consumerec_crash.pl	2004-09-02 16:41:31.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/examples/RtEC/IIOPGateway/consumerec_crash.pl	2004-09-02 22:31:38.165993136 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/orbsvcs/examples/Notify/Filter/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/orbsvcs/examples/Notify/Filter/run_test.pl	2004-09-02 16:41:50.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/examples/Notify/Filter/run_test.pl	2004-09-02 22:31:38.165993136 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/orbsvcs/examples/Notify/ThreadPool/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/orbsvcs/examples/Notify/ThreadPool/run_test.pl	2004-09-02 16:41:46.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/examples/Notify/ThreadPool/run_test.pl	2004-09-02 22:31:38.166992984 +0200
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/orbsvcs/examples/RtEC/IIOPGateway/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/orbsvcs/examples/RtEC/IIOPGateway/run_test.pl	2004-09-02 16:41:30.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/examples/RtEC/IIOPGateway/run_test.pl	2004-09-02 22:31:38.166992984 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/orbsvcs/examples/LoadBalancing/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/orbsvcs/examples/LoadBalancing/run_test.pl	2004-09-02 16:41:54.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/examples/LoadBalancing/run_test.pl	2004-09-02 22:31:38.166992984 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/orbsvcs/examples/CosEC/RtEC_Based/tests/Multiple/run_test2.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/orbsvcs/examples/CosEC/RtEC_Based/tests/Multiple/run_test2.pl	2004-09-02 16:41:25.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/examples/CosEC/RtEC_Based/tests/Multiple/run_test2.pl	2004-09-02 22:31:38.167992832 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/orbsvcs/examples/Notify/Subscribe/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/orbsvcs/examples/Notify/Subscribe/run_test.pl	2004-09-02 16:41:45.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/examples/Notify/Subscribe/run_test.pl	2004-09-02 22:31:38.167992832 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/orbsvcs/examples/Notify/Lanes/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/orbsvcs/examples/Notify/Lanes/run_test.pl	2004-09-02 16:41:48.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/examples/Notify/Lanes/run_test.pl	2004-09-02 22:31:38.168992680 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/orbsvcs/examples/CosEC/Simple/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/orbsvcs/examples/CosEC/Simple/run_test.pl	2004-09-02 16:41:21.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/examples/CosEC/Simple/run_test.pl	2004-09-02 22:31:38.168992680 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/orbsvcs/examples/Security/Send_File/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/orbsvcs/examples/Security/Send_File/run_test.pl	2004-09-02 16:41:42.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/examples/Security/Send_File/run_test.pl	2004-09-02 22:31:38.168992680 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/orbsvcs/examples/CosEC/RtEC_Based/tests/Multiple/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/orbsvcs/examples/CosEC/RtEC_Based/tests/Multiple/run_test.pl	2004-09-02 16:41:25.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/examples/CosEC/RtEC_Based/tests/Multiple/run_test.pl	2004-09-02 22:31:38.169992528 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/TAO/orbsvcs/examples/RtEC/Simple/run_test.pl
+===================================================================
+--- ACE_wrappers.orig/TAO/orbsvcs/examples/RtEC/Simple/run_test.pl	2004-09-02 16:41:35.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/examples/RtEC/Simple/run_test.pl	2004-09-02 22:31:38.169992528 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
+     & eval 'exec perl -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/bin/mwc.pl
+===================================================================
+--- ACE_wrappers.orig/bin/mwc.pl	2004-09-02 17:02:54.000000000 +0200
++++ ACE_wrappers/bin/mwc.pl	2004-09-02 22:33:45.409649160 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -w -S $0 ${1+"$@"}'
+     & eval 'exec perl -w -S $0 $argv:q'
+     if 0;
+Index: ACE_wrappers/bin/mpc.pl
+===================================================================
+--- ACE_wrappers.orig/bin/mpc.pl	2004-09-02 17:02:54.000000000 +0200
++++ ACE_wrappers/bin/mpc.pl	2004-09-02 22:34:13.375397720 +0200
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ eval '(exit $?0)' && eval 'exec perl -w -S $0 ${1+"$@"}'
+     & eval 'exec perl -w -S $0 $argv:q'
+     if 0;

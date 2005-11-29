@@ -1,0 +1,19 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 16-fix-tests.dpatch by Raphael Bossek <bossekr@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description.
+
+@DPATCH@
+
+--- ACE_wrappers/tests/IOStream_Test.cpp.orig	2004-10-25 17:26:12.609862328 +0200
++++ ACE_wrappers/tests/IOStream_Test.cpp	2004-10-25 17:26:29.640273312 +0200
+@@ -238,7 +238,7 @@
+         {
+           ACE_DEBUG ((LM_DEBUG,
+                       ACE_TEXT (" (%P|%t) Recoverable stream error/timed out)\n")));
+-          server.clear (0);
++          server.clear (static_cast<std::_Ios_Iostate> (0));
+         }
+     }
+ 

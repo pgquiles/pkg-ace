@@ -1,0 +1,3 @@
+TAO/tao/libTAO_XtReactor.so  usr/lib
+TAO/tao/libTAO_XtReactor.a   usr/lib
+TAO/tao/xt_resource.{h,i}    usr/include/tao

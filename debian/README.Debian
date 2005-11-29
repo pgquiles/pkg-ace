@@ -1,3 +1,7 @@
+
+
+
+
 ACE for Debian
 --------------
 The following ACE features have been enabled in this package:
@@ -23,10 +27,32 @@ may need to be set up, as follows:
 
 Update:
 The following features have also been enabled in this package:
-         * SSL (depends on libssl)
+     * SSL (depends on libssl)
 	 * CORBA Messaging (for TAO)
 	 * RealTime CORBA (for TAO)
 	 * Kokyu (in separate packages)
 	 * CIAO (in separate packages)
 
 -- Konstantinos Margaritis <markos@debian.org>, Sat, 31 Jan 2004 01:41:14 +0200
+
+Debian GNU/Linux introduces the reactor seperation for ACE/TAO. The big
+advantage is less dependencies and more flexibility due to all reactor
+implementation are provieded by seperate packages:
+
+     * libace-flreactor-dev, libace-flreactor5.4
+     * libace-qtreactor-dev, libace-qtreactor5.4
+     * libace-tkreactor-dev, libace-tkreactor5.4
+     * libace-xtreactor-dev, libace-xtreactor5.4
+     * libtao-qtreactor-dev, libtao-qtreactor1.4
+     * libtao-xtreactor-dev, libtao-xtreactor1.4
+
+Please refer to debian/control or packge's description on more details on
+the packages itself.
+
+The Debian GNU/Linux package maintainers also deceeded to use `dpatch' as the
+way to handle future modifications on the ACE/TAO/CIAO sources. This makes the
+changes more transparent well documented and a update to new head revision of
+ACE/TAO/CIAO with less pain due to fast recovery of modifications.
+
+-- Raphael Bossek <bossekr@debian.org>  Fri, 22 Oct 2004 15:46:25 +0200
+

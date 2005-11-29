@@ -1,0 +1,3 @@
+ace/libACE_FlReactor.so	usr/lib
+ace/libACE_FlReactor.a	usr/lib
+ace/FlReactor.h         usr/include/ace

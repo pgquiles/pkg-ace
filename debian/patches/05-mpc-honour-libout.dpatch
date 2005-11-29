@@ -1,0 +1,33 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 05-mpc-honour-libout.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Make MPC honour `libout', `dllout' and `install' keywords. See http://deuce.doc.wustl.edu/bugzilla/show_bug.cgi?id=1915.
+
+@DPATCH@
+
+Index: ACE_wrappers/bin/MakeProjectCreator/templates/gnu.mpd
+===================================================================
+--- ACE_wrappers.orig/bin/MakeProjectCreator/templates/gnu.mpd	2004-09-02 17:02:58.000000000 +0200
++++ ACE_wrappers/bin/MakeProjectCreator/templates/gnu.mpd	2004-09-02 23:10:13.473012968 +0200
+@@ -106,10 +106,18 @@
+ endif
+ 
+ <%if(exename)%>
+-INSBIN ?= <%if(install)%><%install%><%else%>.<%endif%>
++<%if(install)%>
++INSBIN = <%install%>
++<%else%>
++INSBIN ?= .
++<%endif%>
+ OUTPUT_DIRECTORY = $(INSBIN)
+ <%else%>
+-INSLIB ?= <%if(dllout)%><%dllout%><%else%><%libout%><%endif%>
++<%if(dllout || libout)%>
++INSLIB = <%if(dllout)%><%dllout%><%else%><%libout%><%endif%>
++<%else%>
++INSLIB ?=
++<%endif%>
+ ifeq ($(INSLIB),.)
+   ifeq ($(PWD),)
+     PWD=$(shell pwd)
