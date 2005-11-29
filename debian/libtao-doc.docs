@@ -1,4 +1,4 @@
-TAO/docs
-TAO/examples
-TAO/utils/catior/README.catior
-TAO/utils/nslist/README.nslist
+ACE_wrappers/TAO/docs
+ACE_wrappers/TAO/examples
+ACE_wrappers/TAO/utils/catior/README.catior
+ACE_wrappers/TAO/utils/nslist/README.nslist
