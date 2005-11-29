@@ -3,6 +3,9 @@
 # debian/rules file for the ACE Debian GNU/Linux package
 # written February 2002 by Ossama Othman <ossama@debian.org>
 # Modified August 2003 by Brian Nelson <pyro@debian.org>
+# Copyrigh (C) 2004  Raphael Bossek <bossekr@debian.org>
+
+INSTALL = install
 
 SRCDIR = ACE_wrappers
 ARCHIVE = ACE+TAO+CIAO-5.4.2-20040631.tar.gz
@@ -166,17 +169,24 @@ install: build
 	-chmod -x `find $(TAO_ROOT)/orbsvcs -perm 755 ! -type d -a \( -name "*.h" -o -name "*.inl" \)`
 
 	dh_install --sourcedir=$(ACE_ROOT)
-	# Additional tool for ACE and TAO
-	$(INSTALL) -m 755 -o root -g root debian/ace-config     debian/libace-dev/usr/bin/ace-config
-	$(INSTALL) -m 644 -o root -g root debian/ace-config.GNU debian/libace-dev/usr/share/ace/ace-config.GNU
-	$(INSTALL) -m 755 -o root -g root debian/tao-config     debian/libtao-dev/usr/bin/tao-config
-	$(INSTALL) -m 644 -o root -g root debian/tao-config.GNU debian/libtao-dev/usr/share/ace/TAO/tao-config.GNU
+
+	# Variant of the official build configuration tool
+	$(INSTALL) -m 755 -o root -g root -D debian/ace-config     debian/libace-dev/usr/bin/ace-config
+	$(INSTALL) -m 644 -o root -g root -D debian/ace-config.GNU debian/libace-dev/usr/share/ace/ace-config.GNU
+	$(INSTALL) -m 755 -o root -g root -D debian/tao-config     debian/libtao-dev/usr/bin/tao-config
+	$(INSTALL) -m 644 -o root -g root -D debian/tao-config.GNU debian/libtao-dev/usr/share/ace/TAO/tao-config.GNU
+	# pkg-config support files
+	$(INSTALL) -m 755 -o root -g root -d debian/libace-dev/usr/lib/pkgconfig
+	$(MAKE) -f debian/pkgconfig-ace debian/libace-dev/usr/lib/pkgconfig/ace.pc
+	$(INSTALL) -m 755 -o root -g root -d debian/libtao-dev/usr/lib/pkgconfig
+	$(MAKE) -f debian/pkgconfig-tao debian/libtao-dev/usr/lib/pkgconfig/tao.pc
+
 	# Fix duplicate files within reactor packages and main packages
 	for fname_ in `cat debian/libace-*reactor-dev.install debian/libtao-*reactor-dev.install|grep include|cut -f 1 -d ' '|sed -e 's,^ace/,debian/libace-dev/usr/include/ace\/,g;s,^TAO/,debian/libtao-dev/usr/include/,g'`; do \
 		rm -f $$fname_; \
 	done
 
-#       Install the C++ template sources.
+#   Install the C++ template sources.
 	sh debian/copy_template_sources.sh
 
 binary-indep: build install

@@ -1,0 +1,18 @@
+# -*- Makefile -*- # vim:syntax=make
+include $(ACE_ROOT)/include/makeinclude/wrapper_macros.GNU
+
+PKG_ACE_FILTEROUT=-DACE_NDEBUG% -DACE_USE_RCSID% -I% -W% -L% -O% -pipe
+
+PKG_ACE_VERSION=$(ACE_MAJOR_VERSION).$(ACE_MINOR_VERSION).$(ACE_BETA_VERSION)
+PKG_ACE_CFLAGS=$(filter-out $(PKG_ACE_FILTEROUT),$(CFLAGS))
+PKG_ACE_CPPFLAGS=$(filter-out $(PKG_ACE_FILTEROUT),$(CPPFLAGS))
+PKG_ACE_LDFLAGS=$(filter-out $(PKG_ACE_FILTEROUT),$(LDFLAGS))
+PKG_ACE_LDLIBS=$(filter-out $(PKG_ACE_FILTEROUT),$(LDLIBS))
+PKG_ACE_LIBS=$(filter-out $(PKG_ACE_FILTEROUT),$(ACELIB) $(LIBS))
+
+PKG_ACE_INFILE = debian/ace.pc.in
+PKG_ACE_OUTFILE = debian/libace-dev/usr/lib/pkgconfig/ace.pc
+
+$(PKG_ACE_OUTFILE):	$(PKG_ACE_INFILE)
+	sed -e 's/@PKG_ACE_CFLAGS@/$(PKG_ACE_CFLAGS)/g;s/@PKG_ACE_CPPFLAGS@/$(PKG_ACE_CPPFLAGS)/g;s/@PKG_ACE_LDFLAGS@/$(PKG_ACE_LDFLAGS)/g;s/@PKG_ACE_LDLIBS@/$(PKG_ACE_LDLIBS)/g;s/@PKG_ACE_LIBS@/$(PKG_ACE_LIBS)/g;s/@PKG_ACE_VERSION@/$(PKG_ACE_VERSION)/g' "$(PKG_ACE_INFILE)" > "$(PKG_ACE_OUTFILE)"
+

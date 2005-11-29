@@ -1,0 +1,6 @@
+Name: libace5.4
+Description: An Object-Oriented Network Programming Toolkit in C++
+Version: @PKG_ACE_VERSION@ 
+Libs: @PKG_ACE_LDFLAGS@ @PKG_ACE_LIBS@ @PKG_ACE_LDLIBS@
+Cflags: @PKG_ACE_CFLAGS@ @PKG_ACE_CPPFLAGS@
+
