@@ -6,6 +6,19 @@
 
 @DPATCH@
 
+--- ACE_wrappers/TAO/orbsvcs/tests/Security/MT_IIOP_SSL/test_i.cpp.orig	2004-10-28 17:11:30.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/tests/Security/MT_IIOP_SSL/test_i.cpp	2004-10-28 17:11:19.000000000 +0200
+@@ -55,8 +55,8 @@
+ 
+           // @@ Worst possible way to check. If SSLIOP had a tag
+           // things would have been a  lot simpler.
+-          TAO_SSLIOP_Transport *ssl_t =
+-            ACE_dynamic_cast (TAO_SSLIOP_Transport *,
++          TAO::SSLIOP::Transport *ssl_t =
++            ACE_dynamic_cast (TAO::SSLIOP::Transport *,
+                               t);
+ 
+           // There should be no SSL Transport--- ACE_wrappers/tests/IOStream_Test.cpp.orig	2004-10-25 17:26:12.609862328 +0200
 --- ACE_wrappers/tests/IOStream_Test.cpp.orig	2004-10-25 17:26:12.609862328 +0200
 +++ ACE_wrappers/tests/IOStream_Test.cpp	2004-10-25 17:26:29.640273312 +0200
 @@ -238,7 +238,7 @@

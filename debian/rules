@@ -9,7 +9,7 @@ ARCHIVE = ACE+TAO+CIAO-5.4.2-20040631.tar.gz
 
 export ACE_ROOT = $(shell pwd)/$(SRCDIR)
 export TAO_ROOT = $(ACE_ROOT)/TAO
-export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(shell pwd)
+export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(ACE_ROOT)/lib
 
 # Ok, this does not work for the first call of debian/rules
 # because the $(SRCDIR) does not exists. Do not worry about
@@ -86,7 +86,7 @@ $(ACE_ROOT).orig:
 	mv "$(ACE_ROOT).orig.tmp" "$(ACE_ROOT).orig"
 
 dpatch:	$(ACE_ROOT).orig $(ACE_ROOT)
-	diff -Nru "$(SRCDIR).orig" "$(SRCDIR)" | dpatch patch-template -p "$(DPATCH_NAME)" "$(DPATCH_DESC)" > "$(DPATCH_NAME).dpatch"
+	diff -I "^# .*bin/mwc.pl.*-include.*-recurse.*" -Nru "$(SRCDIR).orig" "$(SRCDIR)" | dpatch patch-template -p "$(DPATCH_NAME)" "$(DPATCH_DESC)" > "$(DPATCH_NAME).dpatch"
 
 # update-makefile is a special target dedicated for creation of a new
 # dpatch after changing the debian/config/debian.feature file.
