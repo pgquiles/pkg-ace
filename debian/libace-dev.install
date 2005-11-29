@@ -1,3 +1,4 @@
+bin/generate_export_file.pl           usr/bin
 ace/*.{h,i,inl}                       usr/include/ace
 ace/CLASSIX/*.{h,i,inl}               usr/include/ace/CLASSIX
 ace/os_include/*.{h,i,inl}            usr/include/ace/os_include
