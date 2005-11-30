@@ -154,7 +154,7 @@ build-stamp:	patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 
 clean:
 	dh_testdir
-	rm -rf *-stamp *-stampT *.tmp $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) $(MPC_SUBDIR).orig debian/patched
+	rm -rf *-stamp *-stampT *.tmp $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) $(MPC_SUBDIR).orig debian/patched $(MAN1) $(MAN5)
 
 	dh_clean
 

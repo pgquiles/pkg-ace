@@ -1,5 +1,6 @@
 04-debian-bug243473
 06-fix-notify-logging-service
+08-fix-perl-shebang
 14-mpc-reactor-seperation
 15-fix-fltk-include
 16-fix-tests
