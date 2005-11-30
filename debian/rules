@@ -15,7 +15,8 @@ MPC_ARCHIVE = $(shell ls -1 MPC*.tar.gz 2>/dev/null || echo mpc-archive-missing)
 MAN1 := debian/Basic_Logging_Service.1 \
 	debian/Event_Logging_Service.1 \
 	debian/Notify_Logging_Service.1 \
-	debian/RTEvent_Logging_Service.1
+	debian/RTEvent_Logging_Service.1 \
+	debian/TAO_ORB_Options.1
 MAN5 :=
 
 ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
