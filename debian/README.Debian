@@ -35,9 +35,9 @@ The following features have also been enabled in this package:
 
 -- Konstantinos Margaritis <markos@debian.org>, Sat, 31 Jan 2004 01:41:14 +0200
 
-Debian GNU/Linux introduces the reactor seperation for ACE/TAO. The big
+Debian GNU/Linux introduces the reactor separation for ACE/TAO. The big
 advantage is less dependencies and more flexibility due to all reactor
-implementation are provieded by seperate packages:
+implementation are provieded by separate packages:
 
      * libace-flreactor-dev, libace-flreactor5.4
      * libace-qtreactor-dev, libace-qtreactor5.4
