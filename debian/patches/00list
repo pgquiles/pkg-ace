@@ -8,4 +8,5 @@
 80-update-makefile
 81-patch-idlstubs-order-cossevent
 82-mpc-honour-libout
+83-skip-orbsvcs-examples-and-tests
 90-patch-mpc-basedir
