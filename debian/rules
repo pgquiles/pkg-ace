@@ -52,8 +52,11 @@ $(ACE_ROOT):	$(ARCHIVE)
 debian/%.1 debian/%.5: debian/%.sgml
 	docbook-to-man $^ > $@
 
+patch-perl-scripts:	$(ACE_ROOT)
+	for fn in `find "$(ACE_ROOT)" -name "*.pl"`; do (echo '#!/usr/bin/perl'; cat "$$fn") > "$${fn}T"; mv "$${fn}T" "$$fn"; chmod a+x "$$fn"; done
+
 patch:	patch-stamp
-patch-stamp:	$(ACE_ROOT)
+patch-stamp:	patch-perl-scripts
 	dpatch --workdir $(ACE_ROOT) apply-all
 	touch $@
 
@@ -247,4 +250,4 @@ source diff:
 
 binary: binary-indep binary-arch
 
-.PHONY: build clean binary-indep binary-arch binary install patch unpatch prepatch prepatchtwo update-makefile
+.PHONY: build clean binary-indep binary-arch binary install patch unpatch prepatch prepatchtwo update-makefile patch-perl-scripts
