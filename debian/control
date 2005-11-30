@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Debian ACE+TAO maintainers <pkg-ace-devel@lists.alioth.debian.org>
 Uploaders: Konstantinos Margaritis <markos@debian.org>, Brian Nelson <pyro@debian.org>
-Build-Depends: debhelper (>= 4.1), libssl-dev, dpatch (>= 2.0.10), xlibs-dev (>= 4.3), libfltk1.1-dev (>= 1.1.4), libqt3-mt-dev (>= 3:3.3.3), tk8.4-dev (>= 8.4.7), wxwin2.4-headers (>= 2.4.2)
+Build-Depends: debhelper (>= 4.1), libssl-dev (>= 0.9.7d), dpatch (>= 2.0.10), xlibs-dev (>= 4.3), libfltk1.1-dev (>= 1.1.4), libqt3-mt-dev (>= 3:3.3.3), tk8.4-dev (>= 8.4.7), wxwin2.4-headers (>= 2.4.2)
 Standards-Version: 3.6.1
 
 Package: libace5.4
@@ -42,7 +42,7 @@ Package: libace-dev
 Architecture: any
 Section: libdevel
 Depends: libace5.4 (= ${Source-Version}), libc6-dev
-Suggests: libace-doc, libtao-dev, ace+tao-utilities
+Suggests: libace-doc, libtao-dev, pkg-config
 Replaces: libace5.2-dev
 Conflicts: libace4.6-dev, libace5.0-dev, libace5.1-dev, libace5.2-dev
 Description:  An Object-Oriented Network Programming Toolkit in C++
@@ -77,6 +77,7 @@ Architecture: all
 Section: libdevel
 Depends: libace-dev (= ${Source-Version}), perl
 Recommends: gperf-ace, libtao-dev, make
+Suggests: pkg-config
 Description:  A Makefile generator in Perl
  This package contains the MakeProjectCreator (MPC) for the ACE
  toolkit.
@@ -251,7 +252,8 @@ Package: libtao-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends}, libc6-dev, libace-dev (= ${Source-Version})
-Suggests: libtao-doc, libtao-orbsvcs-dev, ace+tao-utilities
+Recommends: libssl-dev (>= 0.9.7d)
+Suggests: libtao-doc, libtao-orbsvcs-dev
 Description: Development Files for TAO, The ACE ORB
  This package contains the header files for the TAO toolkit. Due to the
  size of the static libs (> 400MB) they have been left out.
@@ -307,7 +309,6 @@ Package: libciao-dev
 Architecture: any
 Section: libdevel
 Depends: libciao1.4 (= ${Source-Version}), libtao-orbsvcs-dev (= ${Source-Version})
-Suggests: ace+tao-utilities
 Description: CIAO, TAO's implementation of CORBA Component Model (CCM)
  This package contains the header files for CIAO.
  The examples and some documentation have been included as well.
