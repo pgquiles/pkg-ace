@@ -1,5 +1,5 @@
 #! /bin/sh /usr/share/dpatch/dpatch-run
-## 14-fix-mpc-basedir.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+## 90-patch-mpc-basedir.dpatch by Thomas Girard <thomas.g.girard@free.fr>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
 ## DP: No description
