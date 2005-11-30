@@ -13,9 +13,17 @@ ace (5.4.2.1-2) unstable; urgency=low
       debian.features files. This file will be generated
     - debian/rules: Uses dpatch. Simplified clean target by removing temporary
       ACE_wrappers subdirectory. Install ace-config and tao-config scripts
-      with executable bit (Closes: #278522, #278523)
-    - debian/control: Added new reactor packages.
+      with executable bit set (Closes: #278522, #278523)
+    - debian/control: Added new reactor packages. Removed depricated
+      suggestions on ace+tao-utilities. Added libssl-dev as recommendation for
+      libace-dev. Added suggestions for pkg-config
     - Upgrade to latest version of TAO (Closes: #265238)
+    - debian/pkgconfig-ace, debian/pkgconfig-tao, debian/ace.pc.in,
+      debian/tao.pc.in: Support for pkg-config added
+    - debian/libace-dev.links: Added sym-link for /usr/share/ace/lib and
+      /usr/share/ace/bin/generate_export_file.pl
+    - debian/*.docs, debian/*.manpages: Added source directory ACE_wrappers as prefix
+    - debian/libace-dev.install: Added ACE_wrappers/bin/generate_export_file.pl
 
  -- Thomas Girard <thomas.g.girard@free.fr>  Mon, 18 Oct 2004 13:35:56 +0200
 
