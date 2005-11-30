@@ -430,7 +430,7 @@ Description: GUI Integrated Reactors for ACE: FastLight Reactor
 Package: libace-flreactor-dev
 Architecture: any
 Section: devel
-Depends: libace-flreactor5.4 (= ${Source-Version}), libace-dev (= ${Source-Version}), libfltk1-dev (>= 1.0.11)
+Depends: libace-flreactor5.4 (= ${Source-Version}), libace-dev (= ${Source-Version}), libfltk1.1-dev
 Description: GUI Integrated Reactors for ACE: FastLight Reactor (development files)
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
