@@ -1,4 +1,6 @@
 bin/mpc.pl                      usr/bin
 bin/mwc.pl                      usr/bin
+bin/depgen.pl			usr/bin
+bin/DependencyGenerator/*	usr/share/ace/bin/DependencyGenerator
 bin/MakeProjectCreator/*        usr/share/ace/bin/MakeProjectCreator
 MPC/{config,modules,templates,*.pl} usr/share/ace/MPC
