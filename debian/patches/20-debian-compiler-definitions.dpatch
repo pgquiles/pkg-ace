@@ -1,0 +1,20 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 20-debian-compiler-definitions.dpatch by Raphael Bossek <bossekr@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Additional Debian GNU/Linux specific definitions
+
+@DPATCH@
+
+--- ACE_wrappers/include/makeinclude/platform_linux.GNU.orig	2004-10-29 15:10:22.000000000 +0200
++++ ACE_wrappers/include/makeinclude/platform_linux.GNU	2004-10-29 15:10:05.000000000 +0200
+@@ -151,6 +151,9 @@
+   PLATFORM_SCTP_LIBS?= -lsctp
+ endif
+ 
++# bossekr@debian.org: Debian GNU/Linux extensions
++CPPFLAGS += -DACE_HAS_SYS_SIGLIST=1 -DACE_GPERF=\"gperf-ace\"
++
+ #### GNU gas has a string limit of 4096 characters.  On Alphas,
+ #### builds will fail due to running over that limit.  There are
+ #### at least two workarounds:

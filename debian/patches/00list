@@ -4,6 +4,7 @@
 14-mpc-reactor-seperation
 15-fix-fltk-include
 16-fix-tests
+20-debian-compiler-definitions
 79-prepatch-dummy-mark
 80-update-makefile
 82-mpc-honour-libout
