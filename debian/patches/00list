@@ -7,5 +7,6 @@
 20-debian-compiler-definitions
 79-prepatch-dummy-mark
 80-update-makefile
+81-patch-idlstubs-order-cossevent
 82-mpc-honour-libout
 90-patch-mpc-basedir
