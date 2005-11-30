@@ -1,4 +1,4 @@
-ace (5.4.2.1-2) unstable; urgency=low
+ace (5.4.2.1.0-1) unstable; urgency=medium
 
   * Thomas Girard <thomas.g.girard@free.fr>
     - Much lintian cleaning.
