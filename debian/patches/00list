@@ -4,10 +4,12 @@
 14-mpc-reactor-seperation
 15-fix-fltk-include
 16-fix-tests
+17-fix-tao-encode_value-memory-leak
 20-debian-compiler-definitions
 79-prepatch-dummy-mark
 80-update-makefile
 81-patch-idlstubs-order-cossevent
 82-mpc-honour-libout
 83-skip-orbsvcs-examples-and-tests
+84-mpc-honour-soversion
 90-patch-mpc-basedir

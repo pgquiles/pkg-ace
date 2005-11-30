@@ -1,0 +1,45 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 17-fix-tao-encode_value-memory-leak.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fixed a memory leak under some circumstances.
+## DP: See ChangeLog entry
+## DP:  "Tue Nov 23 21:34:11 2004  Ossama Othman  <ossama@dre.vanderbilt.edu>"
+
+@DPATCH@
+--- ACE_wrappers.org/TAO/tao/CDR_Encaps_Codec.cpp	2004-10-28 18:13:32.000000000 +0200
++++ ACE_wrappers/TAO/tao/CDR_Encaps_Codec.cpp	2004-12-02 11:21:48.000000000 +0100
+@@ -12,6 +12,8 @@
+ #include "Marshal.h"
+ #include "Any_Unknown_IDL_Type.h"
+ #include "ORB_Constants.h"
++
++#include "ace/Auto_Ptr.h"
+ #include "ace/OS_NS_string.h"
+ 
+ ACE_RCSID (TAO_CodecFactory,
+@@ -167,13 +169,23 @@
+     {
+       ACE_Message_Block * mb = data._tao_get_cdr ();
+ 
++      auto_ptr<ACE_Message_Block> safe_mb;
++
+       if (mb == 0)
+         {
+-          ACE_NEW_THROW_EX (mb,
++          ACE_Message_Block * tmp;
++
++	  ACE_NEW_THROW_EX (tmp,
+                             ACE_Message_Block,
+                             CORBA::NO_MEMORY ());
+           ACE_CHECK_RETURN (0);
+ 
++	  ACE_AUTO_PTR_RESET (safe_mb,
++			      tmp,
++			      ACE_Message_Block);
++
++	  mb = tmp;
++
+           TAO_OutputCDR out;
+           CORBA::Any any (data);
+           any.impl ()->marshal_value (out);
