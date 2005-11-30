@@ -97,9 +97,8 @@ dpatch:	$(ACE_ROOT).orig $(ACE_ROOT)
 # too refer to `update-makefile-complete' target below.
 update-makefile:	prepatchtwo
 	cd $(ACE_ROOT) \
-	&& dirs=`find * -name "examples" -or -name "tests" -or -name "performance-tests"` \
-	&& excludes=`for i in $$dirs; do find "$$i" -name "*.mwc" -printf "%h/%f,"; done` \
-	&& $(ACE_ROOT)/bin/mwc.pl -feature_file "$(ACE_ROOT)/debian.features" -recurse -hierarchy -relative ACE_ROOT=$(ACE_ROOT) -exclude $${excludes}TAO/TAOACE.mwc,TAO/CIAO/CIAOTAO.mwc
+	&& dirs=`find * -name "examples" -or -name "tests" -or -name "performance-tests" | tr '\n' ','` \
+	&& $(ACE_ROOT)/bin/mwc.pl -feature_file "$(ACE_ROOT)/debian.features" -recurse -hierarchy -relative ACE_ROOT=$(ACE_ROOT) -exclude $${dirs}TAO/TAOACE.mwc,TAO/CIAO/CIAOTAO.mwc
 	$(MAKE) -f debian/rules dpatch DPATCH_NAME="$(MAKEFILE_DPATCH_NAME)" DPATCH_DESC="MakeProjectCreator generated Makefiles without examples and tests"
 	mv "$(MAKEFILE_DPATCH_NAME).dpatch" "$(MAKEFILE_DPATCH_FILENAME)"
 
