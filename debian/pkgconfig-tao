@@ -6,12 +6,12 @@ include $(TAO_ROOT)/rules.tao.GNU
 PKG_TAO_FILTEROUT = $(PKG_ACE_FILTEROUT)
 
 PKG_TAO_VERSION = $(TAO_MAJOR_VERSION).$(TAO_MINOR_VERSION).$(TAO_BETA_VERSION)
-PKG_TAO_CFLAGS = $(filter-out $(PKG_TAO_FILTEROUT),$(CFLAGS))
-PKG_TAO_CPPFLAGS = $(filter-out $(PKG_TAO_FILTEROUT),$(CPPFLAGS))
-PKG_TAO_LDFLAGS = $(filter-out $(PKG_TAO_FILTEROUT),$(LDFLAGS))
-PKG_TAO_LDLIBS = $(filter-out $(PKG_TAO_FILTEROUT),$(LDLIBS))
-PKG_TAO_BASELIBS = $(filter-out $(PKG_TAO_FILTEROUT),$(TAO_BASE_LIBS))
-PKG_TAO_RTLIBS = $(filter-out $(PKG_TAO_FILTEROUT),$(RT_TAO_BASE_LIBS))
+PKG_TAO_CFLAGS = $(subst \,\\,$(filter-out $(PKG_TAO_FILTEROUT),$(CFLAGS)))
+PKG_TAO_CPPFLAGS = $(subst \,\\,$(filter-out $(PKG_TAO_FILTEROUT),$(CPPFLAGS)))
+PKG_TAO_LDFLAGS = $(subst \,\\,$(filter-out $(PKG_TAO_FILTEROUT),$(LDFLAGS)))
+PKG_TAO_LDLIBS = $(subst \,\\,$(filter-out $(PKG_TAO_FILTEROUT),$(LDLIBS)))
+PKG_TAO_BASELIBS = $(subst \,\\,$(filter-out $(PKG_TAO_FILTEROUT),$(TAO_BASE_LIBS)))
+PKG_TAO_RTLIBS = $(subst \,\\,$(filter-out $(PKG_TAO_FILTEROUT),$(RT_TAO_BASE_LIBS)))
 
 PKG_TAO_INFILE = debian/tao.pc.in
 PKG_TAO_OUTFILE = debian/libtao-dev/usr/lib/pkgconfig/tao.pc
