@@ -325,12 +325,12 @@ Description: GUI Integrated Reactors for ACE: Qt Reactor
  community has created several reactor extensions for use with X Window
  System. Each of these extends the ACE_Select_Reactor to work with a
  specific toolkit. By using these reactors, your GUI application can remain
- single threaded yet still respond to both GUI events, such as button presses,
- any your own application events.
+ single threaded yet still respond to both GUI events, such as button
+ presses, any your own application events.
  .
  The ACE_QtReactor extends both the ACE_Select_Reactor and the Trolltech Qt
- library's QObjects class. Rather then using select(), the QtWaitForMultipleEvents()
- function is used.
+ library's QObjects class. Rather then using select(), the
+ QtWaitForMultipleEvents() function is used.
 
 Package: libace-qtreactor-dev
 Architecture: any
@@ -341,12 +341,12 @@ Description: GUI Integrated Reactors for ACE: Qt Reactor (development files)
  community has created several reactor extensions for use with X Window
  System. Each of these extends the ACE_Select_Reactor to work with a
  specific toolkit. By using these reactors, your GUI application can remain
- single threaded yet still respond to both GUI events, such as button presses,
- any your own application events.
+ single threaded yet still respond to both GUI events, such as button
+ presses, any your own application events.
  .
  The ACE_QtReactor extends both the ACE_Select_Reactor and the Trolltech Qt
- library's QObjects class. Rather then using select(), the QtWaitForMultipleEvents()
- function is used.
+ library's QObjects class. Rather then using select(), the
+ QtWaitForMultipleEvents() function is used.
  .
  This packages contains development files.
 
