@@ -7,8 +7,10 @@
 
 INSTALL = install
 
-SRCDIR = ACE_wrappers
-ARCHIVE = ACE+TAO+CIAO-5.4.2-20040631.tar.gz
+ACE_SUBDIR = ACE_wrappers
+ACE_ARCHIVE = $(shell ls -1 ACE+TAO+CIAO*.tar.gz 2>/dev/null || echo ace-archive-missing)
+MPC_SUBDIR = MPC
+MPC_ARCHIVE = $(shell ls -1 MPC*.tar.gz 2>/dev/null || echo mpc-archive-missing)
 
 MAN1 := debian/Basic_Logging_Service.1 \
 	debian/Event_Logging_Service.1 \
@@ -16,19 +18,12 @@ MAN1 := debian/Basic_Logging_Service.1 \
 	debian/RTEvent_Logging_Service.1
 MAN5 :=
 
-export ACE_ROOT = $(shell pwd)/$(SRCDIR)
+ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
+export MPC_ROOT = $(shell pwd)/$(MPC_SUBDIR)
+endif
+export ACE_ROOT = $(shell pwd)/$(ACE_SUBDIR)
 export TAO_ROOT = $(ACE_ROOT)/TAO
 export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(ACE_ROOT)/lib
-
-# Ok, this does not work for the first call of debian/rules
-# because the $(SRCDIR) does not exists. Do not worry about
-# this because `dpkg-buildpackge' calls 'debian/rules' multiple
-# times.
-ACE_MAJOR_VERSION := $(shell grep ACE_MAJOR_VERSION $(SRCDIR)/ace/Version.h 2>/dev/null | sed -e 's/\#define ACE_MAJOR_VERSION //')
-ACE_VERSION := $(shell grep ACE_VERSION $(SRCDIR)/ace/Version.h 2>/dev/null | sed -e 's/\#define ACE_VERSION //' -e 's/"//g')
-
-TAO_MAJOR_VERSION := $(shell grep TAO_MAJOR_VERSION $(SRCDIR)/TAO/tao/Version.h 2>/dev/null | sed -e 's/\#define TAO_MAJOR_VERSION //')
-TAO_VERSION := $(shell grep TAO_MAJOR_VERSION $(SRCDIR)/TAO/tao/Version.h 2>/dev/null | sed -e 's/\#define TAO_MAJOR_VERSION //')
 
 # This dpatch is only a place holder. The `perpatch' targets stops
 # here by default.
@@ -45,19 +40,27 @@ MAKEFILE_DPATCH_FILENAME = debian/patches/$(MAKEFILE_DPATCH_NAME).dpatch
 DPATCH_NAME = temp.dpatch
 DPATCH_DESC = No description.
 
-$(ACE_ROOT):	$(ARCHIVE)
+$(ACE_ROOT):	$(ACE_ARCHIVE)
 	tar -xzf "$^"
-	touch $@
+	touch "$@"
+
+$(MPC_ROOT):	$(MPC_ARCHIVE)
+	tar -xzf "$^"
+	touch "$@"
 
 debian/%.1 debian/%.5: debian/%.sgml
-	docbook-to-man $^ > $@
+	docbook-to-man "$^" > "$@"
 
 patch-perl-scripts:	$(ACE_ROOT)
 	for fn in `find "$(ACE_ROOT)" -name "*.pl"`; do (echo '#!/usr/bin/perl'; cat "$$fn") > "$${fn}T"; mv "$${fn}T" "$$fn"; chmod a+x "$$fn"; done
 
 patch:	patch-stamp
+ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
+patch-stamp:	patch-perl-scripts $(MPC_ROOT)
+else
 patch-stamp:	patch-perl-scripts
-	dpatch --workdir $(ACE_ROOT) apply-all
+endif
+	dpatch apply-all
 	touch $@
 
 unpatch:	clean $(ACE_ROOT)
@@ -86,8 +89,12 @@ $(ACE_ROOT)/include/makeinclude/platform_macros.GNU:	$(ACE_ROOT)/debian.features
 # create a new one. The fix-mpc-basedir.dpatch can not be applied too. If
 # other the MakeProjectCreator tools won't work. To achieve that a dummy
 # dpatch file is used: $(PREPATCH_MARK_DPATCH_NAME)
+ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
+prepatch:	$(ACE_ROOT) $(MPC_ROOT)
+else
 prepatch:	$(ACE_ROOT)
-	dpatch --workdir $(ACE_ROOT) apply-until $(UNTIL_DPATCH_NAME)
+endif
+	dpatch apply-until $(UNTIL_DPATCH_NAME)
 	$(MAKE) -f debian/rules $(ACE_ROOT)/debian.features
 	rm -rf debian/patched
 
@@ -100,7 +107,7 @@ $(ACE_ROOT).orig:
 	mv "$(ACE_ROOT).orig.tmp" "$(ACE_ROOT).orig"
 
 dpatch:	$(ACE_ROOT).orig $(ACE_ROOT)
-	diff -I "^# .*bin/mwc.pl.*-include.*-recurse.*" -Nru "$(SRCDIR).orig" "$(SRCDIR)" | dpatch patch-template -p "$(DPATCH_NAME)" "$(DPATCH_DESC)" > "$(DPATCH_NAME).dpatch"
+	diff -I "^# .*bin/mwc.pl.*-include.*-recurse.*" -Nru "$(ACE_SUBDIR).orig" "$(ACE_SUBDIR)" | dpatch patch-template -p "$(DPATCH_NAME)" "$(DPATCH_DESC)" > "$(DPATCH_NAME).dpatch"
 
 # update-makefile is a special target dedicated for creation of a new
 # dpatch after changing the debian/config/debian.feature file. Only
@@ -146,7 +153,7 @@ build-stamp:	patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 
 clean:
 	dh_testdir
-	rm -rf *-stamp *-stampT *.tmp "$(SRCDIR)" "$(SRCDIR).orig" debian/patched
+	rm -rf *-stamp *-stampT *.tmp $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) $(MPC_SUBDIR).orig debian/patched
 
 	dh_clean
 
