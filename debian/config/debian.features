@@ -31,12 +31,6 @@ rtcorba=1
 // Enable CORBA messaging
 corba_messaging=1
 
-// Disable Stream Control Transmission Protocol (RFC2960)
-sctp=0
-
-// Disable Component Implentation Definition Language Compiler (CIDLC)
-cidl=0
-
 // Enable ACE_XtReactor
 xt_reactor=1
 
@@ -69,6 +63,12 @@ static_libs=1
 //
 //  DISABLED ACE/TAO/CIAO FEATURES BEGIN HERE
 //
+
+// Disable Stream Control Transmission Protocol (RFC2960)
+sctp=0
+
+// Disable Component Implentation Definition Language Compiler (CIDLC)
+cidl=0
 
 // Disable GNU template repository (g++ with repo patches and egcs only)
 repo=0
