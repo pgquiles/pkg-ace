@@ -41,7 +41,7 @@ Description: An Object-Oriented Network Programming Toolkit in C++
 Package: libace-dev
 Architecture: any
 Section: libdevel
-Depends: libace5.4 (= ${Source-Version}), libc6-dev
+Depends: libace5.4 (= ${Source-Version}), libssl-dev (>= 0.9.7d)
 Suggests: libace-doc, libtao-dev, pkg-config
 Replaces: libace5.2-dev
 Conflicts: libace4.6-dev, libace5.0-dev, libace5.1-dev, libace5.2-dev
@@ -198,7 +198,7 @@ Description: ACE XML PARSER Framework (runtime)
 Package: libacexml-dev
 Architecture: any
 Section: libdevel
-Depends: libacexml5.4 (= ${Source-Version}), libc6-dev
+Depends: libacexml5.4 (= ${Source-Version})
 Description: ACE XML PARSER Framework (development)
  This package contains the header files and static libraries for the ACE
  toolkit.
@@ -251,8 +251,7 @@ Description: The ACE ORB, an open-source implementation of CORBA ORB
 Package: libtao-dev
 Architecture: any
 Section: libdevel
-Depends: ${shlibs:Depends}, libc6-dev, libace-dev (= ${Source-Version})
-Recommends: libssl-dev (>= 0.9.7d)
+Depends: ${shlibs:Depends}, libace-dev (= ${Source-Version})
 Suggests: libtao-doc, libtao-orbsvcs-dev
 Description: Development Files for TAO, The ACE ORB
  This package contains the header files for the TAO toolkit. Due to the
