@@ -1,4 +1,4 @@
 bin/mpc.pl                      usr/bin
 bin/mwc.pl                      usr/bin
 bin/MakeProjectCreator/*        usr/share/ace/bin/MakeProjectCreator
-MPC/*                           usr/share/ace/MPC
+MPC/{config,modules,templates,*.pl} usr/share/ace/MPC
