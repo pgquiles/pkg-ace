@@ -1,4 +1,4 @@
-Name: libtao1.4
+Name: tao
 Description: The ACE ORB, an open-source implementation of CORBA ORB
 Version: @PKG_TAO_VERSION@
 Requires: libace5.4 (= @PKG_ACE_VERSION@)
