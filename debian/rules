@@ -41,7 +41,6 @@ DPATCH_DESC = No description.
 
 $(ACE_ROOT):	$(ARCHIVE)
 	tar -xzf "$^"
-	#find "$(SRCDIR)" -exec touch -cr debian/rules {} \;
 	touch $@
 
 patch:	patch-stamp
@@ -92,8 +91,19 @@ dpatch:	$(ACE_ROOT).orig $(ACE_ROOT)
 	diff -I "^# .*bin/mwc.pl.*-include.*-recurse.*" -Nru "$(SRCDIR).orig" "$(SRCDIR)" | dpatch patch-template -p "$(DPATCH_NAME)" "$(DPATCH_DESC)" > "$(DPATCH_NAME).dpatch"
 
 # update-makefile is a special target dedicated for creation of a new
-# dpatch after changing the debian/config/debian.feature file.
+# dpatch after changing the debian/config/debian.feature file. Only
+# projects which are required for distribution are compiled. Examples,
+# tests and performance-tests are skipped. If you intent to compile them
+# too refer to `update-makefile-complete' target below.
 update-makefile:	prepatchtwo
+	cd $(ACE_ROOT) \
+	&& dirs=`find * -name "examples" -or -name "tests" -or -name "performance-tests"` \
+	&& excludes=`for i in $$dirs; do find "$$i" -name "*.mwc" -printf "%h/%f,"; done` \
+	&& $(ACE_ROOT)/bin/mwc.pl -feature_file "$(ACE_ROOT)/debian.features" -recurse -hierarchy -relative ACE_ROOT=$(ACE_ROOT) -exclude $${excludes}TAO/TAOACE.mwc,TAO/CIAO/CIAOTAO.mwc
+	$(MAKE) -f debian/rules dpatch DPATCH_NAME="$(MAKEFILE_DPATCH_NAME)" DPATCH_DESC="MakeProjectCreator generated Makefiles without examples and tests"
+	mv "$(MAKEFILE_DPATCH_NAME).dpatch" "$(MAKEFILE_DPATCH_FILENAME)"
+
+update-makefile-complete:	prepatchtwo
 	cd $(ACE_ROOT) && $(ACE_ROOT)/bin/mwc.pl -feature_file "$(ACE_ROOT)/debian.features" -recurse -hierarchy -relative ACE_ROOT=$(ACE_ROOT) -exclude TAO/TAOACE.mwc,TAO/CIAO/CIAOTAO.mwc
 	$(MAKE) -f debian/rules dpatch DPATCH_NAME="$(MAKEFILE_DPATCH_NAME)" DPATCH_DESC="MakeProjectCreator generated Makefiles"
 	mv "$(MAKEFILE_DPATCH_NAME).dpatch" "$(MAKEFILE_DPATCH_FILENAME)"
