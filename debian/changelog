@@ -7,6 +7,8 @@ ace (5.4.2.1-2) unstable; urgency=low
     - Bug 242881 was closed in the previous upload. (Closes: #242881)
     - debian/control: libtao-dev should depend on libace-dev.
       (Closes: #277052)
+    - debian/{Basic,Event,Notify,RTEvent}_Logging_Service.sgml: new man pages.
+    - debian/rules: add docbook-to-man calls.
   * Raphael Bossek <bossekr@debian.org>
     - debian/config/debian.features: MPC configuration for Debian GNU/Linux added
     - debian/config/platform_macros.GNU: Removed due to introduction of

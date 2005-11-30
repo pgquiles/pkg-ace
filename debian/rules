@@ -10,6 +10,12 @@ INSTALL = install
 SRCDIR = ACE_wrappers
 ARCHIVE = ACE+TAO+CIAO-5.4.2-20040631.tar.gz
 
+MAN1 := debian/Basic_Logging_Service.1 \
+	debian/Event_Logging_Service.1 \
+	debian/Notify_Logging_Service.1 \
+	debian/RTEvent_Logging_Service.1
+MAN5 :=
+
 export ACE_ROOT = $(shell pwd)/$(SRCDIR)
 export TAO_ROOT = $(ACE_ROOT)/TAO
 export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(ACE_ROOT)/lib
@@ -42,6 +48,9 @@ DPATCH_DESC = No description.
 $(ACE_ROOT):	$(ARCHIVE)
 	tar -xzf "$^"
 	touch $@
+
+debian/%.1 debian/%.5: debian/%.sgml
+	docbook-to-man $^ > $@
 
 patch:	patch-stamp
 patch-stamp:	$(ACE_ROOT)
@@ -107,7 +116,10 @@ update-makefile-complete:	prepatchtwo
 	$(MAKE) -f debian/rules dpatch DPATCH_NAME="$(MAKEFILE_DPATCH_NAME)" DPATCH_DESC="MakeProjectCreator generated Makefiles"
 	mv "$(MAKEFILE_DPATCH_NAME).dpatch" "$(MAKEFILE_DPATCH_FILENAME)"
 
-build: build-stamp
+build: build-stamp build-manpages
+
+build-manpages: $(MAN1) $(MAN5)
+
 build-stamp:	patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 	dh_testdir
 
