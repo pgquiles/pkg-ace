@@ -1,0 +1,197 @@
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook V4.1//EN" [
+  <!ENTITY applname "TAO_ORB_Options">
+  <!ENTITY revision "$Revision: 1.1 $">
+  <!ENTITY man_tao_orb_options "<citerefentry><refentrytitle>TAO_ORB_Options</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
+  <!ENTITY man_event_service "<citerefentry><refentrytitle>Event_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
+  <!ENTITY man_basic_logging_service "<citerefentry><refentrytitle>Basic_Logging_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
+  <!ENTITY man_notify_logging_service "<citerefentry><refentrytitle>Notify_Logging_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
+  <!ENTITY man_event_logging_service "<citerefentry><refentrytitle>Event_Logging_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
+  <!ENTITY man_naming_service "<citerefentry><refentrytitle>Naming_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
+  <!ENTITY Naming_Service "<application>Naming_Service</application>">
+  <!ENTITY RTEvent_Logging_Service "<application>RTEvent_Logging_Service</application>">
+  <!ENTITY seealso "&man_tao_orb_options;, &man_event_service;, &man_basic_logging_service;, &man_notify_logging_service;, &man_event_logging_service;, &man_naming_service;">
+  <!ENTITY year "1999">
+  <!ENTITY username "David Hanvey">
+  <!ENTITY useremail "<email>&lt;d.hanvey@qub.ac.uk&gt;</email>">
+]>
+<refentry>
+  <refmeta>
+    <refentrytitle>TAO_ORB_OPTIONS</refentrytitle>
+    <manvolnum>1</manvolnum>
+  </refmeta>
+  <refnamediv>
+    <refname>&applname;</refname>
+    <refpurpose>Options for TAO Components</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <title>SYNOPSIS</title>
+    <cmdsynopsis>
+      <command>&applname;</command>
+      <group><arg>-ORBoptions</arg></group>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+  <refsect1>
+    <title>INTRODUCTION</title>
+    <para>
+   TAO is a highly flexible ORB that contains a wide range of ORB
+   configuration options. One or more of these options can be combined to
+   meet various application requirements, such as low-latency,
+   predictable real-time behavior, or small memory footprint. TAO's ORB
+   configuration options are managed by an object-oriented framework
+   within the ORB Core that contains the following types of entities:
+      <itemizedlist mark="opencircle">
+	    <listitem>
+		  <para>
+       Settings, which are options that can be assigned values differing
+       from their default settings. Examples include setting the size of
+       a Portable Object Adapter (POA)'s active object map or configuring
+       the ORB to print debugging information as it processes requests. A
+       few of these are run-time options, while a majority of them are
+       compile-time options.
+          </para>
+		</listitem>
+		<listitem>
+		  <para>
+       Resources, which are objects used internally by TAO, such as a
+       reactor framework that demultiplexes new connection and data
+       requests from a client or synchronization mechanisms used to
+       regulate access to certain parts of the ORB.
+	      </para>
+		</listitem>
+		<listitem>
+		  <para>
+       Strategies, which are objects that use the Resource entities to
+       perform various ORB tasks, such as connection management,
+       concurrency, and demultiplexing.
+	      </para>
+		</listitem>
+		<listitem>
+		  <para>
+       Factories, which TAO uses to create and consolidate its many
+       resources and strategies into a manageable number of factories
+       that can be (re)configured into the ORB conveniently and
+       consistently by ORB and application developers.
+	      </para>
+		</listitem>
+	  </itemizedlist>
+    </para>
+	<para>
+   The set of TAO ORB configuration options that are represented by the
+   settings, resources, strategies, and factories can be specified via
+   environment variables, service configuration files, and command-line
+   arguments, as outlined below:
+      <itemizedlist mark="opencircle">
+	    <listitem>
+		  <para>
+       Environment variables are limited to specifying the interoperable
+       object reference (IOR) and port number of TAO's Naming Service,
+       Trading Service and Implementation Repository. They are limited in
+       flexibility and don't provide the most important configuration
+       hooks necessary to configure TAO for real-time and
+       high-performance applications.
+	      </para>
+		</listitem>
+	    <listitem>
+		  <para>
+	   Command-line options are passed to the ORB initialization factory
+       method, CORBA::ORB_init(), by an application using the standard
+       argc, argv tuple passed to the application's main(). Most of the
+       options that can be exercised through environment variables can
+       also be manipulated through command-line options. Command-line
+       options override the environment variable settings if both are
+       enabled.
+          </para>
+		</listitem>
+	    <listitem>
+		  <para>
+       The Service Configurator is a framework that can be used to
+       statically and dynamically configure components into middleware
+       and applications. The information comprising the names of these
+       components and their corresponding options are specified in a
+       service configurator file, whose default file name is svc.conf.
+       The service configurator is opened and processed by the ORB in
+       CORBA::ORB_init(). The service configurator processing is done
+       after all the command-line options have been parsed.
+ 	      </para>
+		</listitem>
+	  </itemizedlist>
+    </para>
+  </refsect1>
+  <refsect1>
+    <title>CHOOSING THE RIGHT APPROACH</title>
+	<para>
+   TAO's command-line options are useful when there's a fixed set of
+   configuration options, each of which has a predefined list of
+   alternative values. Conversely, TAO's service configurator file is
+   useful for configuring a broader range of resources, strategies, and
+   factories. Generally speaking, the service configurator file allows
+   the user to
+      <itemizedlist mark="opencircle">
+	    <listitem>
+		  <para>
+       configure the existing components (i.e., resources, strategies and
+       factories) based on the predefined list of alternatives that TAO
+       provides or
+  	      </para>
+		</listitem>
+	    <listitem>
+		  <para>
+       extend the existing factories by providing user-defined components
+       and dynamically load them through the service configurator
+       mechanism.
+ 	      </para>
+		</listitem>
+	  </itemizedlist>
+    </para>
+	<para>
+   Additionally, the service configurator mechanism allows an application
+   to control the behavior of the ORB using extensible configuration
+   information. In general, the command-line configuration options are
+   provided in TAO in order to leverage preexisting configuration
+   settings that are compiled within the TAO ORB. Users are not allowed
+   to change these settings. In contrast, those options that require more
+   flexible manipulation of resources, strategies, and factories must be
+   configured via service configuration files. As a result, the
+   command-line options and the service configurator options cannot be
+   used interchangeably.
+	</para>
+  </refsect1>
+  <refsect1>
+    <title>TAO&amp;S ORB CONFIGURATION OPTIONS</title>
+	<para>
+   This section provides a detailed overview of how to configure TAO's
+   options using environment variables, command-line options, and service
+   configuration files.
+	</para>
+	<refsect2>
+	  <title>Environment Variables</title>
+	  <para>
+   As mentioned earlier, environment variables have a limited use in TAO
+   ORB configuration. The currently supported environment variables are
+   listed below. They are used to specify the IOR and port numbers for
+   three of TAO's ORB services.
+	  </para>
+	</refsect2>
+  </refsect1>
+  <refsect1>
+    <title>OPTIONS</title>
+    <para>
+      The program follows the usual TAO ORB command line syntax. See
+      &man_tao_orb_options;.
+    </para>
+  </refsect1>
+  <refsect1>
+    <title>BUGS</title>
+    <para>
+      Currently all Logs records are stored in memory.
+    </para>
+  </refsect1>
+  <refsect1>
+    <title>SEE ALSO</title>
+    <para>&seealso;</para>
+  </refsect1>
+  <refsect1>
+    <title>AUTHOR</title>
+    <para>&username; &useremail;</para>
+  </refsect1>
+</refentry>
