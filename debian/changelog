@@ -1,3 +1,12 @@
+ace (5.4.2.1.0-2) unstable; urgency=medium
+
+  * Konstantinos Margaritis <markos@debian.org>
+    - Changed dependency of libfltk1-dev in libace-flreactor-dev to
+    libfltk1.1-dev (Closes: #289287)
+    - Added Uploaders field in control.
+
+ -- Konstantinos Margaritis <markos@debian.org>  Sat,  8 Jan 2005 22:39:05 +0200
+
 ace (5.4.2.1.0-1) unstable; urgency=medium
 
   * Thomas Girard <thomas.g.girard@free.fr>
