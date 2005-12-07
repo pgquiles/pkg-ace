@@ -6,8 +6,10 @@ ace (5.4.2.1.0-3) unstable; urgency=low
     - debian/patches/17-fix-tao-encode_value-memory-leak: new patch
       from upstream to fix a potential memory leak.
     - debian/mpc-ace.install: add depgen.pl. (Closes: #289157)
+    - debian/tao_idl: new script that automatically sets ACE_ROOT and
+      TAO_ROOT environment variables. (Closes: #289158)
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Sun,  9 Jan 2005 16:01:42 +0100
+ -- Thomas Girard <thomas.g.girard@free.fr>  Fri, 11 Feb 2005 15:38:12 +0100
 
 ace (5.4.2.1.0-2) unstable; urgency=medium
 
