@@ -25,6 +25,7 @@ endif
 export ACE_ROOT = $(shell pwd)/$(ACE_SUBDIR)
 export TAO_ROOT = $(ACE_ROOT)/TAO
 export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(ACE_ROOT)/lib
+export QTDIR=/usr/share/qt3
 
 # This dpatch is only a place holder. The `perpatch' targets stops
 # here by default.
