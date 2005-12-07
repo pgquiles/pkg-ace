@@ -142,7 +142,7 @@ build-stamp:	patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 
 	$(MAKE) -C $(ACE_ROOT)/apps/gperf/src
 #	We need to rename gperf so that it does not conflict with the
-#   existing Cygnus based gperf Debian package.
+#	existing Cygnus based gperf Debian package.
 	cp $(ACE_ROOT)/bin/gperf $(ACE_ROOT)/bin/gperf-ace
 
 	$(MAKE) -C $(ACE_ROOT)/Kokyu
@@ -209,21 +209,21 @@ install: build
 
 	dh_install --sourcedir=$(ACE_ROOT)
 
-	# Variant of the official build configuration tool
+#	Variant of the official build configuration tool
 	$(INSTALL) -m 755 -o root -g root -D debian/ace-config     debian/libace-dev/usr/bin/ace-config
 	$(INSTALL) -m 644 -o root -g root -D debian/ace-config.GNU debian/libace-dev/usr/share/ace/ace-config.GNU
 	$(INSTALL) -m 755 -o root -g root -D debian/tao-config     debian/libtao-dev/usr/bin/tao-config
 	$(INSTALL) -m 644 -o root -g root -D debian/tao-config.GNU debian/libtao-dev/usr/share/ace/TAO/tao-config.GNU
-	# pkg-config support files
+# 	pkg-config support files
 	$(INSTALL) -m 755 -o root -g root -d debian/libace-dev/usr/lib/pkgconfig
 	$(MAKE) -f debian/pkgconfig-ace debian/libace-dev/usr/lib/pkgconfig/ace.pc
 	$(INSTALL) -m 755 -o root -g root -d debian/libtao-dev/usr/lib/pkgconfig
 	$(MAKE) -f debian/pkgconfig-tao debian/libtao-dev/usr/lib/pkgconfig/tao.pc
 
-	# Fix duplicate files within reactor packages and main packages
+#	Fix duplicate files within reactor packages and main packages
 	sh debian/remove_reactor_dups.sh
 
-#   Install the C++ template sources.
+#	Install the C++ template sources.
 	sh debian/copy_template_sources.sh
 
 binary-indep: build install
