@@ -334,7 +334,7 @@ Description: GUI Integrated Reactors for ACE: Qt Reactor
 Package: libace-qtreactor-dev
 Architecture: any
 Section: devel
-Depends: libace-qtreactor5.4 (= ${Source-Version}), libace-dev (= ${Source-Version}), libqt3-dev (>= 2:3.0.3-20020329)
+Depends: libace-qtreactor5.4 (= ${Source-Version}), libace-dev (= ${Source-Version}), libqt3-mt-dev (>= 3:3.3.3)
 Description: GUI Integrated Reactors for ACE: Qt Reactor (development files)
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
@@ -460,7 +460,7 @@ Description: GUI Integrated Reactors for TAO: Qt Reactor
 Package: libtao-qtreactor-dev
 Architecture: any
 Section: devel
-Depends: libtao-qtreactor1.4 (= ${Source-Version}), libtao-dev (= ${Source-Version}), libqt3-dev (>= 2:3.0.3-20020329) 
+Depends: libtao-qtreactor1.4 (= ${Source-Version}), libtao-dev (= ${Source-Version}), libqt3-mt-dev (>= 3:3.3.3)
 Description: GUI Integrated Reactors for TAO: Qt Reactor (development files)
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
