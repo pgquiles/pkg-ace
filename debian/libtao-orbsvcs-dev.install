@@ -74,6 +74,7 @@ TAO/orbsvcs/orbsvcs/libTAO_CosNaming_Serv.so        usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_CosNotification.so       usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_CosNotification_Skel.so  usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_CosNotification_Serv.so  usr/lib
+TAO/orbsvcs/orbsvcs/libTAO_CosNotification_Persist.so usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_CosProperty.so           usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_CosTime.so               usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_CosTrading.so            usr/lib
