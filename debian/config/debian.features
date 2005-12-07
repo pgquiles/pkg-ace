@@ -31,20 +31,29 @@ rtcorba=1
 // Enable CORBA messaging
 corba_messaging=1
 
-// Enable ACE_XtReactor
-xt_reactor=1
 
-// Enable ACE_FlReactor
-fl_reactor=1
+// Enable Fl, ACE_FlReactor and TAO_FlResource
+// OpenGL (required by FlReactor)
+gl=1
+fl=1
+ace_flreactor=1
+tao_flresource=1
 
-// Enable ACE_QtReactor
-qt_reactor=1
-
-// Enable ACE_TkReactor
-tk_reactor=1
-
-// Enable Qt applications
+// Enable QT, ACE_QtReactor and TAO_QtResource
 qt=1
+ace_qtreactor=1
+tao_qtresource=1
+
+// Enable ACE_TkReactor and TAO_TkResource
+tk=1
+ace_tkreactor=1
+tao_tkresource=1
+
+// Enable X11, XT, ACE_XtReactor and TAO_XtResource
+x11=1
+xt=1
+ace_xtreactor=1
+tao_xtresource=1
 
 // Build RPC applications
 rpc=1
