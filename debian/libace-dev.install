@@ -14,3 +14,6 @@ ace/libACE.so                         usr/lib
 ace/SSL/libACE_SSL.a                  usr/lib
 ace/SSL/libACE_SSL.so                 usr/lib
 include                               usr/share/ace
+ace/QoS/ACE_QoS.pc                    usr/lib/pkgconfig
+ace/SSL/ACE_SSL.pc                    usr/lib/pkgconfig
+ace/ACE.pc                            usr/lib/pkgconfig

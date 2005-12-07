@@ -7,3 +7,6 @@ ACEXML/parser/parser/libACEXML_Parser.a                usr/lib
 ACEXML/parser/parser/libACEXML_Parser.so               usr/lib
 ACEXML/apps/svcconf/libACEXML_XML_Svc_Conf_Parser.a    usr/lib
 ACEXML/apps/svcconf/libACEXML_XML_Svc_Conf_Parser.so   usr/lib
+ACEXML/apps/svcconf/ACEXML_XML_Svc_Conf_Parser.pc      usr/lib/pkgconfig
+ACEXML/common/ACEXML.pc                                usr/lib/pkgconfig
+ACEXML/parser/parser/ACEXML_Parser.pc                  usr/lib/pkgconfig

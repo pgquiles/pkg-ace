@@ -1,3 +1,4 @@
 Kokyu/*.{h,i,inl} usr/include/Kokyu
 Kokyu/libKokyu.a  usr/lib
 Kokyu/libKokyu.so usr/lib
+Kokyu/Kokyu.pc    usr/lib/pkgconfig

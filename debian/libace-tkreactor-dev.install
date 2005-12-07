@@ -2,3 +2,4 @@ ace/libACE_TkReactor.so    usr/lib
 ace/libACE_TkReactor.a     usr/lib
 ace/TkReactor.h            usr/include/ace
 ace/ACE_TkReactor_export.h usr/include/ace
+ace/ACE_TkReactor.pc       usr/lib/pkgconfig

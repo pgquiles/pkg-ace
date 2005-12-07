@@ -2,3 +2,4 @@ ace/libACE_XtReactor.so    usr/lib
 ace/libACE_XtReactor.a     usr/lib
 ace/XtReactor.h            usr/include/ace
 ace/ACE_XtReactor_export.h usr/include/ace
+ace/ACE_XtReactor.pc       usr/lib/pkgconfig

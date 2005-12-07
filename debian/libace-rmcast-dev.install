@@ -1,3 +1,4 @@
 ace/RMCast/*.{h,i}                     usr/include/ace/RMCast
 ace/RMCast/libACE_RMCast.a             usr/lib
 ace/RMCast/libACE_RMCast.so            usr/lib
+ace/RMCast/ACE_RMCast.pc               usr/lib/pkgconfig

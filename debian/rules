@@ -27,6 +27,9 @@ export TAO_ROOT = $(ACE_ROOT)/TAO
 export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(ACE_ROOT)/lib
 export QTDIR=/usr/share/qt3
 
+PKG_CONFIG_IN = $(shell find $(ACE_ROOT) -name '*.pc.in' 2>/dev/null)
+PKG_CONFIG = $(PKG_CONFIG_IN:.in=)
+
 # This dpatch is only a place holder. The `perpatch' targets stops
 # here by default.
 PREPATCH_MARK_DPATCH_NAME = 79-prepatch-dummy-mark.dpatch
@@ -52,6 +55,13 @@ $(MPC_ROOT): $(MPC_ARCHIVE)
 
 debian/%.1 debian/%.5: debian/%.sgml
 	docbook-to-man "$^" > "$@"
+
+%.pc: %.pc.in
+	cat "$^" | sed -e 's#@prefix@#/usr#g' \
+                       -e 's#@exec_prefix@#$$\{prefix\}#g' \
+                       -e 's#@libdir@#$$\{exec_prefix\}/lib#g' \
+                       -e 's#@includedir@#$$\{prefix\}/include#g' \
+                       -e 's#@VERSION@#5.4.4#g' > "$@"
 
 patch-perl-scripts: $(ACE_ROOT)
 	for fn in `find "$(ACE_ROOT)" -name "*.pl"`; do (echo '#!/usr/bin/perl'; cat "$$fn") > "$${fn}T"; mv "$${fn}T" "$$fn"; chmod a+x "$$fn"; done
@@ -128,9 +138,12 @@ update-makefile-complete: prepatchtwo
 	$(MAKE) -f debian/rules dpatch DPATCH_NAME="$(MAKEFILE_DPATCH_NAME)" DPATCH_DESC="MakeProjectCreator generated Makefiles"
 	mv "$(MAKEFILE_DPATCH_NAME).dpatch" "$(MAKEFILE_DPATCH_FILENAME)"
 
-build: build-stamp build-manpages
+build: build-stamp build-pkgconfig build-manpages
 
 build-manpages: $(MAN1) $(MAN5)
+
+build-pkgconfig:
+	$(MAKE) -f debian/rules $(PKG_CONFIG)
 
 build-stamp: patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 	dh_testdir
@@ -207,17 +220,6 @@ install: build
 	-chmod -x `find $(TAO_ROOT)/orbsvcs -perm 755 ! -type d -a \( -name "*.h" -o -name "*.inl" \)`
 
 	dh_install --sourcedir=$(ACE_ROOT)
-
-#	Variant of the official build configuration tool
-	$(INSTALL) -m 755 -o root -g root -D debian/ace-config     debian/libace-dev/usr/bin/ace-config
-	$(INSTALL) -m 644 -o root -g root -D debian/ace-config.GNU debian/libace-dev/usr/share/ace/ace-config.GNU
-	$(INSTALL) -m 755 -o root -g root -D debian/tao-config     debian/libtao-dev/usr/bin/tao-config
-	$(INSTALL) -m 644 -o root -g root -D debian/tao-config.GNU debian/libtao-dev/usr/share/ace/TAO/tao-config.GNU
-# 	pkg-config support files
-	$(INSTALL) -m 755 -o root -g root -d debian/libace-dev/usr/lib/pkgconfig
-	$(MAKE) -f debian/pkgconfig-ace debian/libace-dev/usr/lib/pkgconfig/ace.pc
-	$(INSTALL) -m 755 -o root -g root -d debian/libtao-dev/usr/lib/pkgconfig
-	$(MAKE) -f debian/pkgconfig-tao debian/libtao-dev/usr/lib/pkgconfig/tao.pc
 
 #	Fix duplicate files within reactor packages and main packages
 	sh debian/remove_reactor_dups.sh
