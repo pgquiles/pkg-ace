@@ -4,7 +4,7 @@
   <!ENTITY progname "tao_program">
   <!ENTITY year "1999">
   <!ENTITY username "Douglas C. Schmidt">
-  <!ENTITY useremail "<email>&lt;d.schmidt@vanderbilt.edu&gt;</email>">
+  <!ENTITY useremail "<email>&lt;schmidt@cs.wustl.edu&gt;</email>">
 ]>
 <refentry>
   <refmeta>
@@ -19,95 +19,15 @@
     <title>SYNOPSIS</title>
     <cmdsynopsis>
       <command>&progname;</command>
-      <!-- From `Controlling Service Configurator Behaviour' -->
-      <arg rep="repeat"><group><arg>-ORBSvcConf</arg><replaceable>filename</replaceable></group></arg>
-      <group><arg>-ORBSvcConfDirective</arg><replaceable>directive</replaceable></group>
-
-      <!-- From `Controlling Debugging Information' -->
-      <arg>-ORBDebug</arg>
-      <group><arg>-ORBDebugLevel</arg><replaceable>level</replaceable></group>
-      <group><arg>-ORBVerboseLogging</arg>
-	<group choice="req"><arg>0</arg><arg>1</arg><arg>2</arg></group>
-      </group>
-      <group><arg>-ORBLogFile</arg><replaceable>filename</replaceable></group>
-      <group><arg>-ORBObjRefStyle</arg>
-	<group choice="req"><arg>IOR</arg><arg>URL</arg></group>
-      </group>
-
-      <!-- From `Optimizing Request Processing' -->
-      <group><arg>-ORBCDRTradeoff</arg>
-	<replaceable>maxsize</replaceable></group>
-      <group><arg>-ORBCollocation</arg>
-	<group choice="req">
-	  <arg>global</arg><arg>per-orb</arg><arg>no</arg></group>
-      </group>
-      <group><arg>-ORBCollocationStrategy</arg>
-	<group choice="req">
-	  <arg>thru_poa</arg><arg>direct</arg>
-	</group>
-      </group>
-      <group><arg>-ORBNodelay</arg>
-	<group choice="req"><arg>0</arg><arg>1</arg></group>
-      </group>
-      <group><arg>-ORBRcvSock</arg><replaceable>recv_size</replaceable></group>
-      <group><arg>-ORBSndSock</arg><replaceable>snd_size</replaceable></group>
-      <group><arg>-ORBStdProfileComponents</arg>
-	<group choice="req"><arg>0</arg><arg>1</arg></group>
-      </group>
-      <group><arg>-ORBSingleReadOptimization</arg>
-	<group choice="req"><arg>0</arg><arg>1</arg></group>
-      </group>
-      <group><arg>-ORBDisableRTCollocation</arg>
-	<group choice="req"><arg>0</arg><arg>1</arg></group>
-      </group>
-
-      <!-- From `Connection Management and Protocol Selection' -->
-      <group><arg>-ORBDefaultInitRef</arg>
-	<replaceable>ior_prefix</replaceable>
-      </group>
-      <group><arg>-ORBDottedDecimalAddresses</arg>
-	<group choice="req"><arg>0</arg><arg>1</arg></group>
-      </group>
-      <group><arg>-ORBEndpoint</arg>
-	<replaceable>endpoint</replaceable>
-      </group>
-      <group><arg>-ORBListenEndpoints</arg>
-	<replaceable>endpoints</replaceable>
-      </group>
-      <group><arg>-ORBImplRepoServicePort</arg>
-	<replaceable>port</replaceable>
-      </group>
-      <group><arg>-ORBInitRef</arg>
-	<replaceable>oid=ior</replaceable>
-      </group>
-      <group><arg>-ORBMulticastDiscoveryEndpoint</arg>
-	<replaceable>endpoint</replaceable>
-      </group>
-      <group><arg>-ORBNameServicePort</arg>
-	<replaceable>port</replaceable>
-      </group>
-      <group><arg>-ORBTradingServicePort</arg>
-	<replaceable>port</replaceable>
-      </group>
-      <group><arg>-ORBUseIMR</arg>
-	<group choice="req"><arg>0</arg><arg>1</arg></group>
-      </group>
-
-      <!-- From `Miscellaneous' -->
-      <group><arg>-ORBId</arg>
-	<replaceable>name</replaceable>
-      </group>
-      <group><arg>-ORBServerId</arg>
-	<replaceable>id</replaceable>
-      </group>
-      <arg>-ORBDaemon</arg>
+      <arg>ORB_options</arg>
+      <arg>program_options</arg>
     </cmdsynopsis>
   </refsynopsisdiv>
   <refsect1>
     <title>DESCRIPTION</title>
     <para>
       All programs relying on TAO understand the same set of
-      parameters: the <emphasis>-ORB</emphasis> parameters that affect
+      parameters: the <emphasis>-ORB</emphasis> options that affect
       the ORB behaviour.
     </para>
     <para>
@@ -314,7 +234,7 @@
 	      </listitem>
 	      <listitem>
 		<para>the ORB uses its Reactor's notification
-		mechanism to wake up the follower threads.</para>
+            mechanism to wake up the follower threads. </para>
 	      </listitem>
 	    </itemizedlist>
           </para>
@@ -394,22 +314,21 @@
             ORB to listen for requests on the interface specified by
             <replaceable>endpoint</replaceable>. TAO endpoints are
             specified using a URL style format. An endpoint has the
-            form:
-            <filename>protocol://V.v@addr1,...,W.w@addrN</filename>
+            form: `protocol://V.v@addr1,...,W.w@addrN' 
             where V.v and W.w are optional protocol versions for each
             address.  An example of an IIOP endpoint is:
-            <filename>iiop://hostname:port</filename>
+	    `iiop://hostname:port'
           </para>
 	  <para>
             Sets of endpoints may be specified using multiple
             <parameter>-ORBEndpoint</parameter> options or by delimiting
             endpoints with a semi-colon (`;'). For example, 
 
-            <filename>-ORBEndpoint iiop://localhost:9999 -ORBEndpoint uiop:///tmp/mylocalsock -ORBEndpoint shmiop://10002</filename>
+            `-ORBEndpoint iiop://localhost:9999 -ORBEndpoint uiop:///tmp/mylocalsock -ORBEndpoint shmiop://10002'
 
             is equivalent to:
 
-            <filename>-ORBEndpoint 'iiop://localhost:9999;uiop:///tmp/mylocalsock;shmiop://10002'</filename>
+	    `-ORBEndpoint 'iiop://localhost:9999;uiop:///tmp/mylocalsock;shmiop://10002''
 
             Notice the single quotes (') in the latter option
             specification. Single quotes are needed to prevent the
@@ -419,7 +338,7 @@
             If an endpoint is specified without an addr such as the
             following:
 
-            -ORBEndpoint uiop:// -ORBEndpoint shmiop:// 
+            `-ORBEndpoint uiop:// -ORBEndpoint shmiop://'
 
             then a default endpoint will be created for the specified
             protocol.
@@ -535,11 +454,62 @@
   </refsect1>
   <refsect1>
     <title>ENVIRONMENT VARIABLES</title>
-    <para></para>
-  </refsect1>
-  <refsect1>
-    <title>SEE ALSO</title>
-    <para></para>
+    <para>
+      Environment variables have a limited use in TAO ORB
+      configuration. The currently supported environment variables are
+      listed below. They are used to specify the IOR and port numbers
+      for three of TAO's ORB services.
+    </para>
+
+    <variablelist>
+      <varlistentry>      
+        <term><parameter>NameServicePort</parameter></term>
+        <listitem>
+          <para>
+            Specifies which port the Naming Service is listening on
+            for multicast requests.
+	  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><parameter>TradingServicePort</parameter></term>
+	<listitem>
+	  <para>
+            Specifies which port the Trading Service is listening on
+	    for multicast requests.
+	  </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><parameter>ImplRepoServicePort</parameter></term>
+	<listitem>
+	  <para>
+	    Specifies which port the Implementation Repository is
+	    listening on for multicast requests.
+	  </para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>
+      In addition to being able to define the port where these known
+      services are listening for multicast requests, as above, it is
+      possible to set an environment variable that specifies the IOR
+      of any named service. For example
+      NameServiceIOR=<replaceable>which</replaceable>,
+      TradingServiceIOR=<replaceable>which</replaceable>,
+      ImplRepoServiceIOR=<replaceable>which</replaceable>,
+      MyServiceIOR=<replaceable>which</replaceable>. This will have a
+      similar effect to defining an <parameter>-ORBInitRef</parameter>
+      value on the command line (see above). Any value set as a
+      command line <parameter>-ORBInitRef</parameter> option will
+      override any value set as an environment variable for the same
+      service name.
+
+      In general, setting environment variables is not particularly
+      portable or convenient, which is why users can also set these
+      options via command-line options.
+    </para>
   </refsect1>
   <refsect1>
     <title>AUTHOR</title>
