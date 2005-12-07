@@ -171,6 +171,30 @@ Description: A reliable multicast library in C++
  retransmission, send ACK and NAK messages, and maintain receiver
  membership.
 
+Package: libace-tmcast5.4
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: A transactional multicast library in C++
+ This package contains the transactional multicast framework run-time library
+ for ACE.
+ .
+ In essence, the idea is to represent each message delivery to members
+ of a multicast group as a transaction - an atomic, consistent and
+ isolated action.
+
+Package: libace-tmcast-dev
+Architecture: any
+Section: libdevel
+Depends: libace-tmcast5.4 (= ${Source-Version}), libace-dev (= ${Source-Version})
+Description: A transactional multicast library in C++
+ This package contains transactional multicast framework development files
+ for ACE.
+ .
+ In essence, the idea is to represent each message delivery to members
+ of a multicast group as a transaction - an atomic, consistent and
+ isolated action.
+
 Package: gperf-ace
 Architecture: any
 Section: devel

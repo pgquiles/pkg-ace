@@ -256,7 +256,7 @@ binary-arch: build install
 	dh_fixperms -a
 	dh_installdeb -a
 	dh_makeshlibs -a -V
-	dh_shlibdeps -a -l debian/tmp/usr/lib:debian/libacexml5.4/usr/lib:debian/libace-rmcast5.4/usr/lib:debian/libciao1.4/usr/lib:debian/libkokyu5.4/usr/lib:debian/libtao1.4/usr/lib:debian/libtao-orbsvcs1.4/usr/lib
+	dh_shlibdeps -a -l debian/tmp/usr/lib:debian/libacexml5.4/usr/lib:debian/libace-rmcast5.4/usr/lib:debian/libace-tmcast5.4/usr/lib:debian/libciao1.4/usr/lib:debian/libkokyu5.4/usr/lib:debian/libtao1.4/usr/lib:debian/libtao-orbsvcs1.4/usr/lib
 	dh_gencontrol -a
 	dh_md5sums -a
 	dh_builddeb -a
