@@ -9,10 +9,8 @@ Standards-Version: 3.6.1
 Package: libace5.4
 Architecture: all
 Section: libs
-Depends: libace5.4.4 (= ${Source-Version})
-Replaces: libace5.2, libace5.4 (<< 5.4.4)
-Conflicts: libace5.2, libace5.4 (<< 5.4.4)
-Description: Object-Oriented Network Programming Toolkit (dependency package)
+Depends: libace5.4.4
+Description: Dummy package to ease transition to libace5.4.4
  Truc
  .
  Bidule
@@ -20,10 +18,8 @@ Description: Object-Oriented Network Programming Toolkit (dependency package)
 Package: libace-rmcast5.4
 Architecture: all
 Section: libs
-Depends: libace-rmcast5.4.4 (= ${Source-Version})
-Replaces: libace-rmcast5.2, libace-rmcast5.4 (<< 5.4.4)
-Conflicts: libace-rmcast5.2, libace-rmcast5.4 (<< 5.4.4)
-Description: Blabla
+Depends: libace-rmcast5.4.4
+Description: Dummy package to ease transition to libace-rmcast5.4.4
  Truc
  .
  Bidule
@@ -31,10 +27,8 @@ Description: Blabla
 Package: libacexml5.4
 Architecture: all
 Section: libs
-Depends: libacexml5.4.4 (= ${Source-Version})
-Replaces: libacexml5.4 (<< 5.4.4)
-Conflicts: libacexml5.4 (<< 5.4.4)
-Description: Blabla
+Depends: libacexml5.4.4
+Description: Dummy package to ease transition to libacexml5.4.4
  Truc
  .
  Bidule
@@ -42,10 +36,8 @@ Description: Blabla
 Package: libkokyu5.4
 Architecture: all
 Section: libs
-Depends: libkokyu5.4.4 (= ${Source-Version})
-Replaces: libkokyu5.4 (<< 5.4.4)
-Conflicts: libkokyu5.4 (<< 5.4.4)
-Description: Blabla
+Depends: libkokyu5.4.4
+Description: Dummy package to ease transition to libkokyu5.4.4
  Truc
  .
  Bidule
@@ -53,21 +45,17 @@ Description: Blabla
 Package: libtao1.4
 Architecture: all
 Section: libs
-Depends: libtao1.4.4 (= ${Source-Version})
-Replaces: libtao1.4 (<< 5.4.4)
-Conflicts: libtao1.4 (<< 5.4.4)
-Description: Blabla
+Depends: libtao1.4.4
+Description: Dummy package to ease transition to libtao1.4.4
  Truc
  .
  Bidule
 
-Package: libtao-orbscvs1.4
+Package: libtao-orbsvcs1.4
 Architecture: all
 Section: libs
-Depends: libtao-orbsvcs1.4.4 (= ${Source-Version})
-Replaces: libtao-orbsvcs1.3.1, libtao1.4 (<< 5.4.4)
-Conflicts: libtao-orbsvcs1.3.1, libtao1.4 (<< 5.4.4)
-Description: Blabla
+Depends: libtao-orbsvcs1.4.4
+Description: Dummy package to ease transition to libtao-orbsvcs1.4.4
  Truc
  .
  Bidule
@@ -75,10 +63,8 @@ Description: Blabla
 Package: libciao1.4
 Architecture: all
 Section: libs
-Depends: libciao0.4.4 (= ${Source-Version})
-Replaces: libciao1.4 (<< 5.4.4)
-Conflicts: libciao1.4 (<< 5.4.4)
-Description: Blabla
+Depends: libciao0.4.4
+Description: Dummy package to ease transition to libciao0.4.4
  Truc
  .
  Bidule
@@ -86,10 +72,8 @@ Description: Blabla
 Package: libace-qtreactor5.4
 Architecture: all
 Section: libs
-Depends: libace-qtreactor5.4.4 (= ${Source-Version})
-Replaces: libace-qtreactor5.4 (<< 5.4.4)
-Conflicts: libace-qtreactor5.4 (<< 5.4.4)
-Description: Blabla
+Depends: libace-qtreactor5.4.4
+Description: Dummy package to ease transition to libace-qtreactor5.4.4
  Truc
  .
  Bidule
@@ -97,10 +81,8 @@ Description: Blabla
 Package: libace-xtreactor5.4
 Architecture: all
 Section: libs
-Depends: libace-xtreactor5.4.4 (= ${Source-Version})
-Replaces: libace-xtreactor5.4 (<< 5.4.4)
-Conflicts: libace-xtreactor5.4 (<< 5.4.4)
-Description: Blabla
+Depends: libace-xtreactor5.4.4
+Description: Dummy package to ease transition to libace-xtreactor5.4.4
  Truc
  .
  Bidule
@@ -108,10 +90,8 @@ Description: Blabla
 Package: libace-tkreactor5.4
 Architecture: all
 Section: libs
-Depends: libace-tkreactor5.4.4 (= ${Source-Version})
-Replaces: libace-tkreactor5.4 (<< 5.4.4)
-Conflicts: libace-tkreactor5.4 (<< 5.4.4)
-Description: Blabla
+Depends: libace-tkreactor5.4.4
+Description: Dummy package to ease transition to libace-tkreactor5.4.4
  Truc
  .
  Bidule
@@ -119,31 +99,43 @@ Description: Blabla
 Package: libace-flreactor5.4
 Architecture: all
 Section: libs
-Depends: libace-flreactor5.4.4 (= ${Source-Version})
-Replaces: libace-flreactor5.4 (<< 5.4.4)
-Conflicts: libace-flreactor5.4 (<< 5.4.4)
+Depends: libace-flreactor5.4.4
 Description: Blabla
  Truc
  .
  Bidule
 
-Package: libtao-qtreactor5.4
+Package: libtao-qtreactor1.4
 Architecture: all
 Section: libs
-Depends: libtao-qtresource5.4.4 (= ${Source-Version})
-Replaces: libtao-qtreactor5.4 (<< 5.4.4)
-Conflicts: libtao-qtreactor5.4 (<< 5.4.4)
+Depends: libtao-qtresource1.4.4
 Description: Blabla
  Truc
  .
  Bidule
 
-Package: libtao-xtreactor5.4
+Package: libtao-qtreactor-dev
 Architecture: all
 Section: libs
-Depends: libtao-xtresource5.4.4 (= ${Source-Version})
-Replaces: libtao-xtreactor5.4 (<< 5.4.4)
-Conflicts: libtao-xtreactor5.4 (<< 5.4.4)
+Depends: libtao-qtresource-dev
+Description: Blabla
+ Truc
+ .
+ Bidule
+
+Package: libtao-xtreactor-dev
+Architecture: all
+Section: libs
+Depends: libtao-xtresource-dev
+Description: Blabla
+ Truc
+ .
+ Bidule
+
+Package: libtao-xtreactor1.4
+Architecture: all
+Section: libs
+Depends: libtao-xtresource1.4.4
 Description: Blabla
  Truc
  .
@@ -153,6 +145,8 @@ Package: libace5.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libace5.2, libace5.4 (<< 5.4.4)
+Conflicts: libace5.2, libace5.4 (<< 5.4.4)
 Description: An Object-Oriented Network Programming Toolkit in C++
  This package contains the run-time ACE library.
  .
@@ -281,6 +275,8 @@ Package: libace-rmcast5.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libace-rmcast5.2, libace-rmcast5.4 (<< 5.4.4)
+Conflicts: libace-rmcast5.2, libace-rmcast5.4 (<< 5.4.4)
 Description: A reliable multicast library in C++
  This package contains the reliable multicast framework run-time library
  for ACE.
@@ -349,6 +345,8 @@ Package: libacexml5.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libacexml5.4 (<< 5.4.4)
+Conflicts: libacexml5.4 (<< 5.4.4)
 Description: ACE XML PARSER Framework (runtime)
  This package contains the run-time ACE library.
  .
@@ -406,6 +404,8 @@ Package: libtao1.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libtao1.4 (<< 5.4.4)
+Conflicts: libtao1.4 (<< 5.4.4)
 Suggests: libtao-orbsvcs1.4.4
 Description: The ACE ORB, an open-source implementation of CORBA ORB
  This package contains the run-time TAO libraries.
@@ -440,6 +440,8 @@ Package: libtao-orbsvcs1.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libtao-orbsvcs1.3.1, libtao-orbsvcs1.4 (<< 5.4.4)
+Conflicts: libtao-orbsvcs1.3.1, libtao-orbsvcs1.4 (<< 5.4.4)
 Description: The ACE ORB, an open-source implementation of CORBA ORB
  This package contains the run-time TAO ORB services libraries.
  .
@@ -462,6 +464,8 @@ Package: libciao0.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libciao1.4 (<< 5.4.4)
+Conflicts: libciao1.4 (<< 5.4.4)
 Description: CIAO, TAO's implementation of CORBA Component Model (CCM)
  This package contains the run-time CIAO libraries.
  .
@@ -483,6 +487,8 @@ Package: libace-qtreactor5.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libace-qtreactor5.4 (<< 5.4.4)
+Conflicts: libace-qtreactor5.4 (<< 5.4.4)
 Description: GUI Integrated Reactors for ACE: Qt Reactor
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
@@ -517,6 +523,8 @@ Package: libace-xtreactor5.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libace-xtreactor5.4 (<< 5.4.4)
+Conflicts: libace-xtreactor5.4 (<< 5.4.4)
 Description: GUI Integrated Reactors for ACE: Xt Reactor
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
@@ -613,6 +621,8 @@ Package: libtao-qtresource1.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libtao-qtreactor1.4 (<< 5.4.4)
+Conflicts: libtao-qtreactor1.4 (<< 5.4.4)
 Description: Qt GUI resource factory for TAO
  This factory is intended for creating QtReactor for ORB. This factory
  can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
@@ -635,6 +645,8 @@ Package: libtao-xtresource1.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libtao-xtreactor1.4 (<< 5.4.4)
+Conflicts: libtao-xtreactor1.4 (<< 5.4.4)
 Description: Xt GUI resource factory for TAO
  This factory is intended for creating XtReactor for ORB. This factory
  can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
