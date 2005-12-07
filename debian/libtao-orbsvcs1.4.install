@@ -84,3 +84,5 @@ TAO/orbsvcs/TAO_Service/TAO_Service                                          usr
 TAO/orbsvcs/Time_Service/Time_Service_Server                                 usr/bin
 TAO/orbsvcs/Time_Service/Time_Service_Clerk                                  usr/bin
 TAO/orbsvcs/Trading_Service/Trading_Service                                  usr/bin
+TAO/orbsvcs/Fault_Detector/Fault_Detector                                    usr/bin
+TAO/orbsvcs/Fault_Notifier/Fault_Notifier                                    usr/bin
