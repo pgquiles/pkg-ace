@@ -5,6 +5,7 @@
 21-always-inline.dpatch
 22-eventchannel_factory-dont-shutdown-orb
 23-fix-corbaloc-mem-leak
+24-fix-RT_Stub-mem-leak
 79-prepatch-dummy-mark
 80-update-makefile
 81-patch-idlstubs-order-cossevent

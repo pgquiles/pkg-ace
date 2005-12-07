@@ -1,0 +1,113 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 24-fix-RT_Stub-mem-leak.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fix mem leak in RT_Stub.
+
+@DPATCH@
+Sun Mar 20 08:53:48 2005  Gan Deng  <dengg@dre.vanderbilt.edu>
+
+        * tao/RTCORBA/RT_Stub.cpp:
+
+          Fixed compilation warnings by adding .in() to the _var type.
+
+Fri Mar 18 21:46:12 UTC 2005  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * tao/RTCORBA/RT_Stub.cpp:
+          Fixed compile problem in Borland builds
+
+Fri Mar 18 11:48:48 2005  Gan Deng  <dengg@dre.vanderbilt.edu>
+
+        * tao/RTCORBA/RT_Stub.h:
+
+          Changed the member variables defined in the RT_Stub class
+          from pointer type to "_var" type to avoid memory leak.
+          Thanks Roland Schmimmack <Roland.Schmimmack@gmx.de> for
+          reporting the memory leak problem.
+--- ACE_wrappers/TAO/tao/RTCORBA/RT_Stub.h.old	2005-04-03 21:54:31.000000000 +0200
++++ ACE_wrappers/TAO/tao/RTCORBA/RT_Stub.h	2005-04-03 22:01:31.000000000 +0200
+@@ -2,7 +2,7 @@
+ /**
+  *  @file    RT_Stub.h
+  *
+- *  RT_Stub.h,v 1.9 2004/10/11 21:13:44 irfan Exp
++ *  RT_Stub.h,v 1.10 2005/03/18 17:53:54 dengg Exp
+  *
+  *  This file contains the declaration for the RTCORBA Stub.
+  *
+@@ -114,11 +114,11 @@
+   // parse the MProfile's policy list each time we
+   // are asked about a given policy.
+ 
+-  CORBA::Policy *priority_model_policy_;
++  CORBA::Policy_var priority_model_policy_;
+ 
+-  CORBA::Policy *priority_banded_connection_policy_;
++  CORBA::Policy_var priority_banded_connection_policy_;
+ 
+-  CORBA::Policy *client_protocol_policy_;
++  CORBA::Policy_var client_protocol_policy_;
+ 
+   CORBA::Boolean are_policies_parsed_;
+ 
+--- ACE_wrappers/TAO/tao/RTCORBA/RT_Stub.cpp.old	2005-04-03 21:54:37.000000000 +0200
++++ ACE_wrappers/TAO/tao/RTCORBA/RT_Stub.cpp	2005-04-03 22:01:31.000000000 +0200
+@@ -1,4 +1,4 @@
+-// RT_Stub.cpp,v 1.8 2004/10/11 21:13:44 irfan Exp
++// RT_Stub.cpp,v 1.11 2005/03/20 14:58:03 dengg Exp
+ 
+ #include "RT_Stub.h"
+ 
+@@ -12,7 +12,7 @@
+ 
+ ACE_RCSID (RTCORBA,
+            RT_Stub,
+-           "RT_Stub.cpp,v 1.8 2004/10/11 21:13:44 irfan Exp")
++           "RT_Stub.cpp,v 1.11 2005/03/20 14:58:03 dengg Exp")
+ 
+ 
+ TAO_RT_Stub::TAO_RT_Stub (const char *repository_id,
+@@ -30,13 +30,13 @@
+ 
+ TAO_RT_Stub::~TAO_RT_Stub (void)
+ {
+-  if (this->priority_model_policy_)
++  if (this->priority_model_policy_.in ())
+     this->priority_model_policy_->destroy ();
+ 
+-  if (this->priority_banded_connection_policy_)
++  if (this->priority_banded_connection_policy_.in ())
+     this->priority_banded_connection_policy_->destroy ();
+ 
+-  if (this->client_protocol_policy_)
++  if (this->client_protocol_policy_.in ())
+     this->client_protocol_policy_->destroy ();
+ }
+ 
+@@ -77,7 +77,7 @@
+       ACE_CHECK_RETURN (CORBA::Policy::_nil ());
+     }
+ 
+-  return CORBA::Policy::_duplicate (this->priority_model_policy_);
++  return CORBA::Policy::_duplicate (this->priority_model_policy_.in ());
+ }
+ 
+ void
+@@ -95,7 +95,7 @@
+       ACE_CHECK_RETURN (CORBA::Policy::_nil ());
+     }
+ 
+-  return CORBA::Policy::_duplicate (this->priority_banded_connection_policy_);
++  return CORBA::Policy::_duplicate (this->priority_banded_connection_policy_.in ());
+ }
+ 
+ void
+@@ -114,7 +114,7 @@
+       ACE_CHECK_RETURN (CORBA::Policy::_nil ());
+     }
+ 
+-  return CORBA::Policy::_duplicate (this->client_protocol_policy_);
++  return CORBA::Policy::_duplicate (this->client_protocol_policy_.in ());
+ }
+ 
+ void
