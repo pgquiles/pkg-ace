@@ -1,0 +1,40 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 81-patch-idlstubs-order-cossevent.dpatch by Raphael Bossek <bossekr@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Patch order of idl_stub generation
+
+@DPATCH@
+
+--- ACE_wrappers/TAO/orbsvcs/orbsvcs/GNUmakefile.CosEvent.orig	2005-03-09 21:36:04.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/GNUmakefile.CosEvent	2005-03-09 21:36:46.000000000 +0100
+@@ -24,10 +24,10 @@
+ TAO_ROOT  ?= $(ACE_ROOT)/TAO
+ 
+ FILES = \
+-  CosTypedEventCommC \
+-  CosTypedEventChannelAdminC \
+   CosEventCommC \
+-  CosEventChannelAdminC
++  CosEventChannelAdminC \
++  CosTypedEventCommC \
++  CosTypedEventChannelAdminC
+ 
+ RESOURCES += \
+   CosEvent.rc
+--- ACE_wrappers/TAO/orbsvcs/orbsvcs/GNUmakefile.CosEvent_Skel.orig	2005-03-09 21:36:14.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/GNUmakefile.CosEvent_Skel		2005-03-09 21:37:38.000000000 +0100
+@@ -24,10 +24,10 @@
+ TAO_ROOT  ?= $(ACE_ROOT)/TAO
+ 
+ FILES = \
+-  CosTypedEventCommS \
+-  CosTypedEventChannelAdminS \
+   CosEventCommS \
+-  CosEventChannelAdminS
++  CosEventChannelAdminS \
++  CosTypedEventCommS \
++  CosTypedEventChannelAdminS
+ 
+ RESOURCES += \
+   CosEvent_Skel.rc
