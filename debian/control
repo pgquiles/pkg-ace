@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Debian ACE+TAO maintainers <pkg-ace-devel@lists.alioth.debian.org>
 Uploaders: Konstantinos Margaritis <markos@debian.org>, Brian Nelson <pyro@debian.org>
-Build-Depends: debhelper (>= 4.1), libssl-dev (>= 0.9.7d), dpatch (>= 2.0.10), xlibs-dev (>= 4.3), libfltk1.1-dev (>= 1.1.4), libqt3-mt-dev (>= 3:3.3.3), tk8.4-dev (>= 8.4.7), docbook-to-man
+Build-Depends: debhelper (>= 4.1), libssl-dev (>= 0.9.7d), dpatch (>= 2.0.10), xlibs-dev (>= 4.3.0), libfltk1.1-dev (>= 1.1.4), libqt3-mt-dev (>= 3:3.3.3), tk8.4-dev (>= 8.4.7), docbook-to-man
 Standards-Version: 3.6.1
 
 Package: libace5.4.4
@@ -423,7 +423,7 @@ Description: GUI Integrated Reactors for ACE: Tk Reactor
 Package: libace-tkreactor-dev
 Architecture: any
 Section: libdevel
-Depends: libace-tkreactor5.4.4 (= ${Source-Version}), libace-dev (= ${Source-Version}), tk8.4-dev (>= 8.3.3)
+Depends: libace-tkreactor5.4.4 (= ${Source-Version}), libace-dev (= ${Source-Version}), tk8.4-dev (>= 8.4.7)
 Description: GUI Integrated Reactors for ACE: Tk Reactor (development files)
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
@@ -454,7 +454,7 @@ Description: GUI Integrated Reactors for ACE: FastLight Reactor
 Package: libace-flreactor-dev
 Architecture: any
 Section: libdevel
-Depends: libace-flreactor5.4.4 (= ${Source-Version}), libace-dev (= ${Source-Version}), libfltk1.1-dev
+Depends: libace-flreactor5.4.4 (= ${Source-Version}), libace-dev (= ${Source-Version}), libfltk1.1-dev (>= 1.1.4)
 Description: GUI Integrated Reactors for ACE: FastLight Reactor (development files)
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
