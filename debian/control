@@ -445,6 +445,7 @@ Package: libtao-qtresource1.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libtao-qtreactor1.4
 Description: Qt GUI resource factory for TAO
  This factory is intended for creating QtReactor for ORB. This factory
  can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
@@ -454,6 +455,7 @@ Package: libtao-qtresource-dev
 Architecture: any
 Section: devel
 Depends: libtao-qtresource1.4 (= ${Source-Version}), libace-qtreactor-dev (= ${Source-Version}), libtao-dev (= ${Source-Version})
+Replaces: libtao-qtreactor-dev
 Description: Qt GUI resource factory for TAO (development files)
  This factory is intended for creating QtReactor for ORB. This factory
  can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
@@ -465,6 +467,7 @@ Package: libtao-xtresource1.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libtao-xtreactor1.4
 Description: Xt GUI resource factory for TAO
  This factory is intended for creating XtReactor for ORB. This factory
  can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
@@ -474,6 +477,7 @@ Package: libtao-xtresource-dev
 Architecture: any
 Section: libs
 Depends: libtao-xtresource1.4 (= ${Source-Version}), libace-xtreactor-dev (= ${Source-Version}), libtao-dev (= ${Source-Version})
+Replaces: libtao-xtreactor-dev
 Description: Xt GUI resource factory for TAO (development files)
  This factory is intended for creating XtReactor for ORB. This factory
  can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
