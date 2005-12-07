@@ -217,9 +217,7 @@ install: build
 	$(MAKE) -f debian/pkgconfig-tao debian/libtao-dev/usr/lib/pkgconfig/tao.pc
 
 	# Fix duplicate files within reactor packages and main packages
-	for fname_ in `cat debian/libace-*reactor-dev.install debian/libtao-*reactor-dev.install|grep include|cut -f 1 -d ' '|sed -e 's,^ace/,debian/libace-dev/usr/include/ace\/,g;s,^TAO/,debian/libtao-dev/usr/include/,g'`; do \
-		rm -f $$fname_; \
-	done
+	sh debian/remove_reactor_dups.sh
 
 #   Install the C++ template sources.
 	sh debian/copy_template_sources.sh
