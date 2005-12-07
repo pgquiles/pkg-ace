@@ -1,3 +1,5 @@
-TAO/tao/libTAO_XtReactor.so  usr/lib
-TAO/tao/libTAO_XtReactor.a   usr/lib
-TAO/tao/xt_resource.{h,i}    usr/include/tao
+TAO/tao/libTAO_XtResource.so  usr/lib
+TAO/tao/libTAO_XtResource.a   usr/lib
+TAO/tao/XtResource_Factory.h usr/include/tao
+TAO/tao/XtResource_Loader.h  usr/include/tao
+TAO/tao/TAO_XtResource_Export.h

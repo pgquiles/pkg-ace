@@ -1,3 +1,4 @@
-ace/libACE_FlReactor.so	usr/lib
-ace/libACE_FlReactor.a	usr/lib
-ace/FlReactor.h         usr/include/ace
+ace/libACE_FlReactor.so	   usr/lib
+ace/libACE_FlReactor.a     usr/lib
+ace/FlReactor.h            usr/include/ace
+ace/ACE_FlReactor_export.h usr/include/ace
