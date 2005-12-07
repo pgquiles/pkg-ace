@@ -10,8 +10,8 @@ Package: libace5.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
-Replaces: libace5.2c102
-Conflicts: libace5.0, libace5.1, libace5.2, libace5.2c102
+Replaces: libace5.2, libace5.4 (<< 5.4.4)
+Conflicts: libace5.2, libace5.4 (<< 5.4.4)
 Description: An Object-Oriented Network Programming Toolkit in C++
  This package contains the run-time ACE library.
  .
@@ -44,7 +44,7 @@ Section: libdevel
 Depends: libace5.4.4 (= ${Source-Version}), libssl-dev (>= 0.9.7d)
 Suggests: libace-doc, libtao-dev, pkg-config
 Replaces: libace5.2-dev
-Conflicts: libace4.6-dev, libace5.0-dev, libace5.1-dev, libace5.2-dev
+Conflicts: libace5.2-dev
 Description:  An Object-Oriented Network Programming Toolkit in C++
  This package contains the header files and static libraries for the ACE
  toolkit.
@@ -140,8 +140,8 @@ Package: libace-rmcast5.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
-Replaces: libace-rmcast5.2c102
-Conflicts: libace-rmcast5.2, libace-rmcast5.2c102
+Replaces: libace-rmcast5.2, libace-rmcast5.4 (<< 5.4.4)
+Conflicts: libace-rmcast5.2, libace-rmcast5.4 (<< 5.4.4)
 Description: A reliable multicast library in C++
  This package contains the reliable multicast framework run-time library
  for ACE.
@@ -210,6 +210,8 @@ Package: libacexml5.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libacexml5.4 (<< 5.4.4)
+Conflicts: libacexml5.4 (<< 5.4.4)
 Description: ACE XML PARSER Framework (runtime)
  This package contains the run-time ACE library.
  .
@@ -222,7 +224,7 @@ Description: ACE XML PARSER Framework (runtime)
 Package: libacexml-dev
 Architecture: any
 Section: libdevel
-Depends: libacexml5.4.4 (= ${Source-Version})
+Depends: libacexml5.4.4 (= ${Source-Version}), libace-dev (= ${Source-Version})
 Description: ACE XML PARSER Framework (development)
  This package contains the header files and static libraries for the ACE
  toolkit.
@@ -237,6 +239,8 @@ Package: libkokyu5.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libkokyu5.4 (<< 5.4.4)
+Conflicts: libkokyu5.4 (<< 5.4.4)
 Suggests: libtao1.4.4, libtao-orbsvcs1.4.4
 Description: Kokyu middleware for TAO
  This package contains the Kokyu library.
@@ -250,8 +254,8 @@ Description: Kokyu middleware for TAO
 Package: libkokyu-dev
 Architecture: any
 Section: libdevel
-Depends: libkokyu5.4.4 (>= ${Source-Version})
-Suggests: libtao-dev (= ${Source-Version}), libtao-orbsvcs-dev (= ${Source-Version})
+Depends: libkokyu5.4.4 (= ${Source-Version}), libace-dev (= ${Source-Version})
+Suggests: libtao-orbsvcs-dev (= ${Source-Version})
 Description: Kokyu middleware for TAO
  This package contains the development files for Kokyu.
  .
@@ -265,6 +269,8 @@ Package: libtao1.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libtao1.4 (<< 5.4.4)
+Conflicts: libtao1.4 (<< 5.4.4)
 Suggests: libtao-orbsvcs1.4.4
 Description: The ACE ORB, an open-source implementation of CORBA ORB
  This package contains the run-time TAO libraries.
@@ -275,8 +281,8 @@ Description: The ACE ORB, an open-source implementation of CORBA ORB
 Package: libtao-dev
 Architecture: any
 Section: libdevel
-Depends: ${shlibs:Depends}, libace-dev (= ${Source-Version})
-Suggests: libtao-doc, libtao-orbsvcs-dev
+Depends: libtao1.4.4 (= ${Source-Version}), libace-dev (= ${Source-Version})
+Suggests: libtao-doc, libtao-orbsvcs-dev (= ${Source-Version})
 Description: Development Files for TAO, The ACE ORB
  This package contains the header files for the TAO toolkit. Due to the
  size of the static libs (> 400MB) they have been left out.
@@ -299,7 +305,8 @@ Package: libtao-orbsvcs1.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
-Replaces: libtao-orbsvcs1.3.1
+Replaces: libtao-orbsvcs1.3.1, libtao1.4 (<< 5.4.4)
+Conflicts: libtao-orbsvcs1.3.1, libtao1.4 (<< 5.4.4)
 Description: The ACE ORB, an open-source implementation of CORBA ORB
  This package contains the run-time TAO ORB services libraries.
  .
@@ -322,6 +329,8 @@ Package: libciao0.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libciao1.4 (<< 5.4.4)
+Conflicts: libciao1.4 (<< 5.4.4)
 Description: CIAO, TAO's implementation of CORBA Component Model (CCM)
  This package contains the run-time CIAO libraries.
  .
@@ -343,6 +352,8 @@ Package: libace-qtreactor5.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libace-qtreactor5.4 (<< 5.4.4)
+Conflicts: libace-qtreactor5.4 (<< 5.4.4)
 Description: GUI Integrated Reactors for ACE: Qt Reactor
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
@@ -377,6 +388,8 @@ Package: libace-xtreactor5.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libace-xtreactor5.4 (<< 5.4.4)
+Conflicts: libace-xtreactor5.4 (<< 5.4.4)
 Description: GUI Integrated Reactors for ACE: Xt Reactor
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
@@ -409,6 +422,8 @@ Package: libace-tkreactor5.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libace-tkreactor5.4 (<< 5.4.4)
+Conflicts: libace-tkreactor5.4 (<< 5.4.4)
 Description: GUI Integrated Reactors for ACE: Tk Reactor
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
@@ -441,6 +456,8 @@ Package: libace-flreactor5.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Replaces: libace-flreactor5.4 (<< 5.4.4)
+Conflicts: libace-flreactor5.4 (<< 5.4.4)
 Description: GUI Integrated Reactors for ACE: FastLight Reactor
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
@@ -469,7 +486,8 @@ Package: libtao-qtresource1.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
-Replaces: libtao-qtreactor1.4.4
+Replaces: libtao-qtreactor1.4.4 (<< 5.4.4)
+Conflicts: libtao-qtreactor1.4.4 (<< 5.4.4)
 Description: Qt GUI resource factory for TAO
  This factory is intended for creating QtReactor for ORB. This factory
  can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
@@ -479,7 +497,8 @@ Package: libtao-qtresource-dev
 Architecture: any
 Section: libdevel
 Depends: libtao-qtresource1.4.4 (= ${Source-Version}), libace-qtreactor-dev (= ${Source-Version}), libtao-dev (= ${Source-Version})
-Replaces: libtao-qtreactor-dev
+Replaces: libtao-qtreactor-dev (<< 5.4.4)
+Conflicts: libtao-qtreactor-dev (<< 5.4.4)
 Description: Qt GUI resource factory for TAO (development files)
  This factory is intended for creating QtReactor for ORB. This factory
  can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
@@ -491,7 +510,8 @@ Package: libtao-xtresource1.4.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
-Replaces: libtao-xtreactor1.4.4
+Replaces: libtao-xtreactor1.4.4 (<< 5.4.4)
+Conflicts: libtao-xtreactor1.4.4 (<< 5.4.4)
 Description: Xt GUI resource factory for TAO
  This factory is intended for creating XtReactor for ORB. This factory
  can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
@@ -501,7 +521,8 @@ Package: libtao-xtresource-dev
 Architecture: any
 Section: libdevel
 Depends: libtao-xtresource1.4.4 (= ${Source-Version}), libace-xtreactor-dev (= ${Source-Version}), libtao-dev (= ${Source-Version})
-Replaces: libtao-xtreactor-dev
+Replaces: libtao-xtreactor-dev (<< 5.4.4)
+Conflicts: libtao-xtreactor-dev (<< 5.4.4)
 Description: Xt GUI resource factory for TAO (development files)
  This factory is intended for creating XtReactor for ORB. This factory
  can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
@@ -521,7 +542,7 @@ Description: Fl GUI resource factory for TAO
 Package: libtao-flresource-dev
 Architecture: any
 Section: libdevel
-Depends: libtao-flreactor1.4.4 (= ${Source-Version}), libace-flreactor-dev (= ${Source-Version}), libtao-dev (= ${Source-Version})
+Depends: libtao-flresource1.4.4 (= ${Source-Version}), libace-flreactor-dev (= ${Source-Version}), libtao-dev (= ${Source-Version})
 Description: Fl GUI resource factory for TAO (development files)
  This factory is intended for creating FlReactor for ORB. This factory
  can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
@@ -541,7 +562,7 @@ Description: Tk GUI resource factory for TAO
 Package: libtao-tkresource-dev
 Architecture: any
 Section: libdevel
-Depends: libtao-tkreactor1.4.4 (= ${Source-Version}), libace-tkreactor-dev (= ${Source-Version}), libtao-dev (= ${Source-Version})
+Depends: libtao-tkresource1.4.4 (= ${Source-Version}), libace-tkreactor-dev (= ${Source-Version}), libtao-dev (= ${Source-Version})
 Description: Tk GUI resource factory for TAO
  This factory is intended for creating FlReactor for ORB. This factory
  can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
