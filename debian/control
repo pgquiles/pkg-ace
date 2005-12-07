@@ -563,8 +563,8 @@ Package: libtao-tkresource-dev
 Architecture: any
 Section: libdevel
 Depends: libtao-tkresource1.4.4 (= ${Source-Version}), libace-tkreactor-dev (= ${Source-Version}), libtao-dev (= ${Source-Version})
-Description: Tk GUI resource factory for TAO
- This factory is intended for creating FlReactor for ORB. This factory
+Description: Tk GUI resource factory for TAO (development files)
+ This factory is intended for creating TkReactor for ORB. This factory
  can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
  method which is usually done by TAO_TkResource_Loader.
  .
