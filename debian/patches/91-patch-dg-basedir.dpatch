@@ -8,13 +8,13 @@
 
 Index: ACE_wrappers/bin/depgen.pl
 ===================================================================
---- ACE_wrappers.orig/bin/depgen.pl	2005-01-09 16:16:48.000000000 +0100
-+++ ACE_wrappers/bin/depgen.pl	2005-01-09 16:17:02.000000000 +0100
-@@ -18,7 +18,7 @@
- use Config;
- use File::Basename;
+--- ACE_wrappers.old/bin/depgen.pl	2005-02-14 23:46:23.000000000 +0100
++++ ACE_wrappers/bin/depgen.pl	2005-02-14 23:47:06.000000000 +0100
+@@ -25,7 +25,7 @@
+   import VMS::Filespec qw(unixpath);
+ }
  
--unshift(@INC, getExecutePath($0) . '/DependencyGenerator');
+-unshift(@INC, getExecutePath($0) . 'DependencyGenerator');
 +unshift(@INC, '/usr/share/ace/bin/DependencyGenerator');
  
  require DependencyEditor;
