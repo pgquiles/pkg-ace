@@ -1,6 +1,7 @@
 TAO/orbsvcs/IFR_Service/libTAO_IFR_BE.so.*         usr/lib
 TAO/orbsvcs/PSS/libTAO_PSDL.so.*                   usr/lib
 TAO/orbsvcs/PSS/libTAO_PSDL_Datastore.so.*         usr/lib
+TAO/orbsvcs/FT_ReplicationManager/libTAO_ReplicationManagerLib.so.* usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_AV.so.*                 usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_CosConcurrency.so.*     usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_CosEvent.so.*           usr/lib
@@ -67,6 +68,7 @@ TAO/orbsvcs/IFR_Service/tao_ifr                                              usr
 TAO/orbsvcs/ImplRepo_Service/ImplRepo_Service                                usr/bin
 TAO/orbsvcs/ImplRepo_Service/ImR_Activator                                   usr/bin
 TAO/orbsvcs/ImplRepo_Service/tao_imr                                         usr/bin
+TAO/orbsvcs/FT_ReplicationManager/FT_ReplicationManager                      usr/bin
 TAO/orbsvcs/LifeCycle_Service/LifeCycle_Service                              usr/bin
 TAO/orbsvcs/LoadBalancer/LoadManager                                         usr/bin
 TAO/orbsvcs/LoadBalancer/LoadMonitor                                         usr/bin
