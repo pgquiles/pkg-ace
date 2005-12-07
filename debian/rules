@@ -212,6 +212,8 @@ install: build
 #	TAO_ROOT
 	cp $(TAO_ROOT)/TAO_IDL/tao_idl $(TAO_ROOT)/TAO_IDL/tao_idl.real
 	$(INSTALL) -m 755 -o root -g root -D debian/tao_idl debian/libtao-dev/usr/bin/tao_idl
+	cp $(TAO_ROOT)/orbsvcs/IFR_Service/tao_ifr $(TAO_ROOT)/orbsvcs/IFR_Service/tao_ifr.real
+	$(INSTALL) -m 755 -o root -g root -D debian/tao_ifr debian/libtao-orbsvcs1.4/usr/bin/tao_ifr
 
 #	Be lintian clean, fix permissions on examples
 	-chmod -x `find $(TAO_ROOT)/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`

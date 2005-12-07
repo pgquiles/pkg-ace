@@ -64,7 +64,7 @@ TAO/orbsvcs/FTRT_Event_Service/Event_Service/ftrt_eventservice               usr
 TAO/orbsvcs/FTRT_Event_Service/Factory_Service/ftrtec_factory_service        usr/bin
 TAO/orbsvcs/FTRT_Event_Service/Gateway_Service/ftrtec_gateway_service        usr/bin
 TAO/orbsvcs/IFR_Service/IFR_Service                                          usr/bin
-TAO/orbsvcs/IFR_Service/tao_ifr                                              usr/bin
+TAO/orbsvcs/IFR_Service/tao_ifr.real                                         usr/bin
 TAO/orbsvcs/ImplRepo_Service/ImplRepo_Service                                usr/bin
 TAO/orbsvcs/ImplRepo_Service/ImR_Activator                                   usr/bin
 TAO/orbsvcs/ImplRepo_Service/tao_imr                                         usr/bin
