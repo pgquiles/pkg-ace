@@ -541,62 +541,9 @@
             listening on for multicast requests. By default, the
             <emphasis>TAO_DEFAULT_IMPLREPO_SERVER_REQUEST_PORT</emphasis> (10018) is used.
           </para>
-		  <para>
-   <emphasis>MT</emphasis> means use the multi-threaded client connection handler which uses
-   the leader follower model. This model allows the use of multiple
-   threads with a single Reactor.
-		  </para>
-		  <para>
-   <emphasis>RW</emphasis> selects a strategy that simply blocks in recv() when waiting for a
-   response from the server instead of waiting in the Reactor. The RW
-   strategy only works when the application does not have to worry about
-   new request showing up when waiting for a response. Further, this
-   strategy cannot be used with Asynchronous Method Invocation (AMI)
-   calls. Therefore, this strategy is appropriate only for "pure"
-   synchronous clients. Note that applications with nested upcalls are
-   not "pure" synchronous clients. Also note that this strategy will only
-   effect two way calls, since there is no waiting for one way calls.
-   This strategy can also be used in an application that is both a client
-   and a server if the server side is handled by a separate thread and
-   the client threads are "pure" clients.
-		  </para>
-		  <para>
-   Default for this option is MT.
-		  </para>
-		</listitem>
-		<listitem>
-		  <para><emphasis>-ORBTransportMuxStrategy</emphasis> EXCLUSIVE | MUXED</para>
-		  <para>
-   <emphasis>EXCLUSIVE</emphasis> means that the
-   Transport does not multiplex requests on a connection. At a time,
-   there can be only one request pending on a connection.
-		  </para>
-		  <para>
-   <emphasis>MUXED</emphasis> means that Transport multiplexes more than one request at the
-   same time on a connection. This option is often used in conjunction
-   with AMI, because multiple requests can be sent "in bulk."
-		  </para>
-		  <para>
-   Default for this option is MUXED.
-		  </para>
-		</listitem>
-		<listitem>
-		  <para><emphasis>-ORBConnectStrategy</emphasis> type</para>
-		  <para>
-   TAO provides three strategies to connect to
-   remote servers. The default leader_follower strategy uses the Reactor
-   and non-blocking connects to connect and this strategy participates in
-   the Leader/Followers protocol to synchronize access to the Reactor.
-   The reactive strategy uses the Reactor for non-blocking connects but
-   does not take part in the Leader/Followers protocol, thus it is better
-   used only in single threaded applications. Finally, the blocked
-   strategy as the name implies, blocks the thread until connection is
-   complete. Some of the protocols in TAO (such as SHMIOP and SSLIOP) can
-   only use the blocked strategy.
-		  </para>
-		</listitem>
-	  </itemizedlist>
-	</refsect2>
+	</listitem>
+      </varlistentry>
+    </variablelist>
   </refsect1>
   <refsect1>
     <title>SEE ALSO</title>
