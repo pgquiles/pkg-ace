@@ -268,4 +268,4 @@ source diff:
 
 binary: binary-indep binary-arch
 
-.PHONY: build clean binary-indep binary-arch binary install patch unpatch prepatch prepatchtwo update-makefile patch-perl-scripts
+.PHONY: build build-manpages clean binary-indep binary-arch binary install patch unpatch prepatch prepatchtwo update-makefile update-makefile-complete patch-perl-scripts source diff
