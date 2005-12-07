@@ -16,7 +16,7 @@ Index: ACE_wrappers/bin/MakeProjectCreator/modules/GNUACEWorkspaceCreator.pm
              "  KEEP_GOING = -$crlf",
              "endif$crlf$crlf",
 +	    "ifndef ACE_ROOT$crlf",
-+	    "  export ACE_ROOT   = /usr/share/ace$crlf",
++	    "  export ACE_ROOT = /usr/share/ace$crlf",
 +	    "endif$crlf",
              "include \$(ACE_ROOT)/include/makeinclude/macros.GNU$crlf",
              $crlf;
