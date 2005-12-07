@@ -1,0 +1,5 @@
+TAO/tao/libTAO_FlResource.so     usr/lib
+TAO/tao/libTAO_FlResource.a      usr/lib
+TAO/tao/FlResource_Factory.h     usr/include/tao
+TAO/tao/FlResource_Loader.h      usr/include/tao
+TAO/tao/TAO_FlResource_Export.h  usr/include/tao

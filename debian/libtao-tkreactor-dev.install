@@ -1,0 +1,5 @@
+TAO/tao/libTAO_TkResource.so    usr/lib
+TAO/tao/libTAO_TkResource.a     usr/lib
+TAO/tao/TkResource_Factory.h    usr/include/tao
+TAO/tao/TkResource_Loader.h     usr/include/tao
+TAO/tao/TAO_TkResource_Export.h usr/include/tao
