@@ -4,6 +4,9 @@
 // bossekr@debian.org: Get the system capabilities.
 #include <unistd.h>
 
+// Always inline
+#define __ACE_INLINE__
+
 // -------------------------------
 
 #include "ace/config-linux.h"

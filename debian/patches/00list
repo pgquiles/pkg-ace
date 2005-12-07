@@ -6,6 +6,7 @@
 16-fix-tests
 17-fix-tao-encode_value-memory-leak
 20-debian-compiler-definitions
+21-always-inline.dpatch
 79-prepatch-dummy-mark
 80-update-makefile
 81-patch-idlstubs-order-cossevent

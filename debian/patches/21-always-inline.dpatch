@@ -1,0 +1,29 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 21-always-inline.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Additional Debian GNU/Linux specific definitions
+##
+## DP: As per Marek Brudka recommendation, remove inline option from MPC
+## DP: generated GNUmakefiles. See Bug#290114.
+
+@DPATCH@
+
+--- ACE_wrappers/include/makeinclude/wrapper_macros.GNU.old	2005-02-13 09:02:00.000000000 +0100
++++ ACE_wrappers/include/makeinclude/wrapper_macros.GNU	2005-02-13 09:02:38.000000000 +0100
+@@ -589,15 +589,6 @@
+   CCFLAGS += $(PCCFLAGS)
+ endif # profile
+ 
+-inline ?= 1
+-ifeq ($(inline),0)
+-  CPPFLAGS += -DACE_NO_INLINE
+-else
+-ifeq ($(inline),1)
+-  CPPFLAGS += -D__ACE_INLINE__
+-endif # inline eq 1
+-endif # inline eq 0
+-
+ ifeq ($(shared_libs),0)
+   override shared_libs =
+ endif # shared_libs
