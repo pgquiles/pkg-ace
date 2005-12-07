@@ -9,14 +9,16 @@ ace (5.4.2.1.0-3) unstable; urgency=low
     - debian/tao_idl: new script that automatically sets ACE_ROOT and
       TAO_ROOT environment variables. (Closes: #289158)
     - debian/rules: unbreak gperf-ace. (Closes: #294338)
-    - debian/remove_reactor_dups.sh: new script to ensure that duplicate 
+    - debian/remove_reactor_dups.sh: new script to ensure that duplicate
       reactor header files get deleted. (Closes: #294660)
     - debian/patches/21-always-inline.dpatch, debian/config.h: Always
       define __ACE_INLINE__, and remove the inline option from the MPC
       generated GNUmakefiles. Thanks to Marek Brudka for reporting this and
       for providing the fix. (Closes: #290114)
+    - debian/patches/18-fix-trader-twiddle-operator.dpatch: backport
+      fix to correct operator ~ in trader constraints.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Sun, 13 Feb 2005 09:13:59 +0100
+ -- Thomas Girard <thomas.g.girard@free.fr>  Sun, 13 Feb 2005 18:08:30 +0100
 
 ace (5.4.2.1.0-2) unstable; urgency=medium
 

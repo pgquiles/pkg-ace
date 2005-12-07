@@ -5,6 +5,7 @@
 15-fix-fltk-include
 16-fix-tests
 17-fix-tao-encode_value-memory-leak
+18-fix-trader-twiddle-operator
 20-debian-compiler-definitions
 21-always-inline.dpatch
 79-prepatch-dummy-mark
