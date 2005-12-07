@@ -5,12 +5,12 @@
 # Modified August 2003 by Brian Nelson <pyro@debian.org>
 # Copyrigh (C) 2004  Raphael Bossek <bossekr@debian.org>
 
-INSTALL = install
+INSTALL := install
 
-ACE_SUBDIR = ACE_wrappers
-ACE_ARCHIVE = $(shell ls -1 ACE+TAO+CIAO*.tar.gz 2>/dev/null || echo ace-archive-missing)
-MPC_SUBDIR = MPC
-MPC_ARCHIVE = $(shell ls -1 MPC*.tar.gz 2>/dev/null || echo mpc-archive-missing)
+ACE_SUBDIR := ACE_wrappers
+ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO*.tar.gz 2>/dev/null || echo ace-archive-missing)
+MPC_SUBDIR := MPC
+MPC_ARCHIVE := $(shell ls -1 MPC*.tar.gz 2>/dev/null || echo mpc-archive-missing)
 
 MAN1 := debian/Basic_Logging_Service.1 \
 	debian/Event_Logging_Service.1 \
@@ -20,30 +20,30 @@ MAN1 := debian/Basic_Logging_Service.1 \
 MAN5 :=
 
 ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
-export MPC_ROOT = $(shell pwd)/$(MPC_SUBDIR)
+export MPC_ROOT := $(shell pwd)/$(MPC_SUBDIR)
 endif
-export ACE_ROOT = $(shell pwd)/$(ACE_SUBDIR)
-export TAO_ROOT = $(ACE_ROOT)/TAO
+export ACE_ROOT := $(shell pwd)/$(ACE_SUBDIR)
+export TAO_ROOT := $(ACE_ROOT)/TAO
 export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(ACE_ROOT)/lib
-export QTDIR=/usr/share/qt3
+export QTDIR := /usr/share/qt3
 
 PKG_CONFIG_IN = $(shell find $(ACE_ROOT) -name '*.pc.in' 2>/dev/null)
 PKG_CONFIG = $(PKG_CONFIG_IN:.in=)
 
 # This dpatch is only a place holder. The `prepatch' targets stops
 # here by default.
-PREPATCH_MARK_DPATCH_NAME = 79-prepatch-dummy-mark.dpatch
-UNTIL_DPATCH_NAME = $(PREPATCH_MARK_DPATCH_NAME)
+PREPATCH_MARK_DPATCH_NAME := 79-prepatch-dummy-mark.dpatch
+UNTIL_DPATCH_NAME := $(PREPATCH_MARK_DPATCH_NAME)
 
 # This patch contains the result of the update-makefile target. The
 # idea is to speed up the build proccess using this patch instead
 # of calling MakeProjectCreator.
-MAKEFILE_DPATCH_NAME = 80-update-makefile
-MAKEFILE_DPATCH_FILENAME = debian/patches/$(MAKEFILE_DPATCH_NAME).dpatch
+MAKEFILE_DPATCH_NAME := 80-update-makefile
+MAKEFILE_DPATCH_FILENAME := debian/patches/$(MAKEFILE_DPATCH_NAME).dpatch
 
 # Used by `dpatch' target.
-DPATCH_NAME = temp.dpatch
-DPATCH_DESC = No description.
+DPATCH_NAME := temp.dpatch
+DPATCH_DESC := No description.
 
 $(ACE_ROOT): $(ACE_ARCHIVE)
 	tar -xzf "$^"
