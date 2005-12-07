@@ -3,6 +3,7 @@
 19-fix-taoidl-fd-leak
 20-debian-compiler-definitions
 21-always-inline.dpatch
+22-eventchannel_factory-dont-shutdown-orb
 79-prepatch-dummy-mark
 80-update-makefile
 81-patch-idlstubs-order-cossevent

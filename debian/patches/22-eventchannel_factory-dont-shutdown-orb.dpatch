@@ -1,0 +1,38 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 22-eventchannel_factory-dont-shutdwon-orb.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: The TAO_Notify_EventChannelFactory should not shutdown the ORB.
+
+@DPATCH@
+Wed Feb 23 10:50:43 2005  Chad Elliott  <elliott_c@ociweb.com>
+
+        * orbsvcs/orbsvcs/Notify/EventChannelFactory.cpp:
+
+          Remove the call to shutdown the ORB when destroying the
+          TAO_Notify_EventChannelFactory.  It is not necessary and is not
+          necessarily what the user wants.
+--- ACE_wrappers/TAO/orbsvcs/orbsvcs/Notify/EventChannelFactory.cpp	2005/01/27 19:44:47	1.12
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/Notify/EventChannelFactory.cpp	2005/02/23 16:51:41	1.13
+@@ -1,8 +1,8 @@
+-// EventChannelFactory.cpp,v 1.12 2005/01/27 19:44:47 jtc Exp
++// EventChannelFactory.cpp,v 1.13 2005/02/23 16:51:41 elliott_c Exp
+ 
+ #include "EventChannelFactory.h"
+ 
+-ACE_RCSID(Notify, TAO_Notify_EventChannelFactory, "EventChannelFactory.cpp,v 1.12 2005/01/27 19:44:47 jtc Exp")
++ACE_RCSID(Notify, TAO_Notify_EventChannelFactory, "EventChannelFactory.cpp,v 1.13 2005/02/23 16:51:41 elliott_c Exp")
+ 
+ #include "ace/Dynamic_Service.h"
+ #include "Properties.h"
+@@ -61,10 +61,6 @@
+ 
+   delete this->ec_container_;
+ 
+-  // Shutdown the ORB.
+-  CORBA::ORB_var orb = properties->orb ();
+-  orb->shutdown ();
+-
+   // Reset references to CORBA objects.
+   properties->orb (CORBA::ORB::_nil ());
+   properties->default_poa (PortableServer::POA::_nil ());
