@@ -393,7 +393,7 @@ Description: GUI Integrated Reactors for ACE: Tk Reactor
  single threaded yet still respond to both GUI events, such as button presses,
  any your own application events.
  .
- The ACE_TkReactor provides reactor functionality arounde the popular Tcl/Tk
+ The ACE_TkReactor provides reactor functionality around the popular Tcl/Tk
  library. The underlying Tcl/Tk method used is Tcl_DoOneEvent().
 
 Package: libace-tkreactor-dev
@@ -408,7 +408,7 @@ Description: GUI Integrated Reactors for ACE: Tk Reactor (development files)
  single threaded yet still respond to both GUI events, such as button presses,
  any your own application events.
  .
- The ACE_TkReactor provides reactor functionality arounde the popular Tcl/Tk
+ The ACE_TkReactor provides reactor functionality around the popular Tcl/Tk
  library. The underlying Tcl/Tk method used is Tcl_DoOneEvent().
  .
  Thie package contains development files.
