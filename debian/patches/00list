@@ -4,6 +4,7 @@
 20-debian-compiler-definitions
 21-always-inline.dpatch
 22-eventchannel_factory-dont-shutdown-orb
+23-fix-corbaloc-mem-leak
 79-prepatch-dummy-mark
 80-update-makefile
 81-patch-idlstubs-order-cossevent
