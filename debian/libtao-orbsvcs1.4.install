@@ -1,4 +1,6 @@
 TAO/orbsvcs/IFR_Service/libTAO_IFR_BE.so.*         usr/lib
+TAO/orbsvcs/PSS/libTAO_PSDL.so.*                   usr/lib
+TAO/orbsvcs/PSS/libTAO_PSDL_Datastore.so.*         usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_AV.so.*                 usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_CosConcurrency.so.*     usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_CosEvent.so.*           usr/lib
@@ -73,6 +75,7 @@ TAO/orbsvcs/Logging_Service/Notify_Logging_Service/Notify_Logging_Service    usr
 TAO/orbsvcs/Logging_Service/RTEvent_Logging_Service/RTEvent_Logging_Service  usr/bin
 TAO/orbsvcs/Naming_Service/Naming_Service                                    usr/bin
 TAO/orbsvcs/Notify_Service/Notify_Service                                    usr/bin
+TAO/orbsvcs/PSS/psdl_tao                                                     usr/bin
 TAO/orbsvcs/Scheduling_Service/Scheduling_Service                            usr/bin
 TAO/orbsvcs/TAO_Service/TAO_Service                                          usr/bin
 TAO/orbsvcs/Time_Service/Time_Service_Server                                 usr/bin

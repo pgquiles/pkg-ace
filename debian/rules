@@ -149,6 +149,9 @@ build-stamp:	patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 
 	$(MAKE) -C $(TAO_ROOT)
 
+#       Force PSS compilation.
+	$(MAKE) -C $(TAO_ROOT)/orbsvcs/PSS dummy=1
+
 	$(MAKE) -C $(TAO_ROOT)/CIAO
 
 	touch "$@" 
