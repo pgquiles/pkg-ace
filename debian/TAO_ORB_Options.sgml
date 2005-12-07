@@ -1,16 +1,7 @@
-<!-- Manual converted from ACE_wrappers/TAO/docs/Options.html 1.182 2004/06/20 14:11:35 -->
 <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook V4.1//EN" [
   <!ENTITY applname "TAO_ORB_Options">
   <!ENTITY revision "$Revision: 1.2 $">
-  <!ENTITY man_tao_orb_options "<citerefentry><refentrytitle>TAO_ORB_Options</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
-  <!ENTITY man_event_service "<citerefentry><refentrytitle>Event_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
-  <!ENTITY man_basic_logging_service "<citerefentry><refentrytitle>Basic_Logging_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
-  <!ENTITY man_notify_logging_service "<citerefentry><refentrytitle>Notify_Logging_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
-  <!ENTITY man_event_logging_service "<citerefentry><refentrytitle>Event_Logging_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
-  <!ENTITY man_naming_service "<citerefentry><refentrytitle>Naming_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
-  <!ENTITY Naming_Service "<application>Naming_Service</application>">
-  <!ENTITY RTEvent_Logging_Service "<application>RTEvent_Logging_Service</application>">
-  <!ENTITY seealso "&man_tao_orb_options;, &man_event_service;, &man_basic_logging_service;, &man_notify_logging_service;, &man_event_logging_service;, &man_naming_service;">
+  <!ENTITY progname "tao_program">
   <!ENTITY year "1999">
   <!ENTITY username "Douglas C. Schmidt">
   <!ENTITY useremail "<email>&lt;d.schmidt@vanderbilt.edu&gt;</email>">
@@ -22,7 +13,7 @@
   </refmeta>
   <refnamediv>
     <refname>&applname;</refname>
-    <refpurpose>Options for TAO Components</refpurpose>
+    <refpurpose>Common options for programs that use TAO</refpurpose>
   </refnamediv>
   <refsynopsisdiv>
     <title>SYNOPSIS</title>
@@ -31,7 +22,6 @@
       <!-- From `Controlling Service Configurator Behaviour' -->
       <arg rep="repeat"><group><arg>-ORBSvcConf</arg><replaceable>filename</replaceable></group></arg>
       <group><arg>-ORBSvcConfDirective</arg><replaceable>directive</replaceable></group>
-
 
       <!-- From `Controlling Debugging Information' -->
       <arg>-ORBDebug</arg>
@@ -114,97 +104,24 @@
     </cmdsynopsis>
   </refsynopsisdiv>
   <refsect1>
-    <title>INTRODUCTION</title>
+    <title>DESCRIPTION</title>
     <para>
-   TAO is a highly flexible ORB that contains a wide range of ORB
-   configuration options. One or more of these options can be combined to
-   meet various application requirements, such as low-latency,
-   predictable real-time behavior, or small memory footprint. TAO's ORB
-   configuration options are managed by an object-oriented framework
-   within the ORB Core that contains the following types of entities:
-      <itemizedlist mark="opencircle">
-	    <listitem>
-		  <para>
-       Settings, which are options that can be assigned values differing
-       from their default settings. Examples include setting the size of
-       a Portable Object Adapter (POA)'s active object map or configuring
-       the ORB to print debugging information as it processes requests. A
-       few of these are run-time options, while a majority of them are
-       compile-time options.
-          </para>
-		</listitem>
-		<listitem>
-		  <para>
-       Resources, which are objects used internally by TAO, such as a
-       reactor framework that demultiplexes new connection and data
-       requests from a client or synchronization mechanisms used to
-       regulate access to certain parts of the ORB.
-	      </para>
-		</listitem>
-		<listitem>
-		  <para>
-       Strategies, which are objects that use the Resource entities to
-       perform various ORB tasks, such as connection management,
-       concurrency, and demultiplexing.
-	      </para>
-		</listitem>
-		<listitem>
-		  <para>
-       Factories, which TAO uses to create and consolidate its many
-       resources and strategies into a manageable number of factories
-       that can be (re)configured into the ORB conveniently and
-       consistently by ORB and application developers.
-	      </para>
-		</listitem>
-	  </itemizedlist>
+      All programs relying on TAO understand the same set of
+      parameters: the <emphasis>-ORB</emphasis> parameters that affect
+      the ORB behaviour.
     </para>
-	<para>
-   The set of TAO ORB configuration options that are represented by the
-   settings, resources, strategies, and factories can be specified via
-   environment variables, service configuration files, and command-line
-   arguments, as outlined below:
-      <itemizedlist mark="opencircle">
-	    <listitem>
-		  <para>
-       Environment variables are limited to specifying the interoperable
-       object reference (IOR) and port number of TAO's Naming Service,
-       Trading Service and Implementation Repository. They are limited in
-       flexibility and don't provide the most important configuration
-       hooks necessary to configure TAO for real-time and
-       high-performance applications.
-	      </para>
-		</listitem>
-	    <listitem>
-		  <para>
-	   Command-line options are passed to the ORB initialization factory
-       method, CORBA::ORB_init(), by an application using the standard
-       argc, argv tuple passed to the application's main(). Most of the
-       options that can be exercised through environment variables can
-       also be manipulated through command-line options. Command-line
-       options override the environment variable settings if both are
-       enabled.
-          </para>
-		</listitem>
-	    <listitem>
-		  <para>
-       The Service Configurator is a framework that can be used to
-       statically and dynamically configure components into middleware
-       and applications. The information comprising the names of these
-       components and their corresponding options are specified in a
-       service configurator file, whose default file name is svc.conf.
-       The service configurator is opened and processed by the ORB in
-       CORBA::ORB_init(). The service configurator processing is done
-       after all the command-line options have been parsed.
- 	      </para>
-		</listitem>
-	  </itemizedlist>
+    <para>
+      This manual page describe these parameters. Please note that the
+      ORB behaviour can also be altered using a
+      <filename>svc.conf</filename>. See TAO's documentation for help
+      on that topic.
     </para>
   </refsect1>
   <refsect1>
     <title>OPTIONS</title>
     <variablelist>
       <varlistentry>
-	<term>-ORBSvcConf <replaceable>filename</replaceable></term>
+	<term><parameter>-ORBSvcConf</parameter> <replaceable>configfilename</replaceable></term>
 	<listitem>
 	  <para>
             Specifies the name of the file used to read service
@@ -216,7 +133,7 @@
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBSvcConfDirective <replaceable>directive</replaceable></term>
+	<term><parameter>-ORBSvcConfDirective</parameter> <replaceable>directivestring</replaceable></term>
 	<listitem>
 	  <para>
             Specifies a service configuration directive, which is
@@ -226,7 +143,7 @@
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBDebug</term>
+	<term><parameter>-ORBDebug</parameter></term>
 	<listitem>
 	  <para>
             Instructs the ORB to print debugging messages from the
@@ -237,7 +154,7 @@
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBDebugLevel <replaceable>level</replaceable></term>
+	<term><parameter>-ORBDebugLevel</parameter> <replaceable>level</replaceable></term>
 	<listitem>
 	  <para>
             Control the level of debugging in the ORB. Higher numbers
@@ -247,45 +164,45 @@
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBVerboseLogging {0 | 1 | 2}</term>
+	<term><parameter>-ORBVerboseLogging {0,1,2}</parameter></term>
 	<listitem>
 	  <para>
             Controls the amount of status data printed on each line of
             the debug log. Higher numbers generate more output.  The
-            default value of this option is 0.
+            default value of this option is <parameter>0</parameter>.
           </para>
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBLogFile <replaceable>filename</replaceable></term>
+	<term><parameter>-ORBLogFile</parameter> <replaceable>logfilename</replaceable></term>
 	<listitem>
 	  <para>
-            <!-- TODO: use sth better than emphasis here ??? -->
-            Causes all <emphasis>ACE_DEBUG</emphasis> and
-            <emphasis>ACE_ERROR</emphasis> output to be redirected to
+            Causes all <function>ACE_DEBUG</function> and
+            <function>ACE_ERROR</function> output to be redirected to
             the designated <replaceable>filename</replaceable>.
           </para>
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBObjRefStyle {IOR | URL}</term>
+	<term><parameter>-ORBObjRefStyle {IOR,URL}</parameter></term>
 	<listitem>
 	  <para>
             Specifies the user-visible style of object references. The
-            IOR style (default) is the conventional CORBA object
-            reference, whereas the URL style looks more like a URL.
+            <parameter>IOR</parameter> style (default) is the conventional 
+	    CORBA object reference, whereas the <parameter>URL</parameter> 
+	    style looks more like a URL.
           </para>
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBCDRTradeoff <replaceable>maxsize</replaceable></term>
+	<term><parameter>-ORBCDRTradeoff</parameter> <replaceable>maxsize</replaceable></term>
 	<listitem>
 	  <para>
             Control the strategy to tradeoff between copy vs. no copy
             marshaling of octet sequences. If an octet sequence is
             smaller than <replaceable>maxsize</replaceable> (which
             defaults to
-            <emphasis>ACE_DEFAULT_CDR_MEMORY_TRADEOFF</emphasis>) --
+	    <constant>ACE_DEFAULT_CDR_MEMORY_TRADEOFF</constant>) --
             and the current message block contains enough space for it
             -- the octet sequence is copied instead of appended to the
             CDR stream.
@@ -293,73 +210,73 @@
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBCollocation {global | per-orb | no}</term>
+	<term><parameter>-ORBCollocation {global,per-orb,no}</parameter></term>
 	<listitem>
 	  <para>
            Specifies the use of collocation object optimization. If
-           <emphasis>global</emphasis> is specified (default), objects
+           <parameter>global</parameter> is specified (default), objects
            in the same process will be treated as collocated.  If
-           <emphasis>per-orb</emphasis> is specified, only objects in
+           <parameter>per-orb</parameter> is specified, only objects in
            the same ORB are treated as collocated. When
-           <emphasis>no</emphasis> is specified, no objects are
+           <parameter>no</parameter> is specified, no objects are
            treated as collocated.
           </para>
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBCollocationStrategy {thru_poa | direct}</term>
+	<term><parameter>-ORBCollocationStrategy {thru_poa,direct}</parameter></term>
 	<listitem>
 	  <para>
             Specifies what type of collocated object to use. If the
-            <emphasis>thru_poa</emphasis> (default) strategy is used,
+            <parameter>thru_poa</parameter> (default) strategy is used,
             TAO uses the collocation object implementation that
             respects POA's current state and policies. When using the
-            <emphasis>direct</emphasis> strategy, method invocations
+            <parameter>direct</parameter> strategy, method invocations
             on collocated objects become direct calls to servant
             without checking POA's status, which can increase
             performance. If you use the 
-            <emphasis>direct</emphasis> strategy, your interfaces must 
-            be compiled with the <emphasis>-Gd</emphasis> IDL compiler option.
+            <parameter>direct</parameter> strategy, your interfaces must 
+            be compiled with the <parameter>-Gd</parameter> IDL compiler option.
           </para>
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBNodelay {0 | 1}</term>
+	<term><parameter>-ORBNodelay {0,1}</parameter></term>
 	<listitem>
 	  <para>
-            Enable or disable the <emphasis>TCP_NODELAY</emphasis> option 
+            Enable or disable the <constant>TCP_NODELAY</constant> option 
             (Nagle's algorithm). By default, 
-            <emphasis>TCP_NODELAY</emphasis> is enabled.
+            <constant>TCP_NODELAY</constant> is enabled.
           </para>
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBRcvSock <replaceable>recv_size</replaceable></term>
+	<term><parameter>-ORBRcvSock</parameter> <replaceable>recv_size</replaceable></term>
 	<listitem>
 	  <para>
             Specify the size of the socket receive buffer as a
             positive, non-zero integer. If not specified, the
-            <emphasis>ACE_DEFAULT_MAX_SOCKET_BUFSIZ</emphasis> default
+            <constant>ACE_DEFAULT_MAX_SOCKET_BUFSIZ</constant> default
             is used.
           </para>
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBSndSock <replaceable>snd_size</replaceable></term>
+	<term><parameter>-ORBSndSock</parameter> <replaceable>snd_size</replaceable></term>
 	<listitem>
 	  <para>
             Specify the size of the socket send buffer as a positive,
             non-zero integer. If not specified, the
-            <emphasis>ACE_DEFAULT_MAX_SOCKET_BUFSIZ</emphasis> default
+            <constant>ACE_DEFAULT_MAX_SOCKET_BUFSIZ</constant> default
             is used.
           </para>
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBStdProfileComponents {0 | 1}</term>
+	<term><parameter>-ORBStdProfileComponents {0,1}</parameter></term>
 	<listitem>
 	  <para>
-            If <emphasis>0</emphasis> then the ORB does not generate
+            If <parameter>0</parameter> then the ORB does not generate
             the OMG standardized profile components, such as the ORB
             type and code sets. Notice that the presence of this
             components is optional in GIOP 1.1 The default value is
@@ -369,25 +286,25 @@
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBSingleReadOptimization {0 | 1}</term>
+	<term><parameter>-ORBSingleReadOptimization {0,1}</parameter></term>
 	<listitem>
 	  <para>
             This option controls whether TAO's ``single read
             optimization'' is used when receiving requests. If this
-            option is disabled (<emphasis>0</emphasis>), the ORB will
+            option is disabled (<parameter>0</parameter>), the ORB will
             do two reads to read a request: one reads the request
             header and the other reads the request payload. If this
-            option is enabled (<emphasis>1</emphasis>), the ORB will
-            do a read of size <emphasis>TAO_MAXBUFSIZE</emphasis>,
+            option is enabled (<parameter>1</parameter>), the ORB will
+            do a read of size <constant>TAO_MAXBUFSIZE</constant>,
             hoping to read the entire request.  If more than one
             request is read they will be queued up for processing
             later.
           </para>
           <para>
-            This option defaults to <emphasis>1</emphasis> because it
+            This option defaults to <parameter>1</parameter> because it
             can provide better performance. However, in the case of
             RT-CORBA, this option should be set to
-            <emphasis>0</emphasis>. Consider the following scenario:
+            <parameter>0</parameter>. Consider the following scenario:
             <itemizedlist>
 	      <listitem>
 		<para>two requests are read from one socket,</para>
@@ -397,45 +314,43 @@
 	      </listitem>
 	      <listitem>
 		<para>the ORB uses its Reactor's notification
-            mechanism to wake up the follower threads. </para>
+		mechanism to wake up the follower threads.</para>
 	      </listitem>
 	    </itemizedlist>
           </para>
-		</listitem>
-		<listitem>
-		  <para><emphasis>-ORBStdProfileComponents</emphasis> boolean (0|1)</para>
-		  <para>
-   If 0 then the ORB does not
-   generate the OMG standardized profile components, such as the ORB type
-   and code sets. Notice that the presence of this components is optional
-   in GIOP 1.1 The default value is controlled by a compile-time flag
-   (check <filename>orbconf.h</filename>).
+	  <para>
+            If at the same time, however, new requests arrive on
+            others sockets of higher priority the lower priority
+            queued message will be processed before the newly arrived
+            higher priority request since Reactor notifications are
+            given preferences over normal I/O, thereby causing
+            priority inversion.
           </para>
 	</listitem>	
       </varlistentry>
       <varlistentry>
-	<term>-ORBDisableRTCollocation {0 | 1}</term>
+	<term><parameter>-ORBDisableRTCollocation {0,1}</parameter></term>
 	<listitem>
 	  <para>
             This option controls whether the application wants to use
             or discard RT collocation decisions made by the RT ORB. A
-            value of <emphasis>1</emphasis> disables RT collocation
+            value of <parameter>1</parameter> disables RT collocation
             decisions and falls back on the default collocation
             decisions implemented in the default ORB. This is very
             useful for applications using the RT ORB and doesn't want
             to use the RT collocation decisions but fallback on the
             default decisions for better performance. The default
-            value is <emphasis>0</emphasis>.
+            value is <parameter>0</parameter>.
           </para>
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBDefaultInitRef <replaceable>ior_prefix</replaceable></term>
+	<term><parameter>-ORBDefaultInitRef</parameter> <replaceable>ior_prefix</replaceable></term>
 	<listitem>
 	  <para>
             This argument allows resolution of initial references not
             explicitly specified with
-            <emphasis>-ORBInitRef</emphasis>. It requires a URL prefix
+            <parameter>-ORBInitRef</parameter>. It requires a URL prefix
             that, after appending a slash `/' (`|' for the UIOP
             pluggable protocol) and a simple object key, forms a new
             URL to identify an initial object reference. The URL
@@ -446,70 +361,48 @@
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBDottedDecimalAddresses {0 | 1}</term>
+	<term><parameter>-ORBDottedDecimalAddresses {0,1}</parameter></term>
 	<listitem>
 	  <para>
             Use the dotted decimal notation for addresses. This option
             can be used to workaround broken DNS implementations and
             may also reduce the time spent resolving IP addresses. By
-            default, this option is disabled (<emphasis>0</emphasis>)
+            default, this option is disabled (<parameter>0</parameter>)
             since domain names are the standard address notation for
             IORs.
           </para>
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBEndpoint <replaceable>endpoint</replaceable></term>
+	<term><parameter>-ORBEndpoint</parameter> <replaceable>endpoint</replaceable></term>
 	<listitem>
 	  <para>
             This option is similar to the
-            <emphasis>-ORBListenEndPoints</emphasis> option described
+            <parameter>-ORBListenEndPoints</parameter> option described
             below. This option will be deprecated in later versions on
             TAO since the CORBA specification now defines the
-            <emphasis>-ORBListenEndpoints</emphasis> option instead.
+            <parameter>-ORBListenEndpoints</parameter> option instead.
           </para>
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term>-ORBListenEndpoints <replaceable>endpoint</replaceable></term>
+	<term><parameter>-ORBListenEndpoints</parameter> <replaceable>endpoint</replaceable></term>
 	<listitem>
 	  <para>
-   Options in this category don't control the behavior of the ORB in
-   terms of resouces or strategies. Instead, they are helper options
-   provided for specific application requirements.
-      <itemizedlist mark="opencircle">
-	    <listitem>
-		  <para><emphasis>-ORBId</emphasis> orb_name</para>
-		  <para>
-   This option allows the name of an ORB to be set to
-   orb_name. The ORBId will be passed to the ORB_init() method to
-   differentiate coexisting ORBs (when there are more than one ORBs).
+            This option was introduced with the CORBA ORT (Object
+            Reference Template) specification. It instructs a server
+            ORB to listen for requests on the interface specified by
+            <replaceable>endpoint</replaceable>. TAO endpoints are
+            specified using a URL style format. An endpoint has the
+            form:
+            <filename>protocol://V.v@addr1,...,W.w@addrN</filename>
+            where V.v and W.w are optional protocol versions for each
+            address.  An example of an IIOP endpoint is:
+            <filename>iiop://hostname:port</filename>
           </para>
-		</listitem>
-		<listitem>
-		  <para><emphasis>-ORBServerId</emphasis> server_id</para>
-		  <para>
-   This option allows setting a name/id to a
-   server to uniquely identify a server to TAO's Implementation
-   Repository.
-          </para>
-		</listitem>
-		<listitem>
-		  <para><emphasis>-ORBDaemon</emphasis></para>
-		  <para>
-   Specifies that the ORB should daemonize itself, i.e., run
-   as a background process. This option is only meaningful on OS
-   platforms that support daemonization.</para>
-		</listitem>
-	  </itemizedlist>
-	  </para>
-    </refsect3>
-	</refsect2>
-	<refsect2>
-	  <title>The Service Configurator File</title>
 	  <para>
             Sets of endpoints may be specified using multiple
-            <emphasis>-ORBEndpoint</emphasis> options or by delimiting
+            <parameter>-ORBEndpoint</parameter> options or by delimiting
             endpoints with a semi-colon (`;'). For example, 
 
             <filename>-ORBEndpoint iiop://localhost:9999 -ORBEndpoint uiop:///tmp/mylocalsock -ORBEndpoint shmiop://10002</filename>
@@ -534,20 +427,119 @@
 	</listitem>	
       </varlistentry>
       <varlistentry>
-	<term>-ORBImplRepoServicePort <replaceable>port</replaceable></term>
+	<term><parameter>-ORBImplRepoServicePort</parameter> <replaceable>portspec</replaceable></term>
 	<listitem>
 	  <para>
             Specifies which port the Implementation Repository is
             listening on for multicast requests. By default, the
-            <emphasis>TAO_DEFAULT_IMPLREPO_SERVER_REQUEST_PORT</emphasis> (10018) is used.
+            <constant>TAO_DEFAULT_IMPLREPO_SERVER_REQUEST_PORT</constant> (10018) is used.
+          </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><parameter>-ORBInitRef</parameter> <replaceable>ObjectId=IOR</replaceable></term>
+	<listitem>
+	  <para>
+	  Allows specification of an arbitrary object reference for an
+	  initial service. The IOR could be in any one of the following
+	  formats: OMG IOR, URL, corbaloc (including uioploc) or file.
+	  corbaloc is a multiple end-point IOR understood by
+	  <function>ORB::string_to_object()</function> and used as a
+	  boot-strapping mechanism by the
+	  <function>ORB::resolve_initial_references()</function>. The
+	  mappings specified through this argument override the ORB
+	  install-time defaults.
+	  The file://pathname interprets the contents of the pathname file as
+	  an object reference in any of the above formats.
+          </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><parameter>-ORBMulticastDiscoveryEndpoint</parameter> <replaceable>endpoint</replaceable></term>
+	<listitem>
+	  <para>
+	  Specifies the endpoint that should be used for locating the
+	  Naming Service through multicast.
+	  <replaceable>endpoint</replaceable> is of the form
+	  ip-number:port-number (e.g., "tango.cs.wustl.edu:1234" or
+	  "128.252.166.57:1234"). If there is no `:' in the
+	  <replaceable>endpoint</replaceable> it is assumed to be a port
+	  number, with the IP address being <constant>INADDR_ANY</constant>.
+          </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><parameter>-ORBNameServicePort</parameter> <replaceable>portspec</replaceable></term>
+	<listitem>
+	  <para>
+	  Specifies which port the Naming Service is listening on for multicast 
+	  requests. By default, the 
+	  <constant>TAO_DEFAULT_NAME_SERVICE_REQUEST_PORT</constant> (10013) 
+	  value is used.
+          </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><parameter>-ORBTradingServicePort</parameter> <replaceable>portspec</replaceable></term>
+	<listitem>
+	  <para>
+	  Specifies to which port the Trading Service is listening on for 
+	  multicast requests. By default, the 
+	  <constant>TAO_DEFAULT_TRADING_SERVICE_REQUEST_PORT</constant> (10016) 
+	  value is used.
+          </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><parameter>-ORBUseIMR {0,1}</parameter></term>
+	<listitem>
+	  <para>
+	  This argument specifies that for POAs with the PERSISTENT policy, 
+	  that the TAO Implementation Repository should be used for 
+	  notification of startup and shutdown and object references should 
+	  be changed to use the Implementation Repository also.
+          </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><parameter>-ORBId</parameter> <replaceable>orb_name</replaceable></term>
+	<listitem>
+	  <para>
+	  This option allows the name of an ORB to be set to 
+	  <replaceable>orb_name</replaceable>. The ORBId will be passed to the 
+	  <function>ORB_init()</function> method to differentiate coexisting 
+	  ORBs (when there are more than one ORBs).
+          </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><parameter>-ORBServerId</parameter> <replaceable>server_id</replaceable></term>
+	<listitem>
+	  <para>
+	  This option allows setting a name/id to a server to uniquely 
+	  identify a server to TAO's Implementation Repository.
+          </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><parameter>-ORBDaemon</parameter></term>
+	<listitem>
+	  <para>
+	  Specifies that the ORB should daemonize itself, i.e., run as a 
+	  background process. This option is only meaningful on OS 
+	  platforms that support daemonization.
           </para>
 	</listitem>
       </varlistentry>
     </variablelist>
   </refsect1>
   <refsect1>
+    <title>ENVIRONMENT VARIABLES</title>
+    <para></para>
+  </refsect1>
+  <refsect1>
     <title>SEE ALSO</title>
-    <para>&seealso;</para>
+    <para></para>
   </refsect1>
   <refsect1>
     <title>AUTHOR</title>
