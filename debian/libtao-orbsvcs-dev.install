@@ -55,6 +55,10 @@ TAO/orbsvcs/orbsvcs/Security/*.{h,i,inl}                          usr/include/or
 TAO/orbsvcs/orbsvcs/Time/*.{h,i,inl}                              usr/include/orbsvcs/orbsvcs/Time
 TAO/orbsvcs/orbsvcs/Trader/*.{h,i,inl}                            usr/include/orbsvcs/orbsvcs/Trader
 TAO/orbsvcs/IFR_Service/libTAO_IFR_BE.so            usr/lib
+TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Activator.so     usr/lib
+TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Activator_IDL.so usr/lib
+TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Locator.so       usr/lib
+TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Locator_IDL.so   usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_AV.so                    usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_CosConcurrency.so        usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_CosEvent.so              usr/lib
