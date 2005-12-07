@@ -30,13 +30,13 @@ export QTDIR=/usr/share/qt3
 PKG_CONFIG_IN = $(shell find $(ACE_ROOT) -name '*.pc.in' 2>/dev/null)
 PKG_CONFIG = $(PKG_CONFIG_IN:.in=)
 
-# This dpatch is only a place holder. The `perpatch' targets stops
+# This dpatch is only a place holder. The `prepatch' targets stops
 # here by default.
 PREPATCH_MARK_DPATCH_NAME = 79-prepatch-dummy-mark.dpatch
 UNTIL_DPATCH_NAME = $(PREPATCH_MARK_DPATCH_NAME)
 
-# This patch contens the result of the update-makefile target. THe
-# idear is to speed up the build proccess using this patch instead
+# This patch contains the result of the update-makefile target. The
+# idea is to speed up the build proccess using this patch instead
 # of calling MakeProjectCreator.
 MAKEFILE_DPATCH_NAME = 80-update-makefile
 MAKEFILE_DPATCH_FILENAME = debian/patches/$(MAKEFILE_DPATCH_NAME).dpatch
