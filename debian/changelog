@@ -1,6 +1,9 @@
 ace (5.4.4-1) unstable; urgency=low
 
-  * New upstream version.
+  * Thomas Girard <thomas.g.girard@free.fr>
+    - New upstream version.
+    - debian/control: libtao-{xt,qt}reactor are now called
+      libtao-{xt,qt}resource. Also add libtao-{fl,tk}resource.
 
  -- Thomas Girard <thomas.g.girard@free.fr>  Mon, 14 Mar 2005 22:19:03 +0100
 

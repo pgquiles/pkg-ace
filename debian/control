@@ -439,127 +439,85 @@ Description: GUI Integrated Reactors for ACE: FastLight Reactor (development fil
  single threaded yet still respond to both GUI events, such as button presses,
  any your own application events.
  .
- The ACE_FlReactor integrates with the FastLight toolkit's Fl::wait() method.
- .
- Thie package contains development files.
+ This package contains development files.
 
-Package: libtao-qtreactor1.4
+Package: libtao-qtresource1.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
-Description: GUI Integrated Reactors for TAO: Qt Reactor
- Recognizing the need to write reactor-based GUI applications, the ACE
- community has created several reactor extensions for use with X Window
- System. Each of these extends the ACE_Select_Reactor to work with a
- specific toolkit. By using these reactors, your GUI application can remain
- single threaded yet still respond to both GUI events, such as button presses,
- any your own application events.
- .
- The TAO_QtResource_Factory extends both the TAO_Default_Resource_Factory class.
+Description: Qt GUI resource factory for TAO
+ This factory is intended for creating QtReactor for ORB. This factory
+ can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
+ method which is usually done by TAO_QtResource_Loader.
 
-Package: libtao-qtreactor-dev
+Package: libtao-qtresource-dev
 Architecture: any
 Section: devel
-Depends: libtao-qtreactor1.4 (= ${Source-Version}), libtao-dev (= ${Source-Version}), libqt3-mt-dev (>= 3:3.3.3)
-Description: GUI Integrated Reactors for TAO: Qt Reactor (development files)
- Recognizing the need to write reactor-based GUI applications, the ACE
- community has created several reactor extensions for use with X Window
- System. Each of these extends the ACE_Select_Reactor to work with a
- specific toolkit. By using these reactors, your GUI application can remain
- single threaded yet still respond to both GUI events, such as button presses,
- any your own application events.
- .
- The TAO_QtResource_Factory extends the TAO_Default_Resource_Factory class.
+Depends: libtao-qtresource1.4 (= ${Source-Version}), libace-qtreactor-dev (= ${Source-Version}), libtao-dev (= ${Source-Version})
+Description: Qt GUI resource factory for TAO (development files)
+ This factory is intended for creating QtReactor for ORB. This factory
+ can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
+ method which is usually done by TAO_QtResource_Loader.
  .
  This package contains development files.
 
-Package: libtao-xtreactor1.4
+Package: libtao-xtresource1.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
-Description: GUI Integrated Reactors for TAO: Xt Reactor (development files)
- Recognizing the need to write reactor-based GUI applications, the ACE
- community has created several reactor extensions for use with X Window
- System. Each of these extends the ACE_Select_Reactor to work with a
- specific toolkit. By using these reactors, your GUI application can remain
- single threaded yet still respond to both GUI events, such as button presses,
- any your own application events.
- .
- The TAO_XT_Resource_Factory extends the TAO_Default_Resource_Factory class.
+Description: Xt GUI resource factory for TAO
+ This factory is intended for creating XtReactor for ORB. This factory
+ can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
+ method which is usually done by TAO_XtResource_Loader.
 
-Package: libtao-xtreactor-dev
+Package: libtao-xtresource-dev
 Architecture: any
 Section: libs
-Depends: libtao-xtreactor1.4 (= ${Source-Version}), libtao-dev (= ${Source-Version}), libxt-dev (>= 4.3.0)
-Description: GUI Integrated Reactors for TAO: Xt Reactor (development files)
- Recognizing the need to write reactor-based GUI applications, the ACE
- community has created several reactor extensions for use with X Window
- System. Each of these extends the ACE_Select_Reactor to work with a
- specific toolkit. By using these reactors, your GUI application can remain
- single threaded yet still respond to both GUI events, such as button presses,
- any your own application events.
- .
- The TAO_XT_Resource_Factory extends the TAO_Default_Resource_Factory class.
+Depends: libtao-xtresource1.4 (= ${Source-Version}), libace-xtreactor-dev (= ${Source-Version}), libtao-dev (= ${Source-Version})
+Description: Xt GUI resource factory for TAO (development files)
+ This factory is intended for creating XtReactor for ORB. This factory
+ can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
+ method which is usually done by TAO_XtResource_Loader.
  .
  This package contains development files.
 
-Package: libtao-flreactor1.4
+Package: libtao-flresource1.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
-Description: GUI Integrated Reactors for TAO: Fl Reactor
- Recognizing the need to write reactor-based GUI applications, the ACE
- community has created several reactor extensions for use with X Window
- System. Each of these extends the ACE_Select_Reactor to work with a
- specific toolkit. By using these reactors, your GUI application can remain
- single threaded yet still respond to both GUI events, such as button presses,
- any your own application events.
- .
- The TAO_FlResource_Factory extends both the TAO_Default_Resource_Factory class.
+Description: Fl GUI resource factory for TAO
+ This factory is intended for creating FlReactor for ORB. This factory
+ can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
+ method which is usually done by TAO_FlResource_Loader.
 
-Package: libtao-flreactor-dev
+Package: libtao-flresource-dev
 Architecture: any
 Section: devel
-Depends: libtao-flreactor1.4 (= ${Source-Version}), libtao-dev (= ${Source-Version}), libfltk1.1-dev
-Description: GUI Integrated Reactors for TAO: Fl Reactor (development files)
- Recognizing the need to write reactor-based GUI applications, the ACE
- community has created several reactor extensions for use with X Window
- System. Each of these extends the ACE_Select_Reactor to work with a
- specific toolkit. By using these reactors, your GUI application can remain
- single threaded yet still respond to both GUI events, such as button presses,
- any your own application events.
- .
- The TAO_FlResource_Factory extends the TAO_Default_Resource_Factory class.
+Depends: libtao-flreactor1.4 (= ${Source-Version}), libace-flreactor-dev (= ${Source-Version}), libtao-dev (= ${Source-Version})
+Description: Fl GUI resource factory for TAO (development files)
+ This factory is intended for creating FlReactor for ORB. This factory
+ can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
+ method which is usually done by TAO_FlResource_Loader.
  .
  This package contains development files.
 
-Package: libtao-tkreactor1.4
+Package: libtao-tkresource1.4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
-Description: GUI Integrated Reactors for TAO: Tk Reactor
- Recognizing the need to write reactor-based GUI applications, the ACE
- community has created several reactor extensions for use with X Window
- System. Each of these extends the ACE_Select_Reactor to work with a
- specific toolkit. By using these reactors, your GUI application can remain
- single threaded yet still respond to both GUI events, such as button presses,
- any your own application events.
- .
- The TAO_TkResource_Factory extends both the TAO_Default_Resource_Factory class.
+Description: Tk GUI resource factory for TAO
+ This factory is intended for creating FlReactor for ORB. This factory
+ can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
+ method which is usually done by TAO_TkResource_Loader.
 
-Package: libtao-tkreactor-dev
+Package: libtao-tkresource-dev
 Architecture: any
 Section: devel
-Depends: libtao-tkreactor1.4 (= ${Source-Version}), libtao-dev (= ${Source-Version})
-Description: GUI Integrated Reactors for TAO: Tk Reactor (development files)
- Recognizing the need to write reactor-based GUI applications, the ACE
- community has created several reactor extensions for use with X Window
- System. Each of these extends the ACE_Select_Reactor to work with a
- specific toolkit. By using these reactors, your GUI application can remain
- single threaded yet still respond to both GUI events, such as button presses,
- any your own application events.
- .
- The TAO_TkResource_Factory extends the TAO_Default_Resource_Factory class.
+Depends: libtao-tkreactor1.4 (= ${Source-Version}), libace-tkreactor-dev (= ${Source-Version}), libtao-dev (= ${Source-Version})
+Description: Tk GUI resource factory for TAO
+ This factory is intended for creating FlReactor for ORB. This factory
+ can be feed into ORB using TAO_ORB_Core::set_gui_resource_factory
+ method which is usually done by TAO_TkResource_Loader.
  .
  This package contains development files.
 
