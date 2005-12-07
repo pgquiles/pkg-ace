@@ -42,32 +42,32 @@ MAKEFILE_DPATCH_FILENAME = debian/patches/$(MAKEFILE_DPATCH_NAME).dpatch
 DPATCH_NAME = temp.dpatch
 DPATCH_DESC = No description.
 
-$(ACE_ROOT):	$(ACE_ARCHIVE)
+$(ACE_ROOT): $(ACE_ARCHIVE)
 	tar -xzf "$^"
 	touch "$@"
 
-$(MPC_ROOT):	$(MPC_ARCHIVE)
+$(MPC_ROOT): $(MPC_ARCHIVE)
 	tar -xzf "$^"
 	touch "$@"
 
 debian/%.1 debian/%.5: debian/%.sgml
 	docbook-to-man "$^" > "$@"
 
-patch-perl-scripts:	$(ACE_ROOT)
+patch-perl-scripts: $(ACE_ROOT)
 	for fn in `find "$(ACE_ROOT)" -name "*.pl"`; do (echo '#!/usr/bin/perl'; cat "$$fn") > "$${fn}T"; mv "$${fn}T" "$$fn"; chmod a+x "$$fn"; done
 
-patch:	patch-stamp
+patch: patch-stamp
 ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
-patch-stamp:	patch-perl-scripts $(MPC_ROOT)
+patch-stamp: patch-perl-scripts $(MPC_ROOT)
 else
-patch-stamp:	patch-perl-scripts
+patch-stamp: patch-perl-scripts
 endif
 	dpatch apply-all
 	touch $@
 
-unpatch:	clean $(ACE_ROOT)
+unpatch: clean $(ACE_ROOT)
 
-$(ACE_ROOT)/debian.features:	$(ACE_ROOT)
+$(ACE_ROOT)/debian.features: $(ACE_ROOT)
 	cat debian/config/debian.features > "$@"
 	echo "// Added by debian/rules based on \$$(DEB_BUILD_OPTIONS)" >> "$@"
 ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
@@ -78,7 +78,7 @@ else
 	echo "optimize=1" >> "$@"
 endif
 
-$(ACE_ROOT)/include/makeinclude/platform_macros.GNU:	$(ACE_ROOT)/debian.features
+$(ACE_ROOT)/include/makeinclude/platform_macros.GNU: $(ACE_ROOT)/debian.features
 	sed -e 's/^\/\//#/g' "$^" > "$@"
 	echo >> "$@"
 	echo "LINK.cc=override" >> "$@"
@@ -92,15 +92,15 @@ $(ACE_ROOT)/include/makeinclude/platform_macros.GNU:	$(ACE_ROOT)/debian.features
 # other the MakeProjectCreator tools won't work. To achieve that a dummy
 # dpatch file is used: $(PREPATCH_MARK_DPATCH_NAME)
 ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
-prepatch:	$(ACE_ROOT) $(MPC_ROOT)
+prepatch: $(ACE_ROOT) $(MPC_ROOT)
 else
-prepatch:	$(ACE_ROOT)
+prepatch: $(ACE_ROOT)
 endif
 	dpatch apply-until $(UNTIL_DPATCH_NAME)
 	$(MAKE) -f debian/rules $(ACE_ROOT)/debian.features
 	rm -rf debian/patched
 
-prepatchtwo:	$(ACE_ROOT).orig
+prepatchtwo: $(ACE_ROOT).orig
 $(ACE_ROOT).orig:
 	$(MAKE) -f debian/rules clean
 	$(MAKE) -f debian/rules prepatch UNTIL_DPATCH_NAME=$(PREPATCH_MARK_DPATCH_NAME)
@@ -116,14 +116,14 @@ dpatch:	$(ACE_ROOT).orig $(ACE_ROOT)
 # projects which are required for distribution are compiled. Examples,
 # tests and performance-tests are skipped. If you intent to compile them
 # too refer to `update-makefile-complete' target below.
-update-makefile:	prepatchtwo
+update-makefile: prepatchtwo
 	cd $(ACE_ROOT) \
 	&& dirs=`find * -type d -name "examples" -or -name "tests" -or -name "performance-tests" -or -name "doc*" | tr '\n' ','` \
 	&& $(ACE_ROOT)/bin/mwc.pl -feature_file "$(ACE_ROOT)/debian.features" -recurse -hierarchy -relative ACE_ROOT=$(ACE_ROOT) -exclude $${dirs}TAO/TAOACE.mwc,TAO/CIAO/CIAOTAO.mwc
 	$(MAKE) -f debian/rules dpatch DPATCH_NAME="$(MAKEFILE_DPATCH_NAME)" DPATCH_DESC="MakeProjectCreator generated Makefiles without examples and tests"
 	mv "$(MAKEFILE_DPATCH_NAME).dpatch" "$(MAKEFILE_DPATCH_FILENAME)"
 
-update-makefile-complete:	prepatchtwo
+update-makefile-complete: prepatchtwo
 	cd $(ACE_ROOT) && $(ACE_ROOT)/bin/mwc.pl -feature_file "$(ACE_ROOT)/debian.features" -recurse -hierarchy -relative ACE_ROOT=$(ACE_ROOT) -exclude TAO/TAOACE.mwc,TAO/CIAO/CIAOTAO.mwc
 	$(MAKE) -f debian/rules dpatch DPATCH_NAME="$(MAKEFILE_DPATCH_NAME)" DPATCH_DESC="MakeProjectCreator generated Makefiles"
 	mv "$(MAKEFILE_DPATCH_NAME).dpatch" "$(MAKEFILE_DPATCH_FILENAME)"
@@ -132,7 +132,7 @@ build: build-stamp build-manpages
 
 build-manpages: $(MAN1) $(MAN5)
 
-build-stamp:	patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
+build-stamp: patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 	dh_testdir
 
 	cp debian/config/config.h $(ACE_ROOT)/ace
@@ -162,7 +162,6 @@ clean:
 
 	dh_clean
 
-install:
 install: build
 	dh_testdir
 	dh_testroot
@@ -260,7 +259,7 @@ binary-arch: build install
 	dh_md5sums -a
 	dh_builddeb -a
 
-source diff:                                                                  
+source diff:
 	@echo >&2 'source and diff are obsolete - use dpkg-source -b'; false
 
 binary: binary-indep binary-arch
