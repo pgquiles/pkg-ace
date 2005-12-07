@@ -5,8 +5,6 @@ ace (5.4.4-1) unstable; urgency=low
     - debian/control: libtao-{xt,qt}reactor are now called
       libtao-{xt,qt}resource. Also add libtao-{fl,tk}resource.
     - debian/control: add new package libace-tmcast5.4.
-    - debian/libtao-orbsvcs1.4.install: add FT_ReplicationManager
-      library and binary.
 
  -- Thomas Girard <thomas.g.girard@free.fr>  Thu, 24 Mar 2005 23:46:27 +0100
 
@@ -31,10 +29,19 @@ ace (5.4.2.1.0-3) unstable; urgency=low
       fix to correct operator ~ in trader constraints.
     - debian/patches/19-fix-taoidl-fd-leak.dpatch: backport a fix to
       close open file.
-    - debian/control: lib{ace,tao}qtreactor-dev packages depend on 
+    - debian/control: lib{ace,tao}qtreactor-dev packages depend on
       libqt3-mt-dev.
+    - debian/libtao-orbsvcs1.4.install:
+      o Add FT_ReplicationManager.
+      o Add Fault_Detector and Fault_Notifier.
+    - debian/control:
+      o mpc-ace is in devel section.
+      o lib{ace,tao}-{fl,tk,qt,xt}reactor-dev are in libdevel section.
+    - debian/tao_ifr: new wrapper script that automatically sets ACE_ROOT
+      and TAO_ROOT environment variables.
+    - debian/libtao-orbsvcs1.4.manpages: add TAO_ORB_Options.1 manpage.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Tue, 15 Feb 2005 10:33:17 +0100
+ -- Thomas Girard <thomas.g.girard@free.fr>  Wed, 30 Mar 2005 23:24:40 +0200
 
 ace (5.4.2.1.0-2) unstable; urgency=medium
 
