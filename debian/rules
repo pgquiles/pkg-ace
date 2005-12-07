@@ -142,7 +142,7 @@ build-stamp:	patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 	$(MAKE) -C $(ACE_ROOT)/apps/gperf/src
 #	We need to rename gperf so that it does not conflict with the
 #   existing Cygnus based gperf Debian package.
-	ln -sf gperf $(ACE_ROOT)/bin/gperf-ace
+	cp $(ACE_ROOT)/bin/gperf $(ACE_ROOT)/bin/gperf-ace
 
 	$(MAKE) -C $(ACE_ROOT)/Kokyu
 
