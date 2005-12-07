@@ -475,7 +475,7 @@ Description: Xt GUI resource factory for TAO
 
 Package: libtao-xtresource-dev
 Architecture: any
-Section: libs
+Section: devel
 Depends: libtao-xtresource1.4 (= ${Source-Version}), libace-xtreactor-dev (= ${Source-Version}), libtao-dev (= ${Source-Version})
 Replaces: libtao-xtreactor-dev
 Description: Xt GUI resource factory for TAO (development files)
