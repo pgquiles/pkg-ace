@@ -217,7 +217,7 @@ install: build
 	-chmod -x `find $(TAO_ROOT)/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
 	-chmod -x `find $(TAO_ROOT)/CIAO/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
 #	And on some header files
-	-chmod -x `find $(TAO_ROOT)/orbsvcs -perm 755 ! -type d -a \( -name "*.h" -o -name "*.inl" \)`
+	-chmod -x `find $(TAO_ROOT)/orbsvcs -perm 755 ! -type d -a \( -name "*.h" -o -name "*.inl" -o -name "*.i" \)`
 
 	dh_install --sourcedir=$(ACE_ROOT)
 
