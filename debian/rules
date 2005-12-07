@@ -195,7 +195,7 @@ install: build
 #	Rename tao_idl to have a script automatically define ACE_ROOT and
 #	TAO_ROOT
 	cp $(TAO_ROOT)/TAO_IDL/tao_idl $(TAO_ROOT)/TAO_IDL/tao_idl.real
-	chmod +x debian/tao_idl
+	$(INSTALL) -m 755 -o root -g root -D debian/tao_idl debian/libtao-dev/usr/bin/tao_idl
 
 #	Be lintian clean, fix permissions on examples
 	-chmod -x `find $(TAO_ROOT)/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
