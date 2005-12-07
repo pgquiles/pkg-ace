@@ -34,7 +34,7 @@ UNTIL_DPATCH_NAME = $(PREPATCH_MARK_DPATCH_NAME)
 # This patch contens the result of the update-makefile target. THe
 # idear is to speed up the build proccess using this patch instead
 # of calling MakeProjectCreator.
-MAKEFILE_DPATCH_NAME = 80-update-makefile
+MAKEFILE_DPATCH_NAME = 83-skip-orbsvcs-examples-and-tests.dpatch
 MAKEFILE_DPATCH_FILENAME = debian/patches/$(MAKEFILE_DPATCH_NAME).dpatch
 
 # Used by `dpatch' target.
