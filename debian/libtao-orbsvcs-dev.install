@@ -19,7 +19,6 @@ TAO/orbsvcs/Logging_Service/Notify_Logging_Service/*.{h,i,inl}    usr/include/or
 TAO/orbsvcs/Logging_Service/RTEvent_Logging_Service/*.{h,i,inl}   usr/include/orbsvcs/Logging_Service/RTEvent_Logging_Service
 TAO/orbsvcs/Naming_Service/*.{h,i,inl}                            usr/include/orbsvcs/Naming_Service
 TAO/orbsvcs/Notify_Service/*.{h,i,inl}                            usr/include/orbsvcs/Notify_Service
-TAO/orbsvcs/PSS/*.{h,i,inl}                                       usr/include/orbsvcs/PSS
 TAO/orbsvcs/Scheduling_Service/*.{h,i,inl}                        usr/include/orbsvcs/Scheduling_Service
 TAO/orbsvcs/TAO_Service/*.{h,i,inl}                               usr/include/orbsvcs/TAO_Service
 TAO/orbsvcs/Time_Service/*.{h,i,inl}                              usr/include/orbsvcs/Time_Service
