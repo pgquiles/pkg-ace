@@ -159,7 +159,7 @@ Architecture: any
 Section: libdevel
 Depends: libace-rmcast5.4.7 (= ${Source-Version}), libace-dev (= ${Source-Version})
 Replaces: libace-rmcast5.2-dev
-Description: A reliable multicast library in C++
+Description: A reliable multicast library in C++ (development files)
  This package contains reliable multicast framework development files
  for ACE.
  .
@@ -187,7 +187,7 @@ Package: libace-tmcast-dev
 Architecture: any
 Section: libdevel
 Depends: libace-tmcast5.4.7 (= ${Source-Version}), libace-dev (= ${Source-Version})
-Description: A transactional multicast library in C++
+Description: A transactional multicast library in C++ (development files)
  This package contains transactional multicast framework development files
  for ACE.
  .
@@ -225,7 +225,7 @@ Package: libacexml-dev
 Architecture: any
 Section: libdevel
 Depends: libacexml5.4.7 (= ${Source-Version}), libace-dev (= ${Source-Version})
-Description: ACE XML PARSER Framework (development)
+Description: ACE XML PARSER Framework (development files)
  This package contains the header files and static libraries for the ACE
  toolkit.
  .
@@ -256,7 +256,7 @@ Architecture: any
 Section: libdevel
 Depends: libkokyu5.4.7 (= ${Source-Version}), libace-dev (= ${Source-Version})
 Suggests: libtao-orbsvcs-dev (= ${Source-Version})
-Description: Kokyu middleware for TAO
+Description: Kokyu middleware for TAO (development files)
  This package contains the development files for Kokyu.
  .
  Kokyu is a portable middleware scheduling framework designed to provide 
@@ -283,7 +283,7 @@ Architecture: any
 Section: libdevel
 Depends: libtao1.4.7 (= ${Source-Version}), libace-dev (= ${Source-Version})
 Suggests: libtao-doc, libtao-orbsvcs-dev (= ${Source-Version})
-Description: Development Files for TAO, The ACE ORB
+Description: Development files for TAO, The ACE ORB
  This package contains the header files for the TAO toolkit. Due to the
  size of the static libs (> 400MB) they have been left out.
  .
