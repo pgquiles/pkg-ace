@@ -14,7 +14,7 @@ Index: ACE_wrappers/bin/depgen.pl
    import VMS::Filespec qw(unixpath);
  }
  
--unshift(@INC, getExecutePath($0) . 'DependencyGenerator');
+-unshift(@INC, getExecutePath($0) . '/DependencyGenerator');
 +unshift(@INC, '/usr/share/ace/bin/DependencyGenerator');
  
  require DependencyEditor;
