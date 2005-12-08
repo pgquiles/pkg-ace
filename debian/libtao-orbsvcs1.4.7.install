@@ -43,7 +43,6 @@ TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Locator.so.*       usr/lib
 TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Locator_IDL.so.*   usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_PortableGroup.so.*      usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTCORBAEvent.so.*       usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_RTCosScheduling.so.*    usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTEvent.so.*            usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTEvent_Serv.so.*       usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTEvent_Skel.so.*       usr/lib

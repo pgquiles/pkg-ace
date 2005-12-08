@@ -48,7 +48,6 @@ TAO/orbsvcs/orbsvcs/Notify/Sequence/*.{h,i,inl}                   usr/include/or
 TAO/orbsvcs/orbsvcs/Notify/Structured/*.{h,i,inl}                 usr/include/orbsvcs/orbsvcs/Notify/Structured
 TAO/orbsvcs/orbsvcs/PortableGroup/*.{h,i,inl}                     usr/include/orbsvcs/orbsvcs/PortableGroup
 TAO/orbsvcs/orbsvcs/Property/*.{h,i,inl}                          usr/include/orbsvcs/orbsvcs/Property
-TAO/orbsvcs/orbsvcs/RTCosScheduling/*.{h,i,inl}                   usr/include/orbsvcs/orbsvcs/RTCosScheduling
 TAO/orbsvcs/orbsvcs/SSLIOP/*.{h,i,inl,pidl}                       usr/include/orbsvcs/orbsvcs/SSLIOP
 TAO/orbsvcs/orbsvcs/Sched/*.{h,i,inl}                             usr/include/orbsvcs/orbsvcs/Sched
 TAO/orbsvcs/orbsvcs/Security/*.{h,i,inl}                          usr/include/orbsvcs/orbsvcs/Security
@@ -96,7 +95,6 @@ TAO/orbsvcs/orbsvcs/libTAO_FaultTolerance.so        usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_IFRService.so            usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_PortableGroup.so         usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTCORBAEvent.so          usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_RTCosScheduling.so       usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTEvent.so               usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTEvent_Serv.so          usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTEvent_Skel.so          usr/lib
