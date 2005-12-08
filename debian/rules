@@ -11,7 +11,7 @@ TV := 1.4.7
 CV := 0.4.7
 
 ACE_SUBDIR := ACE_wrappers
-ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO*.tar.gz 2>/dev/null || echo ace-archive-missing)
+ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO*.tar.bz2 2>/dev/null || echo ace-archive-missing)
 MPC_SUBDIR := MPC
 MPC_ARCHIVE := $(shell ls -1 MPC*.tar.gz 2>/dev/null || echo mpc-archive-missing)
 
@@ -52,7 +52,7 @@ DPATCH_DESC := No description.
 export DH_COMPAT=4
 
 $(ACE_ROOT): $(ACE_ARCHIVE)
-	tar -xzf "$^"
+	tar -xjf "$^"
 	touch "$@"
 
 $(MPC_ROOT): $(MPC_ARCHIVE)

@@ -7,8 +7,10 @@ ace (5.4.7-1) unstable; urgency=low
     - debian/control: libtao-{xt,qt}reactor are now called
       libtao-{xt,qt}resource. Also add libtao-{fl,tk}resource.
     - debian/control: add new package libace-tmcast5.4.7.
+  * Konstantinos Margaritis
+    - Now use the .bz2 version of the original tarball to save space.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Sun,  7 Aug 2005 11:24:22 +0200
+ -- Konstantinos Margaritis <markos@debian.org>  Fri, 12 Aug 2005 12:45:13 +0300
 
 ace (5.4.2.1.0-4) unstable; urgency=high
   
