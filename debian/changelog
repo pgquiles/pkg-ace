@@ -1,4 +1,4 @@
-ace (5.4.6-1) unstable; urgency=low
+ace (5.4.7-1) unstable; urgency=low
 
   * Thomas Girard <thomas.g.girard@free.fr>
     - New upstream release. (Closes: #317488)
@@ -6,9 +6,9 @@ ace (5.4.6-1) unstable; urgency=low
       (Closes: #288161)
     - debian/control: libtao-{xt,qt}reactor are now called
       libtao-{xt,qt}resource. Also add libtao-{fl,tk}resource.
-    - debian/control: add new package libace-tmcast5.4.6.
+    - debian/control: add new package libace-tmcast5.4.7.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Sat,  6 Aug 2005 11:53:23 +0200
+ -- Thomas Girard <thomas.g.girard@free.fr>  Sun,  7 Aug 2005 11:24:22 +0200
 
 ace (5.4.2.1.0-4) unstable; urgency=high
   

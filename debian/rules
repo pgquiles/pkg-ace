@@ -6,9 +6,9 @@
 # Copyright (C) 2004  Raphael Bossek <bossekr@debian.org>
 
 INSTALL := install
-AV := 5.4.6
-TV := 1.4.6
-CV := 0.4.6
+AV := 5.4.7
+TV := 1.4.7
+CV := 0.4.7
 
 ACE_SUBDIR := ACE_wrappers
 ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO*.tar.gz 2>/dev/null || echo ace-archive-missing)
