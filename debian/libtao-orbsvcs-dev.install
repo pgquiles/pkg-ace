@@ -98,9 +98,10 @@ TAO/orbsvcs/orbsvcs/libTAO_PortableGroup.so         usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTCORBAEvent.so          usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTCosScheduling.so       usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTEvent.so               usr/lib
+TAO/orbsvcs/orbsvcs/libTAO_RTEvent_Serv.so          usr/lib
+TAO/orbsvcs/orbsvcs/libTAO_RTEvent_Skel.so          usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTEventLogAdmin.so       usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTKokyuEvent.so          usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_RTOLDEvent.so            usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTSched.so               usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTSchedEvent.so          usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RT_Notification.so       usr/lib
