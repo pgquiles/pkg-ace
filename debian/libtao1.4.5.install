@@ -18,5 +18,6 @@ TAO/tao/libTAO_Strategies.so.*               usr/lib
 TAO/tao/libTAO_TypeCodeFactory.so.*          usr/lib
 TAO/tao/libTAO_Utils.so.*                    usr/lib
 TAO/tao/libTAO_Valuetype.so.*                usr/lib
+TAO/tao/libTAO_ImR_Client.so.*               usr/lib
 TAO/TAO_IDL/libTAO_IDL_FE.so.*               usr/lib
 TAO/TAO_IDL/libTAO_IDL_BE.so.*               usr/lib
