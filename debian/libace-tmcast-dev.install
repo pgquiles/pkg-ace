@@ -1,4 +1,4 @@
-ace/TMCast/*.{hpp,i}                   usr/include/ace/RMCast
+ace/TMCast/*.{hpp,i}                   usr/include/ace/TMCast
 ace/TMCast/libACE_TMCast.a             usr/lib
 ace/TMCast/libACE_TMCast.so            usr/lib
 ace/TMCast/ACE_TMCast.pc               usr/lib/pkgconfig
