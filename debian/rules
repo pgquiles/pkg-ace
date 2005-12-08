@@ -3,7 +3,7 @@
 # debian/rules file for the ACE Debian GNU/Linux package
 # written February 2002 by Ossama Othman <ossama@debian.org>
 # Modified August 2003 by Brian Nelson <pyro@debian.org>
-# Copyrigh (C) 2004  Raphael Bossek <bossekr@debian.org>
+# Copyright (C) 2004  Raphael Bossek <bossekr@debian.org>
 
 INSTALL := install
 AV := 5.4.5
