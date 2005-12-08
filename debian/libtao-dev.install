@@ -10,6 +10,7 @@ TAO/tao/Domain/*.{h,i,inl}                   usr/include/tao/Domain
 TAO/tao/DynamicAny/*.{h,i,inl,pidl}          usr/include/tao/DynamicAny
 TAO/tao/DynamicInterface/*.{h,i,inl}         usr/include/tao/DynamicInterface
 TAO/tao/IFR_Client/*.{h,i,inl,pidl}          usr/include/tao/IFR_Client
+TAO/tao/ImR_Client/*.{h,i,inl,pidl}          usr/include/tao/ImR_Client
 TAO/tao/IORInterceptor/*.{h,i,inl,pidl}      usr/include/tao/IORInterceptor
 TAO/tao/IORManipulation/*.{h,i,inl,pidl}     usr/include/tao/IORManipulation
 TAO/tao/IORTable/*.{h,i,inl,pidl}            usr/include/tao/IORTable
