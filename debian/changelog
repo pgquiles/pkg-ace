@@ -1,3 +1,12 @@
+ace (5.4.7-4) unstable; urgency=medium
+
+  * Rebuilt package for the Qt C++ transition. (Closes: #327926).
+  * Also, gcc 4.0 is buggy in some arches, use g++-3.4 on them instead.
+    Update: Even on i386, cpp-4.0 produces Internal Compiler Errors(ICEs). For
+    this reason, cpp-3.4 will be used instead (but with gcc/g++ 4.0.
+
+ -- Konstantinos Margaritis <markos@debian.org>  Mon, 4 Oct 2005 03:21:20 +0300
+
 ace (5.4.7-3) unstable; urgency=low
 
   * Fixed (another) missing build-dependency. (Closes: #323630)

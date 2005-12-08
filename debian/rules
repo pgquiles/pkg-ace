@@ -5,6 +5,20 @@
 # Modified August 2003 by Brian Nelson <pyro@debian.org>
 # Copyright (C) 2004  Raphael Bossek <bossekr@debian.org>
 
+# Added by markos@debian.org
+# Termporary solution to cope with problems in gcc 4.0 for these
+# arches. See 
+# http://lists.debian.org/debian-devel-announce/2005/09/msg00000.html
+# for details.
+GCC4_ICES_HERE := arm m68k hppa i386
+DEB_BUILD_ARCH ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
+
+ifneq (,$(findstring $(DEB_BUILD_ARCH),$(GCC4_ICES_HERE)))
+  export CC=gcc-3.4
+  export CPP=cpp-3.4
+  export CXX=g++-3.4
+endif
+
 INSTALL := install
 AV := 5.4.7
 TV := 1.4.7
