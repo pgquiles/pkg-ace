@@ -68,6 +68,7 @@ debian/%.1 debian/%.5: debian/%.sgml
 
 patch-perl-scripts: $(ACE_ROOT)
 	for fn in `find "$(ACE_ROOT)" -name "*.pl"`; do (echo '#!/usr/bin/perl'; cat "$$fn") > "$${fn}T"; mv "$${fn}T" "$$fn"; chmod a+x "$$fn"; done
+	touch $@
 
 patch: patch-stamp
 ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
@@ -173,7 +174,7 @@ build-stamp: patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 
 clean:
 	dh_testdir
-	rm -rf *-stamp *-stampT *.tmp $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) $(MPC_SUBDIR).orig debian/patched $(MAN1) $(MAN5)
+	rm -rf *-stamp *-stampT *.tmp $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) $(MPC_SUBDIR).orig debian/patched $(MAN1) $(MAN5) patch-perl-scripts
 
 	dh_clean
 
@@ -270,4 +271,4 @@ source diff:
 
 binary: binary-indep binary-arch
 
-.PHONY: build build-manpages clean binary-indep binary-arch binary install patch unpatch prepatch prepatchtwo update-makefile update-makefile-complete patch-perl-scripts source diff
+.PHONY: build build-manpages clean binary-indep binary-arch binary install patch unpatch prepatch prepatchtwo update-makefile update-makefile-complete source diff
