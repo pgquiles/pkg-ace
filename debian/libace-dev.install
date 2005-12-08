@@ -1,6 +1,5 @@
 bin/generate_export_file.pl           usr/bin
 ace/*.{h,i,inl}                       usr/include/ace
-ace/CLASSIX/*.{h,i,inl}               usr/include/ace/CLASSIX
 ace/os_include/*.{h,i,inl}            usr/include/ace/os_include
 ace/os_include/arpa/*.{h,i,inl}       usr/include/ace/os_include/arpa
 ace/os_include/net/*.{h,i,inl}        usr/include/ace/os_include/net
@@ -8,7 +7,6 @@ ace/os_include/netinet/*.{h,i,inl}    usr/include/ace/os_include/netinet
 ace/os_include/sys/*.{h,i,inl}        usr/include/ace/os_include/sys
 ace/QoS/*.{h,i,inl}                   usr/include/ace/QoS
 ace/SSL/*.{h,i,inl}                   usr/include/ace/SSL
-ace/TMCast/*.{h,i,inl}                usr/include/ace/TMCast
 ace/libACE.a                          usr/lib
 ace/libACE.so                         usr/lib
 ace/SSL/libACE_SSL.a                  usr/lib
