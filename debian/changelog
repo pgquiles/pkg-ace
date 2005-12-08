@@ -288,8 +288,7 @@ ace (5.2.1-1.1) unstable; urgency=low
   * debian/rules: install platform macros in
         $(ACE_PREFIX)/share/ace/include/makeinclude/
 
- -- Goswin Brederlow <goswin.brederlow@student.uni-tuebingen.de>  Mon, 02 Sep
-2002 02:37:25 +0200
+ -- Goswin Brederlow <goswin.brederlow@student.uni-tuebingen.de>  Mon, 02 Sep 2002 02:37:25 +0200
 
 ace (5.2.1-1) unstable; urgency=low
 
