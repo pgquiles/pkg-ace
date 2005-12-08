@@ -4,6 +4,8 @@ TAO/utils/catior/tao-catior                  usr/bin
 TAO/utils/nslist/ns{add,del,list}            usr/bin
 TAO/tao/*.{h,i,inl,idl,pidl}                 usr/include/tao
 TAO/tao/BiDir_GIOP/*.{h,i,inl,pidl}          usr/include/tao/BiDir_GIOP
+TAO/tao/CodecFactory/*.{h,i,inl,pidl}        usr/include/tao/CodecFactory
+TAO/tao/Codeset/*.{h,i,inl,pidl}             usr/include/tao/Codeset
 TAO/tao/Domain/*.{h,i,inl}                   usr/include/tao/Domain
 TAO/tao/DynamicAny/*.{h,i,inl,pidl}          usr/include/tao/DynamicAny
 TAO/tao/DynamicInterface/*.{h,i,inl}         usr/include/tao/DynamicInterface
@@ -14,6 +16,8 @@ TAO/tao/IORTable/*.{h,i,inl,pidl}            usr/include/tao/IORTable
 TAO/tao/Messaging/*.{h,i,inl,pidl}           usr/include/tao/Messaging
 TAO/tao/ObjRefTemplate/*.{h,i,inl,pidl}      usr/include/tao/ObjRefTemplate
 TAO/tao/PortableServer/*.{h,i,inl,pidl}      usr/include/tao/PortableServer
+TAO/tao/PI/*.{h,i,inl,pidl}                  usr/include/tao/PI
+TAO/tao/PI_Server/*.{h,i,inl,pidl}           usr/include/tao/PI_Server
 TAO/tao/RTCORBA/*.{h,i,inl,pidl}             usr/include/tao/RTCORBA
 TAO/tao/RTPortableServer/*.{h,i,inl,pidl}    usr/include/tao/RTPortableServer
 TAO/tao/RTSchedulint/*.{h,i,inl,pidl}        usr/include/tao/RTScheduling
