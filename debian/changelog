@@ -1,3 +1,10 @@
+ace (5.4.7-5) unstable; urgency=low
+
+  * Force gcc 3.4 for all arches, seems gcc 4.0 produces errors on all of
+    them. (Closes: #333981)
+
+ -- Konstantinos Margaritis <markos@debian.org>  Wed, 12 Oct 2005 03:26:14 +0300
+
 ace (5.4.7-4) unstable; urgency=medium
 
   * Rebuilt package for the Qt C++ transition. (Closes: #327926).

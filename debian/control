@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Debian ACE+TAO maintainers <pkg-ace-devel@lists.alioth.debian.org>
 Uploaders: Konstantinos Margaritis <markos@debian.org>, Brian Nelson <pyro@debian.org>
-Build-Depends: debhelper (>= 4.1), libssl-dev (>= 0.9.7d), dpatch (>= 2.0.10), xlibs-dev (>= 4.3.0), libfltk1.1-dev (>= 1.1.4), libqt3-mt-dev (>= 3:3.3.3), tk8.4-dev (>= 8.4.7), docbook-to-man, libxerces26-dev, bzip2, g++-3.4 [arm m68k hppa i386]
+Build-Depends: debhelper (>= 4.1), libssl-dev (>= 0.9.7d), dpatch (>= 2.0.10), xlibs-dev (>= 4.3.0), libfltk1.1-dev (>= 1.1.4), libqt3-mt-dev (>= 3:3.3.3), tk8.4-dev (>= 8.4.7), docbook-to-man, libxerces26-dev, bzip2, g++-3.4
 Standards-Version: 3.6.2
 
 Package: libace5.4.7

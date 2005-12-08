@@ -10,14 +10,11 @@
 # arches. See 
 # http://lists.debian.org/debian-devel-announce/2005/09/msg00000.html
 # for details.
-GCC4_ICES_HERE := arm m68k hppa i386
-DEB_BUILD_ARCH ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
-
-ifneq (,$(findstring $(DEB_BUILD_ARCH),$(GCC4_ICES_HERE)))
-  export CC=gcc-3.4
-  export CPP=cpp-3.4
-  export CXX=g++-3.4
-endif
+# UPDATE: use g++ 3.4 for all arches until the problems have been fixed.
+#
+export CC=gcc-3.4
+export CPP=cpp-3.4
+export CXX=g++-3.4
 
 INSTALL := install
 AV := 5.4.7
