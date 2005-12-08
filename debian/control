@@ -248,7 +248,7 @@ Description: Kokyu middleware for TAO
  Kokyu is a portable middleware scheduling framework designed to provide 
  flexible scheduling and dispatching services within the context of
  higher-level middleware. Kokyu currently provides real-time scheduling
- and dispatching services for TAOs real-time CORBA Event Service, which
+ and dispatching services for TAO's real-time CORBA Event Service, which
  mediates supplier-consumer relationships between application operations.
 
 Package: libkokyu-dev
@@ -262,7 +262,7 @@ Description: Kokyu middleware for TAO
  Kokyu is a portable middleware scheduling framework designed to provide 
  flexible scheduling and dispatching services within the context of
  higher-level middleware. Kokyu currently provides real-time scheduling
- and dispatching services for TAOs real-time CORBA Event Service, which
+ and dispatching services for TAO's real-time CORBA Event Service, which
  mediates supplier-consumer relationships between application operations.
 
 Package: libtao1.4.7
@@ -450,7 +450,7 @@ Description: GUI Integrated Reactors for ACE: Tk Reactor (development files)
  The ACE_TkReactor provides reactor functionality around the popular Tcl/Tk
  library. The underlying Tcl/Tk method used is Tcl_DoOneEvent().
  .
- Thie package contains development files.
+ This package contains development files.
 
 Package: libace-flreactor5.4.7
 Architecture: any
