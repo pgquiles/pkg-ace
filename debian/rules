@@ -163,6 +163,8 @@ build-stamp: patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 
 	$(MAKE) -C $(ACE_ROOT)/Kokyu
 
+	$(MAKE) -C $(ACE_ROOT)/protocols
+
 	$(MAKE) -C $(TAO_ROOT)
 
 	$(MAKE) -C $(TAO_ROOT)/CIAO
