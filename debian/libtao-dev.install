@@ -25,8 +25,8 @@ TAO/tao/RTScheduling/*.{h,i,inl,pidl}        usr/include/tao/RTScheduling
 TAO/tao/SmartProxies/*.{h,i,inl}             usr/include/tao/SmartProxies
 TAO/tao/Strategies/*.{h,i,inl,pidl}          usr/include/tao/Strategies
 TAO/tao/TypeCodeFactory/*.{h,i,inl,pidl}     usr/include/tao/TypeCodeFactory
-TAO/tao/Utils/*.{h,i,inl}                    usr/include/tao/Utils
-TAO/tao/Valuetype/*.{h,i,inl}                usr/include/tao/Valuetype
+TAO/tao/Utils/*.{h,i,inl,pidl}               usr/include/tao/Utils
+TAO/tao/Valuetype/*.{h,i,inl,pidl}           usr/include/tao/Valuetype
 TAO/TAO_IDL/include/*.{h,i,inl}              usr/include/TAO_IDL
 TAO/tao/libTAO.so                            usr/lib
 TAO/tao/libTAO_BiDirGIOP.so                  usr/lib
