@@ -1,7 +1,7 @@
 08-fix-perl-shebang
 15-fix-fltk-include
 20-debian-compiler-definitions
-21-always-inline.dpatch
+21-always-inline
 79-prepatch-dummy-mark
 80-update-makefile
 81-patch-idlstubs-order-cossevent
