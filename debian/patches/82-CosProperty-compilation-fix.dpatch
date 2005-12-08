@@ -1,0 +1,19 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 82-CosProperty-compilation-fix.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Force generation of CosPropertyServiceC.h
+
+@DPATCH@
+
+--- ACE_wrappers/TAO/orbsvcs/orbsvcs/GNUmakefile.CosProperty-	2005-05-15 10:40:50.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/GNUmakefile.CosProperty	2005-05-15 10:41:32.000000000 +0200
+@@ -207,7 +207,7 @@
+ else
+ .NOTPARALLEL:
+ endif
+-CosPropertyServiceS_T.inl CosPropertyServiceS.inl CosPropertyServiceC.inl: CosPropertyService.idl $(TAO_IDL_DEP)
++CosPropertyServiceS_T.inl CosPropertyServiceS.inl CosPropertyServiceC.inl CosPropertyServiceS.h CosPropertyServiceC.h: CosPropertyService.idl $(TAO_IDL_DEP)
+ 	$(TAO_IDL) $(TAO_IDLFLAGS) -I../../orbsvcs -Wb,export_macro=TAO_Property_Export -Wb,export_include=orbsvcs/Property/property_export.h CosPropertyService.idl 
+ 
+ ifneq ($(GENERATED_DIRTY),)
