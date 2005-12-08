@@ -46,7 +46,7 @@ implementation being provided as separate packages:
      * libtao-qtreactor-dev, libtao-qtreactor1.4
      * libtao-xtreactor-dev, libtao-xtreactor1.4
 
-Please refer to debian/control or packge's description for more details on
+Please refer to debian/control or package's description for more details on
 the packages itself.
 
 The Debian GNU/Linux package maintainers also decided to use `dpatch' as the
