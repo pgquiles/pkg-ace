@@ -21,7 +21,7 @@ TAO/tao/PI/*.{h,i,inl,pidl}                  usr/include/tao/PI
 TAO/tao/PI_Server/*.{h,i,inl,pidl}           usr/include/tao/PI_Server
 TAO/tao/RTCORBA/*.{h,i,inl,pidl}             usr/include/tao/RTCORBA
 TAO/tao/RTPortableServer/*.{h,i,inl,pidl}    usr/include/tao/RTPortableServer
-TAO/tao/RTSchedulint/*.{h,i,inl,pidl}        usr/include/tao/RTScheduling
+TAO/tao/RTScheduling/*.{h,i,inl,pidl}        usr/include/tao/RTScheduling
 TAO/tao/SmartProxies/*.{h,i,inl}             usr/include/tao/SmartProxies
 TAO/tao/Strategies/*.{h,i,inl,pidl}          usr/include/tao/Strategies
 TAO/tao/TypeCodeFactory/*.{h,i,inl,pidl}     usr/include/tao/TypeCodeFactory
