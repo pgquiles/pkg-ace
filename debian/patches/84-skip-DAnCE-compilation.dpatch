@@ -1,0 +1,24 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 84-skip-DAnCE-compilation.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Prevent compilation of DAnCE. It is not being packaged (yet).
+
+@DPATCH@
+
+--- ACE_wrappers/TAO/CIAO/DAnCE/GNUmakefile-	2005-05-15 21:39:29.000000000 +0200
++++ ACE_wrappers/TAO/CIAO/DAnCE/GNUmakefile	2005-05-15 21:48:16.000000000 +0200
+@@ -23,13 +23,11 @@
+ $(REMAINING_TARGETS):
+ 	$(KEEP_GOING)@cd ciao && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd RTNodeApplication && $(MAKE) -f $(MAKEFILE) $(@)
+-	$(KEEP_GOING)@cd Old_Config_Handlers && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd NodeApplicationManager && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd NodeManager && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd DomainApplicationManager && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd ExecutionManager && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd RepositoryManager && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd NodeApplication && $(MAKE) -f $(MAKEFILE) $(@)
+-	$(KEEP_GOING)@cd Config_Handlers && $(MAKE) -f $(MAKEFILE) $(@)
+ 	$(KEEP_GOING)@cd Plan_Launcher && $(MAKE) -f $(MAKEFILE) $(@)
+ 
