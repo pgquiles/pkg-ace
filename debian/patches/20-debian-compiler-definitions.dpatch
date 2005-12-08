@@ -6,9 +6,19 @@
 
 @DPATCH@
 
---- ACE_wrappers/include/makeinclude/platform_linux.GNU.orig	2004-10-29 15:10:22.000000000 +0200
-+++ ACE_wrappers/include/makeinclude/platform_linux.GNU	2004-10-29 15:10:05.000000000 +0200
-@@ -151,6 +151,9 @@
+--- ACE_wrappers/include/makeinclude/platform_linux.GNU-	2005-10-21 23:42:22.000000000 +0200
++++ ACE_wrappers/include/makeinclude/platform_linux.GNU	2005-10-21 23:45:34.000000000 +0200
+@@ -114,6 +114,9 @@
+           $(SOLINK.cc) -o $@ $(LDFLAGS) $(VSHDIR)$*.o
+ PRELIB  = @true
+ 
++# Disable g++4 visibility for now.
++no_hidden_visibility=1
++
+ # Test for template instantiation, add to SOFLAGS if SONAME set,
+ # add -E to LDFLAGS if using GNU ld
+ #
+@@ -146,6 +149,9 @@
    PLATFORM_SCTP_LIBS?= -lsctp
  endif
  
