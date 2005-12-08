@@ -5,7 +5,6 @@
 79-prepatch-dummy-mark
 80-update-makefile
 81-patch-idlstubs-order-cossevent
-82-fix-PSS-INSBIN
 83-skip-orbsvcs-examples-and-tests
 90-patch-mpc-basedir
 91-patch-dg-basedir
