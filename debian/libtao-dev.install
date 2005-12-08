@@ -25,6 +25,8 @@ TAO/tao/Valuetype/*.{h,i,inl}                usr/include/tao/Valuetype
 TAO/TAO_IDL/include/*.{h,i,inl}              usr/include/TAO_IDL
 TAO/tao/libTAO.so                            usr/lib
 TAO/tao/libTAO_BiDirGIOP.so                  usr/lib
+TAO/tao/libTAO_CodecFactory.so               usr/lib
+TAO/tao/libTAO_Codeset.so                    usr/lib
 TAO/tao/libTAO_Domain.so                     usr/lib
 TAO/tao/libTAO_DynamicAny.so                 usr/lib
 TAO/tao/libTAO_DynamicInterface.so           usr/lib
@@ -34,6 +36,8 @@ TAO/tao/libTAO_IORManip.so                   usr/lib
 TAO/tao/libTAO_IORTable.so                   usr/lib
 TAO/tao/libTAO_Messaging.so                  usr/lib
 TAO/tao/libTAO_ObjRefTemplate.so             usr/lib
+TAO/tao/libTAO_PI.so                         usr/lib
+TAO/tao/libTAO_PI_Server.so                  usr/lib
 TAO/tao/libTAO_PortableServer.so             usr/lib
 TAO/tao/libTAO_RTCORBA.so                    usr/lib
 TAO/tao/libTAO_RTPortableServer.so           usr/lib
