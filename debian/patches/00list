@@ -7,7 +7,6 @@
 80-update-makefile
 82-CosProperty-compilation-fix
 83-skip-orbsvcs-examples-and-tests
-84-skip-DAnCE-compilation
 90-patch-mpc-basedir
 91-patch-dg-basedir
 92-default-ACE_ROOT
