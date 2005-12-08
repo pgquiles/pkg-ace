@@ -157,19 +157,33 @@ build-stamp: patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 
 	cp debian/config/config.h $(ACE_ROOT)/ace
 
-	$(MAKE) -C $(ACE_ROOT)/ace
-	$(MAKE) -C $(ACE_ROOT)/ACEXML
+#       We have to compile shared and static libraries separately.
+
+	$(MAKE) -C $(ACE_ROOT)/ace shared_libs=1
+	$(MAKE) -C $(ACE_ROOT)/ace static_libs=1
+
+	$(MAKE) -C $(ACE_ROOT)/Kokyu shared_libs=1
+	$(MAKE) -C $(ACE_ROOT)/Kokyu static_libs=1
+
+	$(MAKE) -C $(ACE_ROOT)/ACEXML shared_libs=1
+	$(MAKE) -C $(ACE_ROOT)/ACEXML static_libs=1
 
 	$(MAKE) -C $(ACE_ROOT)/apps/gperf/src
 #	We need to rename gperf so that it does not conflict with the
 #	existing Cygnus based gperf Debian package.
 	cp $(ACE_ROOT)/bin/gperf $(ACE_ROOT)/bin/gperf-ace
 
-	$(MAKE) -C $(ACE_ROOT)/Kokyu
-
-	$(MAKE) -C $(ACE_ROOT)/protocols
+	$(MAKE) -C $(ACE_ROOT)/protocols shared_libs=1
+	$(MAKE) -C $(ACE_ROOT)/protocols static_libs=1
 
 	$(MAKE) -C $(TAO_ROOT)
+
+#       Instead of compiling every TAO library statically, we only compile 
+#       statically the libraries we need.
+	$(MAKE) -C $(TAO_ROOT)/tao -f GNUmakefile.TAO_FlResource static_libs=1
+	$(MAKE) -C $(TAO_ROOT)/tao -f GNUmakefile.TAO_QtResource static_libs=1
+	$(MAKE) -C $(TAO_ROOT)/tao -f GNUmakefile.TAO_TkResource static_libs=1
+	$(MAKE) -C $(TAO_ROOT)/tao -f GNUmakefile.TAO_XtResource static_libs=1
 
 	$(MAKE) -C $(TAO_ROOT)/CIAO
 

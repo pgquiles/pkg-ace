@@ -64,10 +64,6 @@ rwho=1
 // Build The Simple Caching HTTP Client (ACE_wrappers/apps/JAWS)
 ace_filecache=1
 
-// Enable shared and static libraries (This is not really a MPC option
-// but we define it here to simplify the creation of platform_macros.GNU)
-shared_libs=1
-static_libs=1
 
 //
 //  DISABLED ACE/TAO/CIAO FEATURES BEGIN HERE
