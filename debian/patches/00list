@@ -5,7 +5,6 @@
 22-PortableGroup-compilation-fix
 79-prepatch-dummy-mark
 80-update-makefile
-81-patch-idlstubs-order-cossevent
 82-CosProperty-compilation-fix
 83-skip-orbsvcs-examples-and-tests
 84-skip-DAnCE-compilation
