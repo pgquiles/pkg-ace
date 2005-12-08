@@ -9,7 +9,6 @@ TAO/orbsvcs/FTRT_Event_Service/*.{h,i,inl}                        usr/include/or
 TAO/orbsvcs/FTRT_Event_Service/Event_Service/*.{h,i,inl}          usr/include/orbsvcs/FTRT_Event_Service/Event_Service
 TAO/orbsvcs/FTRT_Event_Service/Factory_Service/*.{h,i,inl}        usr/include/orbsvcs/FTRT_Event_Service/Factory_Service
 TAO/orbsvcs/IFR_Service/*.{h,i,inl}                               usr/include/orbsvcs/IFR_Service
-TAO/orbsvcs/IFR_Service/diffs/*.{h,i,inl}                         usr/include/orbsvcs/IFR_Service/diffs
 TAO/orbsvcs/ImplRepo_Service/*.{h,i,inl}                          usr/include/orbsvcs/ImplRepo_Service
 TAO/orbsvcs/LifeCycle_Service/*.{h,i,inl}                         usr/include/orbsvcs/LifeCycle_Service
 TAO/orbsvcs/LoadBalancer/*.{h,i,inl}                              usr/include/orbsvcs/LoadBalancer
