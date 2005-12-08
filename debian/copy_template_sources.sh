@@ -13,11 +13,9 @@ for i in $files; do
   install -m 0644 "$ACE_ROOT/$i" debian/libace-dev/usr/include/`dirname $i`
 done
 
-rm debian/libace-dev/usr/include/ace/RMCast
-
 #####################
 # libace-rmcast-dev
-files=`cd "$ACE_ROOT" && grep -lr defined.*ACE_TEMPLATES_REQUIRE_SOURCE ace/RMCast | sed -e 's/^\.//' -e 's/.h$/.cpp/'`
+files=`cd "$ACE_ROOT" && grep -lr defined.*ACE_TEMPLATES_REQUIRE_SOURCE protocols/ace/RMCast | sed -e 's/^\.//' -e 's/.h$/.cpp/'`
 
 for i in $files; do
   install -m 0644 "$ACE_ROOT/$i" debian/libace-rmcast-dev/usr/include/$i
@@ -25,7 +23,7 @@ done
 
 #####################
 # libace-tmcast-dev
-files=`cd "$ACE_ROOT" && grep -lr defined.*ACE_TEMPLATES_REQUIRE_SOURCE ace/TMCast | sed -e 's/^\.//' -e 's/.hpp$/.cpp/'`
+files=`cd "$ACE_ROOT" && grep -lr defined.*ACE_TEMPLATES_REQUIRE_SOURCE protocols/ace/TMCast | sed -e 's/^\.//' -e 's/.hpp$/.cpp/'`
 
 for i in $files; do
   install -m 0644 "$ACE_ROOT/$i" debian/libace-tmcast-dev/usr/include/$i
