@@ -7,6 +7,9 @@
 // Always inline
 #define __ACE_INLINE__
 
+/* Platform supports IPv6 */
+#define ACE_HAS_IPV6 1
+
 // -------------------------------
 
 #include "ace/config-linux.h"
