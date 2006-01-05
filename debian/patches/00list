@@ -4,7 +4,6 @@
 20-debian-compiler-definitions
 21-always-inline
 22-PortableGroup-compilation-fix
-23-TTY_IO-compilation-fix
 79-prepatch-dummy-mark
 80-update-makefile
 83-skip-orbsvcs-examples-and-tests
