@@ -6,8 +6,9 @@ ace (5.4.7-7) unstable; urgency=low
     around `struct termios` platform-specific fields. (Closes: #342328).
   * debian/patches/84-skip-DAnCE-compilation.dpatch: completely disable
     DAnCE compilation, since we don't package it. (Closes: #336020).
+  * Really close fixed in NMU bugs (Closes: #324271, #339142).
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Sun, 11 Dec 2005 19:40:48 +0100
+ -- Konstantinos Margaritis <markos@debian.org>  Mon, 19 Dec 2005 13:40:48 +0200
 
 ace (5.4.7-6) unstable; urgency=low
 
