@@ -4,6 +4,12 @@
 20-debian-compiler-definitions
 21-always-inline
 22-PortableGroup-compilation-fix
+23-PortableGroup-exceptions-propagation
+23-TTY_IO-compilation-fix
+24-collocated-oneway+SYNC_WITH_SERVER-fix
+25-TypeCode-equivalent-fix
+26-union-_default-fix
+27-bug2225-fix
 79-prepatch-dummy-mark
 80-update-makefile
 83-skip-orbsvcs-examples-and-tests
