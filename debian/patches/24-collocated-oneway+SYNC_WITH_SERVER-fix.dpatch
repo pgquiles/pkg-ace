@@ -1,0 +1,22 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 24-collocated-oneway+SYNC_WITH_SERVER-fix.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Backport `Mon Aug  8 08:55:12 UTC 2005  Johnny Willemsen  <jwillemsen@remedy.nl>'
+## DP: Fixed bug when invoking collocated oneways with SYNC_WITH_SERVER is set.
+
+@DPATCH@
+
+--- ACE_wrappers/TAO/tao/PortableServer/Servant_Base.cpp-
++++ ACE_wrappers/TAO/tao/PortableServer/Servant_Base.cpp
+@@ -207,8 +207,8 @@
+   // it is a one way that is SYNC_WITH_SERVER.
+   // Add the following line to handle this reply send as well.
+ 
+-  // Handle the one ways that are SYNC_WITH_SERVER
+-  if (req.sync_with_server ())
++  // Handle the one ways that are SYNC_WITH_SERVER and not collocated
++  if (req.sync_with_server () && !req.collocated ())
+     {
+       req.send_no_exception_reply ();
+     }
