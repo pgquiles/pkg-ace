@@ -1,0 +1,33 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 25-TypeCode-equivalent-fix.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Backport `Tue Aug  9 19:28:15 2005  Ossama Othman  <ossama@dre.vanderbilt.edu>`
+## DP: Fix CORBA::TypeCode::equivalent() on aliased types.
+
+@DPATCH@
+
+--- ACE_wrappers/TAO/tao/TypeCode.cpp-
++++ ACE_wrappers/TAO/tao/TypeCode.cpp
+@@ -139,8 +139,8 @@
+       if (ACE_OS::strlen (this_id) == 0
+           || ACE_OS::strlen (tc_id) == 0)
+         {
+-          return this->equivalent_i (unaliased_tc.in ()
+-                                     ACE_ENV_ARG_PARAMETER);
++          return unaliased_this->equivalent_i (unaliased_tc.in ()
++                                               ACE_ENV_ARG_PARAMETER);
+         }
+       else if (ACE_OS::strcmp (this_id, tc_id) != 0)
+         {
+@@ -152,8 +152,8 @@
+       // Some TypeCodes do not support the id() operation.  Ignore the
+       // failure, and continue equivalence verification using TypeCode
+       // subclass-specific techniques.
+-      return this->equivalent_i (unaliased_tc.in ()
+-                                 ACE_ENV_ARG_PARAMETER);
++      return unaliased_this->equivalent_i (unaliased_tc.in ()
++                                           ACE_ENV_ARG_PARAMETER);
+     }
+   ACE_ENDTRY;
+   ACE_CHECK_RETURN (false);
