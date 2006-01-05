@@ -1,0 +1,48 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 27-bug225-fix.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Backport `Wed Aug 31 10:53:06 2005  Ossama Othman  <ossama@dre.vanderbilt.edu>'
+## DP: Backport bug#2225 fix.
+
+@DPATCH@
+
+--- ACE_wrappers/TAO/TAO_IDL/be/be_visitor_typecode/struct_typecode.cpp-
++++ ACE_wrappers/TAO/TAO_IDL/be/be_visitor_typecode/struct_typecode.cpp
+@@ -34,7 +34,9 @@
+   be_visitor_typecode_defn::QNode const * const qnode =
+     this->queue_lookup (this->tc_queue_, node);
+ 
+-  if (qnode)
++  ACE_Unbounded_Queue<AST_Type *> recursion_queue;
++  if (qnode
++      && node->in_recursion (recursion_queue))
+     {
+       this->is_recursive_ = true;
+ 
+--- ACE_wrappers/TAO/TAO_IDL/be/be_visitor_typecode/union_typecode.cpp-
++++ ACE_wrappers/TAO/TAO_IDL/be/be_visitor_typecode/union_typecode.cpp
+@@ -31,7 +31,9 @@
+   be_visitor_typecode_defn::QNode const * const qnode =
+     this->queue_lookup (this->tc_queue_, node);
+ 
+-  if (qnode)
++  ACE_Unbounded_Queue<AST_Type *> recursion_queue;
++  if (qnode
++      && node->in_recursion (recursion_queue))
+     {
+       this->is_recursive_ = true;
+ 
+--- ACE_wrappers/TAO/TAO_IDL/be/be_visitor_typecode/value_typecode.cpp-
++++ ACE_wrappers/TAO/TAO_IDL/be/be_visitor_typecode/value_typecode.cpp
+@@ -34,7 +34,9 @@
+   be_visitor_typecode_defn::QNode const * const qnode =
+     this->queue_lookup (this->tc_queue_, node);
+ 
+-  if (qnode)
++  ACE_Unbounded_Queue<AST_Type *> recursion_queue;
++  if (qnode
++      && node->in_recursion (recursion_queue))
+     {
+       this->is_recursive_ = true;
+ 
