@@ -31,7 +31,7 @@ done
 
 #####################
 # libtao-dev
-files=`cd "$ACE_ROOT/TAO" && grep -lr defined.*ACE_TEMPLATES_REQUIRE_SOURCE tao | sed -e 's/^\.//' -e 's/.h$/.cpp/'`
+files=`cd "$ACE_ROOT/TAO" && grep -lr def.*ACE_TEMPLATES_REQUIRE_SOURCE tao | sed -e 's/^\.//' -e 's/.h$/.cpp/'`
 
 for i in $files; do
   install -m 0644 "$ACE_ROOT/TAO/$i" debian/libtao-dev/usr/include/`dirname $i`
