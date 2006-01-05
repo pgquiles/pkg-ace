@@ -1,0 +1,36 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 26-union-_default-fix.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Backport `Tue Aug  9 19:28:15 2005  Ossama Othman  <ossama@dre.vanderbilt.edu>`
+## DP: Fix a memory leak in the `_default()' method of unions.
+
+@DPATCH@
+
+--- ACE_wrappers/TAO/TAO_IDL/be/be_visitor_union/discriminant_ci.cpp-
++++ ACE_wrappers/TAO/TAO_IDL/be/be_visitor_union/discriminant_ci.cpp
+@@ -78,6 +78,7 @@
+           << "void " << be_nl
+           << bu->name () << "::_default ()" << be_nl
+           << "{" << be_idt_nl
++          << "this->_reset (this->disc_, false);" << be_nl
+           << "this->disc_ = ";
+ 
+       be_type* dt =
+@@ -172,6 +173,7 @@
+           << "void " << be_nl
+           << bu->name () << "::_default ()" << be_nl
+           << "{" << be_idt_nl
++          << "this->_reset (this->disc_, false);" << be_nl
+           << "this->disc_ = ";
+ 
+       switch (bu->udisc_type ())
+@@ -199,7 +201,7 @@
+           os->print ("L'\\%d'", dv.u.wchar_val);
+           break;
+         case AST_Expression::EV_bool:
+-          *os << dv.u.bool_val;
++          *os << (dv.u.bool_val == 0 ? "false" : "true");
+ 
+           break;
+         case AST_Expression::EV_longlong:
