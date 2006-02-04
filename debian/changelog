@@ -11,7 +11,7 @@ ace (5.4.7-8) unstable; urgency=low
   * debian/control: tighten build dependency from `xlibs-dev' to
     `libxt-dev'. (Closes: #346607).
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Wed, 11 Jan 2006 09:15:37 +0100
+ -- Thomas Girard <thomas.g.girard@free.fr>  Fri, 13 Jan 2006 17:15:37 +0200
 
 ace (5.4.7-7) unstable; urgency=low
 
