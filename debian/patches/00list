@@ -10,6 +10,7 @@
 25-TypeCode-equivalent-fix
 26-union-_default-fix
 27-bug2225-fix
+28-bug2222-fix
 79-prepatch-dummy-mark
 80-update-makefile
 83-skip-orbsvcs-examples-and-tests

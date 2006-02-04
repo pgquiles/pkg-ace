@@ -1,0 +1,20 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 28-bug2222-fix.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Backport `Mon Sep  5 12:11:28 2005  Simon McQueen  <sm@prismtech.com>'
+## DP: Backport bug#2222 fix.
+
+@DPATCH@
+
+--- ACE_wrappers/TAO/TAO_IDL/be/be_visitor_typedef/typedef_ci.cpp-
++++ ACE_wrappers/TAO/TAO_IDL/be/be_visitor_typedef/typedef_ci.cpp
+@@ -169,7 +169,7 @@
+     }
+   else
+     {
+-      if (bt->imported () || bt->cli_inline_gen())
++      if ((bt->imported () && tdef->imported ()) || bt->cli_inline_gen())
+         {
+           // Code below is generated in another file.
+           return 0;
