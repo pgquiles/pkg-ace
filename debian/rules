@@ -136,7 +136,7 @@ dpatch:	$(ACE_ROOT).orig $(ACE_ROOT)
 update-makefile: prepatchtwo
 	cd $(ACE_ROOT) \
 	&& dirs=`find * -type d -name "examples" -or -name "tests" -or -name "performance-tests" -or -name "doc*" | tr '\n' ','` \
-	&& $(ACE_ROOT)/bin/mwc.pl -feature_file "$(ACE_ROOT)/debian.features" -recurse -relative ACE_ROOT=$(ACE_ROOT) -exclude $${dirs}TAO/TAOACE.mwc,TAO/CIAO/CIAOTAO.mwc
+	&& $(ACE_ROOT)/bin/mwc.pl -feature_file "$(ACE_ROOT)/debian.features" -recurse -relative ACE_ROOT=$(ACE_ROOT) -noreldefs -exclude $${dirs}TAO/TAOACE.mwc,TAO/CIAO/CIAOTAO.mwc
 	$(MAKE) -f debian/rules dpatch DPATCH_NAME="$(MAKEFILE_DPATCH_NAME)" DPATCH_DESC="MakeProjectCreator generated Makefiles without examples and tests"
 	mv "$(MAKEFILE_DPATCH_NAME).dpatch" "$(MAKEFILE_DPATCH_FILENAME)"
 
