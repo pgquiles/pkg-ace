@@ -1,5 +1,5 @@
 #! /bin/sh /usr/share/dpatch/dpatch-run
-## 27-bug225-fix.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+## 27-bug2225-fix.dpatch by Thomas Girard <thomas.g.girard@free.fr>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
 ## DP: Backport `Wed Aug 31 10:53:06 2005  Ossama Othman  <ossama@dre.vanderbilt.edu>'
