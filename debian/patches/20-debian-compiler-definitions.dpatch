@@ -8,6 +8,15 @@
 
 --- ACE_wrappers/include/makeinclude/platform_linux.GNU-	2005-10-21 23:42:22.000000000 +0200
 +++ ACE_wrappers/include/makeinclude/platform_linux.GNU	2005-10-21 23:45:34.000000000 +0200
+@@ -104,7 +104,7 @@
+ PLATFORM_QT_LIBS ?= -lqt-mt
+ PLATFORM_QT_LDFLAGS ?= -L$(QTDIR)/lib
+ 
+-OCFLAGS ?= -O3
++OCFLAGS ?= -O2
+ PIC     = -fPIC
+ AR      = ar
+ ARFLAGS = rsuv
 @@ -114,6 +114,9 @@
            $(SOLINK.cc) -o $@ $(LDFLAGS) $(VSHDIR)$*.o
  PRELIB  = @true
