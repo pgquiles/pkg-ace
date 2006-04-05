@@ -8,7 +8,7 @@
 
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/ACEXML/GNUmakefile ACE_wrappers/ACEXML/GNUmakefile
 --- ACE_wrappers.orig/ACEXML/GNUmakefile	2005-08-05 15:07:20.000000000 +0200
-+++ ACE_wrappers/ACEXML/GNUmakefile	2006-01-15 17:40:54.000000000 +0100
++++ ACE_wrappers/ACEXML/GNUmakefile	2006-01-23 03:00:32.000000000 +0100
 @@ -23,7 +23,5 @@
  $(REMAINING_TARGETS):
  	$(KEEP_GOING)@cd common && $(MAKE) -f $(MAKEFILE) $(@)
@@ -19,7 +19,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/ACEXML/GN
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/apps/gperf/tests/GNUmakefile ACE_wrappers/apps/gperf/tests/GNUmakefile
 --- ACE_wrappers.orig/apps/gperf/tests/GNUmakefile	2005-08-05 15:07:54.000000000 +0200
-+++ ACE_wrappers/apps/gperf/tests/GNUmakefile	2006-01-15 17:40:56.000000000 +0100
++++ ACE_wrappers/apps/gperf/tests/GNUmakefile	2006-01-23 03:00:35.000000000 +0100
 @@ -19,57 +19,57 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -98,7 +98,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/apps/gper
  	$(KEEP_GOING)@$(MAKE) -f GNUmakefile.tinset $(@)
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/ASNMP/GNUmakefile ACE_wrappers/ASNMP/GNUmakefile
 --- ACE_wrappers.orig/ASNMP/GNUmakefile	2005-08-05 15:07:20.000000000 +0200
-+++ ACE_wrappers/ASNMP/GNUmakefile	2006-01-15 17:40:54.000000000 +0100
++++ ACE_wrappers/ASNMP/GNUmakefile	2006-01-23 03:00:31.000000000 +0100
 @@ -23,6 +23,4 @@
  $(REMAINING_TARGETS):
  	$(KEEP_GOING)@cd asnmp && $(MAKE) -f $(MAKEFILE) $(@)
@@ -108,7 +108,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/ASNMP/GNU
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/GNUmakefile ACE_wrappers/GNUmakefile
 --- ACE_wrappers.orig/GNUmakefile	2005-08-05 15:07:54.000000000 +0200
-+++ ACE_wrappers/GNUmakefile	2006-01-15 17:40:54.000000000 +0100
++++ ACE_wrappers/GNUmakefile	2006-01-23 03:00:32.000000000 +0100
 @@ -27,9 +27,6 @@
  	$(KEEP_GOING)@cd ACEXML && $(MAKE) -f $(MAKEFILE) $(@)
  	$(KEEP_GOING)@cd apps && $(MAKE) -f $(MAKEFILE) $(@)
@@ -121,7 +121,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/GNUmakefi
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/Kokyu/GNUmakefile ACE_wrappers/Kokyu/GNUmakefile
 --- ACE_wrappers.orig/Kokyu/GNUmakefile	2005-08-05 15:07:54.000000000 +0200
-+++ ACE_wrappers/Kokyu/GNUmakefile	2006-01-15 17:40:57.000000000 +0100
++++ ACE_wrappers/Kokyu/GNUmakefile	2006-01-23 03:00:36.000000000 +0100
 @@ -20,7 +20,6 @@
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
  
@@ -138,7 +138,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/Kokyu/GNU
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/protocols/GNUmakefile ACE_wrappers/protocols/GNUmakefile
 --- ACE_wrappers.orig/protocols/GNUmakefile	2005-08-05 15:08:27.000000000 +0200
-+++ ACE_wrappers/protocols/GNUmakefile	2006-01-15 17:40:57.000000000 +0100
++++ ACE_wrappers/protocols/GNUmakefile	2006-01-23 03:00:36.000000000 +0100
 @@ -22,6 +22,4 @@
  REMAINING_TARGETS := $(TARGETS_NESTED:.nested=) $(CUSTOM_TARGETS)
  $(REMAINING_TARGETS):
@@ -148,7 +148,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/protocols
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/CIAO/DAnCE/GNUmakefile ACE_wrappers/TAO/CIAO/DAnCE/GNUmakefile
 --- ACE_wrappers.orig/TAO/CIAO/DAnCE/GNUmakefile	2005-08-05 15:23:56.000000000 +0200
-+++ ACE_wrappers/TAO/CIAO/DAnCE/GNUmakefile	2006-01-15 17:48:34.000000000 +0100
++++ ACE_wrappers/TAO/CIAO/DAnCE/GNUmakefile	2006-01-23 03:09:11.000000000 +0100
 @@ -32,7 +32,5 @@
  	$(KEEP_GOING)@cd NodeApplication && $(MAKE) -f $(MAKEFILE) $(@)
  	$(KEEP_GOING)@cd Config_Handlers && $(MAKE) -f $(MAKEFILE) $(@)
@@ -159,7 +159,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/CIAO/
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/GNUmakefile ACE_wrappers/TAO/GNUmakefile
 --- ACE_wrappers.orig/TAO/GNUmakefile	2005-08-05 15:21:40.000000000 +0200
-+++ ACE_wrappers/TAO/GNUmakefile	2006-01-15 17:47:15.000000000 +0100
++++ ACE_wrappers/TAO/GNUmakefile	2006-01-23 03:07:16.000000000 +0100
 @@ -24,10 +24,6 @@
  	$(KEEP_GOING)@cd TAO_IDL && $(MAKE) -f $(MAKEFILE) $(@)
  	$(KEEP_GOING)@cd tao && $(MAKE) -f $(MAKEFILE) $(@)
@@ -173,7 +173,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/GNUma
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/examples/CosEC/Factory/GNUmakefile ACE_wrappers/TAO/orbsvcs/examples/CosEC/Factory/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/examples/CosEC/Factory/GNUmakefile	2005-08-05 15:21:45.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/examples/CosEC/Factory/GNUmakefile	2006-01-15 17:43:59.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/examples/CosEC/Factory/GNUmakefile	2006-01-23 03:03:29.000000000 +0100
 @@ -19,18 +19,18 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -202,7 +202,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/examples/ImR/Advanced/GNUmakefile ACE_wrappers/TAO/orbsvcs/examples/ImR/Advanced/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/examples/ImR/Advanced/GNUmakefile	2005-08-05 15:21:45.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/examples/ImR/Advanced/GNUmakefile	2006-01-15 17:43:59.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/examples/ImR/Advanced/GNUmakefile	2006-01-23 03:03:29.000000000 +0100
 @@ -19,23 +19,23 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -237,7 +237,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/examples/Security/Send_File/GNUmakefile ACE_wrappers/TAO/orbsvcs/examples/Security/Send_File/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/examples/Security/Send_File/GNUmakefile	2005-08-05 15:21:45.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/examples/Security/Send_File/GNUmakefile	2006-01-15 17:44:00.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/examples/Security/Send_File/GNUmakefile	2006-01-23 03:03:30.000000000 +0100
 @@ -19,18 +19,18 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -266,7 +266,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/Naming_Service/GNUmakefile ACE_wrappers/TAO/orbsvcs/Naming_Service/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/Naming_Service/GNUmakefile	2005-08-05 15:14:21.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/Naming_Service/GNUmakefile	2006-01-15 17:43:59.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/Naming_Service/GNUmakefile	2006-01-23 03:03:29.000000000 +0100
 @@ -19,18 +19,18 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -295,7 +295,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/Notify_Service/GNUmakefile ACE_wrappers/TAO/orbsvcs/Notify_Service/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/Notify_Service/GNUmakefile	2005-08-05 15:14:21.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/Notify_Service/GNUmakefile	2006-01-15 17:43:59.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/Notify_Service/GNUmakefile	2006-01-23 03:03:29.000000000 +0100
 @@ -19,18 +19,18 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -322,9 +322,20 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  	$(KEEP_GOING)@$(MAKE) -f GNUmakefile.Notify_Service $(@)
 +	$(KEEP_GOING)@$(MAKE) -f GNUmakefile.NT_Notify_Service $(@)
  
+diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/GNUmakefile.CosNotification_Serv ACE_wrappers/TAO/orbsvcs/orbsvcs/GNUmakefile.CosNotification_Serv
+--- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/GNUmakefile.CosNotification_Serv	2005-08-05 15:12:55.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/GNUmakefile.CosNotification_Serv	2006-01-23 03:02:47.000000000 +0100
+@@ -78,6 +78,7 @@
+   Notify/Routing_Slip.cpp \
+   Notify/Routing_Slip_Persistence_Manager.cpp \
+   Notify/Routing_Slip_Queue.cpp \
++  Notify/Service.cpp \
+   Notify/Subscription_Change_Worker.cpp \
+   Notify/Supplier.cpp \
+   Notify/SupplierAdmin.cpp \
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/GNUmakefile.PortableGroup ACE_wrappers/TAO/orbsvcs/orbsvcs/GNUmakefile.PortableGroup
 --- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/GNUmakefile.PortableGroup	2005-08-05 15:12:41.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/orbsvcs/GNUmakefile.PortableGroup	2006-01-15 17:42:56.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/GNUmakefile.PortableGroup	2006-01-23 03:02:29.000000000 +0100
 @@ -26,9 +26,9 @@
  PortableGroup = \
    miopC.cpp \
@@ -347,7 +358,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  FORCED_IDL_STUBS := $(FORCED_IDL_STUBS:PortableGroup_Simple_DSC.cpp=)
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/performance-tests/RTEvent/RTCORBA_Baseline/GNUmakefile ACE_wrappers/TAO/orbsvcs/performance-tests/RTEvent/RTCORBA_Baseline/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/performance-tests/RTEvent/RTCORBA_Baseline/GNUmakefile	2005-08-05 15:21:48.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/performance-tests/RTEvent/RTCORBA_Baseline/GNUmakefile	2006-01-15 17:44:03.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/performance-tests/RTEvent/RTCORBA_Baseline/GNUmakefile	2006-01-23 03:03:33.000000000 +0100
 @@ -19,23 +19,23 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -381,7 +392,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/tests/EC_Throughput/GNUmakefile ACE_wrappers/TAO/orbsvcs/tests/EC_Throughput/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/tests/EC_Throughput/GNUmakefile	2005-08-05 15:21:49.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/tests/EC_Throughput/GNUmakefile	2006-01-15 17:44:04.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/tests/EC_Throughput/GNUmakefile	2006-01-23 03:03:34.000000000 +0100
 @@ -19,23 +19,23 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -416,7 +427,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/tests/FaultTolerance/GroupRef_Manipulation/GNUmakefile ACE_wrappers/TAO/orbsvcs/tests/FaultTolerance/GroupRef_Manipulation/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/tests/FaultTolerance/GroupRef_Manipulation/GNUmakefile	2005-08-05 15:21:50.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/tests/FaultTolerance/GroupRef_Manipulation/GNUmakefile	2006-01-15 17:44:05.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/tests/FaultTolerance/GroupRef_Manipulation/GNUmakefile	2006-01-23 03:03:35.000000000 +0100
 @@ -19,18 +19,18 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -445,7 +456,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/tests/HTIOP/BiDirectional/GNUmakefile ACE_wrappers/TAO/orbsvcs/tests/HTIOP/BiDirectional/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/tests/HTIOP/BiDirectional/GNUmakefile	2005-08-05 15:21:50.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/tests/HTIOP/BiDirectional/GNUmakefile	2006-01-15 17:44:05.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/tests/HTIOP/BiDirectional/GNUmakefile	2006-01-23 03:03:35.000000000 +0100
 @@ -19,18 +19,18 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -474,7 +485,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/tests/HTIOP/Hello/GNUmakefile ACE_wrappers/TAO/orbsvcs/tests/HTIOP/Hello/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/tests/HTIOP/Hello/GNUmakefile	2005-08-05 15:21:50.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/tests/HTIOP/Hello/GNUmakefile	2006-01-15 17:44:05.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/tests/HTIOP/Hello/GNUmakefile	2006-01-23 03:03:35.000000000 +0100
 @@ -19,18 +19,18 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -503,7 +514,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/tests/ImplRepo/GNUmakefile ACE_wrappers/TAO/orbsvcs/tests/ImplRepo/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/tests/ImplRepo/GNUmakefile	2005-08-05 15:21:51.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/tests/ImplRepo/GNUmakefile	2006-01-15 17:44:05.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/tests/ImplRepo/GNUmakefile	2006-01-23 03:03:35.000000000 +0100
 @@ -19,18 +19,18 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -541,7 +552,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  	$(KEEP_GOING)@cd NameService && $(MAKE) -f $(MAKEFILE) $(@)
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/tests/ImplRepo/scale/GNUmakefile ACE_wrappers/TAO/orbsvcs/tests/ImplRepo/scale/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/tests/ImplRepo/scale/GNUmakefile	2005-08-05 15:21:51.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/tests/ImplRepo/scale/GNUmakefile	2006-01-15 17:44:05.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/tests/ImplRepo/scale/GNUmakefile	2006-01-23 03:03:35.000000000 +0100
 @@ -19,18 +19,18 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -570,7 +581,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/tests/Notify/Ordering/GNUmakefile ACE_wrappers/TAO/orbsvcs/tests/Notify/Ordering/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/tests/Notify/Ordering/GNUmakefile	2005-08-05 15:21:51.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/tests/Notify/Ordering/GNUmakefile	2006-01-15 17:44:05.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/tests/Notify/Ordering/GNUmakefile	2006-01-23 03:03:35.000000000 +0100
 @@ -19,28 +19,28 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -611,7 +622,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/tests/Notify/Sequence_Multi_ETCL_Filter/GNUmakefile ACE_wrappers/TAO/orbsvcs/tests/Notify/Sequence_Multi_ETCL_Filter/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/tests/Notify/Sequence_Multi_ETCL_Filter/GNUmakefile	2005-08-05 15:21:51.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/tests/Notify/Sequence_Multi_ETCL_Filter/GNUmakefile	2006-01-15 17:44:05.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/tests/Notify/Sequence_Multi_ETCL_Filter/GNUmakefile	2006-01-23 03:03:35.000000000 +0100
 @@ -19,18 +19,18 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -640,7 +651,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/tests/Notify/Sequence_Multi_Filter/GNUmakefile ACE_wrappers/TAO/orbsvcs/tests/Notify/Sequence_Multi_Filter/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/tests/Notify/Sequence_Multi_Filter/GNUmakefile	2005-08-05 15:21:51.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/tests/Notify/Sequence_Multi_Filter/GNUmakefile	2006-01-15 17:44:05.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/tests/Notify/Sequence_Multi_Filter/GNUmakefile	2006-01-23 03:03:35.000000000 +0100
 @@ -19,18 +19,18 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -669,7 +680,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/tests/Security/BiDirectional/GNUmakefile ACE_wrappers/TAO/orbsvcs/tests/Security/BiDirectional/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/tests/Security/BiDirectional/GNUmakefile	2005-08-05 15:21:52.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/tests/Security/BiDirectional/GNUmakefile	2006-01-15 17:44:07.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/tests/Security/BiDirectional/GNUmakefile	2006-01-23 03:03:37.000000000 +0100
 @@ -19,18 +19,18 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -698,7 +709,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/tests/Security/Big_Request/GNUmakefile ACE_wrappers/TAO/orbsvcs/tests/Security/Big_Request/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/tests/Security/Big_Request/GNUmakefile	2005-08-05 15:21:52.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/tests/Security/Big_Request/GNUmakefile	2006-01-15 17:44:07.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/tests/Security/Big_Request/GNUmakefile	2006-01-23 03:03:37.000000000 +0100
 @@ -19,18 +19,18 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -727,7 +738,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsvcs/tests/Security/MT_SSLIOP/GNUmakefile ACE_wrappers/TAO/orbsvcs/tests/Security/MT_SSLIOP/GNUmakefile
 --- ACE_wrappers.orig/TAO/orbsvcs/tests/Security/MT_SSLIOP/GNUmakefile	2005-08-05 15:21:52.000000000 +0200
-+++ ACE_wrappers/TAO/orbsvcs/tests/Security/MT_SSLIOP/GNUmakefile	2006-01-15 17:44:07.000000000 +0100
++++ ACE_wrappers/TAO/orbsvcs/tests/Security/MT_SSLIOP/GNUmakefile	2006-01-23 03:03:37.000000000 +0100
 @@ -19,18 +19,18 @@
  
  include $(ACE_ROOT)/include/makeinclude/macros.GNU
@@ -756,7 +767,7 @@ diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/TAO/orbsv
  
 diff -I '^# .*bin/mwc.pl.*-include.*-recurse.*' -Nru ACE_wrappers.orig/websvcs/GNUmakefile ACE_wrappers/websvcs/GNUmakefile
 --- ACE_wrappers.orig/websvcs/GNUmakefile	2005-08-05 15:07:30.000000000 +0200
-+++ ACE_wrappers/websvcs/GNUmakefile	2006-01-15 17:40:54.000000000 +0100
++++ ACE_wrappers/websvcs/GNUmakefile	2006-01-23 03:00:32.000000000 +0100
 @@ -22,5 +22,4 @@
  REMAINING_TARGETS := $(TARGETS_NESTED:.nested=) $(CUSTOM_TARGETS)
  $(REMAINING_TARGETS):
