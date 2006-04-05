@@ -343,12 +343,22 @@ Package: libciao-dev
 Architecture: any
 Section: libdevel
 Depends: libciao0.4.7c2a (= ${Source-Version}), libtao-orbsvcs-dev (= ${Source-Version})
+Suggests: libciao-doc
 Description: CIAO, TAO's implementation of CORBA Component Model (CCM)
  This package contains the header files for CIAO.
- The examples and some documentation have been included as well.
  .
  CIAO is TAO's implementation of CORBA Component Model (CCM) specially
- optimized for distributed real-time embedded (DRE) systems
+ optimized for distributed real-time embedded (DRE) systems.
+
+Package: libciao-doc
+Architecture: all
+Section: doc
+Suggests: libciao-dev
+Description: Documentation for CIAO, a CORBA Component Model middleware
+ This package contains the CIAO documentation, tutorials and examples.
+ .
+ CIAO is TAO's implementation of CORBA Component Model (CCM) specially
+ optimized for distributed real-time embedded (DRE) systems.
 
 Package: libace-qtreactor5.4.7c2a
 Architecture: any
