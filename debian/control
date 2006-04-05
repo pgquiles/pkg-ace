@@ -337,7 +337,7 @@ Description: CIAO, TAO's implementation of CORBA Component Model (CCM)
  This package contains the run-time CIAO libraries.
  .
  CIAO is TAO's implementation of CORBA Component Model (CCM) specially
- optimized for distributed real-time embedded (DRE) systems
+ optimized for distributed real-time embedded (DRE) systems.
 
 Package: libciao-dev
 Architecture: any
