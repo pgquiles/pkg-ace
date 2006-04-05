@@ -1,3 +1,20 @@
+ace (5.4.7-9) unstable; urgency=low
+
+  * debian/patches/28-bug2222-fix.dpatch, debian/patches/29-bug2262.dpatch:
+    backport upstream fixes.
+  * debian/patches/31-gcc-4.1-fix.dpatch: fix "dereferencing type-punned
+    pointers" gcc 4.1 warning.
+  * debian/patches/30-Env_Value-template-specialization-fix.dpatch:
+    backport template specialization fix (Closes: #358898).
+  * debian/patches/20-debian-compiler-definitions.dpatch: downgrade
+    optimization flag from `-O3' to `-O2'.
+  * debian/rules: add ${perl:Depends} for mpc-ace package.
+  * debian/control: make a new package, libciao-doc.
+  * debian/libtao-dev.install: add missing pkg-config file for ImR_Client
+    library.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Wed, 29 Mar 2006 22:14:53 +0200
+
 ace (5.4.7-8) unstable; urgency=low
 
   * debian/copy_template_sources.sh: add missing files to `libtao-dev'
