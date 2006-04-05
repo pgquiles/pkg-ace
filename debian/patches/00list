@@ -13,6 +13,7 @@
 28-bug2222-fix
 29-bug2262-fix
 30-Env_Value-template-specialization-fix
+31-gcc-4.1-fix
 79-prepatch-dummy-mark
 80-update-makefile
 83-skip-orbsvcs-examples-and-tests
