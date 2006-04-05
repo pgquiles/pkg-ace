@@ -62,6 +62,7 @@ TAO/tao/Domain/TAO_Domain.pc                     usr/lib/pkgconfig
 TAO/tao/DynamicAny/TAO_DynamicAny.pc             usr/lib/pkgconfig
 TAO/tao/DynamicInterface/TAO_DynamicInterface.pc usr/lib/pkgconfig
 TAO/tao/IFR_Client/TAO_IFR_Client.pc             usr/lib/pkgconfig
+TAO/tao/ImR_Client/TAO_ImR_Client.pc             usr/lib/pkgconfig
 TAO/tao/IORInterceptor/TAO_IORInterceptor.pc     usr/lib/pkgconfig
 TAO/tao/IORManipulation/TAO_IORManip.pc          usr/lib/pkgconfig
 TAO/tao/IORTable/TAO_IORTable.pc                 usr/lib/pkgconfig
