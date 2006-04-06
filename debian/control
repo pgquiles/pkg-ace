@@ -354,6 +354,7 @@ Package: libciao-doc
 Architecture: all
 Section: doc
 Suggests: libciao-dev
+Conflicts: libciao-dev (<< 5.4.7-9)
 Description: Documentation for CIAO, a CORBA Component Model middleware
  This package contains the CIAO documentation, tutorials and examples.
  .
