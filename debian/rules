@@ -89,7 +89,7 @@ $(ACE_ROOT)/debian.features: extract
 	cat debian/config/debian.features > "$@"
 	echo "// Added by debian/rules based on \$$(DEB_BUILD_OPTIONS)" >> "$@"
 ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
-	echo "debug=1" > "$@"
+	echo "debug=1" >> "$@"
 	echo "optimize=0" >> "$@"
 else
 	echo "debug=0" >> "$@"
