@@ -1,0 +1,20 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 33-bug1805-fix.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Back fix for DOC bz#1805
+## DP: See: `http://deuce.doc.wustl.edu/bugzilla/show_bug.cgi?id=1805'
+
+@DPATCH@
+
+--- ACE_wrappers/ace/SSL/SSL_Asynch_Stream.cpp-
++++ ACE_wrappers/ace/SSL/SSL_Asynch_Stream.cpp
+@@ -1116,7 +1116,7 @@
+     ret++;
+ 
+   if (this->bio_out_flag_ & BF_AIO)
+-    return ret++;
++    ret++;
+ 
+   return ret;
+ }
