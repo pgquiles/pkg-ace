@@ -12,6 +12,10 @@
 
 // -------------------------------
 
+#ifdef __FreeBSD_kernel__
+#include "ace/config-kfreebsd.h"
+#else
 #include "ace/config-linux.h"
+#endif
 
 #endif  /* ACE_CONFIG_H */
