@@ -104,9 +104,6 @@
 /* Compiler/platform has correctly prototyped header files. */
 #define ACE_HAS_CPLUSPLUS_HEADERS 1
 
-/* Platform defines custom DSO/DLL symbol export macros. */
-#define ACE_HAS_CUSTOM_EXPORT_MACROS 1
-
 /* Compiler supports C++ exception handling. */
 #define ACE_HAS_EXCEPTIONS 1
 
