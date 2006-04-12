@@ -7,8 +7,6 @@
 
 #define ACE_PLATFORM_CONFIG config-kfreebsd.h
 
-#define __ACE_INLINE__ 1
-
 // Slurped from config-linux-common.h
 // Needed to differentiate between libc 5 and libc 6 (aka glibc).
 #include <features.h>
