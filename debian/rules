@@ -160,7 +160,6 @@ build-stamp: patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 	dh_testdir
 
 	cp debian/config/config.h $(ACE_ROOT)/ace
-	cp debian/config/config-kfreebsd.h $(ACE_ROOT)/ace
 
 #       We have to compile shared and static libraries separately.
 

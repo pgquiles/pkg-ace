@@ -16,7 +16,6 @@
 31-gcc-4.1-fix
 32-bug1770-fix
 33-bug1805-fix
-34-kfreebsd
 79-prepatch-dummy-mark
 80-update-makefile
 83-skip-orbsvcs-examples-and-tests

@@ -7,14 +7,11 @@
 // Always inline
 #define __ACE_INLINE__
 
-// -------------------------------
-
-#ifdef __FreeBSD_kernel__
-#include "ace/config-kfreebsd.h"
-#else
 /* Platform supports IPv6 */
 #define ACE_HAS_IPV6 1
+
+// -------------------------------
+
 #include "ace/config-linux.h"
-#endif
 
 #endif  /* ACE_CONFIG_H */
