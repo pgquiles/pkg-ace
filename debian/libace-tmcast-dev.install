@@ -1,4 +1,4 @@
-protocols/ace/TMCast/*.{hpp,i}                   usr/include/ace/TMCast
-protocols/ace/TMCast/libACE_TMCast.a             usr/lib
-protocols/ace/TMCast/libACE_TMCast.so            usr/lib
-protocols/ace/TMCast/ACE_TMCast.pc               usr/lib/pkgconfig
+protocols/ace/TMCast/*.hpp            usr/include/ace/TMCast
+protocols/ace/TMCast/libACE_TMCast.a  usr/lib
+protocols/ace/TMCast/libACE_TMCast.so usr/lib
+protocols/ace/TMCast/ACE_TMCast.pc    usr/lib/pkgconfig
