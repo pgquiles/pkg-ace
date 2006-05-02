@@ -1,6 +1,4 @@
 TAO/orbsvcs/Concurrency_Service/*.h                       usr/include/orbsvcs/Concurrency_Service
-TAO/orbsvcs/CosEvent_Service/*.h                          usr/include/orbsvcs/CosEvent_Service
-TAO/orbsvcs/Dump_Schedule/*.h                             usr/include/orbsvcs/Dump_Schedule
 TAO/orbsvcs/Event_Service/*.h                             usr/include/orbsvcs/Event_Service
 TAO/orbsvcs/Fault_Detector/*.h                            usr/include/orbsvcs/Fault_Detector
 TAO/orbsvcs/Fault_Notifier/*.h                            usr/include/orbsvcs/Fault_Notifier
@@ -18,7 +16,6 @@ TAO/orbsvcs/Logging_Service/RTEvent_Logging_Service/*.h   usr/include/orbsvcs/Lo
 TAO/orbsvcs/Naming_Service/*.h                            usr/include/orbsvcs/Naming_Service
 TAO/orbsvcs/Notify_Service/*.h                            usr/include/orbsvcs/Notify_Service
 TAO/orbsvcs/Scheduling_Service/*.h                        usr/include/orbsvcs/Scheduling_Service
-TAO/orbsvcs/TAO_Service/*.h                               usr/include/orbsvcs/TAO_Service
 TAO/orbsvcs/Time_Service/*.h                              usr/include/orbsvcs/Time_Service
 TAO/orbsvcs/Trading_Service/*.h                           usr/include/orbsvcs/Trading_Service
 TAO/orbsvcs/orbsvcs/*.{h,i,inl,idl}                       usr/include/orbsvcs/orbsvcs
