@@ -1,0 +1,269 @@
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook V4.1//EN" [
+  <!ENTITY mpc "mpc">
+  <!ENTITY mwc "mwc">
+]>
+<refentry>
+  <refmeta>
+    <refentrytitle>MPC</refentrytitle>
+    <manvolnum>1</manvolnum>
+  </refmeta>
+  <refnamediv>
+    <refname>&mpc;, &mwc;</refname>
+    <refpurpose>generate project and workspace files</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <title>SYNOPSIS</title>
+    <cmdsynopsis>
+      <command>&mpc;</command>
+      <arg rep="repeat"><replaceable>OPTION</replaceable></arg>
+      <arg rep="repeat"><replaceable>FILE</replaceable></arg>
+    </cmdsynopsis>
+    <cmdsynopsis>
+      <command>&mwc;</command>
+      <arg rep="repeat"><replaceable>OPTION</replaceable></arg>
+      <arg rep="repeat"><replaceable>FILE</replaceable></arg>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+  <refsect1>
+    <title>DESCRIPTION</title>
+    <para>
+      <command>&mpc;</command> and <command>&mwc;</command>, the Makefile,
+      Project and Workspace Creator generate platform and compiler specific
+      files to automate the compilation process.
+    </para>
+    <para>
+     Such files include <filename>GNUmakefile</filename> and
+     <filename>Makefile.am</filename>.
+    </para>
+    <variablelist>
+      <varlistentry>
+        <term><parameter>-global</parameter> <replaceable>file</replaceable></term>
+        <listitem>
+          <para>
+	  specifies the global input file.  Values stored within this file are
+	  applied to all projects
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-include</parameter> <replaceable>directory</replaceable></term>
+        <listitem>
+          <para>
+	  specifies a directory to search when looking for base projects,
+	  template input files and templates.  This option can be used
+	  multiple times to add directories
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-recurse</parameter></term>
+        <listitem>
+          <para>
+	  recurse from the current directory and generate from all found
+	  input files
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-ti dll|lib|dll_exe|lib_exe:</parameter><replaceable>file</replaceable></term>
+        <listitem>
+          <para>
+	  specifies the template input file (with no extension) for the
+	  specific type, e.g. <parameter>-ti dll_exe:vc8exe</parameter>
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-hierarchy</parameter></term>
+        <listitem>
+          <para>
+	  generate a workspace in a hierarchical fashion
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-template</parameter> <replaceable>file</replaceable></term>
+        <listitem>
+          <para>
+	  specifies the template name (with no extension)
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-relative</parameter> <replaceable>name</replaceable>=<replaceable>var</replaceable></term>
+        <listitem>
+          <para>
+	  any <varname>$()</varname> variable in an mpc file that is matched to
+	  <replaceable>name</replaceable> is replaced by
+	  <replaceable>var</replaceable> only if
+	  <replaceable>var</replaceable> can be made into a relative path based
+	  on the current working directory.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-base</parameter> <replaceable>project</replaceable></term>
+        <listitem>
+          <para>
+	  add <replaceable>project</replaceable> as a base project to each
+	  generated project file.  Do not provide a file extension, the
+	  <filename>.mpb</filename> extension will be tried first; if that
+	  fails the <filename>.mpc</filename> extension will be tried.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-noreldefs</parameter></term>
+        <listitem>
+          <para>
+	  do not try to generate default relative definitions
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-notoplevel</parameter></term>
+        <listitem>
+          <para>
+	  do not generate the top level target file.  Files are still process,
+	  but no top level file is created
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-static</parameter></term>
+        <listitem>
+          <para>
+	  specifies that only static projects will be generated.  By default,
+	  only dynamic projects will be generated
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-genins</parameter></term>
+        <listitem>
+          <para>
+	  generate <filename>.ins</filename> files for use with
+	  <command>prj_install.pl</command>
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-use_env</parameter></term>
+        <listitem>
+          <para>
+	  use environment variables for all uses of
+	  <varname>$()</varname> instead of the relative replacement values
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-value_template</parameter> <replaceable>name</replaceable><parameter>+=</parameter><replaceable>val</replaceable> | <replaceable>name</replaceable><parameter>=</parameter><replaceable>val</replaceable> | <replaceable>name</replaceable><parameter>-=</parameter><replaceable>val</replaceable></term>
+        <listitem>
+          <para>
+	  this option allows modification of a template input name pair.  Use
+	  <parameter>+=</parameter> to add
+	  <replaceable>val</replaceable> to the
+	  <replaceable>name</replaceable>'s value.  Use
+	  <parameter>-=</parameter> to subtract and <parameter>=</parameter> to
+	  override the value.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-value_project</parameter> <replaceable>name</replaceable><parameter>+=</parameter><replaceable>val</replaceable> | <replaceable>name</replaceable><parameter>=</parameter><replaceable>val</replaceable> | <replaceable>name</replaceable><parameter>-=</parameter><replaceable>val</replaceable></term>
+        <listitem>
+          <para>
+	  this option allows modification of a project variable
+	  assignment.  Use <parameter>+=</parameter> to add
+	  <replaceable>val</replaceable> to the
+	  <replaceable>name</replaceable>'s value.  Use
+	  <parameter>-=</parameter> to subtract and <parameter>=</parameter> to
+	  override the value.  This can be used to introduce new name value
+	  pairs to a project.  However, it must be a valid project assignment
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-make_coexistence</parameter></term>
+        <listitem>
+          <para>
+	  if multiple <command>make</command> based project types are generated,
+	  they will be named such that they can coexist
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-feature_file</parameter> <replaceable>file</replaceable></term>
+        <listitem>
+          <para>
+	  specifies the feature file to read before processing.  The default
+	  feature file is <filename>default.features</filename> under the
+	  <filename class="directory">config</filename> directory
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-expand_vars</parameter></term>
+        <listitem>
+          <para>
+	  perform direct expansion, instead of performing relative replacement
+	  with either <parameter>-use_env</parameter> or
+	  <parameter>-relative</parameter> options
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-features</parameter> <replaceable>features</replaceable></term>
+        <listitem>
+          <para>
+	  specifies the feature list to set before processing
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-exclude</parameter> <replaceable>directories</replaceable></term>
+        <listitem>
+          <para>
+	  use this option to exclude directories when searching for input files
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-name_modifier</parameter> <replaceable>pattern</replaceable></term>
+        <listitem>
+          <para>
+	  modify output names.  The <replaceable>pattern</replaceable> passed
+	  to this parameter will have the <filename>*</filename> portion
+	  replaced with the actual output name.  For example
+	  <parameter>-name_modifier '*_Static'</parameter>
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-apply_project</parameter></term>
+        <listitem>
+          <para>
+	  when used in conjunction with <parameter>-name_modifier</parameter>,
+	  it applies the name modifier to the project name also
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-version</parameter></term>
+        <listitem>
+          <para>
+	  print the MPC version and exit
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-into</parameter> <replaceable>directory</replaceable></term>
+        <listitem>
+          <para>
+	  print the MPC version and exit
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+</refentry>
