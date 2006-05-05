@@ -239,6 +239,10 @@ install: build
 	cp $(TAO_ROOT)/orbsvcs/IFR_Service/tao_ifr $(TAO_ROOT)/orbsvcs/IFR_Service/tao_ifr.real
 	$(INSTALL) -m 755 -o root -g root -D debian/tao_ifr debian/libtao-orbsvcs${TV}c2a/usr/bin/tao_ifr
 
+#       Rename mpc.pl and mwc.pl so that they do not include language extension.
+	cp $(ACE_ROOT)/bin/mpc.pl $(ACE_ROOT)/bin/mpc-ace
+	cp $(ACE_ROOT)/bin/mwc.pl $(ACE_ROOT)/bin/mwc-ace
+
 #	Be lintian clean, fix permissions on examples
 	-chmod -x `find $(TAO_ROOT)/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
 	-chmod -x `find $(TAO_ROOT)/CIAO/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`

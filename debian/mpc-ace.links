@@ -1,3 +1,2 @@
-usr/bin/mpc.pl                  usr/share/ace/bin/mpc.pl
-usr/bin/mwc.pl                  usr/share/ace/bin/mwc.pl
-usr/bin/depgen.pl		usr/share/ace/bin/depgen.pl
+usr/bin/mpc-ace usr/share/ace/bin/mpc.pl
+usr/bin/mwc-ace usr/share/ace/bin/mwc.pl
