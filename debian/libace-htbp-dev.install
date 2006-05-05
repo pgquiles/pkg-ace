@@ -1,0 +1,4 @@
+protocols/ace/HTBP/*.{h,inl}      usr/include/ace/HTBP
+protocols/ace/HTBP/libACE_HTBP.a  usr/lib
+protocols/ace/HTBP/libACE_HTBP.so usr/lib
+protocols/ace/HTBP/ACE_HTBP.pc    usr/lib/pkgconfig

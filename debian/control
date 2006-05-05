@@ -197,6 +197,26 @@ Description: A transactional multicast library in C++ (development files)
  of a multicast group as a transaction - an atomic, consistent and
  isolated action.
 
+Package: libace-htbp5.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: HTTP tunneling, bidirectional, protocol library
+ This library provides a framework enabling the writing of stream-based
+ protocols over HTTP.
+ .
+ This allows clients behind a firewall to establish a connection with
+ outbound servers.
+
+Package: libace-htbp-dev
+Architecture: any
+Section: libdevel
+Depends: libace-htbp5.4.7c2a (= ${Source-Version}), libace-dev (= ${Source-Version})
+Description: HTTP tunneling, bidirectional, protocol library (devel files)
+ This package contains HTTP tunneling, bidirectional, protocol (HTBP)
+ framework development files enabling the writing of stream-based protocols
+ over HTTP.
+
 Package: gperf-ace
 Architecture: any
 Section: devel
