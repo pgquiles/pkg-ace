@@ -65,7 +65,7 @@
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term><parameter>-ti dll|lib|dll_exe|lib_exe:</parameter><replaceable>file</replaceable></term>
+        <term><parameter>-ti dll | lib | dll_exe | lib_exe:</parameter><replaceable>file</replaceable></term>
         <listitem>
           <para>
 	  specifies the template input file (with no extension) for the
@@ -260,10 +260,39 @@
         <term><parameter>-into</parameter> <replaceable>directory</replaceable></term>
         <listitem>
           <para>
-	  print the MPC version and exit
+	  place all output files in a mirrored directory structure starting
+	  at <replaceable>directory</replaceable>
           </para>
         </listitem>
       </varlistentry>
+      <varlistentry>
+        <term><parameter>-language cplusplus | csharp | java | vb</parameter></term>
+        <listitem>
+          <para>
+	  specify the language preference.  The default is 
+	  <parameter>cplusplus</parameter>
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>-type automake | bmake | cbx | em3 | ghs | html | make | nmake | sle | vc6 | vc7 | vc71 |vc8</parameter></term>
+        <listitem>
+          <para>
+	  specifies the type of project file to generate.  This option can
+	  be used multiple times to generate multiple types.  If
+	  <parameter>-type</parameter> is not used, it defaults to
+	  <parameter>make</parameter>
+          </para>
+        </listitem>
+      </varlistentry>
+
     </variablelist>
+  </refsect1>
+  <refsect1>
+    <title>ENVIRONMENT VARIABLES</title>
+    <para>
+      The following environment variables could affect
+      <command>mwc</command> and <command>mpc</command>:
+    </para>
   </refsect1>
 </refentry>
