@@ -1,7 +1,7 @@
 bin/generate_export_file.pl usr/bin
 ace/*.{h,inl}               usr/include/ace
 ace/os_include              usr/include/ace
-ace/SSL/*.{h,i}             usr/include/ace/SSL
+ace/SSL/*.{h,i,inl}         usr/include/ace/SSL
 ace/libACE.a                usr/lib
 ace/libACE.so               usr/lib
 ace/SSL/libACE_SSL.a        usr/lib
