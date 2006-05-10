@@ -5,3 +5,4 @@ bin/DependencyGenerator        usr/share/ace/bin
 bin/MakeProjectCreator         usr/share/ace/bin
 MPC/{config,modules,templates} usr/share/ace/MPC
 MPC/*.pl                       usr/share/ace/MPC
+MPC/ChangeLog                  usr/share/ace/MPC
