@@ -78,32 +78,16 @@ Section: devel
 Depends: ${perl:Depends}
 Recommends: make
 Suggests: libace-dev (= ${Source-Version}), pkg-config
-Description:  A Makefile generator in Perl
- This package contains the MakeProjectCreator (MPC) for the ACE
- toolkit.
+Description: The Makefile, Project and Workspace Creator
+ This package contains the Makefile, Project and Workspace Creator (MPC)
+ as distributed with the ACE toolkit.
  .
- The ADAPTIVE Communication Environment (ACE) is a freely available open
- source object-oriented (OO) framework that implements many core design
- patterns for concurrent communication software. ACE provides a rich set
- of reusable C++ wrappers and framework components that perform common
- communication software tasks across a range of OS platforms. The
- communication software tasks provided by ACE include event
- demultiplexing and event handler dispatching, signal handling, service
- initialization, interprocess communication, shared memory management,
- message routing, dynamic (re)configuration of distributed services,
- concurrent execution and synchronization.
+ MPC generates platform and compiler specific files to automate the
+ compilation process.
  .
- ACE is targeted for developers of high-performance and real-time
- communication services and applications. It simplifies the development
- of OO network applications and services that utilize interprocess
- communication, event demultiplexing, explicit dynamic linking, and
- concurrency. In addition, ACE automates system configuration and
- reconfiguration by dynamically linking services into applications at
- run-time and executing these services in one or more processes or
- threads.
- .
-  Author: Douglas C. Schmidt <schmidt@uci.edu>
-  Homepage: http://www.cs.wustl.edu/~schmidt/ACE.html
+ This package provides:
+  * mpc-ace generating project files for a single target
+  * mwc-ace generating workspace files for a set of projects
  
 Package: libace-doc
 Architecture: all
