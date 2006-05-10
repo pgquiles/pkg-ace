@@ -75,9 +75,9 @@ Description:  An Object-Oriented Network Programming Toolkit in C++
 Package: mpc-ace
 Architecture: all
 Section: devel
-Depends: libace-dev (= ${Source-Version}), ${perl:Depends}
-Recommends: gperf-ace, libtao-dev, make
-Suggests: pkg-config
+Depends: ${perl:Depends}
+Recommends: make
+Suggests: libace-dev (= ${Source-Version}), pkg-config
 Description:  A Makefile generator in Perl
  This package contains the MakeProjectCreator (MPC) for the ACE
  toolkit.
