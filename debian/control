@@ -12,30 +12,28 @@ Section: libs
 Depends: ${shlibs:Depends}
 Replaces: libace5.2, libace5.4 (<< 5.4.7), libace5.4.7
 Conflicts: libace5.2, libace5.4 (<< 5.4.7), libace5.4.7
-Description: An Object-Oriented Network Programming Toolkit in C++
- This package contains the run-time ACE library.
+Description: C++ network programming framework
+ This package contains the ADAPTIVE Communication Environment (ACE)
+ framework.
  .
- The ADAPTIVE Communication Environment (ACE) is a freely available open
- source object-oriented (OO) framework that implements many core design
- patterns for concurrent communication software. ACE provides a rich set
- of reusable C++ wrappers and framework components that perform common
- communication software tasks across a range of OS platforms. The
- communication software tasks provided by ACE include event
- demultiplexing and event handler dispatching, signal handling, service
- initialization, interprocess communication, shared memory management,
- message routing, dynamic (re)configuration of distributed services,
- concurrent execution and synchronization.
+ It provides platform independent C++ wrappers for interprocess
+ communication:
+  * signals
+  * pipes
+  * sockets
+  * message queues
+  * semaphores
+  * shared memory
+ as well as thread, process management routines and much more.
  .
- ACE is targeted for developers of high-performance and real-time
- communication services and applications. It simplifies the development
- of OO network applications and services that utilize interprocess
- communication, event demultiplexing, explicit dynamic linking, and
- concurrency. In addition, ACE automates system configuration and
- reconfiguration by dynamically linking services into applications at
- run-time and executing these services in one or more processes or
- threads.
+ Moreover, it defines patterns for common communication tasks.  Beyond
+ these:
+  * Reactor, to handle event demultiplexing and dispatching
+  * Proactor, for asynchronous I/O driven programs
  .
-  Author: Douglas C. Schmidt <schmidt@uci.edu>
+ Along with the ACE core library, this package contains a wrapper library
+ for OpenSSL.
+ .
   Homepage: http://www.cs.wustl.edu/~schmidt/ACE.html
 
 Package: libace-dev
@@ -45,32 +43,17 @@ Depends: libace5.4.7c2a (= ${Source-Version}), libssl-dev (>= 0.9.7d)
 Suggests: libace-doc, libtao-dev, pkg-config
 Replaces: libace5.2-dev
 Conflicts: libace5.2-dev
-Description:  An Object-Oriented Network Programming Toolkit in C++
- This package contains the header files and static libraries for the ACE
- toolkit.
- .
- The ADAPTIVE Communication Environment (ACE) is a freely available open
- source object-oriented (OO) framework that implements many core design
- patterns for concurrent communication software. ACE provides a rich set
- of reusable C++ wrappers and framework components that perform common
- communication software tasks across a range of OS platforms. The
- communication software tasks provided by ACE include event
- demultiplexing and event handler dispatching, signal handling, service
- initialization, interprocess communication, shared memory management,
- message routing, dynamic (re)configuration of distributed services,
- concurrent execution and synchronization.
- .
- ACE is targeted for developers of high-performance and real-time
- communication services and applications. It simplifies the development
- of OO network applications and services that utilize interprocess
- communication, event demultiplexing, explicit dynamic linking, and
- concurrency. In addition, ACE automates system configuration and
- reconfiguration by dynamically linking services into applications at
- run-time and executing these services in one or more processes or
- threads.
- .
-  Author: Douglas C. Schmidt <schmidt@uci.edu>
-  Homepage: http://www.cs.wustl.edu/~schmidt/ACE.html
+Description: C++ network programming framework development files
+ This package contains the header files and static libraries for the
+ ACE framework.
+
+Package: libace-doc
+Architecture: all
+Section: doc
+Suggests: libace-dev
+Description: C++ network programming framework documentation
+ This package contains the ACE overview documentation, tutorials,
+ examples, and information regarding upstream development.
 
 Package: mpc-ace
 Architecture: all
@@ -78,7 +61,7 @@ Section: devel
 Depends: ${perl:Depends}
 Recommends: make
 Suggests: libace-dev (= ${Source-Version}), pkg-config
-Description: The Makefile, Project and Workspace Creator
+Description: makefile, project and workspace creator
  This package contains the Makefile, Project and Workspace Creator (MPC)
  as distributed with the ACE toolkit.
  .
@@ -91,71 +74,27 @@ Description: The Makefile, Project and Workspace Creator
  .
   Homepage: http://www.ociweb.com/products/MPC
  
-Package: libace-doc
-Architecture: all
-Section: doc
-Suggests: libace-dev
-Description: Documentation for the ADAPTIVE Communication Environment (ACE)
- This package contains the ACE overview documentation, tutorials,
- examples, and information regarding upstream development.
- .
- The ADAPTIVE Communication Environment (ACE) is a freely available open
- source object-oriented (OO) framework that implements many core design
- patterns for concurrent communication software. ACE provides a rich set
- of reusable C++ wrappers and framework components that perform common
- communication software tasks across a range of OS platforms. The
- communication software tasks provided by ACE include event
- demultiplexing and event handler dispatching, signal handling, service
- initialization, interprocess communication, shared memory management,
- message routing, dynamic (re)configuration of distributed services,
- concurrent execution and synchronization.
- .
- ACE is targeted for developers of high-performance and real-time
- communication services and applications. It simplifies the development
- of OO network applications and services that utilize interprocess
- communication, event demultiplexing, explicit dynamic linking, and
- concurrency. In addition, ACE automates system configuration and
- reconfiguration by dynamically linking services into applications at
- run-time and executing these services in one or more processes or
- threads.
- .
-  Author: Douglas C. Schmidt <schmidt@uci.edu>
-  Homepage: http://www.cs.wustl.edu/~schmidt/ACE.html
-
 Package: libace-rmcast5.4.7c2a
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
 Replaces: libace-rmcast5.2, libace-rmcast5.4 (<< 5.4.7), libace-rmcast5.4.7
 Conflicts: libace-rmcast5.2, libace-rmcast5.4 (<< 5.4.7), libace-rmcast5.4.7
-Description: A reliable multicast library in C++
- This package contains the reliable multicast framework run-time library
- for ACE.
+Description: ACE reliable multicast library
+ The RMCast library is a reliable source-ordered multicast protocol
+ implementation.
  .
- ACE_RMCast is a simple, small-scale reliable multicast framework for
- ACE.  The framework is based on the ASX components of the ACE library:
- the protocol is implemented as a stack of interchangeable "modules",
- each one in charge of a very small task.  For example, one module
- implements fragmentation and reassembly, other modules implement
- retransmission, send ACK and NAK messages, and maintain receiver
- membership.
+ It uses sequence number for re-ordering, duplicate suppression and
+ loss detection of messages.
 
 Package: libace-rmcast-dev
 Architecture: any
 Section: libdevel
 Depends: libace-rmcast5.4.7c2a (= ${Source-Version}), libace-dev (= ${Source-Version})
 Replaces: libace-rmcast5.2-dev
-Description: A reliable multicast library in C++ (development files)
- This package contains reliable multicast framework development files
- for ACE.
- .
- ACE_RMCast is a simple, small-scale reliable multicast framework for
- ACE.  The framework is based on the ASX components of the ACE library:
- the protocol is implemented as a stack of interchangeable "modules",
- each one in charge of a very small task.  For example, one module
- implements fragmentation and reassembly, other modules implement
- retransmission, send ACK and NAK messages, and maintain receiver
- membership.
+Description: ACE reliable multicast library development files
+ This package contains the header files and static library for the ACE
+ reliable multicast library.
 
 Package: libace-tmcast5.4.7c2a
 Architecture: any
@@ -163,51 +102,44 @@ Section: libs
 Depends: ${shlibs:Depends}
 Replaces: libace-tmcast5.4.7
 Conflicts: libace-tmcast5.4.7
-Description: A transactional multicast library in C++
- This package contains the transactional multicast framework run-time library
- for ACE.
+Description: ACE transactional multicast library
+ The TMCast library is a transaction multicast protocol implementation. 
  .
- In essence, the idea is to represent each message delivery to members
- of a multicast group as a transaction - an atomic, consistent and
- isolated action.
+ Each message is delivered to multicast group members as a transaction: 
+ an atomic, consistent and isolated action.
 
 Package: libace-tmcast-dev
 Architecture: any
 Section: libdevel
 Depends: libace-tmcast5.4.7c2a (= ${Source-Version}), libace-dev (= ${Source-Version})
-Description: A transactional multicast library in C++ (development files)
- This package contains transactional multicast framework development files
- for ACE.
- .
- In essence, the idea is to represent each message delivery to members
- of a multicast group as a transaction - an atomic, consistent and
- isolated action.
+Description: ACE transactional multicast library development files
+ This package contains the header files and static library for the ACE
+ transactional multicast library.
 
 Package: libace-htbp5.4.7c2a
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
-Description: HTTP tunneling, bidirectional, protocol library
- This library provides a framework enabling the writing of stream-based
- protocols over HTTP.
+Description: ACE protocol over HTTP tunneling library
+ The HTTP Tunneling, Bidirectional, Protocol (HTBP) library enables
+ the writing of stream-based protocols over HTTP.
  .
  This allows clients behind a firewall to establish a connection with
- outbound servers.
+ outbound servers using the HTTP protocol.
 
 Package: libace-htbp-dev
 Architecture: any
 Section: libdevel
 Depends: libace-htbp5.4.7c2a (= ${Source-Version}), libace-dev (= ${Source-Version})
-Description: HTTP tunneling, bidirectional, protocol library (devel files)
- This package contains HTTP tunneling, bidirectional, protocol (HTBP)
- framework development files enabling the writing of stream-based protocols
- over HTTP.
+Description: ACE protocol over HTTP tunneling library development files
+ This package contains the header files and static library for the ACE
+ HTBP library.
 
 Package: gperf-ace
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
-Description: Perfect hash function generator (ACE version)
+Description: ACE perfect hash function generator
  gperf-ace is the ACE version of gperf.
  .
  Both gperf-ace and gperf were written by the same author, and have
@@ -220,28 +152,21 @@ Section: libs
 Depends: ${shlibs:Depends}
 Replaces: libacexml5.4 (<< 5.4.7), libacexml5.4.7
 Conflicts: libacexml5.4 (<< 5.4.7), libacexml5.4.7
-Description: ACE XML PARSER Framework (runtime)
- This package contains the run-time ACE library.
+Description: ACE SAX-based XML parsing library
+ This package provides interfaces for XML parsing based on Simple API
+ for XML (SAX) 2.0, defined by David Megginson. This is an event-driven
+ parsing approach.
  .
- ACEXML is a small footprint and portable framework for integrating XML
- parsing ability into user applications.  The framework is based on the
- Simple API for XML (SAX 2.0) (http://www.saxproject.org/) by David 
- Megginson.  A simple non-conformant XML parser is also included in the 
- framework.
+ ACEXML is a small footprint and portable library.  It does not validate
+ XML documents and supports only Unicode encoding.
 
 Package: libacexml-dev
 Architecture: any
 Section: libdevel
 Depends: libacexml5.4.7c2a (= ${Source-Version}), libace-dev (= ${Source-Version})
-Description: ACE XML PARSER Framework (development files)
- This package contains the header files and static libraries for the ACE
- toolkit.
- .
- ACEXML is a small footprint and portable framework for integrating XML
- parsing ability into user applications.  The framework is based on the
- Simple API for XML (SAX 2.0) (http://www.saxproject.org/) by David 
- Megginson.  A simple non-conformant XML parser is also included in the 
- framework.
+Description: ACE SAX-based XML parsing library development files
+ This package contains the header files and static library for the ACE
+ XML parser library.
 
 Package: libkokyu5.4.7c2a
 Architecture: any
@@ -266,12 +191,6 @@ Depends: libkokyu5.4.7c2a (= ${Source-Version}), libace-dev (= ${Source-Version}
 Suggests: libtao-orbsvcs-dev (= ${Source-Version})
 Description: Kokyu middleware for TAO (development files)
  This package contains the development files for Kokyu.
- .
- Kokyu is a portable middleware scheduling framework designed to provide 
- flexible scheduling and dispatching services within the context of
- higher-level middleware. Kokyu currently provides real-time scheduling
- and dispatching services for TAO's real-time CORBA Event Service, which
- mediates supplier-consumer relationships between application operations.
 
 Package: libtao1.4.7c2a
 Architecture: any
@@ -305,9 +224,6 @@ Suggests: libtao-dev (= ${Source-Version})
 Description: Documentation for TAO, The ACE ORB
  This package contains the TAO overview documentation, tutorials,
  examples, and information regarding upstream development.
- .
- TAO is a freely available, open-source implementation of a CORBA 
- 2.x-compliant ORB that supports real-time extensions. 
 
 Package: libtao-orbsvcs1.4.7c2a
 Architecture: any
@@ -315,23 +231,22 @@ Section: libs
 Depends: ${shlibs:Depends}
 Replaces: libtao-orbsvcs1.3.1, libtao-orbsvcs1.4 (<< 5.4.7), libtao-orbsvcs1.4.7
 Conflicts: libtao-orbsvcs1.3.1, libtao-orbsvcs1.4 (<< 5.4.7), libtao-orbsvcs1.4.7
-Description: The ACE ORB, an open-source implementation of CORBA ORB
+Description: TAO CORBA services
  This package contains the run-time TAO ORB services libraries.
  .
- TAO is a freely available, open-source implementation of a CORBA 
- 2.x-compliant ORB that supports real-time extensions. 
+ This includes:
+  * tao_ifr, the interface repository
+  * Concurrency_Service
+  * To be continued...
 
 Package: libtao-orbsvcs-dev
 Architecture: any
 Section: libdevel
 Depends: libtao-orbsvcs1.4.7c2a (= ${Source-Version}), libtao-dev (= ${Source-Version})
-Description: The ACE ORB, an open-source implementation of CORBA ORB
- This package contains the header files for the TAO ORB Services.
+Description: TAO CORBA services development files
+ This package contains the header files for the TAO CORBA services.
  Due to the size of the static libs (> 400MB) they have been left out.
  The examples and some documentation have been included as well.
- .
- TAO is a freely available, open-source implementation of a CORBA 
- 2.x-compliant ORB that supports real-time extensions. 
 
 Package: libciao0.4.7c2a
 Architecture: any
@@ -339,7 +254,7 @@ Section: libs
 Depends: ${shlibs:Depends}
 Replaces: libciao1.4 (<< 5.4.7), libciao0.4.7
 Conflicts: libciao1.4 (<< 5.4.7), libciao0.4.7
-Description: CIAO, TAO's implementation of CORBA Component Model (CCM)
+Description: TAO's implementation of CORBA Component Model
  This package contains the run-time CIAO libraries.
  .
  CIAO is TAO's implementation of CORBA Component Model (CCM) specially
@@ -350,7 +265,7 @@ Architecture: any
 Section: libdevel
 Depends: libciao0.4.7c2a (= ${Source-Version}), libtao-orbsvcs-dev (= ${Source-Version})
 Suggests: libciao-doc
-Description: CIAO, TAO's implementation of CORBA Component Model (CCM)
+Description: CIAO development files
  This package contains the header files for CIAO.
  .
  CIAO is TAO's implementation of CORBA Component Model (CCM) specially
@@ -376,13 +291,13 @@ Conflicts: libace-qtreactor5.4 (<< 5.4.7), libace-qtreactor5.4.7
 Description: GUI Integrated Reactors for ACE: Qt Reactor
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
- System. Each of these extends the ACE_Select_Reactor to work with a
- specific toolkit. By using these reactors, your GUI application can remain
+ System.  Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit.  By using these reactors, your GUI application can remain
  single threaded yet still respond to both GUI events, such as button
  presses, any your own application events.
  .
  The ACE_QtReactor extends both the ACE_Select_Reactor and the Trolltech Qt
- library's QObjects class. Rather then using select(), the
+ library's QObjects class.  Rather then using select(), the
  QtWaitForMultipleEvents() function is used.
 
 Package: libace-qtreactor-dev
@@ -392,13 +307,13 @@ Depends: libace-qtreactor5.4.7c2a (= ${Source-Version}), libace-dev (= ${Source-
 Description: GUI Integrated Reactors for ACE: Qt Reactor (development files)
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
- System. Each of these extends the ACE_Select_Reactor to work with a
- specific toolkit. By using these reactors, your GUI application can remain
+ System.  Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit.  By using these reactors, your GUI application can remain
  single threaded yet still respond to both GUI events, such as button
  presses, any your own application events.
  .
  The ACE_QtReactor extends both the ACE_Select_Reactor and the Trolltech Qt
- library's QObjects class. Rather then using select(), the
+ library's QObjects class.  Rather then using select(), the
  QtWaitForMultipleEvents() function is used.
  .
  This packages contains development files.
@@ -412,8 +327,8 @@ Conflicts: libace-xtreactor5.4 (<< 5.4.7), libace-xtreactor5.4.7
 Description: GUI Integrated Reactors for ACE: Xt Reactor
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
- System. Each of these extends the ACE_Select_Reactor to work with a
- specific toolkit. By using these reactors, your GUI application can remain
+ System.  Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit.  By using these reactors, your GUI application can remain
  single threaded yet still respond to both GUI events, such as button presses,
  any your own application events.
  .
@@ -427,8 +342,8 @@ Depends: libace-xtreactor5.4.7c2a (= ${Source-Version}), libace-dev (= ${Source-
 Description: GUI Integrated Reactors for ACE: Xt Reactor (development files)
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
- System. Each of these extends the ACE_Select_Reactor to work with a
- specific toolkit. By using these reactors, your GUI application can remain
+ System.  Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit.  By using these reactors, your GUI application can remain
  single threaded yet still respond to both GUI events, such as button presses,
  any your own application events.
  .
@@ -446,13 +361,13 @@ Conflicts: libace-tkreactor5.4 (<< 5.4.7), libace-tkreactor5.4.7
 Description: GUI Integrated Reactors for ACE: Tk Reactor
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
- System. Each of these extends the ACE_Select_Reactor to work with a
- specific toolkit. By using these reactors, your GUI application can remain
+ System.  Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit.  By using these reactors, your GUI application can remain
  single threaded yet still respond to both GUI events, such as button presses,
  any your own application events.
  .
  The ACE_TkReactor provides reactor functionality around the popular Tcl/Tk
- library. The underlying Tcl/Tk method used is Tcl_DoOneEvent().
+ library.  The underlying Tcl/Tk method used is Tcl_DoOneEvent().
 
 Package: libace-tkreactor-dev
 Architecture: any
@@ -461,13 +376,13 @@ Depends: libace-tkreactor5.4.7c2a (= ${Source-Version}), libace-dev (= ${Source-
 Description: GUI Integrated Reactors for ACE: Tk Reactor (development files)
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
- System. Each of these extends the ACE_Select_Reactor to work with a
- specific toolkit. By using these reactors, your GUI application can remain
+ System.  Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit.  By using these reactors, your GUI application can remain
  single threaded yet still respond to both GUI events, such as button presses,
  any your own application events.
  .
  The ACE_TkReactor provides reactor functionality around the popular Tcl/Tk
- library. The underlying Tcl/Tk method used is Tcl_DoOneEvent().
+ library.  The underlying Tcl/Tk method used is Tcl_DoOneEvent().
  .
  This package contains development files.
 
@@ -480,8 +395,8 @@ Conflicts: libace-flreactor5.4 (<< 5.4.7), libace-flreactor5.4.7
 Description: GUI Integrated Reactors for ACE: FastLight Reactor
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
- System. Each of these extends the ACE_Select_Reactor to work with a
- specific toolkit. By using these reactors, your GUI application can remain
+ System.  Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit.  By using these reactors, your GUI application can remain
  single threaded yet still respond to both GUI events, such as button presses,
  any your own application events.
  .
@@ -494,8 +409,8 @@ Depends: libace-flreactor5.4.7c2a (= ${Source-Version}), libace-dev (= ${Source-
 Description: GUI Integrated Reactors for ACE: FastLight Reactor (development files)
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
- System. Each of these extends the ACE_Select_Reactor to work with a
- specific toolkit. By using these reactors, your GUI application can remain
+ System.  Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit.  By using these reactors, your GUI application can remain
  single threaded yet still respond to both GUI events, such as button presses,
  any your own application events.
  .
