@@ -85,9 +85,11 @@ Description: The Makefile, Project and Workspace Creator
  MPC generates platform and compiler specific files to automate the
  compilation process.
  .
- This package provides:
-  * mpc-ace generating project files for a single target
-  * mwc-ace generating workspace files for a set of projects
+ The following programs are included:
+  * mpc-ace, generating project files for a single target
+  * mwc-ace, generating workspace files for a set of projects
+ .
+  Homepage: http://www.ociweb.com/products/MPC
  
 Package: libace-doc
 Architecture: all
