@@ -166,7 +166,7 @@ Section: libdevel
 Depends: libacexml5.4.7c2a (= ${Source-Version}), libace-dev (= ${Source-Version})
 Description: ACE SAX-based XML parsing library development files
  This package contains the header files and static library for the ACE
- XML parser library.
+ XML parsing library.
 
 Package: libkokyu5.4.7c2a
 Architecture: any
@@ -175,22 +175,21 @@ Depends: ${shlibs:Depends}
 Replaces: libkokyu5.4 (<< 5.4.7), libkokyu5.4.7
 Conflicts: libkokyu5.4 (<< 5.4.7), libkokyu5.4.7
 Suggests: libtao1.4.7c2a, libtao-orbsvcs1.4.7c2a
-Description: Kokyu middleware for TAO
- This package contains the Kokyu library.
+Description: ACE scheduling and dispatching library
+ Kokyu is a library designed to provide flexible scheduling and
+ dispatching services within the context of higher-level middleware.
  .
- Kokyu is a portable middleware scheduling framework designed to provide 
- flexible scheduling and dispatching services within the context of
- higher-level middleware. Kokyu currently provides real-time scheduling
- and dispatching services for TAO's real-time CORBA Event Service, which
- mediates supplier-consumer relationships between application operations.
+ Currently it provides real-time scheduling and dispatching services
+ for TAO's real-time CORBA Event Service.
 
 Package: libkokyu-dev
 Architecture: any
 Section: libdevel
 Depends: libkokyu5.4.7c2a (= ${Source-Version}), libace-dev (= ${Source-Version})
 Suggests: libtao-orbsvcs-dev (= ${Source-Version})
-Description: Kokyu middleware for TAO (development files)
- This package contains the development files for Kokyu.
+Description: ACE scheduling and dispatching library development files
+ This package contains the header files and static library for the ACE
+ scheduling and dispatching library.
 
 Package: libtao1.4.7c2a
 Architecture: any
@@ -199,11 +198,13 @@ Depends: ${shlibs:Depends}
 Replaces: libtao1.4 (<< 5.4.7), libtao1.4.7
 Conflicts: libtao1.4 (<< 5.4.7), libtao1.4.7
 Suggests: libtao-orbsvcs1.4.7c2a
-Description: The ACE ORB, an open-source implementation of CORBA ORB
+Description: the ACE ORB
  This package contains the run-time TAO libraries.
  .
  TAO is a freely available, open-source implementation of a CORBA 
  2.x-compliant ORB that supports real-time extensions. 
+ .
+  Homepage: http://www.cs.wustl.edu/~schmidt/TAO.html
 
 Package: libtao-dev
 Architecture: any
@@ -247,40 +248,6 @@ Description: TAO CORBA services development files
  This package contains the header files for the TAO CORBA services.
  Due to the size of the static libs (> 400MB) they have been left out.
  The examples and some documentation have been included as well.
-
-Package: libciao0.4.7c2a
-Architecture: any
-Section: libs
-Depends: ${shlibs:Depends}
-Replaces: libciao1.4 (<< 5.4.7), libciao0.4.7
-Conflicts: libciao1.4 (<< 5.4.7), libciao0.4.7
-Description: TAO's implementation of CORBA Component Model
- This package contains the run-time CIAO libraries.
- .
- CIAO is TAO's implementation of CORBA Component Model (CCM) specially
- optimized for distributed real-time embedded (DRE) systems.
-
-Package: libciao-dev
-Architecture: any
-Section: libdevel
-Depends: libciao0.4.7c2a (= ${Source-Version}), libtao-orbsvcs-dev (= ${Source-Version})
-Suggests: libciao-doc
-Description: CIAO development files
- This package contains the header files for CIAO.
- .
- CIAO is TAO's implementation of CORBA Component Model (CCM) specially
- optimized for distributed real-time embedded (DRE) systems.
-
-Package: libciao-doc
-Architecture: all
-Section: doc
-Suggests: libciao-dev
-Conflicts: libciao-dev (<< 5.4.7-9)
-Description: Documentation for CIAO, a CORBA Component Model middleware
- This package contains the CIAO documentation, tutorials and examples.
- .
- CIAO is TAO's implementation of CORBA Component Model (CCM) specially
- optimized for distributed real-time embedded (DRE) systems.
 
 Package: libace-qtreactor5.4.7c2a
 Architecture: any
@@ -508,3 +475,36 @@ Description: Tk GUI resource factory for TAO (development files)
  .
  This package contains development files.
 
+Package: libciao0.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Replaces: libciao1.4 (<< 5.4.7), libciao0.4.7
+Conflicts: libciao1.4 (<< 5.4.7), libciao0.4.7
+Description: TAO's implementation of CORBA Component Model
+ This package contains the run-time CIAO libraries.
+ .
+ CIAO is TAO's implementation of CORBA Component Model (CCM) specially
+ optimized for distributed real-time embedded (DRE) systems.
+
+Package: libciao-dev
+Architecture: any
+Section: libdevel
+Depends: libciao0.4.7c2a (= ${Source-Version}), libtao-orbsvcs-dev (= ${Source-Version})
+Suggests: libciao-doc
+Description: CIAO development files
+ This package contains the header files for CIAO.
+ .
+ CIAO is TAO's implementation of CORBA Component Model (CCM) specially
+ optimized for distributed real-time embedded (DRE) systems.
+
+Package: libciao-doc
+Architecture: all
+Section: doc
+Suggests: libciao-dev
+Conflicts: libciao-dev (<< 5.4.7-9)
+Description: Documentation for CIAO, a CORBA Component Model middleware
+ This package contains the CIAO documentation, tutorials and examples.
+ .
+ CIAO is TAO's implementation of CORBA Component Model (CCM) specially
+ optimized for distributed real-time embedded (DRE) systems.
