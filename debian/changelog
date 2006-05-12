@@ -1,5 +1,8 @@
 ace (5.4.7-10) UNRELEASED; urgency=low
+
   * debian/rules: fix and honor DEB_BUILD_OPTIONS.
+  * debian/libace-dev.install: drop QoS header files as QoS in not compiled
+    in.
   * debian/*.install: fix empty wildcard expansion that produce errors when
     DH_COMPAT is 5.
   * debian/libtao-dev.install: do not distribute include files from TAO_IDL.
@@ -15,7 +18,7 @@ ace (5.4.7-10) UNRELEASED; urgency=low
     without pulling any ACE library. Thanks to Alex Bodnaru for noticing.
   * debian/control: simplify packages synopsis and descriptions.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Fri, 12 May 2006 12:29:00 +0200
+ -- Thomas Girard <thomas.g.girard@free.fr>  Fri, 12 May 2006 23:50:05 +0200
 
 ace (5.4.7-9) unstable; urgency=low
 
