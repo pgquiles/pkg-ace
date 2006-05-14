@@ -20,7 +20,8 @@ MAN1 := debian/Basic_Logging_Service.1 \
 	debian/Event_Logging_Service.1 \
 	debian/Notify_Logging_Service.1 \
 	debian/RTEvent_Logging_Service.1 \
-	debian/TAO_ORB_Options.1
+	debian/TAO_ORB_Options.1 \
+	debian/mpc-ace.1
 MAN5 :=
 
 ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
@@ -59,6 +60,9 @@ extract: $(ACE_ARCHIVE)
 $(MPC_ROOT): $(MPC_ARCHIVE)
 	tar -xzf "$^"
 	touch "$@"
+
+debian/mpc-ace.sgml: debian/mpc.sgml
+	sed -e 's/mpc\.pl/mpc-ace/g' -e 's/mwc\.pl/mwc-ace/g' "$^" > "$@"
 
 debian/%.1 debian/%.5: debian/%.sgml
 	docbook-to-man "$^" > "$@"
@@ -195,7 +199,7 @@ build-stamp: patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 
 clean:
 	dh_testdir
-	rm -rf *-stamp *-stampT *.tmp $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) $(MPC_SUBDIR).orig debian/patched $(MAN1) $(MAN5) patch-perl-scripts extract
+	rm -rf *-stamp *-stampT *.tmp $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) $(MPC_SUBDIR).orig debian/patched $(MAN1) $(MAN5) patch-perl-scripts extract debian/mpc-ace.sgml
 
 	dh_clean
 
