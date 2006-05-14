@@ -447,7 +447,7 @@
 	    <property>detail=1</property>,
 	    detail messages will be printed.  If it contains none of these,
 	    <command>&mpc;</command> will act as if <envar>MPC_SILENT</envar> 
-	    was set.
+	    was set
 	    </para>
 	  </listitem>
 	</varlistentry>
