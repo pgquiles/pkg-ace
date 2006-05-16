@@ -14,11 +14,13 @@ ace (5.4.7-10) UNRELEASED; urgency=low
     include an extension revealing the scripting language used to write it.
   * debian/ace-config*,debian/tao-config*: dropped. These files were no
     longer installed.
+  * debian/libace-dev.install: don't install ace-config and tao-config
+    manpages either (Closes: #367478).
   * debian/control: relax mpc-ace dependencies. This package now installs
     without pulling any ACE library. Thanks to Alex Bodnaru for noticing.
   * debian/control: simplify packages synopsis and descriptions.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Fri, 12 May 2006 23:50:05 +0200
+ -- Thomas Girard <thomas.g.girard@free.fr>  Tue, 16 May 2006 22:56:32 +0200
 
 ace (5.4.7-9) unstable; urgency=low
 
