@@ -75,6 +75,7 @@ Package: libace-ssl5.4.7c2a
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
+Conflicts: libace5.4.7c2a (<< 5.4.7-10)
 Description: ACE secure socket layer library
  This package contains wrappers that integrate the OpenSSL library in the
  ACE framework.
