@@ -6,6 +6,25 @@ Uploaders: Konstantinos Margaritis <markos@debian.org>, Brian Nelson <pyro@debia
 Build-Depends: debhelper (>= 4.1), libssl-dev (>= 0.9.7d), dpatch (>= 2.0.10), libxt-dev (>= 4.3.0), libfltk1.1-dev (>= 1.1.4), libqt3-mt-dev (>= 3:3.3.3), tk8.4-dev (>= 8.4.7), docbook-to-man, libxerces26-dev, bzip2
 Standards-Version: 3.6.2
 
+Package: mpc-ace
+Architecture: all
+Section: devel
+Depends: ${perl:Depends}
+Recommends: make
+Suggests: libace-dev (= ${Source-Version}), pkg-config
+Description: makefile, project and workspace creator
+ This package contains the Makefile, Project and Workspace Creator (MPC)
+ as distributed with the ACE toolkit.
+ .
+ MPC generates platform and compiler specific files to automate the
+ compilation process.
+ .
+ The following programs are included:
+  * mpc-ace, generating project files for a single target
+  * mwc-ace, generating workspace files for a set of projects
+ .
+  Homepage: http://www.ociweb.com/products/MPC
+
 Package: libace5.4.7c2a
 Architecture: any
 Section: libs
@@ -68,25 +87,6 @@ Description: ACE secure socket layer library development files
  This package contains the header files and static library for the ACE
  SSL library.
 
-Package: mpc-ace
-Architecture: all
-Section: devel
-Depends: ${perl:Depends}
-Recommends: make
-Suggests: libace-dev (= ${Source-Version}), pkg-config
-Description: makefile, project and workspace creator
- This package contains the Makefile, Project and Workspace Creator (MPC)
- as distributed with the ACE toolkit.
- .
- MPC generates platform and compiler specific files to automate the
- compilation process.
- .
- The following programs are included:
-  * mpc-ace, generating project files for a single target
-  * mwc-ace, generating workspace files for a set of projects
- .
-  Homepage: http://www.ociweb.com/products/MPC
- 
 Package: libace-rmcast5.4.7c2a
 Architecture: any
 Section: libs
