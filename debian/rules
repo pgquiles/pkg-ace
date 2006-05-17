@@ -247,6 +247,9 @@ install: build
 	cp $(ACE_ROOT)/bin/mpc.pl $(ACE_ROOT)/bin/mpc-ace
 	cp $(ACE_ROOT)/bin/mwc.pl $(ACE_ROOT)/bin/mwc-ace
 
+#       Likewise for generate_export_file.pl
+	cp $(ACE_ROOT)/bin/generate_export_file.pl $(ACE_ROOT)/bin/genexp-ace
+
 #	Be lintian clean, fix permissions on examples
 	-chmod -x `find $(TAO_ROOT)/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
 	-chmod -x `find $(TAO_ROOT)/CIAO/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
