@@ -163,7 +163,7 @@
         <listitem>
           <para>
 	  do not try to generate default relative definitions for 
-	  <varname>*_ROOT</varname>, which come from environment variables
+	  <envar>*_ROOT</envar>, which come from environment variables
           </para>
         </listitem>
       </varlistentry>
