@@ -31,21 +31,18 @@ Description: C++ network programming framework
   * Reactor, to handle event demultiplexing and dispatching
   * Proactor, for asynchronous I/O driven programs
  .
- Along with the ACE core library, this package contains a wrapper library
- for OpenSSL.
- .
   Homepage: http://www.cs.wustl.edu/~schmidt/ACE.html
 
 Package: libace-dev
 Architecture: any
 Section: libdevel
-Depends: libace5.4.7c2a (= ${Source-Version}), libssl-dev (>= 0.9.7d)
+Depends: libace5.4.7c2a (= ${Source-Version})
 Suggests: libace-doc, libtao-dev, pkg-config
 Replaces: libace5.2-dev
 Conflicts: libace5.2-dev
 Description: C++ network programming framework development files
- This package contains the header files and static libraries for the
- ACE framework.
+ This package contains the header files and static library for the ACE
+ framework.
 
 Package: libace-doc
 Architecture: all
@@ -54,6 +51,22 @@ Suggests: libace-dev
 Description: C++ network programming framework documentation
  This package contains the ACE overview documentation, tutorials,
  examples, and information regarding upstream development.
+
+Package: libace-ssl5.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: ACE secure socket layer library
+ This package contains wrappers that integrate the OpenSSL library in the
+ ACE framework.
+
+Package: libace-ssl-dev
+Architecture: any
+Section: libdevel
+Depends: libace-ssl5.4.7c2a (= ${Source-Version}), libace-dev (= ${Source-Version}), libssl-dev (>= 0.9.7d)
+Description: ACE secure socket layer library development files
+ This package contains the header files and static library for the ACE
+ SSL library.
 
 Package: mpc-ace
 Architecture: all
