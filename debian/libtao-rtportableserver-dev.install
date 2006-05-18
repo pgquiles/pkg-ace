@@ -1,0 +1,3 @@
+TAO/tao/RTPortableServer/*.{h,i,pidl}            usr/include/tao/RTPortableServer
+TAO/tao/libTAO_RTPortableServer.so               usr/lib
+TAO/tao/RTPortableServer/TAO_RTPortableServer.pc usr/lib/pkgconfig
