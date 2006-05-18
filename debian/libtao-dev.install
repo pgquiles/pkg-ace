@@ -16,9 +16,6 @@ TAO/tao/RTScheduling/TAO_RTScheduler.pc      usr/lib/pkgconfig
 TAO/tao/SmartProxies/*.{h,inl}               usr/include/tao/SmartProxies
 TAO/tao/libTAO_SmartProxies.so               usr/lib
 TAO/tao/SmartProxies/TAO_SmartProxies.pc     usr/lib/pkgconfig
-TAO/tao/Strategies/*.{h,i,inl,pidl}          usr/include/tao/Strategies
-TAO/tao/libTAO_Strategies.so                 usr/lib
-TAO/tao/Strategies/TAO_Strategies.pc         usr/lib/pkgconfig
 TAO/tao/TypeCodeFactory/*.{h,inl,pidl}       usr/include/tao/TypeCodeFactory
 TAO/tao/libTAO_TypeCodeFactory.so            usr/lib
 TAO/tao/TypeCodeFactory/TAO_TypeCodeFactory.pc usr/lib/pkgconfig

@@ -1,0 +1,3 @@
+TAO/tao/Strategies/*.{h,i,inl,pidl}  usr/include/tao/Strategies
+TAO/tao/libTAO_Strategies.so         usr/lib
+TAO/tao/Strategies/TAO_Strategies.pc usr/lib/pkgconfig
