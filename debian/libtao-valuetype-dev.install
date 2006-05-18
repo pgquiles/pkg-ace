@@ -1,0 +1,3 @@
+TAO/tao/Valuetype/*.{h,inl,pidl}   usr/include/tao/Valuetype
+TAO/tao/libTAO_Valuetype.so        usr/lib
+TAO/tao/Valuetype/TAO_Valuetype.pc usr/lib/pkgconfig

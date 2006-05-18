@@ -16,8 +16,5 @@ TAO/tao/RTScheduling/TAO_RTScheduler.pc      usr/lib/pkgconfig
 TAO/tao/SmartProxies/*.{h,inl}               usr/include/tao/SmartProxies
 TAO/tao/libTAO_SmartProxies.so               usr/lib
 TAO/tao/SmartProxies/TAO_SmartProxies.pc     usr/lib/pkgconfig
-TAO/tao/Valuetype/*.{h,inl,pidl}             usr/include/tao/Valuetype
-TAO/tao/libTAO_Valuetype.so                  usr/lib
-TAO/tao/Valuetype/TAO_Valuetype.pc           usr/lib/pkgconfig
 TAO/TAO_IDL/libTAO_IDL_FE.so                 usr/lib
 TAO/TAO_IDL/libTAO_IDL_BE.so                 usr/lib
