@@ -5,9 +5,6 @@ TAO/utils/nslist/ns{add,del,list}            usr/bin
 TAO/tao/*.{h,i,inl,idl,pidl}                 usr/include/tao
 TAO/tao/libTAO.so                            usr/lib
 TAO/tao/TAO.pc                               usr/lib/pkgconfig
-TAO/tao/CodecFactory/*.{h,pidl}              usr/include/tao/CodecFactory
-TAO/tao/libTAO_CodecFactory.so               usr/lib
-TAO/tao/CodecFactory/TAO_CodecFactory.pc     usr/lib/pkgconfig
 TAO/tao/Codeset/*.h                          usr/include/tao/Codeset
 TAO/tao/libTAO_Codeset.so                    usr/lib
 TAO/tao/Domain/*.{h,inl}                     usr/include/tao/Domain
