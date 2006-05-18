@@ -1,0 +1,3 @@
+TAO/tao/libTAO_ImR_Client.so         usr/lib
+TAO/tao/ImR_Client/*.{h,inl,pidl}    usr/include/tao/ImR_Client
+TAO/tao/ImR_Client/TAO_ImR_Client.pc usr/lib/pkgconfig
