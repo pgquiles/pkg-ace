@@ -10,9 +10,6 @@ TAO/tao/libTAO_Codeset.so                    usr/lib
 TAO/tao/Domain/*.{h,inl}                     usr/include/tao/Domain
 TAO/tao/libTAO_Domain.so                     usr/lib
 TAO/tao/Domain/TAO_Domain.pc                 usr/lib/pkgconfig
-TAO/tao/DynamicAny/*.{h,pidl}                usr/include/tao/DynamicAny
-TAO/tao/libTAO_DynamicAny.so                 usr/lib
-TAO/tao/DynamicAny/TAO_DynamicAny.pc         usr/lib/pkgconfig
 TAO/tao/DynamicInterface/*.{h,inl}           usr/include/tao/DynamicInterface
 TAO/tao/libTAO_DynamicInterface.so           usr/lib
 TAO/tao/DynamicInterface/TAO_DynamicInterface.pc usr/lib/pkgconfig
