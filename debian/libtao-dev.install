@@ -10,9 +10,6 @@ TAO/tao/libTAO_Codeset.so                    usr/lib
 TAO/tao/Domain/*.{h,inl}                     usr/include/tao/Domain
 TAO/tao/libTAO_Domain.so                     usr/lib
 TAO/tao/Domain/TAO_Domain.pc                 usr/lib/pkgconfig
-TAO/tao/IORInterceptor/*.{h,inl,pidl}        usr/include/tao/IORInterceptor
-TAO/tao/libTAO_IORInterceptor.so             usr/lib
-TAO/tao/IORInterceptor/TAO_IORInterceptor.pc usr/lib/pkgconfig
 TAO/tao/IORManipulation/*.{h,pidl}           usr/include/tao/IORManipulation
 TAO/tao/libTAO_IORManip.so                   usr/lib
 TAO/tao/IORManipulation/TAO_IORManip.pc      usr/lib/pkgconfig
