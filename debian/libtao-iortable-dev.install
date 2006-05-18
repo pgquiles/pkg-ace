@@ -1,0 +1,3 @@
+TAO/tao/IORTable/*.{h,pidl}      usr/include/tao/IORTable
+TAO/tao/libTAO_IORTable.so       usr/lib
+TAO/tao/IORTable/TAO_IORTable.pc usr/lib/pkgconfig
