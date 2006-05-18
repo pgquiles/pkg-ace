@@ -441,6 +441,143 @@ Description: TAO-GUI reactor integration for Tk development files
  This package contains header files and static library for the TAO-Tk
  reactor integration.
 
+Package: libtao-ifr-client1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: TAO interface repository client library
+ This library provides a mean of communicating with an interface repository.
+
+Package: libtao-ifr-client-dev
+Architecture: any
+Section: libdevel
+Depends: libtao-ifr-client1.4.7c2a (= ${Source-Version}), libtao-dev (= ${Source-Version})
+Description: TAO interface repository client library development files
+ This package contains header files for the TAO interface repository client
+ library.
+
+Package: libtao-imr-client1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: TAO implementation repository client library
+ The libTAO_ImR_Client library provides a mean of communicating with TAO
+ implementation repository.
+
+Package: libtao-imr-client-dev
+Architecture: any
+Section: libdevel
+Depends: libtao-imr-client1.4.7c2a (= ${Source-Version}), libtao-dev (= ${Source-Version})
+Description: TAO implementation repository client library development files
+ This package contains header files for the TAO implementation repository
+ client library.
+
+Package: libtao-idl-fe1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: TAO IDL compiler front-end library
+ This package provides the default front-end library for the TAO IDL compiler.
+ It reads IDL source files.
+
+Package: libtao-idl-be1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: TAO IDL compiler back-end library
+ This package provides the default back-end library for the TAO IDL compiler.
+ It generates C++ stubs and skeletons.
+
+Package: libtao-bidirgiop1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: TAO bidirectional GIOP library
+ TBD
+
+Package: libtao-bidirgiop-dev
+Architecture: any
+Section: libdevel
+Depends: libtao-bidirgiop1.4.7c2a (= ${Source-Version})
+Description: TAO bidirectional GIOP library development files
+ TBD
+
+Package: libtao-codecfactory1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: TAO codec factory library
+ TBD
+
+Package: libtao-codecfactory-dev
+Architecture: any
+Section: libdevel
+Depends: libtao-codecfactory1.4.7c2a (= ${Source-Version})
+Description: TAO codec factory library development files
+ TBD
+
+Package: libtao-dynamicany1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: TAO DynAny library
+ TBD
+
+Package: libtao-dynamicany-dev
+Architecture: any
+Section: libdevel
+Depends: libtao-dynamicany1.4.7c2a (= ${Source-Version})
+Description: TAO DynAny library development files
+ TBD
+
+Package: libtao-dynamicinterface1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: TAO dynamic interface library
+ TBD
+
+Package: libtao-dynamicinterface-dev
+Architecture: any
+Section: libdevel
+Depends: libtao-dynamicinterface1.4.7c2a (= ${Source-Version})
+Description: TAO dynamic interface library development files
+ TBD
+
+Package: tao-idl
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Description: TAO IDL to C++ compiler
+ tao_idl provides a Interface Definition Language (IDL) to C++ compiler.
+ Use it to generate stubs and skeletons to call or implement CORBA
+ distributed objects in C++.
+
+Package: tao-ifr
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Description: TAO interface repository
+ CORBA-aware programs can contact an interface repository to get objects
+ interfaces at run-time. Then they can use the Dynamic Invocation
+ Interface (DII) mechanism to invoke requests on those objects.
+ .
+ This package includes the following programs:
+  * IFR_Service: interface repository server
+  * tao_ifr: feeds in the interface repository
+
+Package: tao-imr
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Description: TAO implementation repository
+ An implementation repository activates CORBA servers on demand.
+ .
+ This package includes the following programs:
+  * ImplRepo_Service: the main server; delegates call to activators.
+  * ImR_Activator: activates and shuts servers down on demand
+  * tao_imr: registers servers for later activation
+
 Package: libciao0.4.7c2a
 Architecture: any
 Section: libs

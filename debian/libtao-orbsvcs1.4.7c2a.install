@@ -1,4 +1,3 @@
-TAO/orbsvcs/IFR_Service/libTAO_IFR_BE.so.*         usr/lib
 TAO/orbsvcs/FT_ReplicationManager/libTAO_ReplicationManagerLib.so.* usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_AV.so.*                 usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_CosConcurrency.so.*     usr/lib
@@ -36,11 +35,6 @@ TAO/orbsvcs/orbsvcs/libTAO_FTORB_Utils.so.*        usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_FTRT_EventChannel.so.*  usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_FtRtEvent.so.*          usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_FTRT_ClientORB.so.*     usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_IFRService.so.*         usr/lib
-TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Activator.so.*     usr/lib
-TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Activator_IDL.so.* usr/lib
-TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Locator.so.*       usr/lib
-TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Locator_IDL.so.*   usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_PortableGroup.so.*      usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTCORBAEvent.so.*       usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTEvent.so.*            usr/lib
@@ -61,11 +55,6 @@ TAO/orbsvcs/Event_Service/Event_Service                                      usr
 TAO/orbsvcs/FTRT_Event_Service/Event_Service/ftrt_eventservice               usr/bin
 TAO/orbsvcs/FTRT_Event_Service/Factory_Service/ftrtec_factory_service        usr/bin
 TAO/orbsvcs/FTRT_Event_Service/Gateway_Service/ftrtec_gateway_service        usr/bin
-TAO/orbsvcs/IFR_Service/IFR_Service                                          usr/bin
-TAO/orbsvcs/IFR_Service/tao_ifr.real                                         usr/bin
-TAO/orbsvcs/ImplRepo_Service/ImplRepo_Service                                usr/bin
-TAO/orbsvcs/ImplRepo_Service/ImR_Activator                                   usr/bin
-TAO/orbsvcs/ImplRepo_Service/tao_imr                                         usr/bin
 TAO/orbsvcs/FT_ReplicationManager/FT_ReplicationManager                      usr/bin
 TAO/orbsvcs/LifeCycle_Service/LifeCycle_Service                              usr/bin
 TAO/orbsvcs/LoadBalancer/LoadManager                                         usr/bin
