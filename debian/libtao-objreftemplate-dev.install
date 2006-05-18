@@ -1,0 +1,3 @@
+TAO/tao/ObjRefTemplate/*.{h,inl,pidl}        usr/include/tao/ObjRefTemplate
+TAO/tao/libTAO_ObjRefTemplate.so             usr/lib
+TAO/tao/ObjRefTemplate/TAO_ObjRefTemplate.pc usr/lib/pkgconfig
