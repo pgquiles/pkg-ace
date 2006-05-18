@@ -1,0 +1,3 @@
+TAO/tao/Utils/*.{h,inl} usr/include/tao/Utils
+TAO/tao/libTAO_Utils.so usr/lib
+TAO/tao/TAO_Utils.pc    usr/lib/pkgconfig

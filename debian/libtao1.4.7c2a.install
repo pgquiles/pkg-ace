@@ -3,7 +3,6 @@ TAO/tao/libTAO_Codeset.so.*                  usr/lib
 TAO/tao/libTAO_Domain.so.*                   usr/lib
 TAO/tao/libTAO_RTScheduler.so.*              usr/lib
 TAO/tao/libTAO_SmartProxies.so.*             usr/lib
-TAO/tao/libTAO_Utils.so.*                    usr/lib
 TAO/tao/libTAO_Valuetype.so.*                usr/lib
 TAO/TAO_IDL/libTAO_IDL_FE.so.*               usr/lib
 TAO/TAO_IDL/libTAO_IDL_BE.so.*               usr/lib
