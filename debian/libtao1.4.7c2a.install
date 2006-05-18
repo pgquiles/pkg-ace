@@ -1,5 +1,4 @@
 TAO/tao/libTAO.so.*                          usr/lib
-TAO/tao/libTAO_BiDirGIOP.so.*                usr/lib
 TAO/tao/libTAO_CodecFactory.so.*             usr/lib
 TAO/tao/libTAO_Codeset.so.*                  usr/lib
 TAO/tao/libTAO_Domain.so.*                   usr/lib
