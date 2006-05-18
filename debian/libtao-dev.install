@@ -10,9 +10,6 @@ TAO/tao/libTAO_Codeset.so                    usr/lib
 TAO/tao/Domain/*.{h,inl}                     usr/include/tao/Domain
 TAO/tao/libTAO_Domain.so                     usr/lib
 TAO/tao/Domain/TAO_Domain.pc                 usr/lib/pkgconfig
-TAO/tao/RTCORBA/*.{h,i,inl,pidl}             usr/include/tao/RTCORBA
-TAO/tao/libTAO_RTCORBA.so                    usr/lib
-TAO/tao/RTCORBA/TAO_RTCORBA.pc               usr/lib/pkgconfig
 TAO/tao/RTPortableServer/*.{h,i,pidl}        usr/include/tao/RTPortableServer
 TAO/tao/libTAO_RTPortableServer.so           usr/lib
 TAO/tao/RTPortableServer/TAO_RTPortableServer.pc usr/lib/pkgconfig
