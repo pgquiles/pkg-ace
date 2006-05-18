@@ -1,0 +1,3 @@
+TAO/tao/TypeCodeFactory/*.{h,inl,pidl}         usr/include/tao/TypeCodeFactory
+TAO/tao/libTAO_TypeCodeFactory.so              usr/lib
+TAO/tao/TypeCodeFactory/TAO_TypeCodeFactory.pc usr/lib/pkgconfig
