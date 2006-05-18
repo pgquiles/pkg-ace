@@ -10,9 +10,6 @@ TAO/tao/libTAO_Codeset.so                    usr/lib
 TAO/tao/Domain/*.{h,inl}                     usr/include/tao/Domain
 TAO/tao/libTAO_Domain.so                     usr/lib
 TAO/tao/Domain/TAO_Domain.pc                 usr/lib/pkgconfig
-TAO/tao/Messaging/*.{h,i,inl,pidl}           usr/include/tao/Messaging
-TAO/tao/libTAO_Messaging.so                  usr/lib
-TAO/tao/Messaging/TAO_Messaging.pc           usr/lib/pkgconfig
 TAO/tao/ObjRefTemplate/*.{h,inl,pidl}        usr/include/tao/ObjRefTemplate
 TAO/tao/libTAO_ObjRefTemplate.so             usr/lib
 TAO/tao/ObjRefTemplate/TAO_ObjRefTemplate.pc usr/lib/pkgconfig

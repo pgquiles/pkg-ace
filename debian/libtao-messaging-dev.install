@@ -1,0 +1,3 @@
+TAO/tao/Messaging/*.{h,i,inl,pidl} usr/include/tao/Messaging
+TAO/tao/libTAO_Messaging.so        usr/lib
+TAO/tao/Messaging/TAO_Messaging.pc usr/lib/pkgconfig
