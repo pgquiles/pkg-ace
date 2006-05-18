@@ -1,7 +1,6 @@
 TAO/tao/libTAO.so.*                          usr/lib
 TAO/tao/libTAO_Codeset.so.*                  usr/lib
 TAO/tao/libTAO_Domain.so.*                   usr/lib
-TAO/tao/libTAO_PI.so.*                       usr/lib
 TAO/tao/libTAO_PI_Server.so.*                usr/lib
 TAO/tao/libTAO_PortableServer.so.*           usr/lib
 TAO/tao/libTAO_RTCORBA.so.*                  usr/lib
