@@ -1,7 +1,6 @@
 TAO/tao/libTAO.so.*                          usr/lib
 TAO/tao/libTAO_Codeset.so.*                  usr/lib
 TAO/tao/libTAO_Domain.so.*                   usr/lib
-TAO/tao/libTAO_IORManip.so.*                 usr/lib
 TAO/tao/libTAO_IORTable.so.*                 usr/lib
 TAO/tao/libTAO_Messaging.so.*                usr/lib
 TAO/tao/libTAO_ObjRefTemplate.so.*           usr/lib
