@@ -1,0 +1,3 @@
+TAO/tao/PI_Server/*.{h,inl,pidl}   usr/include/tao/PI_Server
+TAO/tao/libTAO_PI_Server.so        usr/lib
+TAO/tao/PI_Server/TAO_PI_Server.pc usr/lib/pkgconfig
