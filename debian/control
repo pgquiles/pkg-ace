@@ -472,6 +472,41 @@ Description: TAO implementation repository client library development files
  This package contains header files for the TAO implementation repository
  client library.
 
+Package: libtao-codecfactory1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: TAO codec factory library
+ This library provides access to CORBA codecs.
+ .
+ Codecs are used to encode CORBA Any to octet stream, and to decode from
+ octet stream to CORBA Any using a given encoding format.  Common Data
+ Representation (CDR) is an example of encoding format.
+
+Package: libtao-codecfactory-dev
+Architecture: any
+Section: libdevel
+Depends: libtao-codecfactory1.4.7c2a (= ${source:Version})
+Description: TAO codec factory library development files
+ This package contains header files for the TAO codec factory library.
+
+Package: libtao-pi1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: TAO portable interceptors library
+ This package contains the TAO Portable Interceptors (PI) library.
+ .
+ Portable Interceptors provide interception points in the processing
+ of a CORBA request.
+
+Package: libtao-pi-dev
+Architecture: any
+Section: libdevel
+Depends: libtao-pi1.4.7c2a (= ${source:Version})
+Description: TAO portable interceptors library
+ This package contains header files for the TAO portable interceptors library.
+
 Package: libtao-bidirgiop1.4.7c2a
 Architecture: any
 Section: libs
@@ -509,20 +544,6 @@ Depends: ${shlibs:Depends}
 Description: TAO IDL compiler back-end library
  This package provides the default back-end library for the TAO IDL compiler.
  It generates C++ stubs and skeletons.
-
-Package: libtao-codecfactory1.4.7c2a
-Architecture: any
-Section: libs
-Depends: ${shlibs:Depends}
-Description: TAO codec factory library
- TBD
-
-Package: libtao-codecfactory-dev
-Architecture: any
-Section: libdevel
-Depends: libtao-codecfactory1.4.7c2a (= ${source:Version})
-Description: TAO codec factory library development files
- TBD
 
 Package: libtao-dynamicany1.4.7c2a
 Architecture: any
