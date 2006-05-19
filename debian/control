@@ -461,8 +461,8 @@ Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
 Description: TAO implementation repository client library
- The libTAO_ImR_Client library provides a mean of communicating with TAO
- implementation repository.
+ The library provides a mean of communicating with TAO implementation
+ repository.
 
 Package: libtao-imr-client-dev
 Architecture: any
@@ -471,6 +471,28 @@ Depends: libtao-imr-client1.4.7c2a (= ${source:Version}), libtao-dev (= ${source
 Description: TAO implementation repository client library development files
  This package contains header files for the TAO implementation repository
  client library.
+
+Package: libtao-bidirgiop1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: TAO bidirectional GIOP library
+ This library enables IIOP communication between a client and a server using
+ a single connection.
+ .
+ Since General Inter-ORB Protocol (GIOP) version 1.2, it is possible to
+ control how connections get established.  For callbacks invocation, a
+ server may need to connect back to the client that has originated the call.
+ That connection is likely to be stopped by a firewall.  Using bidirectional
+ GIOP you can reuse existing connection instead of establishing a new one.
+
+Package: libtao-bidirgiop-dev
+Architecture: any
+Section: libdevel
+Depends: libtao-bidirgiop1.4.7c2a (= ${source:Version})
+Description: TAO bidirectional GIOP library development files
+ This package contains header files for the TAO bidirectional GIOP
+ library.
 
 Package: libtao-idl-fe1.4.7c2a
 Architecture: any
@@ -487,20 +509,6 @@ Depends: ${shlibs:Depends}
 Description: TAO IDL compiler back-end library
  This package provides the default back-end library for the TAO IDL compiler.
  It generates C++ stubs and skeletons.
-
-Package: libtao-bidirgiop1.4.7c2a
-Architecture: any
-Section: libs
-Depends: ${shlibs:Depends}
-Description: TAO bidirectional GIOP library
- TBD
-
-Package: libtao-bidirgiop-dev
-Architecture: any
-Section: libdevel
-Depends: libtao-bidirgiop1.4.7c2a (= ${source:Version})
-Description: TAO bidirectional GIOP library development files
- TBD
 
 Package: libtao-codecfactory1.4.7c2a
 Architecture: any
