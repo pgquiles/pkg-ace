@@ -461,7 +461,7 @@ Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
 Description: TAO implementation repository client library
- The library provides a mean of communicating with TAO implementation
+ The library provides a mean of communicating with an implementation
  repository.
 
 Package: libtao-imr-client-dev
