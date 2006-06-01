@@ -504,8 +504,43 @@ Package: libtao-pi-dev
 Architecture: any
 Section: libdevel
 Depends: libtao-pi1.4.7c2a (= ${source:Version})
-Description: TAO portable interceptors library
+Description: TAO portable interceptors library development files
  This package contains header files for the TAO portable interceptors library.
+
+Package: libtao-pi-server1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: TAO portable interceptors server library
+ This package contains the TAO Portable Interceptors (PI) library.
+ .
+ Portable Interceptors provide interception points in the processing
+ of a CORBA request.
+
+Package: libtao-pi-server-dev
+Architecture: any
+Section: libdevel
+Depends: libtao-pi-server1.4.7c2a (= ${source:Version})
+Description: TAO portable interceptors server library development files
+ This package contains header files for the TAO portable interceptors server
+ library.
+
+Package: libtao-portableserver1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: TAO portable server library
+ This package contains the TAO PortableServer library.
+ .
+ The PortableServer module defines the Portable Object Adapter (POA)
+ interface that ties object references together with servants.
+
+Package: libtao-portableserver-dev
+Architecture: any
+Section: libdevel
+Depends: libtao-pi-server1.4.7c2a (= ${source:Version})
+Description: TAO portable server library development files
+ This package contains header files for the TAO portable server library.
 
 Package: libtao-bidirgiop1.4.7c2a
 Architecture: any
