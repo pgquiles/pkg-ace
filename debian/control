@@ -512,7 +512,7 @@ Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
 Description: TAO portable interceptors server library
- This package contains the TAO Portable Interceptors (PI) library.
+ This package contains the TAO Portable Interceptors (PI) server library.
  .
  Portable Interceptors provide interception points in the processing
  of a CORBA request.
@@ -538,9 +538,46 @@ Description: TAO portable server library
 Package: libtao-portableserver-dev
 Architecture: any
 Section: libdevel
-Depends: libtao-pi-server1.4.7c2a (= ${source:Version})
+Depends: libtao-portableserver.4.7c2a (= ${source:Version})
 Description: TAO portable server library development files
  This package contains header files for the TAO portable server library.
+
+Package: libtao-rtcorba1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: TAO real-time ORB library
+ This package contains the TAO implementation of the ORB specified by
+ the OMG real-time CORBA 1.0 specification.
+ .
+ Real-time CORBA is a superset of CORBA for the distributed real-time and
+ embedded systems.  It enforces quality of service for various properties.
+
+Package: libtao-rtcorba-dev
+Architecture: any
+Section: libdevel
+Depends: libtao-rtcorba1.4.7c2a (= ${source:Version})
+Description: TAO real-time ORB library development files
+ This package contains header files for the TAO real-time ORB library.
+
+Package: libtao-rtportableserver1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: TAO real-time portable server library
+ This package contains the TAO implementation of the portable server
+ specified by the OMG real-time CORBA 1.0 specification.
+ .
+ Real-time CORBA is a superset of CORBA for the distributed real-time and
+ embedded systems.  It enforces quality of service for various properties.
+
+Package: libtao-rtportableserver-dev
+Architecture: any
+Section: libdevel
+Depends: libtao-rtportableserver1.4.7c2a (= ${source:Version})
+Description: TAO real-time portable server library development files
+ This package contains header files for the TAO real-time portable server
+ library.
 
 Package: libtao-bidirgiop1.4.7c2a
 Architecture: any
