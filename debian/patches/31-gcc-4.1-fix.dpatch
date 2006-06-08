@@ -294,3 +294,61 @@
  }
  
  ACE_INLINE char*
+--- ACE_wrappers/ace/CDR_Stream.cpp-
++++ ACE_wrappers/ace/CDR_Stream.cpp
+@@ -223,7 +223,10 @@
+       return (this->good_bit_ = false);
+     }
+   if (ACE_OutputCDR::wchar_maxbytes_ == sizeof (ACE_CDR::WChar))
+-    return this->write_4 (reinterpret_cast<const ACE_CDR::ULong *> (&x));
++    {
++      const void *temp = &x;
++      return this->write_4 (reinterpret_cast<const ACE_CDR::ULong *> (temp));
++    }
+   else if (ACE_OutputCDR::wchar_maxbytes_ == 2)
+     {
+       ACE_CDR::Short sx = static_cast<ACE_CDR::Short> (x);
+@@ -872,9 +875,15 @@
+     {
+       ACE_CDR::WChar x;
+       if (sizeof (ACE_CDR::WChar) == 2)
+-        return this->read_2 (reinterpret_cast<ACE_CDR::UShort *> (&x));
++	{
++	  const void *temp = &x;
++	  return this->read_2 (reinterpret_cast<ACE_CDR::UShort *> (temp));
++	}
+       else
+-        return this->read_4 (reinterpret_cast<ACE_CDR::ULong *> (&x));
++	{
++	  const void *temp = &x;
++	  return this->read_4 (reinterpret_cast<ACE_CDR::ULong *> (temp));
++	}
+     }
+ 
+   return (this->good_bit_ = false);
+--- ACE_wrappers/ace/CDR_Size.inl-
++++ ACE_wrappers/ace/CDR_Size.inl
+@@ -95,7 +95,8 @@
+ ACE_INLINE ACE_CDR::Boolean
+ ACE_SizeCDR::write_float (ACE_CDR::Float x)
+ {
+-  return this->write_4 (reinterpret_cast<const ACE_CDR::ULong*> (&x));
++  const void *temp = &x;
++  return this->write_4 (reinterpret_cast<const ACE_CDR::ULong*> (temp));
+ }
+ 
+ ACE_INLINE ACE_CDR::Boolean
+--- ACE_wrappers/ace/CDR_Size.cpp-	2006-06-08 21:59:16.466214750 +0200
++++ ACE_wrappers/ace/CDR_Size.cpp	2006-06-08 21:59:56.824737000 +0200
+@@ -56,7 +56,10 @@
+       return (this->good_bit_ = false);
+     }
+   if (ACE_OutputCDR::wchar_maxbytes () == sizeof (ACE_CDR::WChar))
+-    return this->write_4 (reinterpret_cast<const ACE_CDR::ULong *> (&x));
++    {
++      const void *temp = &x;
++      return this->write_4 (reinterpret_cast<const ACE_CDR::ULong *> (temp));
++    }
+   else if (ACE_OutputCDR::wchar_maxbytes () == 2)
+     {
+       ACE_CDR::Short sx = static_cast<ACE_CDR::Short> (x);
