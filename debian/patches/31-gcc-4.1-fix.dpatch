@@ -315,13 +315,13 @@
        if (sizeof (ACE_CDR::WChar) == 2)
 -        return this->read_2 (reinterpret_cast<ACE_CDR::UShort *> (&x));
 +	{
-+	  const void *temp = &x;
++	  void *temp = &x;
 +	  return this->read_2 (reinterpret_cast<ACE_CDR::UShort *> (temp));
 +	}
        else
 -        return this->read_4 (reinterpret_cast<ACE_CDR::ULong *> (&x));
 +	{
-+	  const void *temp = &x;
++	  void *temp = &x;
 +	  return this->read_4 (reinterpret_cast<ACE_CDR::ULong *> (temp));
 +	}
      }
