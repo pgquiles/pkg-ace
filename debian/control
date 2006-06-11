@@ -11,7 +11,7 @@ Architecture: all
 Section: devel
 Depends: ${perl:Depends}
 Recommends: make
-Suggests: libace-dev (= ${source:Version}), pkg-config
+Suggests: libace-dev, pkg-config
 Description: makefile, project and workspace creator
  This package contains the Makefile, Project and Workspace Creator (MPC)
  as distributed with the ACE toolkit.
@@ -200,7 +200,7 @@ Package: libkokyu-dev
 Architecture: any
 Section: libdevel
 Depends: libkokyu5.4.7c2a (= ${binary:Version}), libace-dev (= ${source:Version})
-Suggests: libtao-orbsvcs-dev (= ${source:Version})
+Suggests: libtao-orbsvcs-dev
 Description: ACE scheduling and dispatching library development files
  This package contains the header files and static library for the ACE
  scheduling and dispatching library.
@@ -325,7 +325,7 @@ Package: libtao-dev
 Architecture: any
 Section: libdevel
 Depends: libtao1.4.7c2a (= ${binary:Version}), libace-dev (= ${source:Version})
-Suggests: libtao-doc, libtao-orbsvcs-dev (= ${source:Version})
+Suggests: libtao-doc, libtao-orbsvcs-dev
 Description: ACE based CORBA ORB core libraries development files
  This package contains the header files for TAO.  Due to the size of the
  static libs (> 400MB) they have been left out.
@@ -333,7 +333,7 @@ Description: ACE based CORBA ORB core libraries development files
 Package: libtao-doc
 Architecture: all
 Section: doc
-Suggests: libtao-dev (= ${source:Version})
+Suggests: libtao-dev
 Description: ACE based CORBA ORB core libraries documentation
  This package contains the TAO overview documentation, tutorials,
  examples, and information regarding upstream development.
