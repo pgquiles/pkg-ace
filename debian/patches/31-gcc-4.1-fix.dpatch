@@ -697,3 +697,18 @@
    ACE_DLList_Node *temp2 =
      ACE_DLList_Base::insert_head (temp1);
    return (T *) (temp2 ? temp2->item_ : 0);
+--- ACE_wrappers/TAO/orbsvcs/orbsvcs/FtRtEvent/EventChannel/FT_ProxyAdmin_T.cpp-	2006-06-13 11:38:00.000000000 +0000
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/FtRtEvent/EventChannel/FT_ProxyAdmin_T.cpp	2006-06-14 11:08:20.000000000 +0000
+@@ -126,8 +126,10 @@
+     ACE_CHECK;
+ 
+     typedef typename Proxy::Skeleton Skeleton;
+-    const PortableServer::Servant servant = poa_->id_to_servant(
+-      reinterpret_cast<const PortableServer::ObjectId&> (proxy_state.object_id)
++    const void* temp = &proxy_state.object_id;
++    const PortableServer::ObjectId* oid =
++      reinterpret_cast<const PortableServer::ObjectId*> (temp);
++    const PortableServer::Servant servant = poa_->id_to_servant(*oid
+       ACE_ENV_ARG_PARAMETER);
+ 
+     ACE_CHECK;
