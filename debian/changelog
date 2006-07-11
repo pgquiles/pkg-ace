@@ -1,5 +1,6 @@
 ace (5.4.7-10) UNRELEASED; urgency=low
 
+  * debian/control: huge packages split.
   * debian/rules: fix and honor DEB_BUILD_OPTIONS.
   * debian/libace-dev.install: drop QoS header files as QoS in not compiled
     in.
@@ -9,9 +10,8 @@ ace (5.4.7-10) UNRELEASED; urgency=low
     They are not needed and don't get installed when using the autotools
     method.
   * debian/control: package HTBP, the protocol over HTTP tunneling library.
-  * debian/rules: rename mwc.pl and mpc.pl to mwc-ace and mpc-ace. As per
-    Debian policy 3.7, section 10.4, a script in the system path should not
-    include an extension revealing the scripting language used to write it.
+  * debian/rules: rename mwc.pl and mpc.pl to mwc-ace and mpc-ace to adhere
+    to Debian policy 3.7.
   * debian/ace-config*,debian/tao-config*: dropped. These files were no
     longer installed.
   * debian/libace-dev.install: don't install ace-config and tao-config
@@ -20,7 +20,7 @@ ace (5.4.7-10) UNRELEASED; urgency=low
     without pulling any ACE library. Thanks to Alex Bodnaru for noticing.
   * debian/control: simplify packages synopsis and descriptions.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Tue, 16 May 2006 22:56:32 +0200
+ -- Thomas Girard <thomas.g.girard@free.fr>  Fri,  2 Jun 2006 00:03:35 +0200
 
 ace (5.4.7-9) unstable; urgency=low
 

@@ -1,6 +1,4 @@
 TAO/rules.tao.GNU                            usr/share/ace/TAO
-TAO/utils/catior/tao-catior                  usr/bin
-TAO/utils/nslist/ns{add,del,list}            usr/bin
 TAO/tao/*.{h,i,inl,idl,pidl}                 usr/include/tao
 TAO/tao/libTAO.so                            usr/lib
 TAO/tao/TAO.pc                               usr/lib/pkgconfig

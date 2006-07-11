@@ -239,9 +239,9 @@ install: build
 #	Rename tao_idl to have a script automatically define ACE_ROOT and
 #	TAO_ROOT
 	cp $(TAO_ROOT)/TAO_IDL/tao_idl $(TAO_ROOT)/TAO_IDL/tao_idl.real
-	$(INSTALL) -m 755 -o root -g root -D debian/tao_idl debian/libtao-dev/usr/bin/tao_idl
+	$(INSTALL) -m 755 -o root -g root -D debian/tao_idl debian/tao-idl/usr/bin/tao_idl
 	cp $(TAO_ROOT)/orbsvcs/IFR_Service/tao_ifr $(TAO_ROOT)/orbsvcs/IFR_Service/tao_ifr.real
-	$(INSTALL) -m 755 -o root -g root -D debian/tao_ifr debian/libtao-orbsvcs${TV}c2a/usr/bin/tao_ifr
+	$(INSTALL) -m 755 -o root -g root -D debian/tao_ifr debian/tao-ifr/usr/bin/tao_ifr
 
 #       Rename mpc.pl and mwc.pl so that they do not include language extension.
 	cp $(ACE_ROOT)/bin/mpc.pl $(ACE_ROOT)/bin/mpc-ace
@@ -294,7 +294,7 @@ binary-arch: build install
 	dh_fixperms -a
 	dh_makeshlibs -a -V
 	dh_installdeb -a
-	dh_shlibdeps -a -l debian/tmp/usr/lib:debian/libace-ssl${AV}c2a:debian/libacexml${AV}c2a/usr/lib:debian/libace-rmcast${AV}c2a/usr/lib:debian/libace-tmcast${AV}c2a/usr/lib:debian/libace-htbp${AV}c2a/usr/lib:debian/libciao${CV}c2a/usr/lib:debian/libkokyu${AV}c2a/usr/lib:debian/libtao${TV}c2a/usr/lib:debian/libtao-orbsvcs${TV}c2a/usr/lib
+	dh_shlibdeps -a -l debian/libace-ssl${AV}c2a/usr/lib:debian/libacexml${AV}c2a/usr/lib:debian/libace-rmcast${AV}c2a/usr/lib:debian/libace-tmcast${AV}c2a/usr/lib:debian/libace-htbp${AV}c2a/usr/lib:debian/libciao${CV}c2a/usr/lib:debian/libkokyu${AV}c2a/usr/lib:debian/libtao${TV}c2a/usr/lib:debian/libtao-orbsvcs${TV}c2a/usr/lib
 	dh_gencontrol -a
 	dh_md5sums -a
 	dh_builddeb -a

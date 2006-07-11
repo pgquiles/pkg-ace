@@ -245,8 +245,8 @@ Description: ACE-GUI reactor integration for Xt
  single threaded yet still respond to both GUI events, such as button presses,
  any your own application events.
  .
- The ACE_XtReactor extends both the ACE_Select_Reactor and the X Toolkit library
- function XtWaitForMultipleEvents().
+ The ACE_XtReactor extends both the ACE_Select_Reactor and the X Toolkit
+ library function XtWaitForMultipleEvents().
 
 Package: libace-xtreactor-dev
 Architecture: any
@@ -344,7 +344,7 @@ Section: libs
 Depends: ${shlibs:Depends}
 Replaces: libtao-orbsvcs1.3.1, libtao-orbsvcs1.4 (<< 5.4.7), libtao-orbsvcs1.4.7
 Conflicts: libtao-orbsvcs1.3.1, libtao-orbsvcs1.4 (<< 5.4.7), libtao-orbsvcs1.4.7
-Description: TAO CORBA services
+Description: TAO CORBA services (dependency)
  This package contains TAO CORBA services programs and libraries.
  .
  This includes:
@@ -686,9 +686,108 @@ Description: TAO implementation repository
  An implementation repository activates CORBA servers on demand.
  .
  This package includes the following programs:
-  * ImplRepo_Service: the main server; delegates call to activators.
+  * ImplRepo_Service: the main server; delegates call to activators
   * ImR_Activator: activates and shuts servers down on demand
   * tao_imr: registers servers for later activation
+
+Package: tao-nsutils
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Description: TAO naming service utils
+ This package includes programs to query or manipulate a CORBA naming
+ service.
+ .
+ The following programs are included:
+  * nslist, to list naming context and object bindings
+  * nsadd, to create bindings
+  * nsdel, to remove bindings
+
+Package: tao-naming
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Recommends: tao-nsutils (= ${binary:Version})
+Description: TAO naming service
+ TAO implementation of CORBA interoperable naming service (INS).
+ .
+ TBD
+
+Package: tao-trading
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Description: TAO trading service
+ TAO implementation of CORBA trading service.
+ .
+ TBD
+
+Package: tao-event
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Description: TAO event service
+ TAO implementation of CORBA event service.
+ .
+ TBD
+
+Package: tao-notify
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Description: TAO notification service
+ TAO implementation of CORBA notification service.
+ .
+ TBD
+
+Package: tao-logging
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Description: TAO logging services
+ TAO implementation of CORBA telecom logging service.
+ .
+ TBD:
+  * Basic_Logging_Service
+  * Event_Logging_Service
+  * Notify_Logging_Service
+  * RTEvent_Logging_Service
+
+Package: tao-scheduling
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Description: TAO scheduling service
+ TAO implementation of CORBA scheduling service.
+ .
+ TBD
+
+Package: tao-concurrency
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Description: TAO concurrency service
+ TAO implementation of CORBA concurrency service.
+ .
+ TBD
+
+Package: tao-lifecycle
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Description: TAO lifecycle service
+ TAO implementation of CORBA lifecycle service.
+ .
+ TBD
+
+Package: tao-time
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Description: TAO time service
+ TAO implementation of CORBA time service.
+ .
+ TBD
 
 Package: libciao0.4.7c2a
 Architecture: any
