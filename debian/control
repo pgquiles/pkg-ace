@@ -703,6 +703,16 @@ Description: TAO naming service utils
   * nsadd, to create bindings
   * nsdel, to remove bindings
 
+Package: tao-catior
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Description: TAO IOR dumper utility
+ This package includes the tao-catior program.
+ .
+ Use this program to analyse the content of a CORBA Interoperable Object
+ Reference.
+
 Package: tao-naming
 Architecture: any
 Section: devel
