@@ -311,7 +311,6 @@ Section: libs
 Depends: ${shlibs:Depends}
 Replaces: libtao1.4 (<< 5.4.7), libtao1.4.7
 Conflicts: libtao1.4 (<< 5.4.7), libtao1.4.7
-Suggests: libtao-orbsvcs1.4.7c2a
 Description: ACE based CORBA ORB core libraries
  The ACE ORB (TAO) is an open-source Common Object Request Broker 
  Architecture (CORBA) 2.x-compliant Object Request Broker (ORB).  It
@@ -320,6 +319,81 @@ Description: ACE based CORBA ORB core libraries
  This package contains TAO core libraries.
  .
   Homepage: http://www.cs.wustl.edu/~schmidt/TAO.html
+
+Package: libtao-iormanip1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Conflicts: libtao1.4.7c2a (<< 5.4.7-10)
+Description: TAO IOR manipulation library
+ This package contains TAO Interoperable Object Reference (IOR) manipulation
+ library.
+
+Package: libtao-messaging1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Conflicts: libtao1.4.7c2a (<< 5.4.7-10)
+Description: TAO messaging library
+ This package contains TAO messaging library.
+
+Package: libtao-valuetype1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Conflicts: libtao1.4.7c2a (<< 5.4.7-10)
+Description: TAO valuetype library
+ This package contains TAO valuetype library.
+
+Package: libtao-iorinterceptor1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Conflicts: libtao1.4.7c2a (<< 5.4.7-10)
+Description: TAO IOR interceptor library
+ This package contains TAO Interoperable Object Reference (IOR) interceptor
+ library.
+
+Package: libtao-iortable1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Conflicts: libtao1.4.7c2a (<< 5.4.7-10)
+Description: TAO IOR table library
+ This package contains TAO Interoperable Object Reference (IOR) table
+ library.
+
+Package: libtao-strategies1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Conflicts: libtao1.4.7c2a (<< 5.4.7-10)
+Description: TAO strategies library
+ This package contains TAO strategies library.
+
+Package: libtao-typecodefactory1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Conflicts: libtao1.4.7c2a (<< 5.4.7-10)
+Description: TAO TypeCode factory library
+ This package contains TAO TypeCode factory library.
+
+Package: libtao-utils1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Conflicts: libtao1.4.7c2a (<< 5.4.7-10)
+Description: TAO utils library
+ This package contains TAO utils library.
+
+Package: libtao-objreftemplate1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Conflicts: libtao1.4.7c2a (<< 5.4.7-10)
+Description: TAO object reference template library
+ This package contains TAO object reference template library.
 
 Package: libtao-dev
 Architecture: any
@@ -447,6 +521,14 @@ Section: libs
 Depends: ${shlibs:Depends}
 Description: TAO interface repository client library
  This library provides a mean of communicating with an interface repository.
+
+Package: libtao-ifr-be1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: TAO interface repository back-end library
+ This package provides an interface repository back-end for the TAO IDL
+ compiler.
 
 Package: libtao-ifr-client-dev
 Architecture: any
