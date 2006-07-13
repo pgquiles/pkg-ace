@@ -395,6 +395,14 @@ Conflicts: libtao1.4.7c2a (<< 5.4.7-10)
 Description: TAO object reference template library
  This package contains TAO object reference template library.
 
+Package: libtao-ssliop1.4.7c2a
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Conflicts: libtao1.4.7c2a (<< 5.4.7-10)
+Description: TAO IIOP over SSL library
+ This package contains TAO IIOP SSL library.
+
 Package: libtao-dev
 Architecture: any
 Section: libdevel
@@ -527,8 +535,8 @@ Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
 Description: TAO interface repository back-end library
- This package provides an interface repository back-end for the TAO IDL
- compiler.
+ This package provides an interface repository back-end for the TAO Interface
+ Repository.
 
 Package: libtao-ifr-client-dev
 Architecture: any

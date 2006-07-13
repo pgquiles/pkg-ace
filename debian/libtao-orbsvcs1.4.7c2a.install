@@ -45,11 +45,9 @@ TAO/orbsvcs/orbsvcs/libTAO_RTKokyuEvent.so.*       usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTSched.so.*            usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTSchedEvent.so.*       usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RT_Notification.so.*    usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_SSLIOP.so.*             usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_Security.so.*           usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_Svc_Utils.so.*          usr/lib
 TAO/orbsvcs/CosEvent_Service/CosEvent_Service                                usr/bin 
-TAO/orbsvcs/Event_Service/Event_Service                                      usr/bin
 TAO/orbsvcs/FTRT_Event_Service/Event_Service/ftrt_eventservice               usr/bin
 TAO/orbsvcs/FTRT_Event_Service/Factory_Service/ftrtec_factory_service        usr/bin
 TAO/orbsvcs/FTRT_Event_Service/Gateway_Service/ftrtec_gateway_service        usr/bin
