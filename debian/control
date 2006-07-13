@@ -831,6 +831,15 @@ Description: TAO event service
  .
  TBD
 
+Package: tao-event
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Description: TAO event service
+ TAO implementation of CORBA event service.
+ .
+ TBD
+
 Package: tao-notify
 Architecture: any
 Section: devel
