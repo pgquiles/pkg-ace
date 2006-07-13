@@ -822,7 +822,7 @@ Description: TAO trading service
  .
  TBD
 
-Package: tao-event
+Package: tao-cosevent
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
