@@ -1,6 +1,6 @@
 ace (5.4.7-10) UNRELEASED; urgency=low
 
-  * debian/control: huge packages split.
+  * debian/control: move binaries in their own packages.
   * debian/rules: fix and honor DEB_BUILD_OPTIONS.
   * debian/libace-dev.install: drop QoS header files as QoS in not compiled
     in.
