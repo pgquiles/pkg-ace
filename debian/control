@@ -547,7 +547,7 @@ Description: TAO event service
  .
  TBD
 
-Package: tao-event
+Package: tao-rtevent
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
