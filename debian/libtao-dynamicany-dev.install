@@ -1,3 +1,0 @@
-TAO/tao/DynamicAny/*.{h,pidl}        usr/include/tao/DynamicAny
-TAO/tao/libTAO_DynamicAny.so         usr/lib
-TAO/tao/DynamicAny/TAO_DynamicAny.pc usr/lib/pkgconfig

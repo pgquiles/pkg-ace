@@ -1,3 +1,4 @@
+TAO/orbsvcs/IFR_Service/libTAO_IFR_BE.so.*         usr/lib
 TAO/orbsvcs/FT_ReplicationManager/libTAO_ReplicationManagerLib.so.* usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_AV.so.*                 usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_CosConcurrency.so.*     usr/lib
@@ -35,6 +36,11 @@ TAO/orbsvcs/orbsvcs/libTAO_FTORB_Utils.so.*        usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_FTRT_EventChannel.so.*  usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_FtRtEvent.so.*          usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_FTRT_ClientORB.so.*     usr/lib
+TAO/orbsvcs/orbsvcs/libTAO_IFRService.so.*         usr/lib
+TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Activator.so.*     usr/lib
+TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Activator_IDL.so.* usr/lib
+TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Locator.so.*       usr/lib
+TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Locator_IDL.so.*   usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_PortableGroup.so.*      usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTCORBAEvent.so.*       usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTEvent.so.*            usr/lib
@@ -45,6 +51,7 @@ TAO/orbsvcs/orbsvcs/libTAO_RTKokyuEvent.so.*       usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTSched.so.*            usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RTSchedEvent.so.*       usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_RT_Notification.so.*    usr/lib
+TAO/orbsvcs/orbsvcs/libTAO_SSLIOP.so.*             usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_Security.so.*           usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_Svc_Utils.so.*          usr/lib
 TAO/orbsvcs/FTRT_Event_Service/Event_Service/ftrt_eventservice               usr/bin

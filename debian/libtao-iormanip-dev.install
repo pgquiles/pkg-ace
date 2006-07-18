@@ -1,3 +1,0 @@
-TAO/tao/IORManipulation/*.{h,pidl}      usr/include/tao/IORManipulation
-TAO/tao/libTAO_IORManip.so              usr/lib
-TAO/tao/IORManipulation/TAO_IORManip.pc usr/lib/pkgconfig

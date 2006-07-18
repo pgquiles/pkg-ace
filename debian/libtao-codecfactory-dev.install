@@ -1,3 +1,0 @@
-TAO/tao/CodecFactory/*.{h,pidl}          usr/include/tao/CodecFactory
-TAO/tao/libTAO_CodecFactory.so           usr/lib
-TAO/tao/CodecFactory/TAO_CodecFactory.pc usr/lib/pkgconfig

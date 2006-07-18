@@ -1,3 +1,0 @@
-TAO/tao/BiDir_GIOP/*.{h,pidl}       usr/include/tao/BiDir_GIOP
-TAO/tao/libTAO_BiDirGIOP.so         usr/lib
-TAO/tao/BiDir_GIOP/TAO_BiDirGIOP.pc usr/lib/pkgconfig

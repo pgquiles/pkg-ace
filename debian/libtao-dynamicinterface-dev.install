@@ -1,3 +1,0 @@
-TAO/tao/DynamicInterface/*.{h,inl}               usr/include/tao/DynamicInterface
-TAO/tao/libTAO_DynamicInterface.so               usr/lib
-TAO/tao/DynamicInterface/TAO_DynamicInterface.pc usr/lib/pkgconfig

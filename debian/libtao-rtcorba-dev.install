@@ -1,3 +1,0 @@
-TAO/tao/RTCORBA/*.{h,i,inl,pidl} usr/include/tao/RTCORBA
-TAO/tao/libTAO_RTCORBA.so        usr/lib
-TAO/tao/RTCORBA/TAO_RTCORBA.pc   usr/lib/pkgconfig

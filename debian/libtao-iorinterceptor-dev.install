@@ -1,3 +1,0 @@
-TAO/tao/IORInterceptor/*.{h,inl,pidl}        usr/include/tao/IORInterceptor
-TAO/tao/libTAO_IORInterceptor.so             usr/lib
-TAO/tao/IORInterceptor/TAO_IORInterceptor.pc usr/lib/pkgconfig
