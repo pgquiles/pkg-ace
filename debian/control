@@ -443,6 +443,7 @@ Package: tao-ifr
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
 Description: TAO interface repository
  CORBA-aware programs can contact an interface repository to get objects
  interfaces at run-time. Then they can use the Dynamic Invocation
@@ -456,6 +457,7 @@ Package: tao-imr
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
 Description: TAO implementation repository
  An implementation repository activates CORBA servers on demand.
  .
@@ -468,13 +470,12 @@ Package: tao-ftcorba
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
-Description: TAO fault tolerant CORBA
- TBD.
- .
- This package includes:
-  * Fault_Detector
-  * Fault_Notifier
-  * FT_ReplicationManager
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
+Description: TAO fault tolerant services
+ This package includes three FT CORBA infrastructure components:
+  * Fault_Detector that monitors a process or a host
+  * Fault_Notifier that receives fault reports from detectors
+  * FT_ReplicationManager that manages object groups
 
 Package: tao-nsutils
 Architecture: any
@@ -506,43 +507,51 @@ Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
 Recommends: tao-nsutils (= ${binary:Version})
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
 Description: TAO naming service
  TAO implementation of CORBA interoperable naming service (INS).
  .
- TBD
+ A naming service provides a location service for CORBA objects.  Given a
+ name, it will return the Interoperable Object Reference (IOR) for the CORBA
+ object that was registered with this name.
 
 Package: tao-trading
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
 Description: TAO trading service
  TAO implementation of CORBA trading service.
  .
- TBD
+ A trading service is quite like a naming service except that it relies on a
+ set of properties instead of a name to find object references.
 
 Package: tao-event
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
 Description: TAO event service
  TAO implementation of CORBA event service specification.
  .
- It supports both the Push and Pull styles for event communication.
+ TBD. It supports both the Push and Pull styles for event communication.
 
 Package: tao-rtevent
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
 Description: TAO real-time event service
  Another TAO implementation of CORBA event service.
  .
- This version does not support the Pull style but provides a real-time
+ TBD. This version does not support the Pull style but provides a real-time
  event channel.
 
 Package: tao-ftrtevent
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
 Description: TAO fault-tolerant real-time event service
  TAO implementation of a fault-tolerant, real-time CORBA event service.
  .
@@ -555,6 +564,7 @@ Package: tao-notify
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
 Description: TAO notification service
  TAO implementation of CORBA notification service.
  .
@@ -564,6 +574,7 @@ Package: tao-logging
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
 Description: TAO logging services
  TAO implementation of CORBA telecom logging service.
  .
@@ -577,6 +588,7 @@ Package: tao-scheduling
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
 Description: TAO scheduling service
  TAO implementation of CORBA scheduling service.
  .
@@ -586,6 +598,7 @@ Package: tao-concurrency
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
 Description: TAO concurrency service
  TAO implementation of CORBA concurrency service.
  .
@@ -595,6 +608,7 @@ Package: tao-lifecycle
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
 Description: TAO lifecycle service
  TAO implementation of CORBA lifecycle service.
  .
@@ -604,6 +618,7 @@ Package: tao-time
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
 Description: TAO time service
  TAO implementation of CORBA time service.
  .
