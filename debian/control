@@ -343,21 +343,8 @@ Section: libs
 Depends: ${shlibs:Depends}
 Replaces: libtao-orbsvcs1.3.1, libtao-orbsvcs1.4 (<< 5.4.7), libtao-orbsvcs1.4.7
 Conflicts: libtao-orbsvcs1.3.1, libtao-orbsvcs1.4 (<< 5.4.7), libtao-orbsvcs1.4.7
-Description: TAO CORBA services (dependency)
- This package contains TAO CORBA services programs and libraries.
- .
- This includes:
-  * naming service
-  * trading service
-  * event service
-  * notification service
-  * interface repository
-  * implementation repository
-  * logging service
-  * time service
-  * scheduling service
-  * fault-tolerant services
-  * concurrency service
+Description: TAO CORBA services libraries
+ This package contains libraries that are needed by many TAO programs.
 
 Package: libtao-orbsvcs-dev
 Architecture: any
@@ -365,6 +352,7 @@ Section: libdevel
 Depends: libtao-orbsvcs1.4.7c2a (= ${source:Version}), libtao-dev (= ${source:Version})
 Description: TAO CORBA services development files
  This package contains the header files for the TAO CORBA services.
+ .
  Due to the size of the static libs (> 400MB) they have been left out.
  The examples and some documentation have been included as well.
 
