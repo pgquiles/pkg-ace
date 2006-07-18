@@ -538,23 +538,36 @@ Description: TAO trading service
  .
  TBD
 
-Package: tao-cosevent
+Package: tao-event
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
 Description: TAO event service
- TAO implementation of CORBA event service.
+ TAO implementation of CORBA event service specification.
  .
- TBD
+ It supports both the Push and Pull styles for event communication.
 
 Package: tao-rtevent
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
-Description: TAO event service
- TAO implementation of CORBA event service.
+Description: TAO real-time event service
+ Another TAO implementation of CORBA event service.
  .
- TBD
+ This version does not support the Pull style but provides a real-time
+ event channel.
+
+Package: tao-ftrtevent
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Description: TAO fault-tolerant real-time event service
+ TAO implementation of a fault-tolerant, real-time CORBA event service.
+ .
+ This package contains:
+  * ftrt_eventservice, the fault-tolerant event channel
+  * ftrtec_factory_service, spawning ftrt_eventservice processes
+  * ftrtec_gateway_service, relaying events to FT CORBA unaware clients
 
 Package: tao-notify
 Architecture: any
