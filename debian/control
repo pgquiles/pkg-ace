@@ -464,27 +464,17 @@ Description: TAO implementation repository
   * ImR_Activator: activates and shuts servers down on demand
   * tao_imr: registers servers for later activation
 
-Package: tao-replication-manager
+Package: tao-ftcorba
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
-Description: TAO replication manager
- This package includes FT_ReplicationManager, a program that creates
- replicas when needed.  TBD.
-
-Package: tao-fault-detector
-Architecture: any
-Section: devel
-Depends: ${shlibs:Depends}
-Description: TAO fault detector
- This package includes Fault_Detector, TBD. Fault Tolerant CORBA.
-
-Package: tao-fault-notifier
-Architecture: any
-Section: devel
-Depends: ${shlibs:Depends}
-Description: TAO fault notifier
- This package includes Fault_Notifier, TBD.
+Description: TAO fault tolerant CORBA
+ TBD.
+ .
+ This package includes:
+  * Fault_Detector
+  * Fault_Notifier
+  * FT_ReplicationManager
 
 Package: tao-nsutils
 Architecture: any
