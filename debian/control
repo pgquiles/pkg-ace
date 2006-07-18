@@ -432,9 +432,11 @@ Package: tao-idl
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
+Conflicts: libtao-dev (<< 5.4.7-10)
 Description: TAO IDL to C++ compiler
- tao_idl provides a Interface Definition Language (IDL) to C++ compiler.
- Use it to generate stubs and skeletons to call or implement CORBA
+ This package provides a Interface Definition Language (IDL) to C++ compiler.
+ .
+ Use tao_idl to generate stubs and skeletons to call or implement CORBA
  distributed objects in C++.
 
 Package: tao-ifr
@@ -488,6 +490,7 @@ Package: tao-nsutils
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
+Conflicts: libtao-dev (<< 5.4.7-10)
 Description: TAO naming service utils
  This package includes programs to query or manipulate a CORBA naming
  service.
@@ -501,6 +504,7 @@ Package: tao-catior
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
+Conflicts: libtao-dev (<< 5.4.7-10)
 Description: TAO IOR dumper utility
  This package includes the tao-catior program.
  .
