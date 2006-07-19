@@ -1,4 +1,4 @@
-ace (5.4.7-10) UNRELEASED; urgency=low
+ace (5.4.7-10) unstable; urgency=low
 
   * debian/rules: fix and honor DEB_BUILD_OPTIONS.
   * debian/libace-dev.install: drop QoS header files as QoS in not compiled
@@ -8,7 +8,6 @@ ace (5.4.7-10) UNRELEASED; urgency=low
   * debian/libtao-dev.install: do not distribute include files from TAO_IDL.
     They are not needed and don't get installed when using the autotools
     method.
-  * debian/control: package HTBP, the protocol over HTTP tunneling library.
   * debian/rules: rename mwc.pl and mpc.pl to mwc-ace and mpc-ace.
   * debian/ace-config*,debian/tao-config*: dropped. These files were no
     longer installed.
@@ -19,8 +18,9 @@ ace (5.4.7-10) UNRELEASED; urgency=low
   * debian/control: simplify packages synopsis and descriptions.
   * debian/control: drop xerces dependency (Closes: #378605). Xerces is
     only needed by DAnCE, which is not packaged yet.
+  * debian/libace-dev.install: remove generate_export_file.pl for now.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Tue, 18 Jul 2006 08:42:23 +0000
+ -- Thomas Girard <thomas.g.girard@free.fr>  Wed, 19 Jul 2006 20:31:20 +0200
 
 ace (5.4.7-9) unstable; urgency=low
 

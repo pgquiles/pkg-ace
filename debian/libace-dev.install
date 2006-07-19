@@ -1,4 +1,3 @@
-bin/genexp-ace usr/bin
 ace/*.{h,inl}  usr/include/ace
 ace/os_include usr/include/ace
 ace/libACE.a   usr/lib

@@ -18,13 +18,13 @@ Likewise, for TAO:
 
 == Compiling examples ==
 
-To compile ACE or TAO examples (in libace-doc and libtao-orbsvcs-doc), you'll
+To compile ACE or TAO examples (in libace-doc and libtao-orbsvcs-dev), you'll
 need:
  1. to define ACE_ROOT and TAO_ROOT as explained above.
  2. to install mpc-ace package if needed.
  3. to copy and uncompress the example you want to test, e.g.:
 
-   cp /usr/share/doc/libtao-orbsvcs-doc/examples/CosEC $HOME/ex1
+   cp /usr/share/doc/libtao-orbsvcs-dev/examples/CosEC $HOME/ex1
    find $HOME/ex1 -type f -name '*.gz' | xargs gunzip
 
  4. to regenerate the GNUmakefiles for this new location:

@@ -12,3 +12,4 @@ ACE_wrappers/TAO/orbsvcs/PSS/README.PSS
 ACE_wrappers/TAO/orbsvcs/TAO_Service/README.TAO_Service
 ACE_wrappers/TAO/orbsvcs/Time_Service/README.Time_Service
 ACE_wrappers/TAO/orbsvcs/Trading_Service/README.Trading_Service
+ACE_wrappers/TAO/orbsvcs/examples
