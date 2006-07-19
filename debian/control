@@ -466,7 +466,7 @@ Description: TAO implementation repository
   * ImR_Activator: activates and shuts servers down on demand
   * tao_imr: registers servers for later activation
 
-Package: tao-ftcorba
+Package: tao-ft
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
