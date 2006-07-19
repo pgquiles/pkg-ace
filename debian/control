@@ -472,6 +472,8 @@ Section: devel
 Depends: ${shlibs:Depends}
 Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
 Description: TAO fault tolerant services
+ TBD.
+ .
  This package includes three FT CORBA infrastructure components:
   * Fault_Detector that monitors a process or a host
   * Fault_Notifier that receives fault reports from detectors
@@ -560,7 +562,7 @@ Description: TAO fault-tolerant real-time event service
   * ftrtec_factory_service, spawning ftrt_eventservice processes
   * ftrtec_gateway_service, relaying events to FT CORBA unaware clients
 
-Package: tao-notify
+Package: tao-notification
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
@@ -579,18 +581,18 @@ Description: TAO load balancing service
  TAO implementation of OMG Load Balancing and Monitoring specification.
  .
  This package provides:
-  * LoadManager, that distributes load across objects
+  * LoadManager, that distributes loads across objects
   * LoadMonitor, that monitors and reports loads to a manager
 
-Package: tao-logging
+Package: tao-log
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
 Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
-Description: TAO logging services
- TAO implementation of CORBA telecom logging service.
+Description: TAO telecom log services
+ TAO implementations of CORBA telecom log service.
  .
- TBD:
+ Four separate services are provided:
   * Basic_Logging_Service
   * Event_Logging_Service
   * Notify_Logging_Service
