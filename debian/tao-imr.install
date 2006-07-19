@@ -1,7 +1,3 @@
 TAO/orbsvcs/ImplRepo_Service/ImplRepo_Service              usr/bin
 TAO/orbsvcs/ImplRepo_Service/ImR_Activator                 usr/bin
 TAO/orbsvcs/ImplRepo_Service/tao_imr                       usr/bin
-TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Activator.so.*     usr/lib
-TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Activator_IDL.so.* usr/lib
-TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Locator.so.*       usr/lib
-TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Locator_IDL.so.*   usr/lib
