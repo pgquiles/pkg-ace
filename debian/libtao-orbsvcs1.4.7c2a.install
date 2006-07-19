@@ -54,6 +54,4 @@ TAO/orbsvcs/orbsvcs/libTAO_RT_Notification.so.*    usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_SSLIOP.so.*             usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_Security.so.*           usr/lib
 TAO/orbsvcs/orbsvcs/libTAO_Svc_Utils.so.*          usr/lib
-TAO/orbsvcs/LoadBalancer/LoadManager                                         usr/bin
-TAO/orbsvcs/LoadBalancer/LoadMonitor                                         usr/bin
 TAO/orbsvcs/TAO_Service/TAO_Service                                          usr/bin

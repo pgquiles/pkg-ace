@@ -570,6 +570,18 @@ Description: TAO notification service
  .
  TBD
 
+Package: tao-load
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
+Description: TAO load balancing service
+ TAO implementation of OMG Load Balancing and Monitoring specification.
+ .
+ This package provides:
+  * LoadManager, that distributes load across objects
+  * LoadMonitor, that monitors and reports loads to a manager
+
 Package: tao-logging
 Architecture: any
 Section: devel
