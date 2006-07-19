@@ -5,3 +5,7 @@ ace/libACE.a   usr/lib
 ace/libACE.so  usr/lib
 include        usr/share/ace
 ace/ACE.pc     usr/lib/pkgconfig
+ace/SSL/*.{h,i,inl}   usr/include/ace/SSL
+ace/SSL/libACE_SSL.a  usr/lib
+ace/SSL/libACE_SSL.so usr/lib
+ace/SSL/ACE_SSL.pc    usr/lib/pkgconfig
