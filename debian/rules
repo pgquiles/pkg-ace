@@ -220,11 +220,6 @@ install: build
            $(ACE_ROOT)/apps/gperf/gperf.info > \
            $(ACE_ROOT)/apps/gperf/gperf-ace.info
 
-#	Rename the $(TAO_ROOT)/utils README files
-	cp $(TAO_ROOT)/orbsvcs/CosEvent_Service/README $(TAO_ROOT)/orbsvcs/CosEvent_Service/README.CosEvent_Service
-	cp $(TAO_ROOT)/orbsvcs/FT_ReplicationManager/README $(TAO_ROOT)/orbsvcs/FT_ReplicationManager/README.FT_ReplicationManager
-	cp $(TAO_ROOT)/orbsvcs/LoadBalancer/README $(TAO_ROOT)/orbsvcs/LoadBalancer/README.LoadBalancer
-	cp $(TAO_ROOT)/orbsvcs/TAO_Service/README $(TAO_ROOT)/orbsvcs/TAO_Service/README.TAO_Service
 #	Rename the catior utility, it already exists in another package
 	cp $(TAO_ROOT)/utils/catior/catior $(TAO_ROOT)/utils/catior/tao-catior
 
