@@ -1,3 +1,2 @@
 usr/include/ace    usr/share/ace/ace
 usr/lib            usr/share/ace/lib
-usr/bin/genexp-ace usr/share/ace/bin/generate_export_file.pl

@@ -55,7 +55,7 @@ Description: C++ network programming framework
 Package: libace-dev
 Architecture: any
 Section: libdevel
-Depends: libace5.4.7c2a (= ${binary:Version})
+Depends: libace5.4.7c2a (= ${binary:Version}), libssl-dev (>= 0.9.7d)
 Suggests: libace-doc, libtao-dev, pkg-config
 Replaces: libace5.2-dev
 Conflicts: libace5.2-dev
