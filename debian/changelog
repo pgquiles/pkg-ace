@@ -21,8 +21,9 @@ ace (5.4.7-10) unstable; urgency=low
   * debian/libace-dev.install: remove generate_export_file.pl for now.
   * patches/31-gcc-4.1-fix.dpatch: add other type-punned fixes taken from
     upstream.
+  * debian/mpc.sgml: new man page.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Thu, 20 Jul 2006 19:08:44 +0200
+ -- Thomas Girard <thomas.g.girard@free.fr>  Thu, 20 Jul 2006 20:35:34 +0200
 
 ace (5.4.7-9) unstable; urgency=low
 
