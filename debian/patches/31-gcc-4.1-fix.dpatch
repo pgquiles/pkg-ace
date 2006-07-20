@@ -376,7 +376,7 @@
 +  void *temp = ts_obj; // Need this temp to keep G++ from complaining.
 +  if (ACE_Thread::getspecific (this->key_, &temp) == -1)
      return 0; // This should not happen!
-+  ts_obj = static_cast <TYPE*> (temp);
++  ts_obj = static_cast <TYPE *> (temp);
  
    // Check to see if this is the first time in for this thread.
    if (ts_obj == 0)
@@ -385,7 +385,7 @@
  #if defined (ACE_HAS_THR_C_DEST)
    // Return the underlying ts object.
 -  return (TYPE *) tss_adapter->ts_obj_;
-+  return static_cast<TYPE *> (tss_adapter->ts_obj_);
++  return static_cast <TYPE *> (tss_adapter->ts_obj_);
  #else
    return ts_obj;
  #endif /* ACE_HAS_THR_C_DEST */
@@ -405,9 +405,9 @@
 +    {
 +      tss_adapter = static_cast <ACE_TSS_Adapter *> (temp);
 +      {
-+	if (tss_adapter != 0)
-+	  // Extract the real TS object.
-+	  ts_obj = static_cast<TYPE *> (tss_adapter->ts_obj_);
++        if (tss_adapter != 0)
++            // Extract the real TS object.
++            ts_obj = static_cast <TYPE *> (tss_adapter->ts_obj_);
 +      }
 +    }
  #else
@@ -434,7 +434,7 @@
    if (tss_adapter != 0)
      {
 -      ts_obj = (TYPE *) tss_adapter->ts_obj_;
-+      ts_obj = static_cast<TYPE *> (tss_adapter->ts_obj_);
++      ts_obj = static_cast <TYPE *> (tss_adapter->ts_obj_);
        delete tss_adapter;       // don't need this anymore
      }
  
@@ -445,7 +445,7 @@
 +  void *temp = ts_obj; // Need this temp to keep G++ from complaining.
    if (ACE_Thread::getspecific (this->key_,
 -                               (void **) &ts_obj) == -1)
-+			       &temp) == -1)
++                               &temp) == -1)
      return 0; // This should not happen!
 +  ts_obj = static_cast <TYPE *> (temp);
    if (ACE_Thread::setspecific (this->key_,
@@ -464,7 +464,7 @@
 +  void *temp = tss_adapter; // Need this temp to keep G++ from complaining.
 +  ACE_Thread::getspecific (this->key_, &temp);
 +  tss_adapter = static_cast <ACE_TSS_Adapter *> (temp);
-+  guard = static_cast<ACE_Guard<ACE_LOCK> *> (tss_adapter->ts_obj_);
++  guard = static_cast <ACE_Guard<ACE_LOCK> *> (tss_adapter->ts_obj_);
 +#else
 +  void *temp = guard; // Need this temp to keep G++ from complaining.
 +  ACE_Thread::getspecific (this->key_, &temp);
