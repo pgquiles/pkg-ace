@@ -22,8 +22,10 @@ ace (5.4.7-10) unstable; urgency=low
   * patches/31-gcc-4.1-fix.dpatch: add other type-punned fixes taken from
     upstream.
   * debian/mpc.sgml: new man page.
+  * debian/patches/32-bug1770-fix.dpatch,33-bug1805-fix.dpatch: backport
+    two patches for SSL wrappers.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Thu, 20 Jul 2006 20:35:34 +0200
+ -- Thomas Girard <thomas.g.girard@free.fr>  Thu, 20 Jul 2006 20:55:53 +0200
 
 ace (5.4.7-9) unstable; urgency=low
 
