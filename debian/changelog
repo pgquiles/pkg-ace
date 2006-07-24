@@ -1,3 +1,10 @@
+ace (5.4.7-11) UNRELEASED; urgency=low
+
+  * debian/control: package HTBP, the protocol over HTTP tunneling library.
+  * debian/control: split libace into libace + libace-ssl.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Mon, 24 Jul 2006 22:21:02 +0200
+
 ace (5.4.7-10) unstable; urgency=low
 
   * debian/rules: fix and honor DEB_BUILD_OPTIONS.

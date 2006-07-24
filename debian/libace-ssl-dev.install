@@ -1,0 +1,4 @@
+ace/SSL/*.{h,i,inl}   usr/include/ace/SSL
+ace/SSL/libACE_SSL.a  usr/lib
+ace/SSL/libACE_SSL.so usr/lib
+ace/SSL/ACE_SSL.pc    usr/lib/pkgconfig
