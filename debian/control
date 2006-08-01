@@ -439,14 +439,6 @@ Description: TAO IDL to C++ compiler
  Use tao_idl to generate stubs and skeletons to call or implement CORBA
  distributed objects in C++.
 
-Package: tao-service
-Architecture: any
-Section: devel
-Depends: ${shlibs:Depends}
-Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-10)
-Description: TAO service control tool
- TBD.
-
 Package: tao-ifr
 Architecture: any
 Section: devel
