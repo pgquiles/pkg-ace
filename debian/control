@@ -539,7 +539,8 @@ Description: TAO event service
  can push or pull events. This channel enables asynchronous, message
  based communication between consumers and suppliers.
  .
- This one supports both the Push and Pull styles for event communication.
+ This event service supports both the Push and Pull styles for event
+ communication.
 
 Package: tao-rtevent
 Architecture: any
@@ -573,9 +574,12 @@ Section: devel
 Depends: ${shlibs:Depends}
 Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-11)
 Description: TAO notification service
- TAO implementation of CORBA notification service.
+ A notification service enhances an event service. For more information on
+ CORBA event service have a look at tao-event package.
  .
- TBD
+ The notification service adds:
+  * quality of service control on reliability and speed
+  * event filtering
 
 Package: tao-load
 Architecture: any
