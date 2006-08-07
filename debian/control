@@ -623,9 +623,10 @@ Section: devel
 Depends: ${shlibs:Depends}
 Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-11)
 Description: TAO concurrency service
- TAO implementation of CORBA concurrency service.
+ A concurrency service provides a mechanism to acquire and release locks in
+ a distributed system.
  .
- TBD
+ TAO version does not support transactions.
 
 Package: tao-lifecycle
 Architecture: any
@@ -643,9 +644,11 @@ Section: devel
 Depends: ${shlibs:Depends}
 Conflicts: libtao-orbsvcs1.4.7c2a (<< 1.4.7-11)
 Description: TAO time service
- TAO implementation of CORBA time service.
+ A time service offers globally synchronized time to clients.
  .
- TBD
+ This package contains two programs:
+  * Time_Service_Clerk, answering client requests
+  * Time_Service_Server, queried by clerks to keep their time synchronized
 
 Package: libciao0.4.7c2a
 Architecture: any
