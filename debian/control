@@ -615,6 +615,8 @@ Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
 Description: TAO scheduling service
  TAO implementation of CORBA scheduling service.
  .
+ TBD
+ .
  This package contains:
   * Scheduling_Service
   * Dump_Schedule
@@ -700,6 +702,7 @@ Description: CIAO TBD
 Package: ciao-tools
 Architecture: any
 Section: devel
+Depends: ${shlibs:Depends}
 Conflicts: libciao0.4.7 (<< 5.4.7-11)
 Description: CIAO TBD
  TBD
