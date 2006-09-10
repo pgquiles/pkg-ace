@@ -486,7 +486,7 @@ Section: devel
 Depends: ${shlibs:Depends}
 Conflicts: libtao-dev (<< 5.4.7-11)
 Description: TAO naming service utils
- This package includes programs to query or manipulate a CORBA naming
+ This package includes programs to query or control a CORBA naming
  service.
  .
  The following programs are included:
@@ -615,8 +615,6 @@ Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
 Description: TAO scheduling service
  TAO implementation of CORBA scheduling service.
  .
- TBD
- .
  This package contains:
   * Scheduling_Service
   * Dump_Schedule
@@ -638,9 +636,10 @@ Section: devel
 Depends: ${shlibs:Depends}
 Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
 Description: TAO lifecycle service
- TAO implementation of CORBA lifecycle service.
+ The CORBA lifecycle service allows clients to create, delete, copy and move
+ objects.
  .
- TBD
+ This package contains the TAO implementation of such service.
 
 Package: tao-time
 Architecture: any
@@ -689,10 +688,10 @@ Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
 Conflicts: libciao0.4.7 (<< 5.4.7-11)
-Description: CIAO TBD
- TBD
+Description: TAO based CORBA Component Model implementation daemons
+ CIAO relies on configuration, assembly and component servers.
  .
- This package contains the following daemons:
+ This package contains the following programs:
   * ComponentServer
   * CIAO_Daemon
   * RTComponentServer
@@ -704,9 +703,9 @@ Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
 Conflicts: libciao0.4.7 (<< 5.4.7-11)
-Description: CIAO TBD
- TBD
+Description: TAO based CORBA Component Model implementation tools
+ CIAO relies on configuration, assembly and component servers.
  .
- This package contains the following programs:
+ This package contains programs to control them:
   * Assembly_Deployer
   * DaemonController
