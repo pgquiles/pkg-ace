@@ -45,7 +45,7 @@ Description: C++ network programming framework
   * shared memory
  as well as thread, process management routines and much more.
  .
- Moreover, it defines patterns for common communication tasks.  Beyond
+ Moreover, it defines patterns for common communication tasks. Beyond
  these:
   * Reactor, to handle event demultiplexing and dispatching
   * Proactor, for asynchronous I/O driven programs
@@ -75,7 +75,7 @@ Package: libace-ssl5.4.7c2a
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
-Conflicts: libace5.4.7c2a (<< 5.4.7-10)
+Conflicts: libace5.4.7c2a (<< 5.4.7-11)
 Description: ACE secure socket layer library
  This package contains wrappers that integrate the OpenSSL library in the
  ACE framework.
@@ -84,6 +84,7 @@ Package: libace-ssl-dev
 Architecture: any
 Section: libdevel
 Depends: libace-ssl5.4.7c2a (= ${binary:Version}), libace-dev (= ${source:Version}), libssl-dev (>= 0.9.7d)
+Conflicts: libace-dev (<< 5.4.7-11)
 Description: ACE secure socket layer library development files
  This package contains the header files and static library for the ACE
  SSL library.
@@ -157,7 +158,7 @@ Description: ACE perfect hash function generator
  gperf-ace is the ACE version of gperf.
  .
  Both gperf-ace and gperf were written by the same author, and have
- basically the same options and functionality.  gperf-ace simply takes
+ basically the same options and functionality. gperf-ace simply takes
  advantage of the some of the features provided by the ACE library.
 
 Package: libacexml5.4.7c2a
@@ -171,7 +172,7 @@ Description: ACE SAX based XML parsing library
  for XML (SAX) 2.0, defined by David Megginson. This is an event-driven
  parsing approach.
  .
- ACEXML is a small footprint and portable library.  It does not validate
+ ACEXML is a small footprint and portable library. It does not validate
  XML documents and supports only Unicode encoding.
 
 Package: libacexml-dev
@@ -200,7 +201,6 @@ Package: libkokyu-dev
 Architecture: any
 Section: libdevel
 Depends: libkokyu5.4.7c2a (= ${binary:Version}), libace-dev (= ${source:Version})
-Suggests: libtao-orbsvcs-dev
 Description: ACE scheduling and dispatching library development files
  This package contains the header files and static library for the ACE
  scheduling and dispatching library.
@@ -214,13 +214,13 @@ Conflicts: libace-qtreactor5.4 (<< 5.4.7), libace-qtreactor5.4.7
 Description: ACE-GUI reactor integration for Qt
  Recognizing the need to write reactor-based GUI applications, the ACE
  community has created several reactor extensions for use with X Window
- System.  Each of these extends the ACE_Select_Reactor to work with a
- specific toolkit.  By using these reactors, your GUI application can remain
+ System. Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit. By using these reactors, your GUI application can remain
  single threaded yet still respond to both GUI events, such as button
  presses, any your own application events.
  .
  The ACE_QtReactor extends both the ACE_Select_Reactor and the Trolltech Qt
- library's QObjects class.  Rather then using select(), the
+ library's QObjects class. Rather then using select(), the
  QtWaitForMultipleEvents() function is used.
 
 Package: libace-qtreactor-dev
@@ -245,8 +245,8 @@ Description: ACE-GUI reactor integration for Xt
  single threaded yet still respond to both GUI events, such as button presses,
  any your own application events.
  .
- The ACE_XtReactor extends both the ACE_Select_Reactor and the X Toolkit library
- function XtWaitForMultipleEvents().
+ The ACE_XtReactor extends both the ACE_Select_Reactor and the X Toolkit
+ library function XtWaitForMultipleEvents().
 
 Package: libace-xtreactor-dev
 Architecture: any
@@ -311,7 +311,6 @@ Section: libs
 Depends: ${shlibs:Depends}
 Replaces: libtao1.4 (<< 5.4.7), libtao1.4.7
 Conflicts: libtao1.4 (<< 5.4.7), libtao1.4.7
-Suggests: libtao-orbsvcs1.4.7c2a
 Description: ACE based CORBA ORB core libraries
  The ACE ORB (TAO) is an open-source Common Object Request Broker 
  Architecture (CORBA) 2.x-compliant Object Request Broker (ORB).  It
@@ -325,7 +324,7 @@ Package: libtao-dev
 Architecture: any
 Section: libdevel
 Depends: libtao1.4.7c2a (= ${binary:Version}), libace-dev (= ${source:Version})
-Suggests: libtao-doc, libtao-orbsvcs-dev
+Suggests: libtao-doc, libtao-orbsvcs-dev (= ${source:Version})
 Description: ACE based CORBA ORB core libraries development files
  This package contains the header files for TAO.  Due to the size of the
  static libs (> 400MB) they have been left out.
@@ -333,7 +332,7 @@ Description: ACE based CORBA ORB core libraries development files
 Package: libtao-doc
 Architecture: all
 Section: doc
-Suggests: libtao-dev
+Suggests: libtao-dev (= ${source:Version})
 Description: ACE based CORBA ORB core libraries documentation
  This package contains the TAO overview documentation, tutorials,
  examples, and information regarding upstream development.
@@ -344,21 +343,8 @@ Section: libs
 Depends: ${shlibs:Depends}
 Replaces: libtao-orbsvcs1.3.1, libtao-orbsvcs1.4 (<< 5.4.7), libtao-orbsvcs1.4.7
 Conflicts: libtao-orbsvcs1.3.1, libtao-orbsvcs1.4 (<< 5.4.7), libtao-orbsvcs1.4.7
-Description: TAO CORBA services
- This package contains TAO CORBA services programs and libraries.
- .
- This includes:
-  * naming service
-  * trading service
-  * event service
-  * notification service
-  * interface repository
-  * implementation repository
-  * logging service
-  * time service
-  * scheduling service
-  * fault-tolerant services
-  * concurrency service
+Description: TAO CORBA services libraries
+ This package contains libraries that are needed by many TAO programs.
 
 Package: libtao-orbsvcs-dev
 Architecture: any
@@ -366,6 +352,7 @@ Section: libdevel
 Depends: libtao-orbsvcs1.4.7c2a (= ${binary:Version}), libtao-dev (= ${source:Version})
 Description: TAO CORBA services development files
  This package contains the header files for the TAO CORBA services.
+ .
  Due to the size of the static libs (> 400MB) they have been left out.
  The examples and some documentation have been included as well.
 
@@ -441,6 +428,230 @@ Description: TAO-GUI reactor integration for Tk development files
  This package contains header files and static library for the TAO-Tk
  reactor integration.
 
+Package: tao-idl
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-dev (<< 5.4.7-11)
+Description: TAO IDL to C++ compiler
+ This package provides a Interface Definition Language (IDL) to C++ compiler.
+ .
+ Use tao_idl to generate stubs and skeletons to call or implement CORBA
+ distributed objects in C++.
+
+Package: tao-ifr
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
+Description: TAO interface repository
+ CORBA-aware programs can contact an interface repository to get objects
+ interfaces at run-time. Then they can use the Dynamic Invocation
+ Interface (DII) mechanism to invoke requests on those objects.
+ .
+ This package includes the following programs:
+  * IFR_Service: interface repository server
+  * tao_ifr: feeds in the interface repository
+
+Package: tao-imr
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
+Description: TAO implementation repository
+ An implementation repository activates CORBA servers on demand.
+ .
+ This package includes the following programs:
+  * ImplRepo_Service: the main server; delegates call to activators
+  * ImR_Activator: activates and shuts servers down on demand
+  * tao_imr: registers servers for later activation
+
+Package: tao-ft
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
+Description: TAO fault tolerant services
+ TAO supports Fault Tolerance for CORBA Objects.
+ .
+ This package includes three FT CORBA infrastructure components:
+  * Fault_Detector that monitors a process or a host
+  * Fault_Notifier that receives fault reports from detectors
+  * FT_ReplicationManager that manages object groups
+
+Package: tao-nsutils
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-dev (<< 5.4.7-11)
+Description: TAO naming service utils
+ This package includes programs to query or control a CORBA naming
+ service.
+ .
+ The following programs are included:
+  * nslist, to list naming context and object bindings
+  * nsadd, to create bindings
+  * nsdel, to remove bindings
+
+Package: tao-catior
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-dev (<< 5.4.7-11)
+Description: TAO IOR dumper utility
+ This package includes the tao-catior program.
+ .
+ Use this program to analyse the content of a CORBA Interoperable Object
+ Reference.
+
+Package: tao-naming
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Recommends: tao-nsutils (= ${binary:Version})
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
+Description: TAO naming service
+ TAO implementation of CORBA interoperable naming service (INS).
+ .
+ A naming service provides a location service for CORBA objects.  Given a
+ name, it will return the Interoperable Object Reference (IOR) for the CORBA
+ object that was registered with this name.
+
+Package: tao-trading
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
+Description: TAO trading service
+ TAO implementation of CORBA trading service.
+ .
+ A trading service is quite like a naming service except that it relies on a
+ set of properties instead of a name to find object references.
+
+Package: tao-event
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
+Description: TAO event service
+ An event service creates channels where suppliers and consumers
+ can push or pull events. This channel enables asynchronous, message
+ based communication between consumers and suppliers.
+ .
+ This event service supports both the Push and Pull styles for event
+ communication.
+
+Package: tao-rtevent
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
+Description: TAO real-time event service
+ Another TAO implementation of CORBA event service. For more information on
+ CORBA event service have a look at tao-event package.
+ .
+ This version does not support the Pull style but provides a real-time
+ event channel.
+
+Package: tao-ftrtevent
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
+Description: TAO fault-tolerant real-time event service
+ TAO fault-tolerant, real-time CORBA event service. For more information on
+ CORBA event service have a look at tao-event package.
+ .
+ This package contains:
+  * ftrt_eventservice, the fault-tolerant event channel
+  * ftrtec_factory_service, spawning ftrt_eventservice processes
+  * ftrtec_gateway_service, relaying events to FT CORBA unaware clients
+
+Package: tao-notification
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
+Description: TAO notification service
+ A notification service enhances an event service. For more information on
+ CORBA event service have a look at tao-event package.
+ .
+ The notification service adds:
+  * quality of service control on reliability and speed
+  * event filtering
+
+Package: tao-load
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
+Description: TAO load balancing service
+ TAO implementation of OMG Load Balancing and Monitoring specification.
+ .
+ This package provides:
+  * LoadManager, that distributes loads across objects
+  * LoadMonitor, that monitors and reports loads to a manager
+
+Package: tao-log
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
+Description: TAO telecom log services
+ TAO implementations of CORBA telecom log service.
+ .
+ Four separate services are provided:
+  * Basic_Logging_Service
+  * Event_Logging_Service
+  * Notify_Logging_Service
+  * RTEvent_Logging_Service
+
+Package: tao-scheduling
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
+Description: TAO scheduling service
+ TAO implementation of CORBA scheduling service.
+ .
+ This package contains:
+  * Scheduling_Service
+  * Dump_Schedule
+
+Package: tao-concurrency
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
+Description: TAO concurrency service
+ A concurrency service provides a mechanism to acquire and release locks in
+ a distributed system.
+ .
+ TAO version does not support transactions.
+
+Package: tao-lifecycle
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
+Description: TAO lifecycle service
+ The CORBA lifecycle service allows clients to create, delete, copy and move
+ objects.
+ .
+ This package contains the TAO implementation of such service.
+
+Package: tao-time
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
+Description: TAO time service
+ A time service offers globally synchronized time to clients.
+ .
+ This package contains two programs:
+  * Time_Service_Clerk, answering client requests
+  * Time_Service_Server, queried by clerks to keep their time synchronized
+
 Package: libciao0.4.7c2a
 Architecture: any
 Section: libs
@@ -470,3 +681,30 @@ Suggests: libciao-dev
 Conflicts: libciao-dev (<< 5.4.7-9)
 Description: TAO based CORBA Component Model documentation
  This package contains the CIAO documentation, tutorials and examples.
+
+Package: ciao-daemons
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libciao0.4.7 (<< 5.4.7-11)
+Description: TAO based CORBA Component Model implementation daemons
+ CIAO relies on configuration, assembly and component servers.
+ .
+ This package contains the following programs:
+  * ComponentServer
+  * CIAO_Daemon
+  * RTComponentServer
+  * ServerActivator
+  * Assembly_Manager
+
+Package: ciao-tools
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}
+Conflicts: libciao0.4.7 (<< 5.4.7-11)
+Description: TAO based CORBA Component Model implementation tools
+ CIAO relies on configuration, assembly and component servers.
+ .
+ This package contains programs to control them:
+  * Assembly_Deployer
+  * DaemonController
