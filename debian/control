@@ -567,7 +567,7 @@ Description: TAO fault-tolerant real-time event service
   * ftrtec_factory_service, spawning ftrt_eventservice processes
   * ftrtec_gateway_service, relaying events to FT CORBA unaware clients
 
-Package: tao-notification
+Package: tao-notify
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
