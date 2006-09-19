@@ -83,7 +83,7 @@ Description: ACE secure socket layer library
 Package: libace-ssl-dev
 Architecture: any
 Section: libdevel
-Depends: libace-ssl5.4.7c2a (= ${binary:Version}), libace-dev (= ${source:Version}), libssl-dev (>= 0.9.7d)
+Depends: libace-ssl5.4.7c2a (= ${binary:Version}), libace-dev (= ${binary:Version}), libssl-dev (>= 0.9.7d)
 Conflicts: libace-dev (<< 5.4.7-11)
 Description: ACE secure socket layer library development files
  This package contains the header files and static library for the ACE
@@ -105,7 +105,7 @@ Description: ACE reliable multicast library
 Package: libace-rmcast-dev
 Architecture: any
 Section: libdevel
-Depends: libace-rmcast5.4.7c2a (= ${binary:Version}), libace-dev (= ${source:Version})
+Depends: libace-rmcast5.4.7c2a (= ${binary:Version}), libace-dev (= ${binary:Version})
 Replaces: libace-rmcast5.2-dev
 Description: ACE reliable multicast library development files
  This package contains the header files and static library for the ACE
@@ -126,7 +126,7 @@ Description: ACE transactional multicast library
 Package: libace-tmcast-dev
 Architecture: any
 Section: libdevel
-Depends: libace-tmcast5.4.7c2a (= ${binary:Version}), libace-dev (= ${source:Version})
+Depends: libace-tmcast5.4.7c2a (= ${binary:Version}), libace-dev (= ${binary:Version})
 Description: ACE transactional multicast library development files
  This package contains the header files and static library for the ACE
  transactional multicast library.
@@ -145,7 +145,7 @@ Description: ACE protocol over HTTP tunneling library
 Package: libace-htbp-dev
 Architecture: any
 Section: libdevel
-Depends: libace-htbp5.4.7c2a (= ${binary:Version}), libace-dev (= ${source:Version})
+Depends: libace-htbp5.4.7c2a (= ${binary:Version}), libace-dev (= ${binary:Version})
 Description: ACE protocol over HTTP tunneling library development files
  This package contains the header files and static library for the ACE
  HTBP library.
@@ -178,7 +178,7 @@ Description: ACE SAX based XML parsing library
 Package: libacexml-dev
 Architecture: any
 Section: libdevel
-Depends: libacexml5.4.7c2a (= ${binary:Version}), libace-dev (= ${source:Version})
+Depends: libacexml5.4.7c2a (= ${binary:Version}), libace-dev (= ${binary:Version})
 Description: ACE SAX based XML parsing library development files
  This package contains the header files and static library for the ACE
  XML parsing library.
@@ -200,7 +200,7 @@ Description: ACE scheduling and dispatching library
 Package: libkokyu-dev
 Architecture: any
 Section: libdevel
-Depends: libkokyu5.4.7c2a (= ${binary:Version}), libace-dev (= ${source:Version})
+Depends: libkokyu5.4.7c2a (= ${binary:Version}), libace-dev (= ${binary:Version})
 Description: ACE scheduling and dispatching library development files
  This package contains the header files and static library for the ACE
  scheduling and dispatching library.
@@ -226,7 +226,7 @@ Description: ACE-GUI reactor integration for Qt
 Package: libace-qtreactor-dev
 Architecture: any
 Section: libdevel
-Depends: libace-qtreactor5.4.7c2a (= ${binary:Version}), libace-dev (= ${source:Version}), libqt3-mt-dev (>= 3:3.3.3)
+Depends: libace-qtreactor5.4.7c2a (= ${binary:Version}), libace-dev (= ${binary:Version}), libqt3-mt-dev (>= 3:3.3.3)
 Description: ACE-GUI reactor integration for Qt development files
  This package contains header files and static library for the ACE-Qt
  reactor integration.
@@ -251,7 +251,7 @@ Description: ACE-GUI reactor integration for Xt
 Package: libace-xtreactor-dev
 Architecture: any
 Section: libdevel
-Depends: libace-xtreactor5.4.7c2a (= ${binary:Version}), libace-dev (= ${source:Version}), libxt-dev (>= 4.3.0)
+Depends: libace-xtreactor5.4.7c2a (= ${binary:Version}), libace-dev (= ${binary:Version}), libxt-dev (>= 4.3.0)
 Description: ACE-GUI reactor integration for Xt development files
  This package contains header files and static library for the ACE-Xt
  reactor integration.
@@ -276,7 +276,7 @@ Description: ACE-GUI reactor integration for Tk
 Package: libace-tkreactor-dev
 Architecture: any
 Section: libdevel
-Depends: libace-tkreactor5.4.7c2a (= ${binary:Version}), libace-dev (= ${source:Version}), tk8.4-dev (>= 8.4.7)
+Depends: libace-tkreactor5.4.7c2a (= ${binary:Version}), libace-dev (= ${binary:Version}), tk8.4-dev (>= 8.4.7)
 Description: ACE-GUI reactor integration for Tk development files
  This package contains header files and static library for the ACE-Tk
  reactor integration.
@@ -300,7 +300,7 @@ Description: ACE-GUI reactor integration for Fl
 Package: libace-flreactor-dev
 Architecture: any
 Section: libdevel
-Depends: libace-flreactor5.4.7c2a (= ${binary:Version}), libace-dev (= ${source:Version}), libfltk1.1-dev (>= 1.1.4)
+Depends: libace-flreactor5.4.7c2a (= ${binary:Version}), libace-dev (= ${binary:Version}), libfltk1.1-dev (>= 1.1.4)
 Description: ACE-GUI reactor integration for Fl development files
  This package contains header files and static library for the ACE-Fl
  reactor integration.
@@ -323,8 +323,8 @@ Description: ACE based CORBA ORB core libraries
 Package: libtao-dev
 Architecture: any
 Section: libdevel
-Depends: libtao1.4.7c2a (= ${binary:Version}), libace-dev (= ${source:Version})
-Suggests: libtao-doc, libtao-orbsvcs-dev (= ${source:Version})
+Depends: libtao1.4.7c2a (= ${binary:Version}), libace-dev (= ${binary:Version})
+Suggests: libtao-doc, libtao-orbsvcs-dev
 Description: ACE based CORBA ORB core libraries development files
  This package contains the header files for TAO.  Due to the size of the
  static libs (> 400MB) they have been left out.
@@ -332,7 +332,7 @@ Description: ACE based CORBA ORB core libraries development files
 Package: libtao-doc
 Architecture: all
 Section: doc
-Suggests: libtao-dev (= ${source:Version})
+Suggests: libtao-dev
 Description: ACE based CORBA ORB core libraries documentation
  This package contains the TAO overview documentation, tutorials,
  examples, and information regarding upstream development.
@@ -349,7 +349,7 @@ Description: TAO CORBA services libraries
 Package: libtao-orbsvcs-dev
 Architecture: any
 Section: libdevel
-Depends: libtao-orbsvcs1.4.7c2a (= ${binary:Version}), libtao-dev (= ${source:Version})
+Depends: libtao-orbsvcs1.4.7c2a (= ${binary:Version}), libtao-dev (= ${binary:Version})
 Description: TAO CORBA services development files
  This package contains the header files for the TAO CORBA services.
  .
@@ -368,7 +368,7 @@ Description: TAO-GUI reactor integration for Qt
 Package: libtao-qtresource-dev
 Architecture: any
 Section: libdevel
-Depends: libtao-qtresource1.4.7c2a (= ${binary:Version}), libace-qtreactor-dev (= ${source:Version}), libtao-dev (= ${source:Version})
+Depends: libtao-qtresource1.4.7c2a (= ${binary:Version}), libace-qtreactor-dev (= ${binary:Version}), libtao-dev (= ${binary:Version})
 Replaces: libtao-qtreactor-dev (<< 5.4.7)
 Conflicts: libtao-qtreactor-dev (<< 5.4.7)
 Description: TAO-GUI reactor integration for Qt development files
@@ -387,7 +387,7 @@ Description: TAO-GUI reactor integration for Xt
 Package: libtao-xtresource-dev
 Architecture: any
 Section: libdevel
-Depends: libtao-xtresource1.4.7c2a (= ${binary:Version}), libace-xtreactor-dev (= ${source:Version}), libtao-dev (= ${source:Version})
+Depends: libtao-xtresource1.4.7c2a (= ${binary:Version}), libace-xtreactor-dev (= ${binary:Version}), libtao-dev (= ${binary:Version})
 Replaces: libtao-xtreactor-dev (<< 5.4.7)
 Conflicts: libtao-xtreactor-dev (<< 5.4.7)
 Description: TAO-GUI reactor integration for Xt development files
@@ -406,7 +406,7 @@ Description: TAO-GUI reactor integration for Fl
 Package: libtao-flresource-dev
 Architecture: any
 Section: libdevel
-Depends: libtao-flresource1.4.7c2a (= ${binary:Version}), libace-flreactor-dev (= ${source:Version}), libtao-dev (= ${source:Version})
+Depends: libtao-flresource1.4.7c2a (= ${binary:Version}), libace-flreactor-dev (= ${binary:Version}), libtao-dev (= ${binary:Version})
 Description: TAO-GUI reactor integration for Fl development files
  This package contains header files and static library for the TAO-Fl
  reactor integration.
@@ -423,7 +423,7 @@ Description: TAO-GUI reactor integration for Tk development files
 Package: libtao-tkresource-dev
 Architecture: any
 Section: libdevel
-Depends: libtao-tkresource1.4.7c2a (= ${binary:Version}), libace-tkreactor-dev (= ${source:Version}), libtao-dev (= ${source:Version})
+Depends: libtao-tkresource1.4.7c2a (= ${binary:Version}), libace-tkreactor-dev (= ${binary:Version}), libtao-dev (= ${binary:Version})
 Description: TAO-GUI reactor integration for Tk development files
  This package contains header files and static library for the TAO-Tk
  reactor integration.
@@ -508,7 +508,7 @@ Package: tao-naming
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
-Recommends: tao-nsutils (= ${binary:Version})
+Recommends: tao-nsutils
 Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
 Description: TAO naming service
  TAO implementation of CORBA interoperable naming service (INS).
@@ -669,7 +669,7 @@ Description: TAO based CORBA Component Model implementation
 Package: libciao-dev
 Architecture: any
 Section: libdevel
-Depends: libciao0.4.7c2a (= ${binary:Version}), libtao-orbsvcs-dev (= ${source:Version})
+Depends: libciao0.4.7c2a (= ${binary:Version}), libtao-orbsvcs-dev (= ${binary:Version})
 Suggests: libciao-doc
 Description: TAO based CORBA Component Model implementation development files
  This package contains the header files for CIAO.
