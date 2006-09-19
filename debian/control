@@ -479,30 +479,21 @@ Description: TAO fault tolerant services
   * Fault_Notifier that receives fault reports from detectors
   * FT_ReplicationManager that manages object groups
 
-Package: tao-nsutils
+Package: tao-utils
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
 Conflicts: libtao-dev (<< 5.4.7-11)
-Description: TAO naming service utils
+Suggests: tao-naming
+Description: TAO naming service and IOR utilities
  This package includes programs to query or control a CORBA naming
- service.
+ service, and to dump an IOR.
  .
  The following programs are included:
   * nslist, to list naming context and object bindings
   * nsadd, to create bindings
   * nsdel, to remove bindings
-
-Package: tao-catior
-Architecture: any
-Section: devel
-Depends: ${shlibs:Depends}
-Conflicts: libtao-dev (<< 5.4.7-11)
-Description: TAO IOR dumper utility
- This package includes the tao-catior program.
- .
- Use this program to analyse the content of a CORBA Interoperable Object
- Reference.
+  * tao-catior, to dump the content of an Interoperable Object Reference
 
 Package: tao-naming
 Architecture: any

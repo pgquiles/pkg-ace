@@ -223,6 +223,10 @@ install: build
 #	Rename the catior utility, it already exists in another package
 	cp $(TAO_ROOT)/utils/catior/catior $(TAO_ROOT)/utils/catior/tao-catior
 
+#       Multiple README
+	cp $(TAO_ROOT)/utils/catior/README $(TAO_ROOT)/utils/catior/README.catior
+	cp $(TAO_ROOT)/utils/nslist/README $(TAO_ROOT)/utils/catior/README.nslist
+
 #	Rename tao_idl to have a script automatically define ACE_ROOT and
 #	TAO_ROOT
 	cp $(TAO_ROOT)/TAO_IDL/tao_idl $(TAO_ROOT)/TAO_IDL/tao_idl.real
