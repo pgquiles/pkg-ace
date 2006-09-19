@@ -24,8 +24,6 @@ MAN1 := debian/Basic_Logging_Service.1 \
 	debian/mpc-ace.1
 MAN5 :=
 
-#ALL_LIBS := $(shell ls -1 debian/lib*c2a.install | sed -e 's#\(debian/.*\)\.install#\1/usr/lib#' | tr '\n' ':')
-
 ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
 export MPC_ROOT := $(shell pwd)/$(MPC_SUBDIR)
 endif
@@ -56,35 +54,34 @@ DPATCH_DESC := No description.
 export DH_COMPAT=5
 
 extract: $(ACE_ARCHIVE)
-	tar -xjf "$^"
-	touch "$@"
+	tar -xjf $<
+	touch $@
 
 $(MPC_ROOT): $(MPC_ARCHIVE)
-	tar -xzf "$^"
-	touch "$@"
+	tar -xzf $<
+	touch $@
 
 debian/mpc-ace.sgml: debian/mpc.sgml
-	sed -e 's/mpc\.pl/mpc-ace/g' -e 's/mwc\.pl/mwc-ace/g' "$^" > "$@"
+	sed -e 's/mpc\.pl/mpc-ace/g' -e 's/mwc\.pl/mwc-ace/g' $< > $@
 
 debian/%.1 debian/%.5: debian/%.sgml
-	docbook-to-man "$^" > "$@"
+	docbook-to-man $< > $@
 
 %.pc: %.pc.in
-	cat "$^" | sed -e 's#@prefix@#/usr#g' \
-                       -e 's#@exec_prefix@#$$\{prefix\}#g' \
-                       -e 's#@libdir@#$$\{exec_prefix\}/lib#g' \
-                       -e 's#@includedir@#$$\{prefix\}/include#g' \
-                       -e 's#@VERSION@#${AV}#g' > "$@"
+	cat $< | sed -e 's#@prefix@#/usr#g' \
+                     -e 's#@exec_prefix@#$$\{prefix\}#g' \
+                     -e 's#@libdir@#$$\{exec_prefix\}/lib#g' \
+                     -e 's#@includedir@#$$\{prefix\}/include#g' \
+                     -e 's#@VERSION@#${AV}#g' > $@
 
-patch-perl-scripts: extract
+patch-pl: extract
 	for fn in `find "$(ACE_ROOT)" -name "*.pl"`; do (echo '#!/usr/bin/perl'; cat "$$fn") > "$${fn}T"; mv "$${fn}T" "$$fn"; chmod a+x "$$fn"; done
 	touch $@
 
-patch: patch-stamp
 ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
-patch-stamp: patch-perl-scripts $(MPC_ROOT)
+patch: patch-pl $(MPC_ROOT)
 else
-patch-stamp: patch-perl-scripts
+patch: patch-pl
 endif
 	dpatch apply-all
 	touch $@
@@ -92,26 +89,26 @@ endif
 unpatch: clean extract
 
 $(ACE_ROOT)/debian.features: extract
-	cat debian/config/debian.features > "$@"
-	echo "// Added by debian/rules based on \$$(DEB_BUILD_OPTIONS)" >> "$@"
+	cat debian/config/debian.features > $@
+	echo "// Added by debian/rules based on \$$(DEB_BUILD_OPTIONS)" >> $@
 ifneq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
-	echo "debug=1" >> "$@"
+	echo "debug=1" >> $@
 else
-	echo "debug=0" >> "$@"
+	echo "debug=0" >> $@
 endif
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-	echo "optimize=0" >> "$@"
+	echo "optimize=0" >> $@
 else
-	echo "optimize=1" >> "$@"
+	echo "optimize=1" >> $@
 endif
 
 $(ACE_ROOT)/include/makeinclude/platform_macros.GNU: $(ACE_ROOT)/debian.features
-	sed -e 's/^\/\//#/g' "$^" > "$@"
-	echo >> "$@"
-	echo "LINK.cc=override" >> "$@"
-	echo "LINK.cc.override=\$$(PURELINK) \$$(PRELINK) \$$(CXX) \$$(CCFLAGS) \$$(CPPFLAGS) \$$(PTDIRS)" >> "$@"
-	echo >> "$@"
-	echo "include \$$(ACE_ROOT)/include/makeinclude/platform_linux.GNU" >> "$@"
+	sed -e 's/^\/\//#/g' "$^" > $@
+	echo >> $@
+	echo "LINK.cc=override" >> $@
+	echo "LINK.cc.override=\$$(PURELINK) \$$(PRELINK) \$$(CXX) \$$(CCFLAGS) \$$(CPPFLAGS) \$$(PTDIRS)" >> $@
+	echo >> $@
+	echo "include \$$(ACE_ROOT)/include/makeinclude/platform_linux.GNU" >> $@
 
 # Prepare a ACE_wrappers directory where most of the patches are applied.
 # We skip the $(MAKEFILE_DPATCH_NAME) dpatch because the intention is to
@@ -158,9 +155,11 @@ update-makefile-complete: prepatchtwo
 build: build-stamp build-pkgconfig build-manpages
 
 build-manpages: $(MAN1) $(MAN5)
+	touch $@
 
 build-pkgconfig:
 	$(MAKE) -f debian/rules $(PKG_CONFIG)
+	touch $@
 
 build-stamp: patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 	dh_testdir
@@ -197,11 +196,11 @@ build-stamp: patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 
 	$(MAKE) -C $(TAO_ROOT)/CIAO
 
-	touch "$@" 
+	touch $@
 
 clean:
 	dh_testdir
-	rm -rf *-stamp *-stampT *.tmp $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) $(MPC_SUBDIR).orig debian/patched $(MAN1) $(MAN5) patch-perl-scripts extract debian/mpc-ace.sgml
+	rm -rf *-stamp *.tmp $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) debian/patched $(MAN1) $(MAN5) patch-pl patch extract debian/mpc-ace.sgml
 
 	dh_clean
 
@@ -292,4 +291,4 @@ source diff:
 
 binary: binary-indep binary-arch
 
-.PHONY: build build-manpages clean binary-indep binary-arch binary install patch unpatch prepatch prepatchtwo update-makefile update-makefile-complete source diff
+.PHONY: build clean binary-indep binary-arch binary install unpatch prepatch prepatchtwo update-makefile update-makefile-complete source diff dpatch
