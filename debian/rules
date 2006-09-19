@@ -225,7 +225,7 @@ install: build
 
 #       Multiple README
 	cp $(TAO_ROOT)/utils/catior/README $(TAO_ROOT)/utils/catior/README.catior
-	cp $(TAO_ROOT)/utils/nslist/README $(TAO_ROOT)/utils/catior/README.nslist
+	cp $(TAO_ROOT)/utils/nslist/README $(TAO_ROOT)/utils/nslist/README.nslist
 
 #	Rename tao_idl to have a script automatically define ACE_ROOT and
 #	TAO_ROOT
