@@ -1,10 +1,6 @@
 #ifndef ACE_CONFIG_H
 #define ACE_CONFIG_H
 
-#ifndef _REENTRANT
-#error _REENTRANT has to be defined!
-#endif
-
 // bossekr@debian.org: Get the system capabilities.
 #include <unistd.h>
 
