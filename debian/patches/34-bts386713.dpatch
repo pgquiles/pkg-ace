@@ -6,29 +6,17 @@
 
 @DPATCH@
 
---- ACE_wrappers.orig/TAO/tao/default_resource.h	2006-09-22 18:55:41.662467250 +0200
-+++ ACE_wrappers/TAO/tao/default_resource.h	2006-09-22 19:12:02.579770750 +0200
-@@ -30,6 +30,9 @@
- class TAO_Codeset_Descriptor_Base;
- class ACE_Reactor_Impl;
- 
-+#define TAO_DYNAMIC_SERVICE_DIRECTIVE(ident, libpathname, objectclass, parameters) \
-+  ACE_DYNAMIC_SERVICE_DIRECTIVE(ident, ACE_DLL_PREFIX libpathname ACE_DLL_SUFFIX "." TAO_VERSION , objectclass, parameters)
-+
- /**
-  * @class TAO_Default_Resource_Factory
-  *
 --- ACE_wrappers.orig/TAO/tao/default_resource.cpp	2006-09-22 19:14:31.165056750 +0200
 +++ ACE_wrappers/TAO/tao/default_resource.cpp	2006-09-22 19:14:35.669338250 +0200
-@@ -1021,7 +1021,7 @@
-       // remove it
+@@ -1022,7 +1022,7 @@
        ACE_Service_Config::process_directive("remove TAO_Codeset");
        ACE_Service_Config::process_directive
--        (ACE_DYNAMIC_SERVICE_DIRECTIVE("TAO_Codeset",
-+        (TAO_DYNAMIC_SERVICE_DIRECTIVE("TAO_Codeset",
-                                        "TAO_Codeset",
+         (ACE_DYNAMIC_SERVICE_DIRECTIVE("TAO_Codeset",
+-                                       "TAO_Codeset",
++                                       "libTAO_Codeset.so.1.4.7",
                                         "_make_TAO_Codeset_Manager_Factory",
                                         ""));
+       factory =
 --- ACE_wrappers.orig/TAO/tao/ORB_Core.cpp	2006-09-22 19:15:20.568144250 +0200
 +++ ACE_wrappers/TAO/tao/ORB_Core.cpp	2006-09-22 19:20:36.587894250 +0200
 @@ -129,7 +129,7 @@
@@ -36,157 +24,157 @@
      valuetype_adapter_name_ ("Valuetype_Adapter"),
      poa_factory_name_ ("TAO_Object_Adapter_Factory"),
 -    poa_factory_directive_ (ACE_DYNAMIC_SERVICE_DIRECTIVE("TAO_Object_Adapter_Factory", "TAO_PortableServer", "_make_TAO_Object_Adapter_Factory", ""))
-+    poa_factory_directive_ (TAO_DYNAMIC_SERVICE_DIRECTIVE("TAO_Object_Adapter_Factory", "TAO_PortableServer", "_make_TAO_Object_Adapter_Factory", ""))
++    poa_factory_directive_ (ACE_DYNAMIC_SERVICE_DIRECTIVE("TAO_Object_Adapter_Factory", "libTAO_PortableServer.so.1.4.7", "_make_TAO_Object_Adapter_Factory", ""))
  {
  }
  
-@@ -1441,7 +1441,7 @@
-   if (loader == 0)
+@@ -1442,7 +1442,7 @@
      {
        ACE_Service_Config::process_directive (
--        ACE_DYNAMIC_SERVICE_DIRECTIVE("TAO_PolicyFactory_Registry_Factory",
-+        TAO_DYNAMIC_SERVICE_DIRECTIVE("TAO_PolicyFactory_Registry_Factory",
-                                       "TAO_PI",
+         ACE_DYNAMIC_SERVICE_DIRECTIVE("TAO_PolicyFactory_Registry_Factory",
+-                                      "TAO_PI",
++                                      "libTAO_PI.so.1.4.7",
                                        "_make_PolicyFactory_Loader",
                                        ""));
-@@ -1474,7 +1474,7 @@
-   if (orbinitializer_registry_ == 0)
+       loader =
+@@ -1475,7 +1475,7 @@
      {
        ACE_Service_Config::process_directive (
--        ACE_DYNAMIC_SERVICE_DIRECTIVE("ORBInitializer_Registry",
-+        TAO_DYNAMIC_SERVICE_DIRECTIVE("ORBInitializer_Registry",
-                                       "TAO_PI",
+         ACE_DYNAMIC_SERVICE_DIRECTIVE("ORBInitializer_Registry",
+-                                      "TAO_PI",
++                                      "libTAO_PI.so.1.4.7",
                                        "_make_ORBInitializer_Registry",
                                        ""));
-@@ -2211,7 +2211,7 @@
-   if (loader == 0)
+       orbinitializer_registry_ =
+@@ -2212,7 +2212,7 @@
      {
        ACE_Service_Config::process_directive (
--        ACE_DYNAMIC_SERVICE_DIRECTIVE("TypeCodeFactory",
-+        TAO_DYNAMIC_SERVICE_DIRECTIVE("TypeCodeFactory",
-                                       "TAO_TypeCodeFactory",
+         ACE_DYNAMIC_SERVICE_DIRECTIVE("TypeCodeFactory",
+-                                      "TAO_TypeCodeFactory",
++                                      "libTAO_TypeCodeFactory.so.1.4.7",
                                        "_make_TAO_TypeCodeFactory_Loader",
                                        ""));
-@@ -2232,7 +2232,7 @@
-   if (loader == 0)
+       loader =
+@@ -2233,7 +2233,7 @@
      {
        ACE_Service_Config::process_directive (
--        ACE_DYNAMIC_SERVICE_DIRECTIVE("CodecFactory",
-+        TAO_DYNAMIC_SERVICE_DIRECTIVE("CodecFactory",
-                                       "TAO_CodecFactory",
+         ACE_DYNAMIC_SERVICE_DIRECTIVE("CodecFactory",
+-                                      "TAO_CodecFactory",
++                                      "libTAO_CodecFactory.so.1.4.7",
                                        "_make_TAO_CodecFactory_Loader",
                                        ""));
-@@ -2256,7 +2256,7 @@
-   if (loader == 0)
+       loader =
+@@ -2257,7 +2257,7 @@
      {
        ACE_Service_Config::process_directive (
--        ACE_DYNAMIC_SERVICE_DIRECTIVE("PICurrent_Loader",
-+        TAO_DYNAMIC_SERVICE_DIRECTIVE("PICurrent_Loader",
-                                       "TAO",
+         ACE_DYNAMIC_SERVICE_DIRECTIVE("PICurrent_Loader",
+-                                      "TAO",
++                                      "libTAO.so.1.4.7",
                                        "_make_TAO_PICurrent_Loader",
                                        ""));
-@@ -2285,7 +2285,7 @@
-   if (loader == 0)
+       loader =
+@@ -2286,7 +2286,7 @@
      {
        ACE_Service_Config::process_directive (
--        ACE_DYNAMIC_SERVICE_DIRECTIVE("DynamicAny_Loader",
-+        TAO_DYNAMIC_SERVICE_DIRECTIVE("DynamicAny_Loader",
-                                       "TAO_DynamicAny",
+         ACE_DYNAMIC_SERVICE_DIRECTIVE("DynamicAny_Loader",
+-                                      "TAO_DynamicAny",
++                                      "libTAO_DynamicAny.so.1.4.7",
                                        "_make_TAO_DynamicAny_Loader",
                                        ""));
-@@ -2309,7 +2309,7 @@
-   if (loader == 0)
+       loader =
+@@ -2310,7 +2310,7 @@
      {
        ACE_Service_Config::process_directive (
--        ACE_DYNAMIC_SERVICE_DIRECTIVE("IORManip_Loader",
-+        TAO_DYNAMIC_SERVICE_DIRECTIVE("IORManip_Loader",
-                                       "TAO_IORManip",
+         ACE_DYNAMIC_SERVICE_DIRECTIVE("IORManip_Loader",
+-                                      "TAO_IORManip",
++                                      "libTAO_IORManip.so.1.4.7",
                                        "_make_TAO_IORManip_Loader",
                                        ""));
-@@ -2331,7 +2331,7 @@
-   if (factory == 0)
+       loader =
+@@ -2332,7 +2332,7 @@
      {
        ACE_Service_Config::process_directive (
--        ACE_DYNAMIC_SERVICE_DIRECTIVE("TAO_IORTable",
-+        TAO_DYNAMIC_SERVICE_DIRECTIVE("TAO_IORTable",
-                                       "TAO_IORTable",
+         ACE_DYNAMIC_SERVICE_DIRECTIVE("TAO_IORTable",
+-                                      "TAO_IORTable",
++                                      "libTAO_IORTable.so.1.4.7",
                                        "_make_TAO_Table_Adapter_Factory",
                                        ""));
+       factory =
 --- ACE_wrappers.orig/TAO/tao/ORBInitializer_Registry.cpp	2006-09-22 19:21:37.603707500 +0200
 +++ ACE_wrappers/TAO/tao/ORBInitializer_Registry.cpp	2006-09-22 19:21:42.420008500 +0200
-@@ -55,7 +55,7 @@
-     if (orbinitializer_registry_ == 0)
+@@ -56,7 +56,7 @@
        {
          ACE_Service_Config::process_directive (
--          ACE_DYNAMIC_SERVICE_DIRECTIVE("ORBInitializer_Registry",
-+          TAO_DYNAMIC_SERVICE_DIRECTIVE("ORBInitializer_Registry",
-                                         "TAO_PI",
+           ACE_DYNAMIC_SERVICE_DIRECTIVE("ORBInitializer_Registry",
+-                                        "TAO_PI",
++                                        "libTAO_PI.so.1.4.7",
                                          "_make_ORBInitializer_Registry",
                                          ""));
+         orbinitializer_registry_ =
 --- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/PortableGroup/PortableGroup_ORBInitializer.cpp	2006-09-22 19:27:32.897912000 +0200
 +++ ACE_wrappers/TAO/orbsvcs/orbsvcs/PortableGroup/PortableGroup_ORBInitializer.cpp	2006-09-22 19:27:42.962541000 +0200
-@@ -13,7 +13,7 @@
-            "PortableGroup_ORBInitializer.cpp,v 1.9 2005/06/17 09:12:16 jwillemsen Exp")
+@@ -14,7 +14,7 @@
  
  static const char pg_poa_factory_name[] = "TAO_PG_POA";
--static const char pg_poa_factory_directive[] = ACE_DYNAMIC_SERVICE_DIRECTIVE(
-+static const char pg_poa_factory_directive[] = TAO_DYNAMIC_SERVICE_DIRECTIVE(
-   "TAO_PG_POA", "TAO_PortableGroup", "_make_TAO_PG_Object_Adapter_Factory", "");
+ static const char pg_poa_factory_directive[] = ACE_DYNAMIC_SERVICE_DIRECTIVE(
+-  "TAO_PG_POA", "TAO_PortableGroup", "_make_TAO_PG_Object_Adapter_Factory", "");
++  "TAO_PG_POA", "libTAO_PortableGroup.so.1.4.7", "_make_TAO_PG_Object_Adapter_Factory", "");
  
  void
+ TAO_PortableGroup_ORBInitializer::pre_init (
 --- ACE_wrappers.orig/TAO/tao/PI/ORBInitInfo.cpp	2006-09-22 19:34:41.908723500 +0200
 +++ ACE_wrappers/TAO/tao/PI/ORBInitInfo.cpp	2006-09-22 19:34:47.833093750 +0200
-@@ -128,7 +128,7 @@
-       if (loader == 0)
+@@ -129,7 +129,7 @@
          {
            ACE_Service_Config::process_directive (
--            ACE_DYNAMIC_SERVICE_DIRECTIVE("CodecFactory",
-+            TAO_DYNAMIC_SERVICE_DIRECTIVE("CodecFactory",
-                                           "TAO_CodecFactory",
+             ACE_DYNAMIC_SERVICE_DIRECTIVE("CodecFactory",
+-                                          "TAO_CodecFactory",
++                                          "libTAO_CodecFactory.so.1.4.7",
                                            "_make_TAO_CodecFactory_Loader",
                                            ""));
+           loader =
 --- ACE_wrappers.orig/TAO/tao/Codeset/Codeset_Manager_i.cpp	2006-09-22 19:40:20.161863000 +0200
 +++ ACE_wrappers/TAO/tao/Codeset/Codeset_Manager_i.cpp	2006-09-22 19:40:31.182551750 +0200
-@@ -338,7 +338,7 @@
-     instance ("UTF8_Latin1_Factory");
+@@ -339,7 +339,7 @@
    if (fact == 0)
      ACE_Service_Config::process_directive
--      (ACE_DYNAMIC_SERVICE_DIRECTIVE ("UTF8_Latin1_Factory",
-+      (TAO_DYNAMIC_SERVICE_DIRECTIVE ("UTF8_Latin1_Factory",
-                                       "TAO_Codeset",
+       (ACE_DYNAMIC_SERVICE_DIRECTIVE ("UTF8_Latin1_Factory",
+-                                      "TAO_Codeset",
++                                      "libTAO_Codeset.so.1.4.7",
                                        "_make_TAO_UTF8_Latin1_Factory",
                                        ""));
-@@ -355,7 +355,7 @@
-     instance ("UTF16_BOM_Factory");
+   else
+@@ -356,7 +356,7 @@
    if (fact == 0)
      ACE_Service_Config::process_directive
--      (ACE_DYNAMIC_SERVICE_DIRECTIVE ("UTF16_BOM_Factory",
-+      (TAO_DYNAMIC_SERVICE_DIRECTIVE ("UTF16_BOM_Factory",
-                                       "TAO_Codeset",
+       (ACE_DYNAMIC_SERVICE_DIRECTIVE ("UTF16_BOM_Factory",
+-                                      "TAO_Codeset",
++                                      "libTAO_Codeset.so.1.4.7",
                                        "_make_TAO_UTF16_BOM_Factory",
                                        ""));
+   else
 --- ACE_wrappers.orig/TAO/tao/PortableServer/LifespanStrategyPersistent.cpp	2006-09-22 19:41:00.716397500 +0200
 +++ ACE_wrappers/TAO/tao/PortableServer/LifespanStrategyPersistent.cpp	2006-09-22 19:41:05.936723750 +0200
-@@ -83,7 +83,7 @@
-           if (adapter == 0)
+@@ -84,7 +84,7 @@
              {
                ACE_Service_Config::process_directive (
--                ACE_DYNAMIC_SERVICE_DIRECTIVE(
-+                TAO_DYNAMIC_SERVICE_DIRECTIVE(
-                   "ImR_Client_Adapter", "TAO_ImR_Client",
+                 ACE_DYNAMIC_SERVICE_DIRECTIVE(
+-                  "ImR_Client_Adapter", "TAO_ImR_Client",
++                  "ImR_Client_Adapter", "libTAO_ImR_Client.so.1.4.7",
                    "_make_ImR_Client_Adapter_Impl", ""));
  
+               adapter =
 --- ACE_wrappers.orig/TAO/tao/RTCORBA/RT_ORBInitializer.cpp	2006-09-22 19:41:41.370938250 +0200
 +++ ACE_wrappers/TAO/tao/RTCORBA/RT_ORBInitializer.cpp	2006-09-22 19:41:46.219241250 +0200
-@@ -38,7 +38,7 @@
- 
+@@ -39,7 +39,7 @@
  static const char *rt_poa_factory_name = "TAO_RT_Object_Adapter_Factory";
  static const char *rt_poa_factory_directive =
--  ACE_DYNAMIC_SERVICE_DIRECTIVE(
-+  TAO_DYNAMIC_SERVICE_DIRECTIVE(
+   ACE_DYNAMIC_SERVICE_DIRECTIVE(
      "TAO_RT_Object_Adapter_Factory",
-     "TAO_RTPortableServer",
+-    "TAO_RTPortableServer",
++    "libTAO_RTPortableServer.so.1.4.7",
      "_make_TAO_RT_Object_Adapter_Factory",
+     "");
 --- ACE_wrappers.orig/ace/DLL_Manager.cpp	2006-09-22 20:11:22.738266750 +0200
 +++ ACE_wrappers/ace/DLL_Manager.cpp	2006-09-22 20:16:12.672386500 +0200
 @@ -319,6 +319,12 @@
