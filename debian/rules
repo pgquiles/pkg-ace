@@ -7,9 +7,9 @@
 # Modified 2005, 2006 by Thomas Girard <thomas.g.girard@free.fr>
 
 INSTALL := install
-AV := 5.4.7
-TV := 1.4.7
-CV := 0.4.7
+export AV := 5.4.7
+export TV := 1.4.7
+export CV := 0.4.7
 
 ACE_SUBDIR := ACE_wrappers
 ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO*.tar.bz2 2>/dev/null || echo ace-archive-missing)
@@ -68,11 +68,7 @@ debian/%.1 debian/%.5: debian/%.sgml
 	docbook-to-man $< > $@
 
 %.pc: %.pc.in
-	cat $< | sed -e 's#@prefix@#/usr#g' \
-                     -e 's#@exec_prefix@#$$\{prefix\}#g' \
-                     -e 's#@libdir@#$$\{exec_prefix\}/lib#g' \
-                     -e 's#@includedir@#$$\{prefix\}/include#g' \
-                     -e 's#@VERSION@#${AV}#g' > $@
+	sh debian/generate_pkgconfig.sh $< > $@
 
 patch-pl: extract
 	for fn in `find "$(ACE_ROOT)" -name "*.pl"`; do (echo '#!/usr/bin/perl'; cat "$$fn") > "$${fn}T"; mv "$${fn}T" "$$fn"; chmod a+x "$$fn"; done
