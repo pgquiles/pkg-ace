@@ -1,10 +1,12 @@
-ace (5.4.7-11) UNRELEASED; urgency=low
+ace (5.4.7-11) unstable; urgency=low
 
   * debian/control: package HTBP, the protocol over HTTP tunneling library.
   * debian/control: split libace into libace + libace-ssl.
-  * debian/control: move binaries in their own packages.
+  * debian/control: move binaries in their own tao-* packages.
+  * debian/patches/34-bts386713.dpatch: dlopen() TAO libraries using their
+    full name (Closes: #386713).
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Sun, 10 Sep 2006 20:02:14 +0200
+ -- Thomas Girard <thomas.g.girard@free.fr>  Sat, 23 Sep 2006 00:15:24 +0200
 
 ace (5.4.7-10) unstable; urgency=low
 
