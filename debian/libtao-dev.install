@@ -1,5 +1,6 @@
 TAO/rules.tao.GNU                            usr/share/ace/TAO
 TAO/tao/*.{h,i,inl,idl,pidl}                 usr/include/tao
+TAO/tao/libTAO.so                            usr/lib
 TAO/tao/TAO.pc                               usr/lib/pkgconfig
 TAO/tao/BiDir_GIOP/*.{h,pidl}                usr/include/tao/BiDir_GIOP
 TAO/tao/libTAO_BiDirGIOP.so                  usr/lib

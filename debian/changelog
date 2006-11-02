@@ -1,8 +1,9 @@
 ace (5.4.7-12) unstable; urgency=low
 
   * debian/control: tao-naming recommends tao-utils (Closes: #393032).
+  * debian/libtao-dev.install: add libTAO.so symlink (Closes: #396303).
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Wed, 18 Oct 2006 05:06:13 +0200
+ -- Thomas Girard <thomas.g.girard@free.fr>  Thu,  2 Nov 2006 16:16:32 +0100
 
 ace (5.4.7-11) unstable; urgency=low
 
