@@ -2,6 +2,7 @@
 15-fix-fltk-include
 16-g++4-visibility-tweaks
 20-debian-compiler-definitions
+20-check-_REENTRANT
 21-always-inline
 22-PortableGroup-compilation-fix
 23-PortableGroup-exceptions-propagation
