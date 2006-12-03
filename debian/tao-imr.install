@@ -1,0 +1,3 @@
+TAO/orbsvcs/ImplRepo_Service/ImplRepo_Service              usr/bin
+TAO/orbsvcs/ImplRepo_Service/ImR_Activator                 usr/bin
+TAO/orbsvcs/ImplRepo_Service/tao_imr                       usr/bin

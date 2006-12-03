@@ -1,11 +1,6 @@
-bin/generate_export_file.pl usr/bin
-ace/*.{h,inl}               usr/include/ace
-ace/os_include              usr/include/ace
-ace/SSL/*.{h,i}             usr/include/ace/SSL
-ace/libACE.a                usr/lib
-ace/libACE.so               usr/lib
-ace/SSL/libACE_SSL.a        usr/lib
-ace/SSL/libACE_SSL.so       usr/lib
-include                     usr/share/ace
-ace/SSL/ACE_SSL.pc          usr/lib/pkgconfig
-ace/ACE.pc                  usr/lib/pkgconfig
+ace/*.{h,inl}  usr/include/ace
+ace/os_include usr/include/ace
+ace/libACE.a   usr/lib
+ace/libACE.so  usr/lib
+include        usr/share/ace
+ace/ACE.pc     usr/lib/pkgconfig

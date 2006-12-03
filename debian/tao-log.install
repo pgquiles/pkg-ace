@@ -1,0 +1,4 @@
+TAO/orbsvcs/Logging_Service/Basic_Logging_Service/Basic_Logging_Service      usr/bin
+TAO/orbsvcs/Logging_Service/Event_Logging_Service/Event_Logging_Service      usr/bin
+TAO/orbsvcs/Logging_Service/Notify_Logging_Service/Notify_Logging_Service    usr/bin
+TAO/orbsvcs/Logging_Service/RTEvent_Logging_Service/RTEvent_Logging_Service  usr/bin

@@ -7,9 +7,9 @@
 # Modified 2005, 2006 by Thomas Girard <thomas.g.girard@free.fr>
 
 INSTALL := install
-AV := 5.4.7
-TV := 1.4.7
-CV := 0.4.7
+export AV := 5.4.7
+export TV := 1.4.7
+export CV := 0.4.7
 
 ACE_SUBDIR := ACE_wrappers
 ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO*.tar.bz2 2>/dev/null || echo ace-archive-missing)
@@ -54,35 +54,30 @@ DPATCH_DESC := No description.
 export DH_COMPAT=5
 
 extract: $(ACE_ARCHIVE)
-	tar -xjf "$^"
-	touch "$@"
+	tar -xjf $<
+	touch $@
 
 $(MPC_ROOT): $(MPC_ARCHIVE)
-	tar -xzf "$^"
-	touch "$@"
+	tar -xzf $<
+	touch $@
 
 debian/mpc-ace.sgml: debian/mpc.sgml
-	sed -e 's/mpc\.pl/mpc-ace/g' -e 's/mwc\.pl/mwc-ace/g' "$^" > "$@"
+	sed -e 's/mpc\.pl/mpc-ace/g' -e 's/mwc\.pl/mwc-ace/g' $< > $@
 
 debian/%.1 debian/%.5: debian/%.sgml
-	docbook-to-man "$^" > "$@"
+	docbook-to-man $< > $@
 
 %.pc: %.pc.in
-	cat "$^" | sed -e 's#@prefix@#/usr#g' \
-                       -e 's#@exec_prefix@#$$\{prefix\}#g' \
-                       -e 's#@libdir@#$$\{exec_prefix\}/lib#g' \
-                       -e 's#@includedir@#$$\{prefix\}/include#g' \
-                       -e 's#@VERSION@#${AV}#g' > "$@"
+	sh debian/generate_pkgconfig.sh $< > $@
 
-patch-perl-scripts: extract
+patch-pl: extract
 	for fn in `find "$(ACE_ROOT)" -name "*.pl"`; do (echo '#!/usr/bin/perl'; cat "$$fn") > "$${fn}T"; mv "$${fn}T" "$$fn"; chmod a+x "$$fn"; done
 	touch $@
 
-patch: patch-stamp
 ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
-patch-stamp: patch-perl-scripts $(MPC_ROOT)
+patch: patch-pl $(MPC_ROOT)
 else
-patch-stamp: patch-perl-scripts
+patch: patch-pl
 endif
 	dpatch apply-all
 	touch $@
@@ -90,26 +85,26 @@ endif
 unpatch: clean extract
 
 $(ACE_ROOT)/debian.features: extract
-	cat debian/config/debian.features > "$@"
-	echo "// Added by debian/rules based on \$$(DEB_BUILD_OPTIONS)" >> "$@"
+	cat debian/config/debian.features > $@
+	echo "// Added by debian/rules based on \$$(DEB_BUILD_OPTIONS)" >> $@
 ifneq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
-	echo "debug=1" >> "$@"
+	echo "debug=1" >> $@
 else
-	echo "debug=0" >> "$@"
+	echo "debug=0" >> $@
 endif
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-	echo "optimize=0" >> "$@"
+	echo "optimize=0" >> $@
 else
-	echo "optimize=1" >> "$@"
+	echo "optimize=1" >> $@
 endif
 
 $(ACE_ROOT)/include/makeinclude/platform_macros.GNU: $(ACE_ROOT)/debian.features
-	sed -e 's/^\/\//#/g' "$^" > "$@"
-	echo >> "$@"
-	echo "LINK.cc=override" >> "$@"
-	echo "LINK.cc.override=\$$(PURELINK) \$$(PRELINK) \$$(CXX) \$$(CCFLAGS) \$$(CPPFLAGS) \$$(PTDIRS)" >> "$@"
-	echo >> "$@"
-	echo "include \$$(ACE_ROOT)/include/makeinclude/platform_linux.GNU" >> "$@"
+	sed -e 's/^\/\//#/g' "$^" > $@
+	echo >> $@
+	echo "LINK.cc=override" >> $@
+	echo "LINK.cc.override=\$$(PURELINK) \$$(PRELINK) \$$(CXX) \$$(CCFLAGS) \$$(CPPFLAGS) \$$(PTDIRS)" >> $@
+	echo >> $@
+	echo "include \$$(ACE_ROOT)/include/makeinclude/platform_linux.GNU" >> $@
 
 # Prepare a ACE_wrappers directory where most of the patches are applied.
 # We skip the $(MAKEFILE_DPATCH_NAME) dpatch because the intention is to
@@ -156,9 +151,11 @@ update-makefile-complete: prepatchtwo
 build: build-stamp build-pkgconfig build-manpages
 
 build-manpages: $(MAN1) $(MAN5)
+	touch $@
 
 build-pkgconfig:
 	$(MAKE) -f debian/rules $(PKG_CONFIG)
+	touch $@
 
 build-stamp: patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 	dh_testdir
@@ -195,11 +192,11 @@ build-stamp: patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 
 	$(MAKE) -C $(TAO_ROOT)/CIAO
 
-	touch "$@" 
+	touch $@
 
 clean:
 	dh_testdir
-	rm -rf *-stamp *-stampT *.tmp $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) $(MPC_SUBDIR).orig debian/patched $(MAN1) $(MAN5) patch-perl-scripts extract debian/mpc-ace.sgml
+	rm -rf *.tmp $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) debian/patched $(MAN1) $(MAN5) patch-pl patch extract debian/mpc-ace.sgml build-pkgconfig build-manpages build-stamp
 
 	dh_clean
 
@@ -218,30 +215,23 @@ install: build
            $(ACE_ROOT)/apps/gperf/gperf.info > \
            $(ACE_ROOT)/apps/gperf/gperf-ace.info
 
-#	Rename the $(TAO_ROOT)/utils README files
-	cp $(TAO_ROOT)/utils/catior/README $(TAO_ROOT)/utils/catior/README.catior
-	cp $(TAO_ROOT)/utils/nslist/README $(TAO_ROOT)/utils/nslist/README.nslist
-	cp $(TAO_ROOT)/orbsvcs/Concurrency_Service/README $(TAO_ROOT)/orbsvcs/Concurrency_Service/README.Concurrency_Service
-	cp $(TAO_ROOT)/orbsvcs/CosEvent_Service/README $(TAO_ROOT)/orbsvcs/CosEvent_Service/README.CosEvent_Service
-	cp $(TAO_ROOT)/orbsvcs/FT_ReplicationManager/README $(TAO_ROOT)/orbsvcs/FT_ReplicationManager/README.FT_ReplicationManager
-	cp $(TAO_ROOT)/orbsvcs/IFR_Service/README $(TAO_ROOT)/orbsvcs/IFR_Service/README.IFR_Service
-	cp $(TAO_ROOT)/orbsvcs/LoadBalancer/README $(TAO_ROOT)/orbsvcs/LoadBalancer/README.LoadBalancer
-	cp $(TAO_ROOT)/orbsvcs/Logging_Service/README $(TAO_ROOT)/orbsvcs/Logging_Service/README.Logging_Service
-	cp $(TAO_ROOT)/orbsvcs/Naming_Service/README $(TAO_ROOT)/orbsvcs/Naming_Service/README.Naming_Service
-	cp $(TAO_ROOT)/orbsvcs/Notify_Service/README $(TAO_ROOT)/orbsvcs/Notify_Service/README.Notify_Service
-	cp $(TAO_ROOT)/orbsvcs/PSS/README $(TAO_ROOT)/orbsvcs/PSS/README.PSS
-	cp $(TAO_ROOT)/orbsvcs/TAO_Service/README $(TAO_ROOT)/orbsvcs/TAO_Service/README.TAO_Service
-	cp $(TAO_ROOT)/orbsvcs/Time_Service/README $(TAO_ROOT)/orbsvcs/Time_Service/README.Time_Service
-	cp $(TAO_ROOT)/orbsvcs/Trading_Service/README $(TAO_ROOT)/orbsvcs/Trading_Service/README.Trading_Service
 #	Rename the catior utility, it already exists in another package
 	cp $(TAO_ROOT)/utils/catior/catior $(TAO_ROOT)/utils/catior/tao-catior
+
+#       Multiple README
+	cp $(TAO_ROOT)/utils/catior/README $(TAO_ROOT)/utils/catior/README.catior
+	cp $(TAO_ROOT)/utils/nslist/README $(TAO_ROOT)/utils/nslist/README.nslist
 
 #	Rename tao_idl to have a script automatically define ACE_ROOT and
 #	TAO_ROOT
 	cp $(TAO_ROOT)/TAO_IDL/tao_idl $(TAO_ROOT)/TAO_IDL/tao_idl.real
-	$(INSTALL) -m 755 -o root -g root -D debian/tao_idl debian/libtao-dev/usr/bin/tao_idl
+	$(INSTALL) -m 755 -o root -g root -D debian/tao_idl debian/tao-idl/usr/bin/tao_idl
 	cp $(TAO_ROOT)/orbsvcs/IFR_Service/tao_ifr $(TAO_ROOT)/orbsvcs/IFR_Service/tao_ifr.real
-	$(INSTALL) -m 755 -o root -g root -D debian/tao_ifr debian/libtao-orbsvcs${TV}c2a/usr/bin/tao_ifr
+	$(INSTALL) -m 755 -o root -g root -D debian/tao_ifr debian/tao-ifr/usr/bin/tao_ifr
+
+#       Rename mpc.pl and mwc.pl so that they do not include language extension.
+	cp $(ACE_ROOT)/bin/mpc.pl $(ACE_ROOT)/bin/mpc-ace
+	cp $(ACE_ROOT)/bin/mwc.pl $(ACE_ROOT)/bin/mwc-ace
 
 #	Be lintian clean, fix permissions on examples
 	-chmod -x `find $(TAO_ROOT)/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
@@ -287,7 +277,7 @@ binary-arch: build install
 	dh_fixperms -a
 	dh_makeshlibs -a -V
 	dh_installdeb -a
-	dh_shlibdeps -a -l debian/tmp/usr/lib:debian/libacexml${AV}c2a/usr/lib:debian/libace-rmcast${AV}c2a/usr/lib:debian/libace-tmcast${AV}c2a/usr/lib:debian/libciao${CV}c2a/usr/lib:debian/libkokyu${AV}c2a/usr/lib:debian/libtao${TV}c2a/usr/lib:debian/libtao-orbsvcs${TV}c2a/usr/lib
+	dh_shlibdeps -a -l `ls -1 debian/lib*c2a.install | sed -e 's#\(.*\)\.install#\1/usr/lib#' | tr '\n' ':' | sed -e 's#:$$##'`
 	dh_gencontrol -a
 	dh_md5sums -a
 	dh_builddeb -a
@@ -297,4 +287,4 @@ source diff:
 
 binary: binary-indep binary-arch
 
-.PHONY: build build-manpages clean binary-indep binary-arch binary install patch unpatch prepatch prepatchtwo update-makefile update-makefile-complete source diff
+.PHONY: build clean binary-indep binary-arch binary install unpatch prepatch prepatchtwo update-makefile update-makefile-complete source diff dpatch
