@@ -79,16 +79,16 @@ build-stamp: configure-stamp
 	dh_testdir
 
 	# Hack to remove once the bug is fixed
-	mkdir -p $(ACE_ROOT)/objdir/ace/QtReactor
-	$(MAKE) -C $(ACE_ROOT)/objdir
+	mkdir -p objdir/ace/QtReactor
+	$(MAKE) -C objdir
 
-	#$(MAKE) -C $(TAO_ROOT)/CIAO
+	# $(MAKE) -C $(TAO_ROOT)/CIAO
 
 	touch $@
 
 clean:
 	dh_testdir
-	rm -rf *.tmp $(ACE_SUBDIR) $(MPC_SUBDIR) debian/patched $(MAN1) $(MAN5) patch-pl patch extract debian/mpc-ace.sgml build-manpages build-stamp
+	rm -rf *.tmp $(ACE_SUBDIR) $(MPC_SUBDIR) objdir debian/patched $(MAN1) $(MAN5) patch-pl patch extract debian/mpc-ace.sgml build-manpages build-stamp
 
 	dh_clean
 
@@ -98,7 +98,7 @@ install: build
 	dh_clean -k
 	dh_installdirs
 
-	$(MAKE) -C $(ACE_ROOT)/objdir install DESTDIR=$(CURDIR)/debian/tmp
+	$(MAKE) -C objdir install DESTDIR=$(CURDIR)/debian/tmp
 
 	mv $(CURDIR)/debian/tmp/usr/bin/gperf $(CURDIR)/debian/tmp/usr/bin/gperf-ace
 
@@ -184,9 +184,8 @@ bootstrap: extract
 	cd $(ACE_ROOT) && bin/bootstrap
 
 configure-stamp: extract $(ACE_ROOT)/configure
-	dh_testdir
-	mkdir -p $(ACE_ROOT)/objdir
-	cd $(ACE_ROOT)/objdir && ../configure $(confflags) --prefix=/usr --disable-tao-examples --disable-tao-tests --disable-ace-examples --disable-ace-tests --enable-fl-reactor --enable-qt-reactor --enable-tk-reactor  --enable-xt-reactor --enable-symbol-visibility --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME)
+	mkdir -p objdir
+	cd objdir && ../ACE_wrappers/configure $(confflags) --prefix=/usr --disable-tao-examples --disable-tao-tests --disable-ace-examples --disable-ace-tests --enable-fl-reactor --enable-qt-reactor --enable-tk-reactor  --enable-xt-reactor --enable-symbol-visibility --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME)
 	touch $@
 
 .PHONY: build clean binary-indep binary-arch binary install unpatch prepatch prepatchtwo update-makefile update-makefile-complete source diff dpatch bootstrap
