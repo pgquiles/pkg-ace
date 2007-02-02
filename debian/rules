@@ -11,6 +11,19 @@ export AV := 5.5.6
 export TV := 1.5.6
 export CV := 0.5.6
 
+export DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+export DEB_BUILD_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+
+ifeq ($(DEB_BUILD_GNU_TYPE),$(DEB_HOST_GNU_TYPE))
+confflags += --build $(DEB_HOST_GNU_TYPE)
+else
+confflags += --build $(DEB_BUILD_GNU_TYPE) \
+             --host $(DEB_HOST_GNU_TYPE)
+endif
+
+TCL_HOME := /usr/lib/tcl8.4
+TK_HOME  := /usr/lib/tk8.4
+
 ACE_SUBDIR := ACE_wrappers
 ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO*.tar.bz2 2>/dev/null || echo ace-archive-missing)
 MPC_SUBDIR := MPC
@@ -32,24 +45,6 @@ export TAO_ROOT := $(ACE_ROOT)/TAO
 export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(ACE_ROOT)/lib
 export QTDIR := /usr/share/qt3
 
-PKG_CONFIG_IN = $(shell find $(ACE_ROOT) -name '*.pc.in' 2>/dev/null)
-PKG_CONFIG = $(PKG_CONFIG_IN:.in=)
-
-# This dpatch is only a place holder. The `prepatch' targets stops
-# here by default.
-PREPATCH_MARK_DPATCH_NAME := 79-prepatch-dummy-mark.dpatch
-UNTIL_DPATCH_NAME := $(PREPATCH_MARK_DPATCH_NAME)
-
-# This patch contains the result of the update-makefile target. The
-# idea is to speed up the build proccess using this patch instead
-# of calling MakeProjectCreator.
-MAKEFILE_DPATCH_NAME := 80-update-makefile
-MAKEFILE_DPATCH_FILENAME := debian/patches/$(MAKEFILE_DPATCH_NAME).dpatch
-
-# Used by `dpatch' target.
-DPATCH_NAME := temp.dpatch
-DPATCH_DESC := No description.
-
 # This is the debhelper compatibility version to use.
 export DH_COMPAT=5
 
@@ -67,136 +62,37 @@ debian/mpc-ace.sgml: debian/mpc.sgml
 debian/%.1 debian/%.5: debian/%.sgml
 	docbook-to-man $< > $@
 
-%.pc: %.pc.in
-	sh debian/generate_pkgconfig.sh $< > $@
-
 patch-pl: extract
 	for fn in `find "$(ACE_ROOT)" -name "*.pl"`; do (echo '#!/usr/bin/perl'; cat "$$fn") > "$${fn}T"; mv "$${fn}T" "$$fn"; chmod a+x "$$fn"; done
 	touch $@
 
-ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
-patch: patch-pl $(MPC_ROOT)
-else
-patch: patch-pl
-endif
-	dpatch apply-all
-	touch $@
-
 unpatch: clean extract
 
-$(ACE_ROOT)/debian.features: extract
-	cat debian/config/debian.features > $@
-	echo "// Added by debian/rules based on \$$(DEB_BUILD_OPTIONS)" >> $@
-ifneq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
-	echo "debug=1" >> $@
-else
-	echo "debug=0" >> $@
-endif
-ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-	echo "optimize=0" >> $@
-else
-	echo "optimize=1" >> $@
-endif
+# TODO: DEB_BUILD_OPTIONS broken now
 
-$(ACE_ROOT)/include/makeinclude/platform_macros.GNU: $(ACE_ROOT)/debian.features
-	sed -e 's/^\/\//#/g' "$^" > $@
-	echo >> $@
-	echo "LINK.cc=override" >> $@
-	echo "LINK.cc.override=\$$(PURELINK) \$$(PRELINK) \$$(CXX) \$$(CCFLAGS) \$$(CPPFLAGS) \$$(PTDIRS)" >> $@
-	echo >> $@
-	echo "include \$$(ACE_ROOT)/include/makeinclude/platform_linux.GNU" >> $@
-
-# Prepare a ACE_wrappers directory where most of the patches are applied.
-# We skip the $(MAKEFILE_DPATCH_NAME) dpatch because the intention is to
-# create a new one. The fix-mpc-basedir.dpatch can not be applied too. If
-# other the MakeProjectCreator tools won't work. To achieve that a dummy
-# dpatch file is used: $(PREPATCH_MARK_DPATCH_NAME)
-ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
-prepatch: extract $(MPC_ROOT)
-else
-prepatch: extract
-endif
-	dpatch apply-until $(UNTIL_DPATCH_NAME)
-	$(MAKE) -f debian/rules $(ACE_ROOT)/debian.features
-	rm -rf debian/patched
-
-prepatchtwo: $(ACE_ROOT).orig
-$(ACE_ROOT).orig:
-	$(MAKE) -f debian/rules clean
-	$(MAKE) -f debian/rules prepatch UNTIL_DPATCH_NAME=$(PREPATCH_MARK_DPATCH_NAME)
-	mv "$(ACE_ROOT)" "$(ACE_ROOT).orig.tmp"
-	$(MAKE) -f debian/rules prepatch UNTIL_DPATCH_NAME=$(PREPATCH_MARK_DPATCH_NAME)
-	mv "$(ACE_ROOT).orig.tmp" "$(ACE_ROOT).orig"
-
-dpatch:	$(ACE_ROOT).orig extract
-	diff -I "^# .*bin/mwc.pl.*-include.*-recurse.*" -Nru "$(ACE_SUBDIR).orig" "$(ACE_SUBDIR)" | dpatch patch-template -p "$(DPATCH_NAME)" "$(DPATCH_DESC)" > "$(DPATCH_NAME).dpatch"
-
-# update-makefile is a special target dedicated for creation of a new
-# dpatch after changing the debian/config/debian.feature file. Only
-# projects which are required for distribution are compiled. Examples,
-# tests and performance-tests are skipped. If you intent to compile them
-# too refer to `update-makefile-complete' target below.
-update-makefile: prepatchtwo
-	cd $(ACE_ROOT) \
-	&& dirs=`find * -type d -name "examples" -or -name "tests" -or -name "performance-tests" -or -name "doc*" | tr '\n' ','` \
-	&& $(ACE_ROOT)/bin/mwc.pl -feature_file "$(ACE_ROOT)/debian.features" -recurse -relative ACE_ROOT=$(ACE_ROOT) -noreldefs -exclude $${dirs}TAO/TAOACE.mwc,TAO/CIAO/CIAOTAO.mwc
-	$(MAKE) -f debian/rules dpatch DPATCH_NAME="$(MAKEFILE_DPATCH_NAME)" DPATCH_DESC="MakeProjectCreator generated Makefiles without examples and tests"
-	mv "$(MAKEFILE_DPATCH_NAME).dpatch" "$(MAKEFILE_DPATCH_FILENAME)"
-
-update-makefile-complete: prepatchtwo
-	cd $(ACE_ROOT) && $(ACE_ROOT)/bin/mwc.pl -feature_file "$(ACE_ROOT)/debian.features" -recurse -relative ACE_ROOT=$(ACE_ROOT) -exclude TAO/TAOACE.mwc,TAO/CIAO/CIAOTAO.mwc
-	$(MAKE) -f debian/rules dpatch DPATCH_NAME="$(MAKEFILE_DPATCH_NAME)" DPATCH_DESC="MakeProjectCreator generated Makefiles"
-	mv "$(MAKEFILE_DPATCH_NAME).dpatch" "$(MAKEFILE_DPATCH_FILENAME)"
-
-build: build-stamp build-pkgconfig build-manpages
+build: build-stamp build-manpages
 
 build-manpages: $(MAN1) $(MAN5)
 	touch $@
 
-build-pkgconfig:
-	$(MAKE) -f debian/rules $(PKG_CONFIG)
-	touch $@
-
-build-stamp: patch $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
+build-stamp: configure-stamp
 	dh_testdir
 
-	cp debian/config/config.h $(ACE_ROOT)/ace
+	# Hack to remove once the bug is fixed
+	mkdir -p $(ACE_ROOT)/objdir/ace/QtReactor
+	$(MAKE) -C $(ACE_ROOT)/objdir/ace
 
-#       We have to compile shared and static libraries separately.
-
-	$(MAKE) -C $(ACE_ROOT)/ace shared_libs=1
-	$(MAKE) -C $(ACE_ROOT)/ace static_libs=1
-
-	$(MAKE) -C $(ACE_ROOT)/Kokyu shared_libs=1
-	$(MAKE) -C $(ACE_ROOT)/Kokyu static_libs=1
-
-	$(MAKE) -C $(ACE_ROOT)/ACEXML shared_libs=1
-	$(MAKE) -C $(ACE_ROOT)/ACEXML static_libs=1
-
-	$(MAKE) -C $(ACE_ROOT)/apps/gperf/src
 #	We need to rename gperf so that it does not conflict with the
 #	existing Cygnus based gperf Debian package.
 	cp $(ACE_ROOT)/bin/gperf $(ACE_ROOT)/bin/gperf-ace
 
-	$(MAKE) -C $(ACE_ROOT)/protocols shared_libs=1
-	$(MAKE) -C $(ACE_ROOT)/protocols static_libs=1
-
-	$(MAKE) -C $(TAO_ROOT)
-
-#       Instead of compiling every TAO library statically, we only compile 
-#       statically the libraries we need.
-	$(MAKE) -C $(TAO_ROOT)/tao -f GNUmakefile.TAO_FlResource static_libs=1
-	$(MAKE) -C $(TAO_ROOT)/tao -f GNUmakefile.TAO_QtResource static_libs=1
-	$(MAKE) -C $(TAO_ROOT)/tao -f GNUmakefile.TAO_TkResource static_libs=1
-	$(MAKE) -C $(TAO_ROOT)/tao -f GNUmakefile.TAO_XtResource static_libs=1
-
-	$(MAKE) -C $(TAO_ROOT)/CIAO
+	#$(MAKE) -C $(TAO_ROOT)/CIAO
 
 	touch $@
 
 clean:
 	dh_testdir
-	rm -rf *.tmp $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) debian/patched $(MAN1) $(MAN5) patch-pl patch extract debian/mpc-ace.sgml build-pkgconfig build-manpages build-stamp
+	rm -rf *.tmp $(ACE_SUBDIR) $(MPC_SUBDIR) debian/patched $(MAN1) $(MAN5) patch-pl patch extract debian/mpc-ace.sgml build-manpages build-stamp
 
 	dh_clean
 
@@ -287,4 +183,13 @@ source diff:
 
 binary: binary-indep binary-arch
 
-.PHONY: build clean binary-indep binary-arch binary install unpatch prepatch prepatchtwo update-makefile update-makefile-complete source diff dpatch
+bootstrap: extract
+	cd $(ACE_ROOT) && bin/bootstrap
+
+configure-stamp: extract $(ACE_ROOT)/configure
+	dh_testdir
+	mkdir -p $(ACE_ROOT)/objdir
+	cd $(ACE_ROOT)/objdir && ../configure $(confflags) --prefix=/usr --disable-tao-examples --disable-tao-tests --disable-ace-examples --disable-ace-tests --enable-fl-reactor --enable-qt-reactor --enable-tk-reactor  --enable-xt-reactor --enable-symbol-visibility --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME)
+	touch $@
+
+.PHONY: build clean binary-indep binary-arch binary install unpatch prepatch prepatchtwo update-makefile update-makefile-complete source diff dpatch bootstrap
