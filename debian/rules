@@ -80,11 +80,7 @@ build-stamp: configure-stamp
 
 	# Hack to remove once the bug is fixed
 	mkdir -p $(ACE_ROOT)/objdir/ace/QtReactor
-	$(MAKE) -C $(ACE_ROOT)/objdir/ace
-
-#	We need to rename gperf so that it does not conflict with the
-#	existing Cygnus based gperf Debian package.
-	cp $(ACE_ROOT)/bin/gperf $(ACE_ROOT)/bin/gperf-ace
+	$(MAKE) -C $(ACE_ROOT)/objdir
 
 	#$(MAKE) -C $(TAO_ROOT)/CIAO
 
@@ -102,6 +98,10 @@ install: build
 	dh_clean -k
 	dh_installdirs
 
+	$(MAKE) -C $(ACE_ROOT)/objdir install DESTDIR=$(CURDIR)/debian/tmp
+
+	mv $(CURDIR)/debian/tmp/usr/bin/gperf $(CURDIR)/debian/tmp/usr/bin/gperf-ace
+
 	sed -e 's/gperf/gperf-ace/g' \
             -e 's/GPERF/GPERF-ACE/g' \
            $(ACE_ROOT)/apps/gperf/gperf.1 > \
@@ -112,7 +112,7 @@ install: build
            $(ACE_ROOT)/apps/gperf/gperf-ace.info
 
 #	Rename the catior utility, it already exists in another package
-	cp $(TAO_ROOT)/utils/catior/catior $(TAO_ROOT)/utils/catior/tao-catior
+	mv $(CURDIR)/debian/tmp/usr/bin/catior $(CURDIR)/debian/tmp/usr/bin/tao-catior
 
 #       Multiple README
 	cp $(TAO_ROOT)/utils/catior/README $(TAO_ROOT)/utils/catior/README.catior
@@ -120,9 +120,9 @@ install: build
 
 #	Rename tao_idl to have a script automatically define ACE_ROOT and
 #	TAO_ROOT
-	cp $(TAO_ROOT)/TAO_IDL/tao_idl $(TAO_ROOT)/TAO_IDL/tao_idl.real
+	mv $(CURDIR)/debian/tmp/usr/bin/tao_idl $(CURDIR)/debian/tmp/usr/bin/tao_idl.real
 	$(INSTALL) -m 755 -o root -g root -D debian/tao_idl debian/tao-idl/usr/bin/tao_idl
-	cp $(TAO_ROOT)/orbsvcs/IFR_Service/tao_ifr $(TAO_ROOT)/orbsvcs/IFR_Service/tao_ifr.real
+	mv  $(CURDIR)/debian/tmp/usr/bin/tao_ifr  $(CURDIR)/debian/tmp/usr/bin/tao_ifr.real
 	$(INSTALL) -m 755 -o root -g root -D debian/tao_ifr debian/tao-ifr/usr/bin/tao_ifr
 
 #       Rename mpc.pl and mwc.pl so that they do not include language extension.
@@ -135,13 +135,10 @@ install: build
 #	And on some header files
 	-chmod -x `find $(TAO_ROOT)/orbsvcs -perm 755 ! -type d -a \( -name "*.h" -o -name "*.inl" -o -name "*.i" \)`
 
-	dh_install --sourcedir=$(ACE_ROOT)
+	dh_install --sourcedir=debian/tmp
 
 #	Fix duplicate files within reactor packages and main packages
 	sh debian/remove_reactor_dups.sh
-
-#	Install the C++ template sources.
-	sh debian/copy_template_sources.sh
 
 binary-indep: build install
 	dh_testdir -i
