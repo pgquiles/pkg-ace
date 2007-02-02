@@ -4,12 +4,12 @@
 # written February 2002 by Ossama Othman <ossama@debian.org>
 # Modified August 2003 by Brian Nelson <pyro@debian.org>
 # Copyright (C) 2004  Raphael Bossek <bossekr@debian.org>
-# Modified 2005, 2006 by Thomas Girard <thomas.g.girard@free.fr>
+# Modified 2005, 2006, 2007 by Thomas Girard <thomas.g.girard@free.fr>
 
 INSTALL := install
-export AV := 5.4.7
-export TV := 1.4.7
-export CV := 0.4.7
+export AV := 5.5.6
+export TV := 1.5.6
+export CV := 0.5.6
 
 ACE_SUBDIR := ACE_wrappers
 ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO*.tar.bz2 2>/dev/null || echo ace-archive-missing)
