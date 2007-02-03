@@ -1,0 +1,26 @@
+--- TAO/configure.ac-	2007-02-03 14:03:18.000000000 +0000
++++ TAO/configure.ac	2007-02-03 14:04:27.000000000 +0000
+@@ -149,10 +149,12 @@
+ TAO_MAJOR=$2
+ TAO_MINOR=$3
+ TAO_BETA=$4
++TAO_VERSION_NAME=TAO_VERSION
+ 
+ AC_SUBST([TAO_MAJOR])
+ AC_SUBST([TAO_MINOR])
+ AC_SUBST([TAO_BETA])
++AC_SUBST([TAO_VERSION_NAME])
+ 
+ dnl We should have --with/--enable flags for these options.
+ dnl Until we do, set them to reasonable defaults.
+--- TAO/MPC/config/taodefaults.mpb-	2007-02-03 13:57:02.000000000 +0000
++++ TAO/MPC/config/taodefaults.mpb	2007-02-03 14:05:19.000000000 +0000
+@@ -7,7 +7,7 @@
+   libpaths    += $(ACE_ROOT)/lib
+ 
+   specific(automake) {
+-    am_version = @TAO_MAJOR@:@TAO_MINOR@:@TAO_BETA@
++    am_release = @TAO_VERSION_NAME@
+     includes += $(TAO_BUILDDIR)
+     libpaths -= $(ACE_ROOT)/lib
+   }
