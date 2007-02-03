@@ -1,1 +1,1 @@
-ace/SSL/libACE_SSL.so.* usr/lib
+usr/lib/libACE_SSL-*.so

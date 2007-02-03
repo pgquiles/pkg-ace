@@ -1,4 +1,3 @@
-ACEXML/apps/svcconf/libACEXML_XML_Svc_Conf_Parser.so.*  usr/lib
-ACEXML/common/libACEXML.so.*                            usr/lib
-ACEXML/parser/parser/libACEXML_Parser.so.*              usr/lib
-
+usr/lib/libACEXML_XML_Svc_Conf_Parser-*.so
+usr/lib/libACEXML-*.so
+usr/lib/libACEXML_Parser-*.so

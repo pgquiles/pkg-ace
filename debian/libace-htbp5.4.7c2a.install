@@ -1,1 +1,1 @@
-protocols/ace/HTBP/libACE_HTBP.so.* usr/lib
+usr/lib/libACE_HTBP-*.so

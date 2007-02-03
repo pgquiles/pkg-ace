@@ -1,12 +1,5 @@
-ACEXML/common/*.{h,i,inl}                            usr/include/ACEXML/common
-ACEXML/common/libACEXML.a                            usr/lib
-ACEXML/common/libACEXML.so                           usr/lib
-ACEXML/common/ACEXML.pc                              usr/lib/pkgconfig
-ACEXML/apps/svcconf/*.{h,i}                          usr/include/ACEXML/apps/svcconf
-ACEXML/apps/svcconf/libACEXML_XML_Svc_Conf_Parser.a  usr/lib
-ACEXML/apps/svcconf/libACEXML_XML_Svc_Conf_Parser.so usr/lib
-ACEXML/apps/svcconf/ACEXML_XML_Svc_Conf_Parser.pc    usr/lib/pkgconfig
-ACEXML/parser/parser/*.{h,i,inl}                     usr/include/ACEXML/parser/parser   
-ACEXML/parser/parser/libACEXML_Parser.a              usr/lib
-ACEXML/parser/parser/libACEXML_Parser.so             usr/lib
-ACEXML/parser/parser/ACEXML_Parser.pc                usr/lib/pkgconfig
+usr/include/ACEXML
+usr/lib/libACEXML.so
+usr/lib/libACEXML_Parser.so
+usr/lib/libACEXML_XML_Svc_Conf_Parser.so
+usr/lib/pkgconfig/ACEXML*.pc

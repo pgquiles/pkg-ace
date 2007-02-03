@@ -1,6 +1,4 @@
-ace/*.{h,inl}  usr/include/ace
-ace/os_include usr/include/ace
-ace/libACE.a   usr/lib
-ace/libACE.so  usr/lib
-include        usr/share/ace
-ace/ACE.pc     usr/lib/pkgconfig
+usr/include/ace/*.{h,inl}
+usr/include/ace/os_include
+usr/lib/libACE.so
+usr/lib/pkgconfig/ACE.pc
