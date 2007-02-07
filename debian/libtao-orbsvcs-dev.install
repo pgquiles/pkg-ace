@@ -1,105 +1,101 @@
-TAO/orbsvcs/Concurrency_Service/*.h                       usr/include/orbsvcs/Concurrency_Service
-TAO/orbsvcs/Event_Service/*.h                             usr/include/orbsvcs/Event_Service
-TAO/orbsvcs/Fault_Detector/*.h                            usr/include/orbsvcs/Fault_Detector
-TAO/orbsvcs/Fault_Notifier/*.h                            usr/include/orbsvcs/Fault_Notifier
-TAO/orbsvcs/FT_ReplicationManager/*.h                     usr/include/orbsvcs/FT_ReplicationManager
-TAO/orbsvcs/FTRT_Event_Service/Event_Service/*.h          usr/include/orbsvcs/FTRT_Event_Service/Event_Service
-TAO/orbsvcs/FTRT_Event_Service/Factory_Service/*.h        usr/include/orbsvcs/FTRT_Event_Service/Factory_Service
-TAO/orbsvcs/IFR_Service/*.h                               usr/include/orbsvcs/IFR_Service
-TAO/orbsvcs/ImplRepo_Service/*.{h,inl}                    usr/include/orbsvcs/ImplRepo_Service
-TAO/orbsvcs/LifeCycle_Service/*.h                         usr/include/orbsvcs/LifeCycle_Service
-TAO/orbsvcs/LoadBalancer/*.h                              usr/include/orbsvcs/LoadBalancer
-TAO/orbsvcs/Logging_Service/Basic_Logging_Service/*.h     usr/include/orbsvcs/Logging_Service/Basic_Logging_Service
-TAO/orbsvcs/Logging_Service/Event_Logging_Service/*.h     usr/include/orbsvcs/Logging_Service/Event_Logging_Service
-TAO/orbsvcs/Logging_Service/Notify_Logging_Service/*.h    usr/include/orbsvcs/Logging_Service/Notify_Logging_Service
-TAO/orbsvcs/Logging_Service/RTEvent_Logging_Service/*.h   usr/include/orbsvcs/Logging_Service/RTEvent_Logging_Service
-TAO/orbsvcs/Naming_Service/*.h                            usr/include/orbsvcs/Naming_Service
-TAO/orbsvcs/Notify_Service/*.h                            usr/include/orbsvcs/Notify_Service
-TAO/orbsvcs/Scheduling_Service/*.h                        usr/include/orbsvcs/Scheduling_Service
-TAO/orbsvcs/Time_Service/*.h                              usr/include/orbsvcs/Time_Service
-TAO/orbsvcs/Trading_Service/*.h                           usr/include/orbsvcs/Trading_Service
-TAO/orbsvcs/orbsvcs/*.{h,i,inl,idl}                       usr/include/orbsvcs/orbsvcs
-TAO/orbsvcs/orbsvcs/AV/*.{h,i}                            usr/include/orbsvcs/orbsvcs/AV
-TAO/orbsvcs/orbsvcs/Concurrency/*.h                       usr/include/orbsvcs/orbsvcs/Concurrency
-TAO/orbsvcs/orbsvcs/CosEvent/*.{h,i}                      usr/include/orbsvcs/orbsvcs/CosEvent
-TAO/orbsvcs/orbsvcs/ESF/*.{h,i}                           usr/include/orbsvcs/orbsvcs/ESF
-TAO/orbsvcs/orbsvcs/ETCL/*.{h,i,inl}                      usr/include/orbsvcs/orbsvcs/ETCL
-TAO/orbsvcs/orbsvcs/Event/*.{h,i}                         usr/include/orbsvcs/orbsvcs/Event
-TAO/orbsvcs/orbsvcs/FaultTolerance/*.{h,i,inl}            usr/include/orbsvcs/orbsvcs/FaultTolerance
-TAO/orbsvcs/orbsvcs/FtRtEvent/ClientORB/*.h               usr/include/orbsvcs/orbsvcs/FtRtEvent/ClientORB
-TAO/orbsvcs/orbsvcs/FtRtEvent/EventChannel/*.{h,inl}      usr/include/orbsvcs/orbsvcs/FtRtEvent/EventChannel
-TAO/orbsvcs/orbsvcs/FtRtEvent/Utils/*.{h,inl}             usr/include/orbsvcs/orbsvcs/FtRtEvent/Utils
-TAO/orbsvcs/orbsvcs/IFRService/*.{h,inl}                  usr/include/orbsvcs/orbsvcs/IFRService
-TAO/orbsvcs/orbsvcs/LifeCycle/*.h                         usr/include/orbsvcs/orbsvcs/LifeCycle
-TAO/orbsvcs/orbsvcs/LoadBalancing/*.{h,inl}               usr/include/orbsvcs/orbsvcs/LoadBalancing
-TAO/orbsvcs/orbsvcs/Log/*.h                               usr/include/orbsvcs/orbsvcs/Log
-TAO/orbsvcs/orbsvcs/Metrics/*.{h,i}                       usr/include/orbsvcs/orbsvcs/Metrics
-TAO/orbsvcs/orbsvcs/Naming/*.{h,inl}                      usr/include/orbsvcs/orbsvcs/Naming
-TAO/orbsvcs/orbsvcs/Notify/*.{h,inl}                      usr/include/orbsvcs/orbsvcs/Notify
-TAO/orbsvcs/orbsvcs/Notify/Any/*.h                        usr/include/orbsvcs/orbsvcs/Notify/Any
-TAO/orbsvcs/orbsvcs/Notify/Sequence/*.h                   usr/include/orbsvcs/orbsvcs/Notify/Sequence
-TAO/orbsvcs/orbsvcs/Notify/Structured/*.h                 usr/include/orbsvcs/orbsvcs/Notify/Structured
-TAO/orbsvcs/orbsvcs/PortableGroup/*.{h,i,inl}             usr/include/orbsvcs/orbsvcs/PortableGroup
-TAO/orbsvcs/orbsvcs/Property/*.h                          usr/include/orbsvcs/orbsvcs/Property
-TAO/orbsvcs/orbsvcs/SSLIOP/*.{h,i,inl,pidl}               usr/include/orbsvcs/orbsvcs/SSLIOP
-TAO/orbsvcs/orbsvcs/Sched/*.{h,i}                         usr/include/orbsvcs/orbsvcs/Sched
-TAO/orbsvcs/orbsvcs/Security/*.{h,inl}                    usr/include/orbsvcs/orbsvcs/Security
-TAO/orbsvcs/orbsvcs/Time/*.h                              usr/include/orbsvcs/orbsvcs/Time
-TAO/orbsvcs/orbsvcs/Trader/*.h                            usr/include/orbsvcs/orbsvcs/Trader
-TAO/orbsvcs/IFR_Service/libTAO_IFR_BE.so                  usr/lib
-TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Activator.so      usr/lib
-TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Activator_IDL.so  usr/lib
-TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Locator.so        usr/lib
-TAO/orbsvcs/ImplRepo_Service/libTAO_ImR_Locator_IDL.so    usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_AV.so                          usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosConcurrency.so              usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosEvent.so                    usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosEvent_Skel.so               usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosEvent_Serv.so               usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosLifeCycle.so                usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosLoadBalancing.so            usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosNaming.so                   usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosNaming_Skel.so              usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosNaming_Serv.so              usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosNotification.so             usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosNotification_Skel.so        usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosNotification_Serv.so        usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosNotification_Persist.so     usr/lib
-TAO/orbsvcs/FT_ReplicationManager/libTAO_ReplicationManagerLib.so usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosProperty.so                 usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosTime.so                     usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosTrading.so                  usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosTrading_Skel.so             usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_CosTrading_Serv.so             usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_DsEventLogAdmin.so             usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_DsEventLogAdmin_Skel.so        usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_DsEventLogAdmin_Serv.so        usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_DsLogAdmin.so                  usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_DsLogAdmin_Skel.so             usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_DsLogAdmin_Serv.so             usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_DsNotifyLogAdmin.so            usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_DsNotifyLogAdmin_Skel.so       usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_DsNotifyLogAdmin_Serv.so       usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_ETCL.so                        usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_FT_ServerORB.so                usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_FT_ClientORB.so                usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_FTORB_Utils.so                 usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_FaultTolerance.so              usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_IFRService.so                  usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_PortableGroup.so               usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_RTCORBAEvent.so                usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_RTEvent.so                     usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_RTEvent_Serv.so                usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_RTEvent_Skel.so                usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_RTEventLogAdmin.so             usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_RTKokyuEvent.so                usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_RTSched.so                     usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_RTSchedEvent.so                usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_RT_Notification.so             usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_SSLIOP.so                      usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_Security.so                    usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_Svc_Utils.so                   usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_FTRT_EventChannel.so           usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_FtRtEvent.so                   usr/lib
-TAO/orbsvcs/orbsvcs/libTAO_FTRT_ClientORB.so              usr/lib
-TAO/orbsvcs/orbsvcs/*.pc                                  usr/lib/pkgconfig
+usr/include/orbsvcs
+usr/lib/libTAO_AV.so
+usr/lib/libTAO_CosConcurrency.so
+usr/lib/libTAO_CosEvent.so
+usr/lib/libTAO_CosEvent_Skel.so
+usr/lib/libTAO_CosEvent_Serv.so
+usr/lib/libTAO_CosLifeCycle.so
+usr/lib/libTAO_CosLoadBalancing.so
+usr/lib/libTAO_CosNaming.so
+usr/lib/libTAO_CosNaming_Skel.so
+usr/lib/libTAO_CosNaming_Serv.so
+usr/lib/libTAO_CosNotification.so
+usr/lib/libTAO_CosNotification_Skel.so
+usr/lib/libTAO_CosNotification_Serv.so
+usr/lib/libTAO_CosNotification_Persist.so
+usr/lib/libTAO_CosProperty.so
+usr/lib/libTAO_CosTime.so
+usr/lib/libTAO_CosTrading.so
+usr/lib/libTAO_CosTrading_Skel.so
+usr/lib/libTAO_CosTrading_Serv.so
+usr/lib/libTAO_DsEventLogAdmin.so
+usr/lib/libTAO_DsEventLogAdmin_Skel.so
+usr/lib/libTAO_DsEventLogAdmin_Serv.so
+usr/lib/libTAO_DsLogAdmin.so
+usr/lib/libTAO_DsLogAdmin_Skel.so
+usr/lib/libTAO_DsLogAdmin_Serv.so
+usr/lib/libTAO_DsNotifyLogAdmin.so
+usr/lib/libTAO_DsNotifyLogAdmin_Skel.so
+usr/lib/libTAO_DsNotifyLogAdmin_Serv.so
+usr/lib/libTAO_ETCL.so
+usr/lib/libTAO_FT_ServerORB.so
+usr/lib/libTAO_FT_ClientORB.so
+usr/lib/libTAO_FTORB_Utils.so
+usr/lib/libTAO_FaultTolerance.so
+usr/lib/libTAO_IFRService.so
+usr/lib/libTAO_PortableGroup.so
+usr/lib/libTAO_RTCORBAEvent.so
+usr/lib/libTAO_RTEvent.so
+usr/lib/libTAO_RTEvent_Serv.so
+usr/lib/libTAO_RTEvent_Skel.so
+usr/lib/libTAO_RTEventLogAdmin.so
+usr/lib/libTAO_RTKokyuEvent.so
+usr/lib/libTAO_RTSched.so
+usr/lib/libTAO_RTSchedEvent.so
+usr/lib/libTAO_RT_Notification.so
+usr/lib/libTAO_SSLIOP.so
+usr/lib/libTAO_Security.so
+usr/lib/libTAO_Svc_Utils.so
+usr/lib/libTAO_FTRT_EventChannel.so
+usr/lib/libTAO_FtRtEvent.so
+usr/lib/libTAO_FTRT_ClientORB.so
+#usr/lib/pkgconfig/TAO_AV.pc
+usr/lib/pkgconfig/TAO_CosConcurrency.pc
+usr/lib/pkgconfig/TAO_CosEvent.pc
+usr/lib/pkgconfig/TAO_CosEvent_Skel.pc
+usr/lib/pkgconfig/TAO_CosEvent_Serv.pc
+usr/lib/pkgconfig/TAO_CosLifeCycle.pc
+usr/lib/pkgconfig/TAO_CosLoadBalancing.pc
+usr/lib/pkgconfig/TAO_CosNaming.pc
+usr/lib/pkgconfig/TAO_CosNaming_Skel.pc
+usr/lib/pkgconfig/TAO_CosNaming_Serv.pc
+usr/lib/pkgconfig/TAO_CosNotification.pc
+usr/lib/pkgconfig/TAO_CosNotification_Skel.pc
+usr/lib/pkgconfig/TAO_CosNotification_Serv.pc
+#usr/lib/pkgconfig/TAO_CosNotification_Persist.pc
+usr/lib/pkgconfig/TAO_CosProperty.pc
+usr/lib/pkgconfig/TAO_CosTime.pc
+usr/lib/pkgconfig/TAO_CosTrading.pc
+usr/lib/pkgconfig/TAO_CosTrading_Skel.pc
+usr/lib/pkgconfig/TAO_CosTrading_Serv.pc
+usr/lib/pkgconfig/TAO_DsEventLogAdmin.pc
+usr/lib/pkgconfig/TAO_DsEventLogAdmin_Skel.pc
+usr/lib/pkgconfig/TAO_DsEventLogAdmin_Serv.pc
+usr/lib/pkgconfig/TAO_DsLogAdmin.pc
+usr/lib/pkgconfig/TAO_DsLogAdmin_Skel.pc
+usr/lib/pkgconfig/TAO_DsLogAdmin_Serv.pc
+usr/lib/pkgconfig/TAO_DsNotifyLogAdmin.pc
+usr/lib/pkgconfig/TAO_DsNotifyLogAdmin_Skel.pc
+usr/lib/pkgconfig/TAO_DsNotifyLogAdmin_Serv.pc
+usr/lib/pkgconfig/TAO_ETCL.pc
+usr/lib/pkgconfig/TAO_FT_ServerORB.pc
+usr/lib/pkgconfig/TAO_FT_ClientORB.pc
+usr/lib/pkgconfig/TAO_FTORB_Utils.pc
+usr/lib/pkgconfig/TAO_FaultTolerance.pc
+#usr/lib/pkgconfig/TAO_IFRService.pc
+usr/lib/pkgconfig/TAO_PortableGroup.pc
+#usr/lib/pkgconfig/TAO_RTCORBAEvent.pc
+usr/lib/pkgconfig/TAO_RTEvent.pc
+usr/lib/pkgconfig/TAO_RTEvent_Serv.pc
+usr/lib/pkgconfig/TAO_RTEvent_Skel.pc
+usr/lib/pkgconfig/TAO_RTEventLogAdmin.pc
+#usr/lib/pkgconfig/TAO_RTKokyuEvent.pc
+#usr/lib/pkgconfig/TAO_RTSched.pc
+#usr/lib/pkgconfig/TAO_RTSchedEvent.pc
+#usr/lib/pkgconfig/TAO_RT_Notification.pc
+#usr/lib/pkgconfig/TAO_SSLIOP.pc
+#usr/lib/pkgconfig/TAO_Security.pc
+usr/lib/pkgconfig/TAO_Svc_Utils.pc
+#usr/lib/pkgconfig/TAO_FTRT_EventChannel.pc
+#usr/lib/pkgconfig/TAO_FtRtEvent.pc
+#usr/lib/pkgconfig/TAO_FTRT_ClientORB.pc
