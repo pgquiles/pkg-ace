@@ -1,5 +1,2 @@
-TAO/tao/libTAO_QtResource.so    usr/lib
-TAO/tao/libTAO_QtResource.a     usr/lib
-TAO/tao/QtResource_Factory.h    usr/include/tao
-TAO/tao/QtResource_Loader.h     usr/include/tao
-TAO/tao/TAO_QtResource_Export.h usr/include/tao
+usr/lib/libTAO_QtResource.so
+usr/include/tao/QtResource

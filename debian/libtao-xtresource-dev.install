@@ -1,5 +1,2 @@
-TAO/tao/libTAO_XtResource.so    usr/lib
-TAO/tao/libTAO_XtResource.a     usr/lib
-TAO/tao/XtResource_Factory.h    usr/include/tao
-TAO/tao/XtResource_Loader.h     usr/include/tao
-TAO/tao/TAO_XtResource_Export.h usr/include/tao
+usr/lib/libTAO_XtResource.so
+usr/include/tao/XtResource
