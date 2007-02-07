@@ -1,2 +1,2 @@
-TAO/orbsvcs/Scheduling_Service/Scheduling_Service usr/bin
-TAO/orbsvcs/Dump_Schedule/Dump_Schedule           usr/bin
+usr/bin/Scheduling_Service
+usr/bin/Dump_Schedule

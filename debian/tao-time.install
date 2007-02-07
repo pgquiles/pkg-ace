@@ -1,2 +1,2 @@
-TAO/orbsvcs/Time_Service/Time_Service_Server usr/bin
-TAO/orbsvcs/Time_Service/Time_Service_Clerk  usr/bin
+usr/bin/Time_Service_Server
+usr/bin/Time_Service_Clerk

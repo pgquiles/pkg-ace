@@ -1,2 +1,2 @@
-TAO/orbsvcs/LoadBalancer/LoadManager usr/bin
-TAO/orbsvcs/LoadBalancer/LoadMonitor usr/bin
+usr/bin/LoadManager
+usr/bin/LoadMonitor

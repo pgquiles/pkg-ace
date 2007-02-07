@@ -1,3 +1,3 @@
-TAO/orbsvcs/FTRT_Event_Service/Event_Service/ftrt_eventservice        usr/bin
-TAO/orbsvcs/FTRT_Event_Service/Factory_Service/ftrtec_factory_service usr/bin
-TAO/orbsvcs/FTRT_Event_Service/Gateway_Service/ftrtec_gateway_service usr/bin
+#usr/bin/ftrt_eventservice
+#usr/bin/ftrtec_factory_service
+#usr/bin/ftrtec_gateway_service
