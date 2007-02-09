@@ -1,5 +1,0 @@
-TAO/CIAO/ciao/libCIAO_Client.so.*                   usr/lib
-TAO/CIAO/ciao/libCIAO_Container.so.*                usr/lib
-TAO/CIAO/ciao/libCIAO_Server.so.*                   usr/lib
-TAO/CIAO/tools/XML_Helpers/libCIAO_XML_Helpers.so.* usr/lib
-TAO/CIAO/tools/Segment_Timer/libSegment_Timer.so.*  usr/lib
