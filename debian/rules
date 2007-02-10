@@ -56,7 +56,7 @@ $(MPC_ROOT): $(MPC_ARCHIVE)
 	tar -xzf $<
 	touch $@
 
-debian/mpc-ace.sgml: debian/mpc.sgml
+debian/mpc-ace.sgml: ACE_wrappers/MPC/docs/MPC.sgml
 	sed -e 's/mpc\.pl/mpc-ace/g' -e 's/mwc\.pl/mwc-ace/g' $< > $@
 
 debian/%.1 debian/%.5: debian/%.sgml
@@ -113,7 +113,7 @@ install: build
            $(ACE_ROOT)/apps/gperf/gperf-ace.info
 
 #	Rename the catior utility, it already exists in another package
-	mv $(CURDIR)/debian/tmp/usr/bin/catior $(CURDIR)/debian/tmp/usr/bin/tao-catior
+	mv debian/tmp/usr/bin/catior debian/tmp/usr/bin/tao-catior
 
 #       Multiple README
 	cp $(TAO_ROOT)/utils/catior/README $(TAO_ROOT)/utils/catior/README.catior
