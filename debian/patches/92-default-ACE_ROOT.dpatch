@@ -6,18 +6,15 @@
 ## DP: GNUmakefile if no ACE_ROOT is set.
 
 @DPATCH@
-
-Index: ACE_wrappers/bin/MakeProjectCreator/modules/GNUACEWorkspaceCreator.pm
-===================================================================
---- ACE_wrappers.orig/bin/MakeProjectCreator/modules/GNUACEWorkspaceCreator.pm	2004-10-28 18:13:32.000000000 +0200
-+++ ACE_wrappers/bin/MakeProjectCreator/modules/GNUACEWorkspaceCreator.pm	2005-01-14 23:31:02.000000000 +0100
-@@ -77,6 +77,9 @@
+--- ACE_wrappers.orig/bin/MakeProjectCreator/modules/GNUACEWorkspaceCreator.pm
++++ ACE_wrappers/bin/MakeProjectCreator/modules/GNUACEWorkspaceCreator.pm
+@@ -89,6 +89,9 @@
              "ifeq (\$(findstring k,\$(MAKEFLAGS)),k)$crlf",
              "  KEEP_GOING = -$crlf",
              "endif$crlf$crlf",
-+	    "ifndef ACE_ROOT$crlf",
-+	    "  export ACE_ROOT = /usr/share/ace$crlf",
-+	    "endif$crlf",
-             "include \$(ACE_ROOT)/include/makeinclude/macros.GNU$crlf",
-             $crlf;
++            "ifndef ACE_ROOT$crlf",
++            "  export ACE_ROOT = /usr/share/ace$crlf",
++            "endif$crlf",
+             "include \$(ACE_ROOT)/include/makeinclude/macros.GNU$crlf";
  
+   if ($named) {

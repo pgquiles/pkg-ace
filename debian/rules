@@ -66,6 +66,14 @@ patch-pl: extract
 	for fn in `find "$(ACE_ROOT)" -name "*.pl"`; do (echo '#!/usr/bin/perl'; cat "$$fn") > "$${fn}T"; mv "$${fn}T" "$$fn"; chmod a+x "$$fn"; done
 	touch $@
 
+ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
+patch: extract $(MPC_ROOT)
+else
+patch: extract
+endif
+	dpatch apply-all
+	touch $@
+
 unpatch: clean extract
 
 # TODO: DEB_BUILD_OPTIONS broken now
