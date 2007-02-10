@@ -100,12 +100,13 @@ install: build
 
 	$(MAKE) -C objdir install DESTDIR=$(CURDIR)/debian/tmp
 
-	mv $(CURDIR)/debian/tmp/usr/bin/gperf $(CURDIR)/debian/tmp/usr/bin/gperf-ace
+	mv debian/tmp/usr/bin/gperf debian/tmp/usr/bin/gperf-ace
 
 	sed -e 's/gperf/gperf-ace/g' \
             -e 's/GPERF/GPERF-ACE/g' \
-           $(ACE_ROOT)/apps/gperf/gperf.1 > \
-	   $(ACE_ROOT)/apps/gperf/gperf-ace.1
+           debian/tmp/usr/share/man/man1/gperf.1 > \
+	   debian/tmp/usr/share/man/man1/gperf-ace.1
+	rm -f debian/tmp/usr/share/man/man1/gperf.1
 	sed -e 's/gperf\.info/gperf-ace\.info/g' \
             -e 's/(gperf)\.    /(gperf-ace)\./g' \
            $(ACE_ROOT)/apps/gperf/gperf.info > \
@@ -120,9 +121,9 @@ install: build
 
 #	Rename tao_idl to have a script automatically define ACE_ROOT and
 #	TAO_ROOT
-	mv $(CURDIR)/debian/tmp/usr/bin/tao_idl $(CURDIR)/debian/tmp/usr/bin/tao_idl.real
+	mv debian/tmp/usr/bin/tao_idl debian/tmp/usr/bin/tao_idl.real
 	$(INSTALL) -m 755 -o root -g root -D debian/tao_idl debian/tao-idl/usr/bin/tao_idl
-	mv  $(CURDIR)/debian/tmp/usr/bin/tao_ifr  $(CURDIR)/debian/tmp/usr/bin/tao_ifr.real
+	mv  debian/tmp/usr/bin/tao_ifr  debian/tmp/usr/bin/tao_ifr.real
 	$(INSTALL) -m 755 -o root -g root -D debian/tao_ifr debian/tao-ifr/usr/bin/tao_ifr
 
 #       Rename mpc.pl and mwc.pl so that they do not include language extension.
@@ -135,7 +136,9 @@ install: build
 #	And on some header files
 	-chmod -x `find $(TAO_ROOT)/orbsvcs -perm 755 ! -type d -a \( -name "*.h" -o -name "*.inl" -o -name "*.i" \)`
 
-	dh_install --sourcedir=debian/tmp
+#       We don't install .la files
+	find debian/tmp -name '*.la' -print0 | xargs -0 rm
+	dh_install --sourcedir=debian/tmp --list-missing
 
 binary-indep: build install
 	dh_testdir -i
