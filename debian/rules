@@ -167,7 +167,7 @@ binary-arch: build install
 	dh_fixperms -a
 	dh_makeshlibs -a -V
 	dh_installdeb -a
-	dh_shlibdeps -a -l `ls -1 debian/lib*c2a.install | sed -e 's#\(.*\)\.install#\1/usr/lib#' | tr '\n' ':' | sed -e 's#:$$##'`
+	dh_shlibdeps -a -l `ls -1 debian/lib*.install | sed -e 's#\(.*\)\.install#\1/usr/lib#' | tr '\n' ':' | sed -e 's#:$$##'`
 	dh_gencontrol -a
 	dh_md5sums -a
 	dh_builddeb -a
@@ -182,7 +182,7 @@ bootstrap: extract
 
 configure-stamp: extract $(ACE_ROOT)/configure
 	mkdir -p objdir
-	cd objdir && ../ACE_wrappers/configure $(confflags) --prefix=/usr --disable-tao-examples --disable-tao-tests --disable-ace-examples --disable-ace-tests --enable-fl-reactor --enable-qt-reactor --enable-tk-reactor  --enable-xt-reactor --enable-symbol-visibility --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME)
+	cd objdir && ../ACE_wrappers/configure $(confflags) --prefix=/usr --disable-tao-examples --disable-tao-tests --disable-ace-examples --disable-ace-tests --enable-fl-reactor --enable-qt-reactor --enable-tk-reactor  --enable-xt-reactor --enable-symbol-visibility --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME) --enable-ipv6 --enable-inline --enable-probe
 	touch $@
 
 .PHONY: build clean binary-indep binary-arch binary install unpatch prepatch prepatchtwo update-makefile update-makefile-complete source diff dpatch bootstrap
