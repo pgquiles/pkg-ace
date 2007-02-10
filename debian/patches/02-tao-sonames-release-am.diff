@@ -1,6 +1,6 @@
 diff -Nru ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/Makefile.am ACE_wrappers/TAO/orbsvcs/orbsvcs/Makefile.am
 --- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/Makefile.am	2007-01-04 14:06:26.000000000 +0000
-+++ ACE_wrappers/TAO/orbsvcs/orbsvcs/Makefile.am	2007-02-07 12:46:11.000000000 +0000
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/Makefile.am	2007-02-10 21:39:09.000000000 +0000
 @@ -76,7 +76,7 @@
    Naming/Naming_Client.cpp
  
@@ -515,8 +515,8 @@ diff -Nru ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/Makefile.am ACE_wrappers/TAO/orb
  libTAO_SSLIOP_la_LIBADD = \
    $(TAO_BUILDDIR)/tao/libTAO_PI_Server.la \
 diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
---- ACE_wrappers.orig/TAO/tao/Makefile.am	2007-01-09 03:46:52.000000000 +0000
-+++ ACE_wrappers/TAO/tao/Makefile.am	2007-02-07 12:46:13.000000000 +0000
+--- ACE_wrappers.orig/TAO/tao/Makefile.am	2007-01-26 12:04:58.000000000 +0000
++++ ACE_wrappers/TAO/tao/Makefile.am	2007-02-10 21:39:10.000000000 +0000
 @@ -954,7 +954,7 @@
    target_specification.cpp
  
@@ -580,7 +580,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_PortableServer_la_LIBADD = \
    libTAO_AnyTypeCode.la \
-@@ -3302,7 +3302,7 @@
+@@ -3301,7 +3301,7 @@
    CSD_Framework/CSD_Strategy_Repository.cpp
  
  libTAO_CSD_Framework_la_LDFLAGS = \
@@ -589,7 +589,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_CSD_Framework_la_LIBADD = \
    libTAO_PI.la \
-@@ -3388,7 +3388,7 @@
+@@ -3386,7 +3386,7 @@
    CSD_ThreadPool/CSD_ThreadPool.cpp
  
  libTAO_CSD_ThreadPool_la_LDFLAGS = \
@@ -598,7 +598,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_CSD_ThreadPool_la_LIBADD = \
    libTAO_CSD_Framework.la \
-@@ -3496,7 +3496,7 @@
+@@ -3494,7 +3494,7 @@
    Compression/Compressor_Factory.cpp
  
  libTAO_Compression_la_LDFLAGS = \
@@ -607,7 +607,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_Compression_la_LIBADD = \
    libTAO.la \
-@@ -3634,7 +3634,7 @@
+@@ -3632,7 +3632,7 @@
    IFR_Client/IFR_ExtendedC.cpp
  
  libTAO_IFR_Client_la_LDFLAGS = \
@@ -616,7 +616,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_IFR_Client_la_LIBADD = \
    libTAO_AnyTypeCode.la \
-@@ -3702,7 +3702,7 @@
+@@ -3700,7 +3700,7 @@
    Domain/DomainS.cpp
  
  libTAO_Domain_la_LDFLAGS = \
@@ -625,7 +625,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_Domain_la_LIBADD = \
    libTAO_PortableServer.la \
-@@ -3778,7 +3778,7 @@
+@@ -3776,7 +3776,7 @@
    Valuetype/Valuetype_Adapter_Impl.cpp
  
  libTAO_Valuetype_la_LDFLAGS = \
@@ -634,7 +634,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_Valuetype_la_LIBADD = \
    libTAO_AnyTypeCode.la \
-@@ -3876,7 +3876,7 @@
+@@ -3874,7 +3874,7 @@
    DynamicAny/DynamicAnyC.cpp
  
  libTAO_DynamicAny_la_LDFLAGS = \
@@ -643,7 +643,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_DynamicAny_la_LIBADD = \
    libTAO_Valuetype.la \
-@@ -4133,7 +4133,7 @@
+@@ -4131,7 +4131,7 @@
    Messaging/TAO_ExtC.cpp
  
  libTAO_Messaging_la_LDFLAGS = \
@@ -652,7 +652,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_Messaging_la_LIBADD = \
    libTAO_Valuetype.la \
-@@ -4239,7 +4239,7 @@
+@@ -4237,7 +4237,7 @@
    DynamicInterface/Unknown_User_Exception.cpp
  
  libTAO_DynamicInterface_la_LDFLAGS = \
@@ -661,7 +661,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_DynamicInterface_la_LIBADD = \
    libTAO_Messaging.la \
-@@ -4382,7 +4382,7 @@
+@@ -4380,7 +4380,7 @@
    EndpointPolicy/IIOPEndpointValue_i.cpp
  
  libTAO_EndpointPolicy_la_LDFLAGS = \
@@ -670,7 +670,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_EndpointPolicy_la_LIBADD = \
    libTAO_PI.la \
-@@ -4516,7 +4516,7 @@
+@@ -4514,7 +4514,7 @@
    ObjRefTemplate/ObjectReferenceTemplate_includeC.cpp
  
  libTAO_ObjRefTemplate_la_LDFLAGS = \
@@ -679,7 +679,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_ObjRefTemplate_la_LIBADD = \
    libTAO_PortableServer.la \
-@@ -4621,7 +4621,7 @@
+@@ -4619,7 +4619,7 @@
    IORInterceptor/IORInterceptor_Details.cpp
  
  libTAO_IORInterceptor_la_LDFLAGS = \
@@ -688,7 +688,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_IORInterceptor_la_LIBADD = \
    libTAO_PI.la \
-@@ -4704,7 +4704,7 @@
+@@ -4702,7 +4702,7 @@
    IORManipulation/IORManipulation.cpp
  
  libTAO_IORManip_la_LDFLAGS = \
@@ -697,7 +697,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_IORManip_la_LIBADD = \
    libTAO_AnyTypeCode.la \
-@@ -4774,7 +4774,7 @@
+@@ -4772,7 +4772,7 @@
    IORTable/Table_Adapter.cpp
  
  libTAO_IORTable_la_LDFLAGS = \
@@ -706,7 +706,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_IORTable_la_LIBADD = \
    libTAO.la \
-@@ -4877,7 +4877,7 @@
+@@ -4875,7 +4875,7 @@
    ImR_Client/ServerObject_i.cpp
  
  libTAO_ImR_Client_la_LDFLAGS = \
@@ -715,7 +715,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_ImR_Client_la_LIBADD = \
    libTAO_PortableServer.la \
-@@ -4988,7 +4988,7 @@
+@@ -4986,7 +4986,7 @@
    PI_Server/ServerRequestInterceptor_Factory_Impl.cpp
  
  libTAO_PI_Server_la_LDFLAGS = \
@@ -724,7 +724,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_PI_Server_la_LIBADD = \
    libTAO_PortableServer.la \
-@@ -5108,7 +5108,7 @@
+@@ -5106,7 +5106,7 @@
    RTCORBA/Thread_Pool.cpp
  
  libTAO_RTCORBA_la_LDFLAGS = \
@@ -733,7 +733,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_RTCORBA_la_LIBADD = \
    libTAO_PI.la \
-@@ -5243,7 +5243,7 @@
+@@ -5241,7 +5241,7 @@
    RTPortableServer/RT_Servant_Dispatcher.cpp
  
  libTAO_RTPortableServer_la_LDFLAGS = \
@@ -742,7 +742,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_RTPortableServer_la_LIBADD = \
    libTAO_PortableServer.la \
-@@ -5357,7 +5357,7 @@
+@@ -5355,7 +5355,7 @@
    RTScheduling/Request_Interceptor.cpp
  
  libTAO_RTScheduler_la_LDFLAGS = \
@@ -751,7 +751,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_RTScheduler_la_LIBADD = \
    libTAO_PI_Server.la \
-@@ -5426,7 +5426,7 @@
+@@ -5424,7 +5424,7 @@
    SmartProxies/Smart_Proxies.cpp
  
  libTAO_SmartProxies_la_LDFLAGS = \
@@ -760,7 +760,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_SmartProxies_la_LIBADD = \
    libTAO.la \
-@@ -5568,7 +5568,7 @@
+@@ -5566,7 +5566,7 @@
    Strategies/uiop_endpointsC.cpp
  
  libTAO_Strategies_la_LDFLAGS = \
@@ -769,7 +769,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_Strategies_la_LIBADD = \
    libTAO_AnyTypeCode.la \
-@@ -5679,7 +5679,7 @@
+@@ -5677,7 +5677,7 @@
    FlResource/FlResource_Loader.cpp
  
  libTAO_FlResource_la_LDFLAGS = \
@@ -778,7 +778,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_FlResource_la_LIBADD = \
    $(ACE_BUILDDIR)/ace/libACE_FlReactor.la \
-@@ -5719,7 +5719,7 @@
+@@ -5717,7 +5717,7 @@
    QtResource/QtResource_Loader.cpp
  
  libTAO_QtResource_la_LDFLAGS = \
@@ -787,7 +787,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_QtResource_la_LIBADD = \
    $(ACE_BUILDDIR)/ace/libACE_QtReactor.la \
-@@ -5758,7 +5758,7 @@
+@@ -5756,7 +5756,7 @@
    TkResource/TkResource_Loader.cpp
  
  libTAO_TkResource_la_LDFLAGS = \
@@ -796,7 +796,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_TkResource_la_LIBADD = \
    $(ACE_BUILDDIR)/ace/libACE_TkReactor.la \
-@@ -5799,7 +5799,7 @@
+@@ -5797,7 +5797,7 @@
    XtResource/XtResource_Loader.cpp
  
  libTAO_XtResource_la_LDFLAGS = \
@@ -805,7 +805,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_XtResource_la_LIBADD = \
    $(ACE_BUILDDIR)/ace/libACE_XtReactor.la \
-@@ -5863,7 +5863,7 @@
+@@ -5861,7 +5861,7 @@
    TransportCurrent/TCS.cpp
  
  libTAO_TC_la_LDFLAGS = \
@@ -814,7 +814,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_TC_la_LIBADD = \
    libTAO_PI.la \
-@@ -5932,7 +5932,7 @@
+@@ -5930,7 +5930,7 @@
    TransportCurrent/TC_IIOPS.cpp
  
  libTAO_TC_IIOP_la_LDFLAGS = \
@@ -823,7 +823,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_TC_IIOP_la_LIBADD = \
    libTAO_TC.la \
-@@ -5993,7 +5993,7 @@
+@@ -5991,7 +5991,7 @@
    TypeCodeFactory/TypeCodeFactory_i.cpp
  
  libTAO_TypeCodeFactory_la_LDFLAGS = \
@@ -832,7 +832,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_TypeCodeFactory_la_LIBADD = \
    libTAO_IFR_Client.la \
-@@ -6053,7 +6053,7 @@
+@@ -6051,7 +6051,7 @@
    Utils/Synch_Refcountable.cpp
  
  libTAO_Utils_la_LDFLAGS = \
@@ -841,7 +841,7 @@ diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
  
  libTAO_Utils_la_LIBADD = \
    libTAO_PI.la \
-@@ -6114,7 +6114,7 @@
+@@ -6112,7 +6112,7 @@
    Compression/zlib/ZlibCompressor_Factory.cpp
  
  libTAO_ZlibCompressor_la_LDFLAGS = \
