@@ -5,30 +5,35 @@
 ## DP: No description
 
 @DPATCH@
-
-Index: ACE_wrappers/bin/mwc.pl
-===================================================================
---- ACE_wrappers.orig/bin/mwc.pl	2004-10-16 16:36:16.167694688 +0200
-+++ ACE_wrappers/bin/mwc.pl	2004-10-16 16:36:31.604347960 +0200
-@@ -18,7 +18,7 @@
- use Cwd;
+--- ACE_wrappers.orig/bin/mwc.pl
++++ ACE_wrappers/bin/mwc.pl
+@@ -19,12 +19,7 @@
+ use File::Spec;
  use File::Basename;
  
--my($basePath) = getExecutePath($0) . '/MakeProjectCreator';
+-my($basePath) = $FindBin::Bin;
+-if ($^O eq 'VMS') {
+-  $basePath = File::Spec->rel2abs(dirname($0)) if ($basePath eq '');
+-  $basePath = VMS::Filespec::unixify($basePath);
+-}
+-$basePath .= '/MakeProjectCreator';
 +my($basePath) = '/usr/share/ace/bin/MakeProjectCreator';
- unshift(@INC, $basePath . '/modules');
  
  my($mpcroot) = $ENV{MPC_ROOT};
-Index: ACE_wrappers/bin/mpc.pl
-===================================================================
---- ACE_wrappers.orig/bin/mpc.pl	2004-10-16 16:36:16.168694536 +0200
-+++ ACE_wrappers/bin/mpc.pl	2004-10-16 16:36:31.604347960 +0200
-@@ -18,7 +18,7 @@
- use Cwd;
+ my($mpcpath) = (defined $mpcroot ? $mpcroot :
+--- ACE_wrappers.orig/bin/mpc.pl
++++ ACE_wrappers/bin/mpc.pl
+@@ -19,12 +19,7 @@
+ use File::Spec;
  use File::Basename;
  
--my($basePath) = getExecutePath($0) . '/MakeProjectCreator';
+-my($basePath) = $FindBin::Bin;
+-if ($^O eq 'VMS') {
+-  $basePath = File::Spec->rel2abs(dirname($0)) if ($basePath eq '');
+-  $basePath = VMS::Filespec::unixify($basePath);
+-}
+-$basePath .= '/MakeProjectCreator';
 +my($basePath) = '/usr/share/ace/bin/MakeProjectCreator';
- unshift(@INC, $basePath . '/modules');
  
  my($mpcroot) = $ENV{MPC_ROOT};
+ my($mpcpath) = (defined $mpcroot ? $mpcroot :

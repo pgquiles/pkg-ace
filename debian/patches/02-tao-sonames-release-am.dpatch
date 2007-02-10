@@ -1,6 +1,12 @@
-diff -Nru ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/Makefile.am ACE_wrappers/TAO/orbsvcs/orbsvcs/Makefile.am
---- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/Makefile.am	2007-01-04 14:06:26.000000000 +0000
-+++ ACE_wrappers/TAO/orbsvcs/orbsvcs/Makefile.am	2007-02-10 21:39:09.000000000 +0000
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 02-tao-sonames-release-am.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: result of debian/tao-sonames-release-am.sh application on Makefile.am.
+
+@DPATCH@
+--- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/Makefile.am
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/Makefile.am
 @@ -76,7 +76,7 @@
    Naming/Naming_Client.cpp
  
@@ -514,9 +520,8 @@ diff -Nru ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/Makefile.am ACE_wrappers/TAO/orb
  
  libTAO_SSLIOP_la_LIBADD = \
    $(TAO_BUILDDIR)/tao/libTAO_PI_Server.la \
-diff -Nru ACE_wrappers.orig/TAO/tao/Makefile.am ACE_wrappers/TAO/tao/Makefile.am
---- ACE_wrappers.orig/TAO/tao/Makefile.am	2007-01-26 12:04:58.000000000 +0000
-+++ ACE_wrappers/TAO/tao/Makefile.am	2007-02-10 21:39:10.000000000 +0000
+--- ACE_wrappers.orig/TAO/tao/Makefile.am
++++ ACE_wrappers/TAO/tao/Makefile.am
 @@ -954,7 +954,7 @@
    target_specification.cpp
  

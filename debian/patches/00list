@@ -1,11 +1,10 @@
+01-change_tao_sonames
+02-tao-sonames-release-am
 08-fix-perl-shebang
 15-fix-fltk-include
-20-debian-compiler-definitions
-21-always-inline
-#??24-collocated-oneway+SYNC_WITH_SERVER-fix
+#21-always-inline
 #34-bts386713
 79-prepatch-dummy-mark
-#80-update-makefile
-#90-patch-mpc-basedir
-#91-patch-dg-basedir
+90-patch-mpc-basedir
+91-patch-dg-basedir
 92-default-ACE_ROOT
