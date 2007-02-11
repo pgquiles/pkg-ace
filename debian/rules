@@ -45,10 +45,16 @@ export TAO_ROOT := $(ACE_ROOT)/TAO
 export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(ACE_ROOT)/lib
 export QTDIR := /usr/share/qt3
 
+# This dpatch is only a place holder. The `prepatch' targets stops
+# here by default.
+PREPATCH_MARK := 03-prepatch-dummy-mark.dpatch
+POSTPATCH_MARK := 04-bootstrap.dpatch
+UNTIL := $(PREPATCH_MARK)
+
 # This is the debhelper compatibility version to use.
 export DH_COMPAT=5
 
-extract: $(ACE_ARCHIVE)
+$(ACE_ROOT): $(ACE_ARCHIVE)
 	tar -xjf $<
 	touch $@
 
@@ -62,41 +68,61 @@ debian/mpc-ace.sgml: ACE_wrappers/MPC/docs/MPC.sgml
 debian/%.1 debian/%.5: debian/%.sgml
 	docbook-to-man $< > $@
 
-patch-pl: extract
+patch-pl: $(ACE_ROOT)
 	for fn in `find "$(ACE_ROOT)" -name "*.pl"`; do (echo '#!/usr/bin/perl'; cat "$$fn") > "$${fn}T"; mv "$${fn}T" "$$fn"; chmod a+x "$$fn"; done
 	touch $@
 
 ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
-patch: extract $(MPC_ROOT)
+patch: $(ACE_ROOT) $(MPC_ROOT)
 else
-patch: extract
+patch: $(ACE_ROOT)
 endif
 	dpatch apply-all
 	touch $@
 
-unpatch: clean extract
+unpatch: clean $(ACE_ROOT)
 
 # TODO: DEB_BUILD_OPTIONS broken now
+
+# Prepare a ACE_wrappers directory where most of the patches are applied.
+ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
+prepatch: $(ACE_ROOT) $(MPC_ROOT)
+else
+prepatch: $(ACE_ROOT)
+endif
+	dpatch apply-until $(UNTIL)
+	rm -rf debian/patched
+
+bootstrap: prepatch $(ACE_ROOT)/configure
+
+$(ACE_ROOT)/configure: $(ACE_ROOT)/configure.ac
+	cd $(ACE_ROOT) && bin/bootstrap
+
+autotools: debian/patches/$(POSTPATCH_MARK)
+
+debian/patches/$(POSTPATCH_MARK):
+	$(MAKE) -f debian/rules clean prepatch
+	mv $(ACE_ROOT) $(ACE_ROOT).orig
+	$(MAKE) -f debian/rules bootstrap
+	diff -Nru $(ACE_SUBDIR).orig $(ACE_SUBDIR) | dpatch patch-template -p $(POSTPATCH_MARK) "autools boostrapping" > $@
 
 build: build-stamp build-manpages
 
 build-manpages: $(MAN1) $(MAN5)
 	touch $@
 
-build-stamp: configure-stamp
+build-stamp: patch configure-stamp
 	dh_testdir
 
 	# Hack to remove once the bug is fixed
 	mkdir -p objdir/ace/QtReactor
 	$(MAKE) -C objdir
 
-	# $(MAKE) -C $(TAO_ROOT)/CIAO
-
 	touch $@
 
 clean:
 	dh_testdir
-	rm -rf *.tmp $(ACE_SUBDIR) $(MPC_SUBDIR) objdir debian/patched $(MAN1) $(MAN5) patch-pl patch extract debian/mpc-ace.sgml build-manpages build-stamp
+	rm -rf $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) objdir debian/patched $(MAN1) $(MAN5) patch-pl patch debian/mpc-ace.sgml build-manpages build-stamp
 
 	dh_clean
 
@@ -188,11 +214,9 @@ source diff:
 
 binary: binary-indep binary-arch
 
-bootstrap: extract
-	cd $(ACE_ROOT) && bin/bootstrap
-
-configure-stamp: extract $(ACE_ROOT)/configure
+configure-stamp: $(ACE_ROOT)/configure
 	mkdir -p objdir
+	chmod +x $<
 	cd objdir && ../ACE_wrappers/configure $(confflags) --prefix=/usr --disable-tao-examples --disable-tao-tests --disable-ace-examples --disable-ace-tests --enable-fl-reactor --enable-qt-reactor --enable-tk-reactor  --enable-xt-reactor --enable-symbol-visibility --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME) --enable-ipv6 --enable-inline --enable-probe
 	touch $@
 
