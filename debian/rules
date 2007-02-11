@@ -48,8 +48,8 @@ export QTDIR := /usr/share/qt3
 
 # This dpatch is only a place holder. The `prepatch' targets stops
 # here by default.
-PREPATCH_MARK := 03-prepatch-dummy-mark.dpatch
-POSTPATCH_MARK := 04-bootstrap.dpatch
+PREPATCH_MARK := 05-prepatch-dummy-mark.dpatch
+POSTPATCH_MARK := 06-bootstrap.dpatch
 UNTIL := $(PREPATCH_MARK)
 
 # Where we install every file before calling dh_install
@@ -103,13 +103,11 @@ endif
 bootstrap: prepatch
 	cd $(ACE_ROOT) && bin/bootstrap
 
-autotools: debian/patches/$(POSTPATCH_MARK)
-
-debian/patches/$(POSTPATCH_MARK):
+autotools:
 	$(MAKE) -f debian/rules clean prepatch
 	mv $(ACE_SUBDIR) $(ACE_SUBDIR).orig
 	$(MAKE) -f debian/rules bootstrap
-	diff -Nru $(ACE_SUBDIR).orig $(ACE_SUBDIR) | dpatch patch-template -p $(POSTPATCH_MARK) "autools boostrapping" > $@
+	diff -Nru $(ACE_SUBDIR).orig $(ACE_SUBDIR) | dpatch patch-template -p $(POSTPATCH_MARK) "autools boostrapping" > debian/patches/$(POSTPATCH_MARK)
 	rm -Rf $(ACE_SUBDIR).orig
 	$(MAKE) -f debian/rules clean
 
@@ -129,7 +127,7 @@ build-stamp: configure-stamp
 
 clean:
 	dh_testdir
-	rm -rf $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) objdir debian/patched $(MAN1) $(MAN5) patch-pl patch-stamp debian/mpc-ace.sgml build-manpages build-stamp
+	rm -rf $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) objdir debian/patched $(MAN1) $(MAN5) patch-pl patch-stamp debian/mpc-ace.sgml build-manpages build-stamp configure-stamp
 	dh_clean
 
 install: build
