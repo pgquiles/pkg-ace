@@ -1,8 +1,6 @@
-#bin/mpc-ace                    usr/bin
-#bin/mwc-ace                    usr/bin
-#bin/depgen.pl                  usr/share/ace/bin
-#bin/DependencyGenerator        usr/share/ace/bin
-#bin/MakeProjectCreator         usr/share/ace/bin
-#MPC/{config,modules,templates} usr/share/ace/MPC
-#MPC/*.pl                       usr/share/ace/MPC
-#MPC/ChangeLog                  usr/share/ace/MPC
+usr/bin/mpc-ace
+usr/bin/mwc-ace
+usr/share/ace/bin/depgen.pl
+usr/share/ace/bin/DependencyGenerator
+usr/share/ace/bin/MakeProjectCreator
+usr/share/ace/MPC
