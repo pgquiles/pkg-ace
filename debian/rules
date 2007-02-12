@@ -171,6 +171,8 @@ install: build
 	$(INSTALL_755) -D debian/tao_ifr $(DT)/usr/bin/tao_ifr
 
 #       Copy MPC files.
+	chmod -x $(ACE_ROOT)/MPC/templates/vc8vb.mpd
+	chmod -x $(ACE_ROOT)/bin/MakeProjectCreator/config/ipv6.mpb
 	$(INSTALL_755) -D $(ACE_ROOT)/bin/mpc.pl $(DT)/usr/bin/mpc-ace
 	$(INSTALL_755) -D $(ACE_ROOT)/bin/mwc.pl $(DT)/usr/bin/mwc-ace
 	$(INSTALL_755) -D $(ACE_ROOT)/bin/depgen.pl $(DT)/usr/share/ace/bin/depgen.pl
