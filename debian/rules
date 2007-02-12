@@ -58,7 +58,9 @@ DT := debian/tmp
 # This is the debhelper compatibility version to use.
 export DH_COMPAT=5
 
-$(ACE_ROOT): $(ACE_ARCHIVE)
+extract: extract-stamp
+
+extract-stamp: $(ACE_ARCHIVE)
 	tar -xjf $<
 	touch $@
 
@@ -72,30 +74,32 @@ debian/mpc-ace.sgml: ACE_wrappers/MPC/docs/MPC.sgml
 debian/%.1 debian/%.5: debian/%.sgml
 	docbook-to-man $< > $@
 
-patch-pl: $(ACE_ROOT)
+pl-stamp: extract-stamp
 	for fn in `find "$(ACE_ROOT)" -name "*.pl"`; do (echo '#!/usr/bin/perl'; cat "$$fn") > "$${fn}T"; mv "$${fn}T" "$$fn"; chmod a+x "$$fn"; done
 	touch $@
 
 ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
-patch-stamp: $(ACE_ROOT) $(MPC_ROOT)
+patch-stamp: extract-stamp $(MPC_ROOT)
 else
-patch-stamp: $(ACE_ROOT)
+patch-stamp: extract-stamp
 endif
 	dpatch apply-all
 	chmod +x $(ACE_ROOT)/configure $(ACE_ROOT)/TAO/configure
 	touch $@
 
-patch: patch-stamp
+patch: patch-stamp pl-stamp
 
-unpatch: clean $(ACE_ROOT)
+unpatch: patch-stamp
+	dpatch unpatch
+	rm -f $<
 
 # TODO: DEB_BUILD_OPTIONS broken now
 
 # Prepare a ACE_wrappers directory where most of the patches are applied.
 ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
-prepatch: $(ACE_ROOT) $(MPC_ROOT)
+prepatch: extract-stamp $(MPC_ROOT)
 else
-prepatch: $(ACE_ROOT)
+prepatch: extract-stamp
 endif
 	dpatch apply-until $(UNTIL)
 	rm -rf debian/patched
@@ -106,6 +110,7 @@ bootstrap: prepatch
 autotools:
 	$(MAKE) -f debian/rules clean prepatch
 	mv $(ACE_SUBDIR) $(ACE_SUBDIR).orig
+	rm -f extract-stamp
 	$(MAKE) -f debian/rules bootstrap
 	diff -Nru $(ACE_SUBDIR).orig $(ACE_SUBDIR) | dpatch patch-template -p $(POSTPATCH_MARK) "autools boostrapping" > debian/patches/$(POSTPATCH_MARK)
 	rm -Rf $(ACE_SUBDIR).orig
@@ -127,7 +132,7 @@ build-stamp: configure-stamp
 
 clean:
 	dh_testdir
-	rm -rf $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) objdir debian/patched $(MAN1) $(MAN5) patch-pl patch-stamp debian/mpc-ace.sgml build-manpages build-stamp configure-stamp
+	rm -rf $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) objdir debian/patched $(MAN1) $(MAN5) extract-stamp pl-stamp patch-stamp debian/mpc-ace.sgml build-manpages build-stamp configure-stamp
 	dh_clean
 
 install: build
@@ -232,4 +237,4 @@ configure-stamp: patch-stamp
 	cd objdir && ../ACE_wrappers/configure $(confflags) --prefix=/usr --disable-tao-examples --disable-tao-tests --disable-ace-examples --disable-ace-tests --enable-fl-reactor --enable-qt-reactor --enable-tk-reactor  --enable-xt-reactor --enable-symbol-visibility --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME) --enable-ipv6 --enable-inline --enable-probe
 	touch $@
 
-.PHONY: build clean binary-indep binary-arch binary install patch unpatch prepatch source diff bootstrap configure
+.PHONY: build clean binary-indep binary-arch binary install patch unpatch prepatch source diff bootstrap configure extract
