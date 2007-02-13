@@ -190,7 +190,7 @@ install: build
 #       We don't install .la files
 	find $(DT) -name '*.la' -print0 | xargs -0 rm
 	rm -f $(DT)/usr/bin/TAO_Service
-	dh_install --sourcedir=$(DT) --fail-missing
+	dh_install --sourcedir=$(DT) --list-missing
 
 binary-indep: build install
 	dh_testdir -i
@@ -234,7 +234,7 @@ binary: binary-indep binary-arch
 
 configure: configure-stamp
 
-configure-stamp: patch
+configure-stamp: patch-stamp pl-stamp
 	mkdir -p objdir
 	cd objdir && ../ACE_wrappers/configure $(confflags) --prefix=/usr --disable-tao-examples --disable-tao-tests --disable-ace-examples --disable-ace-tests --enable-fl-reactor --enable-qt-reactor --enable-tk-reactor  --enable-xt-reactor --enable-symbol-visibility --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME) --enable-ipv6 --enable-inline --enable-probe
 	touch $@
