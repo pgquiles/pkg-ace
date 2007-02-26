@@ -2,13 +2,17 @@ ace (5.5.6-1) experimental; urgency=low
 
   * New upstream release. Closes: #381647.
   * Switch to the autotools method.  Since CIAO cannot yet be compiled this
-    way, CIAO packages are dropped for now.
+    way, CIAO packages are dropped for now. Likewise static libraries are
+    removed.
   * Drop obsolete patches and scripts.
   * We no longer ship TAO_ORB_Options.1 in libtao-orbsvcs.
+  * debian/patches/07-ace-tao-ssliop-refcount.dpatch: fix ssliop reference
+    counting problem.
+
   Konstantinos Margaritis:
     * changed URL in copyright to new one.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Tue, 13 Feb 2007 19:09:57 +0000
+ -- Thomas Girard <thomas.g.girard@free.fr>  Mon, 26 Feb 2007 11:54:12 +0000
 
 ace (5.4.7-11) unstable; urgency=low
 

@@ -4,6 +4,7 @@
 04-compile-ftrt
 05-prepatch-dummy-mark
 06-bootstrap
+07-ace-tao-ssliop-refcount
 08-fix-perl-shebang
 15-fix-fltk-include
 #21-always-inline
