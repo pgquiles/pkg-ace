@@ -236,7 +236,7 @@ configure: configure-stamp
 
 configure-stamp: patch-stamp pl-stamp
 	mkdir -p objdir
-	cd objdir && ../ACE_wrappers/configure $(confflags) --prefix=/usr --disable-tao-examples --disable-tao-tests --disable-ace-examples --disable-ace-tests --enable-fl-reactor --enable-qt-reactor --enable-tk-reactor  --enable-xt-reactor --enable-symbol-visibility --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME) --enable-ipv6 --enable-inline --enable-probe
+	cd objdir && ../ACE_wrappers/configure $(confflags) --prefix=/usr --disable-tao-examples --disable-tao-tests --disable-ace-examples --disable-ace-tests --enable-fl-reactor --enable-qt-reactor --enable-tk-reactor  --enable-xt-reactor --enable-symbol-visibility --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME) --enable-ipv6 --enable-ipv4-ipv6 --enable-inline --enable-probe
 	echo '#define ACE_GPERF "gperf-ace"' >> objdir/ace/config.h
 	echo '#define TAO_IDL_INCLUDE_DIR "/usr/include/tao"' >> objdir/ace/config.h
 	touch $@
