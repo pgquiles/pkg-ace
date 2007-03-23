@@ -1,3 +1,11 @@
+ace (5.5.6-2) experimental; urgency=low
+
+  * debian/control: fix broken Conflicts: fields. Package split for
+    libtao-orbsvcs happened in libtao-orbsvcs1.4.7c2a 5.4.7-11 and this should
+    not be changed.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Fri, 23 Mar 2007 18:38:41 +0000
+
 ace (5.5.6-1) experimental; urgency=low
 
   Thomas Girard:
