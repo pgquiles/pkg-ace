@@ -8,9 +8,9 @@
 
 INSTALL := install -o root -g root
 INSTALL_755 := $(INSTALL) -m 755
-export AV := 5.5.6
-export TV := 1.5.6
-export CV := 0.5.6
+export AV := 5.5.7
+export TV := 1.5.7
+export CV := 0.5.7
 
 export DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 export DEB_BUILD_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
@@ -171,8 +171,6 @@ install: build
 	$(INSTALL_755) -D debian/tao_ifr $(DT)/usr/bin/tao_ifr
 
 #       Copy MPC files.
-	chmod -x $(ACE_ROOT)/MPC/templates/vc8vb.mpd
-	chmod -x $(ACE_ROOT)/bin/MakeProjectCreator/config/ipv6.mpb
 	$(INSTALL_755) -D $(ACE_ROOT)/bin/mpc.pl $(DT)/usr/bin/mpc-ace
 	$(INSTALL_755) -D $(ACE_ROOT)/bin/mwc.pl $(DT)/usr/bin/mwc-ace
 	$(INSTALL_755) -D $(ACE_ROOT)/bin/depgen.pl $(DT)/usr/share/ace/bin/depgen.pl
