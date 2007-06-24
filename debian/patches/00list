@@ -1,11 +1,8 @@
 01-change-tao-sonames
 02-tao-sonames-release-am
-03-compile-lifecycle
-04-compile-ftrt
 04-reduce-opt.dpatch
 05-prepatch-dummy-mark
 06-bootstrap
-07-ace-tao-ssliop-refcount
 08-fix-perl-shebang
 15-fix-fltk-include
 34-bts386713
