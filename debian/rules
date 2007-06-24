@@ -8,9 +8,9 @@
 
 INSTALL := install -o root -g root
 INSTALL_755 := $(INSTALL) -m 755
-export AV := 5.5.7
-export TV := 1.5.7
-export CV := 0.5.7
+export AV := 5.5.8
+export TV := 1.5.8
+export CV := 0.5.8
 
 export DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 export DEB_BUILD_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
@@ -234,7 +234,7 @@ configure: configure-stamp
 
 configure-stamp: patch-stamp pl-stamp
 	mkdir -p objdir
-	cd objdir && ../ACE_wrappers/configure $(confflags) --prefix=/usr --disable-tao-examples --disable-tao-tests --disable-ace-examples --disable-ace-tests --enable-fl-reactor --enable-qt-reactor --enable-tk-reactor  --enable-xt-reactor --enable-symbol-visibility --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME) --disable-ipv6 --enable-inline --enable-probe
+	cd objdir && ../ACE_wrappers/configure $(confflags) --prefix=/usr --disable-tao-examples --disable-tao-tests --disable-ace-examples --disable-ace-tests --enable-fl-reactor --enable-qt-reactor --enable-tk-reactor  --enable-xt-reactor --enable-symbol-visibility --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME) --disable-ipv6 --enable-inline --enable-probe --disable-symbol-visibility
 	echo '#define ACE_GPERF "gperf-ace"' >> objdir/ace/config.h
 	echo '#define TAO_IDL_INCLUDE_DIR "/usr/include/tao"' >> objdir/ace/config.h
 	touch $@
