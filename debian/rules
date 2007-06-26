@@ -44,7 +44,7 @@ endif
 export ACE_ROOT := $(shell pwd)/$(ACE_SUBDIR)
 export TAO_ROOT := $(ACE_ROOT)/TAO
 export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(ACE_ROOT)/lib
-export QTDIR := /usr/share/qt3
+export QTDIR := /usr/share/qt4
 
 # This dpatch is only a place holder. The `prepatch' targets stops
 # here by default.
@@ -54,9 +54,6 @@ UNTIL := $(PREPATCH_MARK)
 
 # Where we install every file before calling dh_install
 DT := debian/tmp
-
-# This is the debhelper compatibility version to use.
-export DH_COMPAT=5
 
 extract: extract-stamp
 

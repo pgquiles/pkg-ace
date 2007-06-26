@@ -9,8 +9,9 @@ ace (5.5.8-1) experimental; urgency=low
   * Disable patch 20-check-_REENTRANT.dpatch until upstream decides how to
     handle this case. Closes: #420216.
   * Refresh patches/06-bootstrap.
+  * Use debian/compat instead of DH_COMPAT.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Mon, 25 Jun 2007 06:15:02 +0000
+ -- Thomas Girard <thomas.g.girard@free.fr>  Tue, 26 Jun 2007 09:34:55 +0000
 
 ace (5.5.6-2) experimental; urgency=low
 
