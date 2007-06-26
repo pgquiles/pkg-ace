@@ -6,12 +6,16 @@ ace (5.5.8-1) experimental; urgency=low
       o 03-compile-lifecycle
       o 04-compile-ftrt
       o 07-ace-tao-ssliop-refcount
+  * New patches:
+      o 02-qt4 to switch to Qt4
+      o 03-g++-new-throws to prevent autoconfiguration from eating all
+        memory testing whether std::bad_alloc is thrown
   * Disable patch 20-check-_REENTRANT.dpatch until upstream decides how to
     handle this case. Closes: #420216.
   * Refresh patches/06-bootstrap.
   * Use debian/compat instead of DH_COMPAT.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Tue, 26 Jun 2007 09:34:55 +0000
+ -- Thomas Girard <thomas.g.girard@free.fr>  Tue, 26 Jun 2007 16:27:26 +0000
 
 ace (5.5.6-2) experimental; urgency=low
 
