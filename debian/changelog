@@ -1,4 +1,4 @@
-ace (5.5.8-1) experimental; urgency=low
+ace (5.5.9-1) experimental; urgency=low
 
   * New upstream release.
   * Fix broken libtao-tkresource package.
@@ -15,7 +15,7 @@ ace (5.5.8-1) experimental; urgency=low
   * Refresh patches/06-bootstrap.
   * Use debian/compat instead of DH_COMPAT.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Tue, 26 Jun 2007 16:27:26 +0000
+ -- Thomas Girard <thomas.g.girard@free.fr>  Wed, 27 Jun 2007 07:53:21 +0000
 
 ace (5.5.6-2) experimental; urgency=low
 
