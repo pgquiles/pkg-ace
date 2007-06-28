@@ -1,10 +1,10 @@
 01-change-tao-sonames
 02-tao-sonames-release-am
+02-fltk-no-gl
 02-qt4
 03-g++-new-throws
 04-reduce-opt.dpatch
 05-prepatch-dummy-mark
-06-bootstrap
 08-fix-perl-shebang
 15-fix-fltk-include
 34-bts386713

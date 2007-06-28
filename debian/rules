@@ -8,9 +8,6 @@
 
 INSTALL := install -o root -g root
 INSTALL_755 := $(INSTALL) -m 755
-export AV := 5.5.8
-export TV := 1.5.8
-export CV := 0.5.8
 
 export DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 export DEB_BUILD_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
@@ -26,7 +23,7 @@ TCL_HOME := /usr/lib/tcl8.4
 TK_HOME  := /usr/lib/tk8.4
 
 ACE_SUBDIR := ACE_wrappers
-ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO*.tar.bz2 2>/dev/null || echo ace-archive-missing)
+ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO*-src.tar.bz2 2>/dev/null || echo ace-archive-missing)
 MPC_SUBDIR := MPC
 MPC_ARCHIVE := $(shell ls -1 MPC*.tar.gz 2>/dev/null || echo mpc-archive-missing)
 
@@ -55,11 +52,12 @@ UNTIL := $(PREPATCH_MARK)
 # Where we install every file before calling dh_install
 DT := debian/tmp
 
-extract: extract-stamp
-
 extract-stamp: $(ACE_ARCHIVE)
 	tar -xjf $<
 	touch $@
+
+.PHONY: extract
+extract: extract-stamp
 
 $(MPC_ROOT): $(MPC_ARCHIVE)
 	tar -xzf $<
@@ -71,20 +69,30 @@ debian/mpc-ace.sgml: ACE_wrappers/MPC/docs/MPC.sgml
 debian/%.1 debian/%.5: debian/%.sgml
 	docbook-to-man $< > $@
 
+# Prepare a ACE_wrappers directory where most of the patches are applied.
+ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
+prepatch-stamp: extract-stamp $(MPC_ROOT)
+else
+prepatch-stamp: extract-stamp
+endif
+	dpatch apply-until $(UNTIL)
+	find -name '*.am' | xargs sh debian/tao-sonames-release-am.sh
+	touch $@
+
+.PHONY: prepatch
+prepatch: prepatch-stamp
+
 pl-stamp: extract-stamp
 	for fn in `find "$(ACE_ROOT)" -name "*.pl"`; do (echo '#!/usr/bin/perl'; cat "$$fn") > "$${fn}T"; mv "$${fn}T" "$$fn"; chmod a+x "$$fn"; done
 	touch $@
 
-ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
-patch-stamp: extract-stamp $(MPC_ROOT)
-else
-patch-stamp: extract-stamp
-endif
+patch-stamp: pl-stamp autotools-stamp
 	dpatch apply-all
 	chmod +x $(ACE_ROOT)/configure $(ACE_ROOT)/TAO/configure
 	touch $@
 
-patch: patch-stamp pl-stamp
+.PHONY: patch
+patch: patch-stamp
 
 unpatch: patch-stamp
 	dpatch unpatch
@@ -92,30 +100,16 @@ unpatch: patch-stamp
 
 # TODO: DEB_BUILD_OPTIONS broken now
 
-# Prepare a ACE_wrappers directory where most of the patches are applied.
-ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
-prepatch: extract-stamp $(MPC_ROOT)
-else
-prepatch: extract-stamp
-endif
-	dpatch apply-until $(UNTIL)
-	rm -rf debian/patched
-
-bootstrap: prepatch
+autotools-stamp: prepatch-stamp
 	cd $(ACE_ROOT) && bin/bootstrap
+	touch $@
 
-autotools:
-	$(MAKE) -f debian/rules clean prepatch
-	mv $(ACE_SUBDIR) $(ACE_SUBDIR).orig
-	rm -f extract-stamp
-	$(MAKE) -f debian/rules bootstrap
-	diff -Nru $(ACE_SUBDIR).orig $(ACE_SUBDIR) | dpatch patch-template -p $(POSTPATCH_MARK) "autools boostrapping" > debian/patches/$(POSTPATCH_MARK)
-	rm -Rf $(ACE_SUBDIR).orig
-	$(MAKE) -f debian/rules clean
+.PHONY: autotools
+autotools: autotools-stamp
 
-build: build-stamp build-manpages
+build: build-stamp manpages-stamp
 
-build-manpages: $(MAN1) $(MAN5)
+manpages-stamp: $(MAN1) $(MAN5)
 	touch $@
 
 build-stamp: configure-stamp
@@ -129,7 +123,7 @@ build-stamp: configure-stamp
 
 clean:
 	dh_testdir
-	rm -rf $(ACE_SUBDIR) $(ACE_SUBDIR).orig $(MPC_SUBDIR) objdir debian/patched $(MAN1) $(MAN5) extract-stamp pl-stamp patch-stamp debian/mpc-ace.sgml build-manpages build-stamp configure-stamp
+	rm -rf $(ACE_SUBDIR) $(MPC_SUBDIR) objdir debian/patched $(MAN1) $(MAN5) *-stamp debian/mpc-ace.sgml
 	dh_clean
 
 install: build
@@ -227,13 +221,14 @@ source diff:
 
 binary: binary-indep binary-arch
 
-configure: configure-stamp
-
-configure-stamp: patch-stamp pl-stamp
+configure-stamp: patch-stamp
 	mkdir -p objdir
 	cd objdir && ../ACE_wrappers/configure $(confflags) --prefix=/usr --disable-tao-examples --disable-tao-tests --disable-ace-examples --disable-ace-tests --enable-fl-reactor --enable-qt-reactor --enable-tk-reactor  --enable-xt-reactor --enable-symbol-visibility --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME) --disable-ipv6 --enable-inline --enable-probe --disable-symbol-visibility
 	echo '#define ACE_GPERF "gperf-ace"' >> objdir/ace/config.h
 	echo '#define TAO_IDL_INCLUDE_DIR "/usr/include/tao"' >> objdir/ace/config.h
 	touch $@
 
-.PHONY: build clean binary-indep binary-arch binary install patch unpatch prepatch source diff bootstrap configure extract
+.PHONY: configure
+configure: configure-stamp
+
+.PHONY: build clean binary-indep binary-arch binary install unpatch source diff

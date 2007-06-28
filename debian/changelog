@@ -1,6 +1,8 @@
 ace (5.5.9-1) experimental; urgency=low
 
-  * New upstream release.
+  * New upstream release. We now use the -src.tar.bz2 tarball, hence:
+      o generate autotools stuff at compile time
+      o huge patches/06-bootstrap is dropped
   * Fix broken libtao-tkresource package.
   * Drop no longer needed patches:
       o 03-compile-lifecycle
@@ -8,14 +10,17 @@ ace (5.5.9-1) experimental; urgency=low
       o 07-ace-tao-ssliop-refcount
   * New patches:
       o 02-qt4 to switch to Qt4
+      o 02-fltk-no-gl to avoid linking with libfltk_gl
       o 03-g++-new-throws to prevent autoconfiguration from eating all
         memory testing whether std::bad_alloc is thrown
-  * Disable patch 20-check-_REENTRANT.dpatch until upstream decides how to
+  * Disable patch 20-check-_REENTRANT until upstream decides how to
     handle this case. Closes: #420216.
-  * Refresh patches/06-bootstrap.
+  * Update patch 34-bts386713.
   * Use debian/compat instead of DH_COMPAT.
+  * Drop no longer needed dpkg-dev tightened build-dependency since it is
+    available in etch.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Wed, 27 Jun 2007 07:53:21 +0000
+ -- Thomas Girard <thomas.g.girard@free.fr>  Wed, 27 Jun 2007 12:01:10 +0000
 
 ace (5.5.6-2) experimental; urgency=low
 

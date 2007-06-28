@@ -12,7 +12,7 @@
  static const char pg_poa_factory_name[] = "TAO_GOA";
  static const char pg_poa_factory_directive[] = ACE_DYNAMIC_SERVICE_DIRECTIVE(
 -  "TAO_GOA", "TAO_PortableGroup", "_make_TAO_PG_Object_Adapter_Factory", "");
-+  "TAO_GOA", "libTAO_PortableGroup-1.5.6.so", "_make_TAO_PG_Object_Adapter_Factory", "");
++  "TAO_GOA", "libTAO_PortableGroup-1.5.9.so", "_make_TAO_PG_Object_Adapter_Factory", "");
  
  TAO_BEGIN_VERSIONED_NAMESPACE_DECL
  
@@ -23,7 +23,7 @@
        (ACE_TEXT_ALWAYS_CHAR
          (ACE_DYNAMIC_SERVICE_DIRECTIVE("TAO_Object_Adapter_Factory",
 -                                       "TAO_PortableServer",
-+                                       "libTAO_PortableServer-1.5.6.so",
++                                       "libTAO_PortableServer-1.5.9.so",
                                         "_make_TAO_Object_Adapter_Factory",
                                         ""))),
      alt_connection_timeout_hook_ (0)
@@ -32,7 +32,7 @@
        this->configuration ()->process_directive (
          ACE_DYNAMIC_SERVICE_DIRECTIVE("PolicyFactory_Loader",
 -                                      "TAO_PI",
-+                                      "libTAO_PI-1.5.6.so",
++                                      "libTAO_PI-1.5.9.so",
                                        "_make_TAO_PolicyFactory_Loader",
                                        ""));
        loader =
@@ -41,7 +41,7 @@
        config->process_directive (
          ACE_DYNAMIC_SERVICE_DIRECTIVE ("ORBInitializer_Registry",
 -                                       "TAO_PI",
-+                                       "libTAO_PI-1.5.6.so",
++                                       "libTAO_PI-1.5.9.so",
                                         "_make_ORBInitializer_Registry",
                                         ""));
        this->orbinitializer_registry_ =
@@ -50,7 +50,7 @@
        this->configuration ()->process_directive
          (ACE_DYNAMIC_SERVICE_DIRECTIVE("TypeCodeFactory",
 -                                       "TAO_TypeCodeFactory",
-+                                       "libTAO_TypeCodeFactory-1.5.6.so",
++                                       "libTAO_TypeCodeFactory-1.5.9.so",
                                         "_make_TAO_TypeCodeFactory_Loader",
                                         ""));
        loader =
@@ -59,7 +59,7 @@
        this->configuration()->process_directive
          (ACE_DYNAMIC_SERVICE_DIRECTIVE("CodecFactory",
 -                                       "TAO_CodecFactory",
-+                                       "libTAO_CodecFactory-1.5.6.so",
++                                       "libTAO_CodecFactory-1.5.9.so",
                                         "_make_TAO_CodecFactory_Loader",
                                         ""));
        loader =
@@ -68,7 +68,7 @@
        this->configuration()->process_directive
          (ACE_DYNAMIC_SERVICE_DIRECTIVE("Compression",
 -                                       "TAO_Compression",
-+                                       "libTAO_Compression-1.5.6.so",
++                                       "libTAO_Compression-1.5.9.so",
                                         "_make_TAO_Compression_Loader",
                                         ""));
        loader =
@@ -77,7 +77,7 @@
        this->configuration()->process_directive
          (ACE_DYNAMIC_SERVICE_DIRECTIVE("TAO_POA_Current_Factory",
 -                                       "TAO_PortableServer",
-+                                       "libTAO_PortableServer-1.5.6.so",
++                                       "libTAO_PortableServer-1.5.9.so",
                                         "_make_TAO_POA_Current_Factory",
                                         ""));
        loader =
@@ -86,7 +86,7 @@
        this->configuration ()->process_directive
          (ACE_DYNAMIC_SERVICE_DIRECTIVE("PICurrent_Loader",
 -                                       "TAO_PI",
-+                                       "libTAO_PI-1.5.6.so",
++                                       "libTAO_PI-1.5.9.so",
                                         "_make_TAO_PICurrent_Loader",
                                         ""));
        loader =
@@ -95,7 +95,7 @@
        this->configuration ()->process_directive
          (ACE_DYNAMIC_SERVICE_DIRECTIVE("DynamicAny_Loader",
 -                                       "TAO_DynamicAny",
-+                                       "libTAO_DynamicAny-1.5.6.so",
++                                       "libTAO_DynamicAny-1.5.9.so",
                                         "_make_TAO_DynamicAny_Loader",
                                         ""));
        loader =
@@ -104,7 +104,7 @@
        this->configuration()->process_directive
          (ACE_DYNAMIC_SERVICE_DIRECTIVE("IORManip_Loader",
 -                                       "TAO_IORManip",
-+                                       "libTAO_IORManip-1.5.6.so",
++                                       "libTAO_IORManip-1.5.9.so",
                                         "_make_TAO_IORManip_Loader",
                                         ""));
        loader =
@@ -113,7 +113,7 @@
        this->configuration ()->process_directive
          (ACE_DYNAMIC_SERVICE_DIRECTIVE("TAO_IORTable",
 -                                       "TAO_IORTable",
-+                                       "libTAO_IORTable-1.5.6.so",
++                                       "libTAO_IORTable-1.5.9.so",
                                         "_make_TAO_Table_Adapter_Factory",
                                         ""));
        factory =
@@ -124,7 +124,7 @@
          ACE_Service_Config::process_directive (
            ACE_DYNAMIC_SERVICE_DIRECTIVE("ORBInitializer_Registry",
 -                                        "TAO_PI",
-+                                        "libTAO_PI-1.5.6.so",
++                                        "libTAO_PI-1.5.9.so",
                                          "_make_ORBInitializer_Registry",
                                          ""));
          orbinitializer_registry_ =
@@ -135,7 +135,7 @@
            ACE_Service_Config::process_directive (
              ACE_DYNAMIC_SERVICE_DIRECTIVE("CodecFactory",
 -                                          "TAO_CodecFactory",
-+                                          "libTAO_CodecFactory-1.5.6.so",
++                                          "libTAO_CodecFactory-1.5.9.so",
                                            "_make_TAO_CodecFactory_Loader",
                                            ""));
            loader =
@@ -146,7 +146,7 @@
                ACE_Service_Config::process_directive (
                  ACE_DYNAMIC_SERVICE_DIRECTIVE(
 -                  "ImR_Client_Adapter", "TAO_ImR_Client",
-+                  "ImR_Client_Adapter", "libTAO_ImR_Client-1.5.6.so",
++                  "ImR_Client_Adapter", "libTAO_ImR_Client-1.5.9.so",
                    "_make_ImR_Client_Adapter_Impl", ""));
  
                adapter =
@@ -157,7 +157,18 @@
                ACE_DYNAMIC_SERVICE_DIRECTIVE (
                  "TAO_Codeset",
 -                "TAO_Codeset",
-+                "libTAO_Codeset-1.5.6.so",
++                "libTAO_Codeset-1.5.9.so",
                  "_make_TAO_Codeset_Manager_Factory",
                  ""));
+ 
+--- ACE_wrappers.orig/TAO/tao/RTCORBA/RT_ORBInitializer.cpp	2007-06-28 18:53:33.000000000 +0000
++++ ACE_wrappers/TAO/tao/RTCORBA/RT_ORBInitializer.cpp	2007-06-28 18:55:43.000000000 +0000
+@@ -40,7 +40,7 @@
+ static const ACE_TCHAR rt_poa_factory_directive[] =
+   ACE_DYNAMIC_SERVICE_DIRECTIVE(
+     "TAO_RT_Object_Adapter_Factory",
+-    "TAO_RTPortableServer",
++    "libTAO_RTPortableServer-1.5.9",
+     "_make_TAO_RT_Object_Adapter_Factory",
+     "");
  
