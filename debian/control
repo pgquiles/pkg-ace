@@ -227,7 +227,7 @@ Description: ACE-GUI reactor integration for Qt
 Package: libace-qtreactor-dev
 Architecture: any
 Section: libdevel
-Depends: libace-qtreactor-5.5.9 (= ${binary:Version}), libace-dev (= ${binary:Version}), libqt3-mt-dev (>= 3:3.3.3)
+Depends: libace-qtreactor-5.5.9 (= ${binary:Version}), libace-dev (= ${binary:Version}), libqt4-dev
 Description: ACE-GUI reactor integration for Qt development files
  This package contains header files and static library for the ACE-Qt
  reactor integration.
