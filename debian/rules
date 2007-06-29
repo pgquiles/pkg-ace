@@ -112,6 +112,13 @@ build: build-stamp manpages-stamp
 manpages-stamp: $(MAN1) $(MAN5)
 	touch $@
 
+doxygen-stamp: extract-stamp
+	cd $(ACE_ROOT) && bin/generate_doxygen.pl
+	touch $@
+
+.PHONY: doxygen
+doxygen: doxygen-stamp
+
 build-stamp: configure-stamp
 	dh_testdir
 
@@ -181,7 +188,7 @@ install: build
 	rm -f $(DT)/usr/bin/TAO_Service
 	dh_install --sourcedir=$(DT) --list-missing
 
-binary-indep: build install
+binary-indep: build install doxygen-stamp
 	dh_testdir -i
 	dh_testroot -i
 	dh_installdocs -i
