@@ -114,6 +114,8 @@ manpages-stamp: $(MAN1) $(MAN5)
 
 doxygen-stamp: extract-stamp
 	cd $(ACE_ROOT) && bin/generate_doxygen.pl
+	find $(ACE_ROOT)/html/ace -name '*.tag' -o -name '*.md5' -o -name '*.dot' -o -name '*.idx' | xargs -r rm -f
+	find $(ACE_ROOT)/html/tao -name '*.tag' -o -name '*.md5' -o -name '*.dot' -o -name '*.idx' | xargs -r rm -f
 	touch $@
 
 .PHONY: doxygen
