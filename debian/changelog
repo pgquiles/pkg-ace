@@ -22,7 +22,7 @@ ace (5.5.9-1) experimental; urgency=low
   * Generate doxygen documentation. Closes: #391011.
   * Enable ACE reactor notification queue.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Fri, 29 Jun 2007 12:40:47 +0000
+ -- Thomas Girard <thomas.g.girard@free.fr>  Mon, 09 Jul 2007 21:16:44 +0200
 
 ace (5.5.6-2) experimental; urgency=low
 
