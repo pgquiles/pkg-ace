@@ -2,3 +2,4 @@ usr/include/ace/*.{h,inl,cpp}
 usr/include/ace/os_include
 usr/lib/libACE.so
 usr/lib/pkgconfig/ACE.pc
+usr/share/ace/MPC/config

@@ -59,7 +59,7 @@ Architecture: any
 Section: libdevel
 Depends: libace-5.5.9 (= ${binary:Version})
 Suggests: libace-doc, libtao-dev, pkg-config
-Replaces: libace5.2-dev
+Replaces: libace5.2-dev, mpc-ace (<< 5.5.9-1)
 Conflicts: libace5.2-dev
 Description: C++ network programming framework development files
  This package contains the header files and static library for the ACE

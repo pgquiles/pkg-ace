@@ -21,6 +21,8 @@ ace (5.5.9-1) experimental; urgency=low
     available in etch.
   * Generate doxygen documentation. Closes: #391011.
   * Enable ACE reactor notification queue.
+  * Move $ACE_ROOT/bin/MakeProjectCreator/config files into libace-dev.
+  * Install $TAO_ROOT/MPC files into libtao-dev.
 
  -- Thomas Girard <thomas.g.girard@free.fr>  Mon, 09 Jul 2007 21:16:44 +0200
 

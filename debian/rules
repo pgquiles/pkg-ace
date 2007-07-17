@@ -177,6 +177,7 @@ install: build
 	cp -a $(ACE_SUBDIR)/bin/DependencyGenerator $(DT)/usr/share/ace/bin
 	cp -a $(ACE_SUBDIR)/bin/MakeProjectCreator $(DT)/usr/share/ace/bin
 	cp -a $(ACE_SUBDIR)/MPC/config $(DT)/usr/share/ace/MPC
+	cp -a $(ACE_SUBDIR)/TAO/MPC/config $(DT)/usr/share/ace/TAO/MPC
 	cp -a $(ACE_SUBDIR)/MPC/modules $(DT)/usr/share/ace/MPC
 	cp -a $(ACE_SUBDIR)/MPC/templates $(DT)/usr/share/ace/MPC
 	cp -a $(ACE_SUBDIR)/MPC/*.pl $(DT)/usr/share/ace/MPC

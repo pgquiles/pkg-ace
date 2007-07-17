@@ -91,3 +91,4 @@ usr/lib/pkgconfig/TAO_Utils.pc
 usr/include/tao/Valuetype
 usr/lib/libTAO_Valuetype.so
 usr/lib/pkgconfig/TAO_Valuetype.pc
+usr/share/ace/TAO/MPC/config
