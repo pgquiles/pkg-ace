@@ -13,8 +13,8 @@ ace (5.5.9-1) experimental; urgency=low
       o 02-fltk-no-gl to avoid linking with libfltk_gl
       o 03-g++-new-throws to prevent autoconfiguration from eating all
         memory testing whether std::bad_alloc is thrown
-  * Disable patch 20-check-_REENTRANT until upstream decides how to
-    handle this case. Closes: #420216.
+  * Disable patch 20-check-_REENTRANT; it's not needed when using autotools
+    method. Closes: #420216.
   * Update patch 34-bts386713.
   * Use debian/compat instead of DH_COMPAT.
   * Drop no longer needed dpkg-dev tightened build-dependency since it is
@@ -24,7 +24,7 @@ ace (5.5.9-1) experimental; urgency=low
   * Move $ACE_ROOT/bin/MakeProjectCreator/config files into libace-dev.
   * Install $TAO_ROOT/MPC files into libtao-dev.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Mon, 09 Jul 2007 21:16:44 +0200
+ -- Thomas Girard <thomas.g.girard@free.fr>  Tue, 17 Jul 2007 22:50:36 +0200
 
 ace (5.5.6-2) experimental; urgency=low
 
