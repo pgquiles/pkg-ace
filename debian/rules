@@ -177,6 +177,7 @@ install: build
 	cp -a $(ACE_SUBDIR)/bin/DependencyGenerator $(DT)/usr/share/ace/bin
 	cp -a $(ACE_SUBDIR)/bin/MakeProjectCreator $(DT)/usr/share/ace/bin
 	mkdir -p $(DT)/usr/share/ace/MPC
+	rm -f $(ACE_SUBDIR)/MPC/config/.cvsignore
 	cp -a $(ACE_SUBDIR)/MPC/config $(DT)/usr/share/ace/MPC
 	cp -a $(ACE_SUBDIR)/MPC/modules $(DT)/usr/share/ace/MPC
 	cp -a $(ACE_SUBDIR)/MPC/templates $(DT)/usr/share/ace/MPC
