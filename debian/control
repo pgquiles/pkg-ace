@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Debian ACE+TAO maintainers <pkg-ace-devel@lists.alioth.debian.org>
 Uploaders: Konstantinos Margaritis <markos@debian.org>, Brian Nelson <pyro@debian.org>, Thomas Girard <thomas.g.girard@free.fr>
-Build-Depends: debhelper (>= 5), libssl-dev (>= 0.9.7d), dpatch (>= 2.0.10), libxt-dev (>= 4.3.0), libfltk1.1-dev (>= 1.1.4), libqt4-dev, tk8.4-dev (>= 8.4.7), docbook-to-man, bzip2, autoconf, automake, libtool, autotools-dev
+Build-Depends: debhelper (>= 5), libssl-dev (>= 0.9.7d), dpatch (>= 2.0.10), libxt-dev (>= 4.3.0), libfltk1.1-dev (>= 1.1.4), libqt4-dev, tk8.4-dev (>= 8.4.7), zlib1g-dev, libzzip-dev, docbook-to-man, bzip2, autoconf, automake, libtool, autotools-dev
 Build-Depends-Indep: doxygen, graphviz
 Build-Conflicts: autoconf2.13, automake1.4
 Standards-Version: 3.7.2
