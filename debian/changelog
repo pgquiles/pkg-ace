@@ -1,3 +1,12 @@
+ace (5.5.10-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+  * Generate .am files instead of patching them; hence drop:
+    o patches/02-tao-sonames-release-am.dpatch
+    o tao-sonames-release-am.sh
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Wed, 08 Aug 2007 22:08:18 +0200
+
 ace (5.5.9-1) experimental; urgency=low
 
   * New upstream release. We now use the -src.tar.bz2 tarball, hence:

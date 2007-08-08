@@ -76,7 +76,7 @@ else
 prepatch-stamp: extract-stamp
 endif
 	dpatch apply-until $(UNTIL)
-	find -name '*.am' | xargs sh debian/tao-sonames-release-am.sh
+	cd $(TAO_ROOT) && ../bin/mwc.pl -type automake -noreldefs TAO.mwc
 	touch $@
 
 .PHONY: prepatch
