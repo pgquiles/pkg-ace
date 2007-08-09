@@ -2,11 +2,13 @@
 02-fltk-no-gl
 02-qt4
 03-g++-new-throws
-04-reduce-opt.dpatch
-05-prepatch-dummy-mark
+04-reduce-opt
 08-fix-perl-shebang
+10-autoconf_ACE_HAS_MUTEX_TIMEOUTS_fix
+11-autoconf_ACE_LACKS_NAMED_POSIX_SEM_fix
 15-fix-fltk-include
 34-bts386713
+50-prepatch-dummy-mark
 90-patch-mpc-basedir
 91-patch-dg-basedir
 92-default-ACE_ROOT

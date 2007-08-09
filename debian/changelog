@@ -4,6 +4,8 @@ ace (5.5.10-1) UNRELEASED; urgency=low
   * Generate .am files instead of patching them; hence drop:
     o patches/02-tao-sonames-release-am.dpatch
     o tao-sonames-release-am.sh
+  * Reenable IPv6 and enable IPv4/IPv6 migration.
+  * Fix DEB_BUILD_OPTIONS=noopt.
 
  -- Thomas Girard <thomas.g.girard@free.fr>  Wed, 08 Aug 2007 22:08:18 +0200
 

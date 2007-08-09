@@ -11,6 +11,7 @@ usr/lib/libTAO_CosNaming-*.so
 usr/lib/libTAO_CosNaming_Skel-*.so
 usr/lib/libTAO_CosNaming_Serv-*.so
 usr/lib/libTAO_CosNotification-*.so
+usr/lib/libTAO_CosNotification_Persist-*.so
 usr/lib/libTAO_CosNotification_Skel-*.so
 usr/lib/libTAO_CosNotification_Serv-*.so
 usr/lib/libTAO_CosProperty-*.so

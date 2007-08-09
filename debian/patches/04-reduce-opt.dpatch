@@ -2,7 +2,7 @@
 ## 04-reduce-opt.dpatch by Thomas Girard <thomas.g.girard@free.fr>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
-## DP: switch from -O3 to -O2
+## DP: drop -O3 default optimization level
 
 @DPATCH@
 --- ACE_wrappers.orig/m4/compiler.m4
@@ -12,7 +12,7 @@
             ACE_CXXFLAGS="$ACE_CXXFLAGS"
             DCXXFLAGS="$DCXXFLAGS"
 -           OCXXFLAGS="-O3"
-+           OCXXFLAGS="-O2"
++           OCXXFLAGS=""
           fi
           ;;
       esac

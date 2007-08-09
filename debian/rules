@@ -45,8 +45,7 @@ export QTDIR := /usr/share/qt4
 
 # This dpatch is only a place holder. The `prepatch' targets stops
 # here by default.
-PREPATCH_MARK := 05-prepatch-dummy-mark.dpatch
-POSTPATCH_MARK := 06-bootstrap.dpatch
+PREPATCH_MARK := 50-prepatch-dummy-mark.dpatch
 UNTIL := $(PREPATCH_MARK)
 
 # Where we install every file before calling dh_install
@@ -98,7 +97,9 @@ unpatch: patch-stamp
 	dpatch unpatch
 	rm -f $<
 
-# TODO: DEB_BUILD_OPTIONS broken now
+ifeq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+      CXXFLAGS+=-O2
+endif
 
 autotools-stamp: prepatch-stamp
 	cd $(ACE_ROOT) && bin/bootstrap
@@ -242,7 +243,7 @@ configure-stamp: patch-stamp
            --enable-fl-reactor --enable-qt-reactor --enable-xt-reactor \
            --enable-tk-reactor --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME) \
            --with-zlib --with-zzip \
-           --disable-ipv6 \
+           --enable-ipv6 --enable-ipv4-ipv6 \
            --enable-inline --enable-probe \
            --disable-symbol-visibility \
            --enable-ace-reactor-notification-queue
