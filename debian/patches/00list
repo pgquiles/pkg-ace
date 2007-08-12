@@ -6,6 +6,7 @@
 08-fix-perl-shebang
 10-autoconf_ACE_HAS_MUTEX_TIMEOUTS_fix
 11-autoconf_ACE_LACKS_NAMED_POSIX_SEM_fix
+12-autoconf-ACE_HAS_POSIX_SEM_TIMEOUT_test
 15-fix-fltk-include
 34-bts386713
 50-prepatch-dummy-mark
