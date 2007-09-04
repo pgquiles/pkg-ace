@@ -6,92 +6,14 @@
 @DPATCH@
 --- ACE_wrappers.orig/configure.ac
 +++ ACE_wrappers/configure.ac
-@@ -4332,6 +4332,73 @@
- 
- fi dnl check for POSIX Semaphore functions
- 
-+dnl If we have POSIX semaphores available, check to see if we also have
-+dnl the timed wait capability.
-+if test "$ac_cv_func_sem_open"   = yes &&
-+   test "$ac_cv_func_sem_close"  = yes &&
-+   test "$ac_cv_func_sem_unlink" = yes; then
-+     dnl Check if sem_timedwait() works - often it compiles and will run
-+     dnl but if called return ENOTSUP. In that case, we don't want it.
-+     ACE_CACHE_CHECK([if sem_timedwait works],
-+       [ace_cv_sem_timedwait_works],
-+       [
-+        AC_RUN_IFELSE([AC_LANG_SOURCE([[
-+#ifndef ACE_LACKS_SYS_TYPES_H
-+#include <sys/types.h>
-+#endif
-+
-+#include <sys/stat.h>
-+#include <fcntl.h>
-+#include <time.h>
-+#include <stddef.h>  /* for definition of "NULL" */
-+
-+#include <semaphore.h>
-+
-+#ifndef SEM_FAILED
-+# define SEM_FAILED ((sem_t *) -1)
-+#endif
-+
-+#include <errno.h>
-+
-+int
-+main ()
-+{
-+  sem_t *s = 0;
-+  struct timespec tmo;
-+  int status = 0;
-+  s = sem_open ("ace_semaphore_foo", O_CREAT, 0600, 1);
-+  if (s == SEM_FAILED)
-+    return -1;  /* FAILURE */
-+
-+  /* Don't care about the time, only whether the call works */
-+  tmo.tv_sec = 0;
-+  tmo.tv_nsec = 0;
-+  if (sem_timedwait (s, &tmo) == -1)
-+    {
-+      if (errno == ENOTSUP)
-+        status = -1;
-+    }
-+  else
-+    sem_post (s);
-+
-+  sem_unlink ("ace_semaphore_foo");
-+  sem_close (s);
-+
-+  return status;
-+}
-+        ]])],[
-+          ace_cv_sem_timedwait_works=yes
-+          ],[
-+          ace_cv_sem_timedwait_works=no
-+          ],[
-+          dnl action if cross-compiling
-+          ace_cv_sem_timedwait_works=yes
-+         ])
+@@ -4422,7 +4422,9 @@
+           dnl action if cross-compiling
+           ace_cv_sem_timedwait_works=yes
+          ])
+-       ],,)
 +       ],
-+       [AC_DEFINE([ACE_HAS_POSIX_SEM_TIMEOUT])],
-+       [AC_DEFINE([ACE_HAS_POSIX_SEM_TIMEOUT_EMULATION])])
-+fi
-+
++        [AC_DEFINE([ACE_HAS_POSIX_SEM_TIMEOUT])],
++        [AC_DEFINE([ACE_HAS_POSIX_SEM_TIMEOUT_EMULATION])])
+ fi
  
- dnl The following tests are performed only when the user has enabled
- dnl support for threads.
---- ACE_wrappers.orig/m4/config_h.m4
-+++ ACE_wrappers/m4/config_h.m4
-@@ -516,6 +516,12 @@
- [Platform supports POSIX real-time semaphores (e.g., VxWorks and
-    Solaris)])
- 
-+AH_TEMPLATE([ACE_HAS_POSIX_SEM_TIMEOUT],
-+[Platform supports timed POSIX semaphore acquisitions (sem_timedwait()).])
-+
-+AH_TEMPLATE([ACE_HAS_POSIX_SEM_TIMEOUT_EMULATION],
-+[Timed POSIX semaphore acquisitions will be emulated.])
-+
- AH_TEMPLATE([ACE_HAS_POSIX_TIME],
- [Platform supports the POSIX struct timespec type])
  
