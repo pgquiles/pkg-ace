@@ -1,19 +1,18 @@
 #! /bin/sh /usr/share/dpatch/dpatch-run
 ## 12-autoconf_ACE_HAS_POSIX_SEM_TIMEOUT_test.dpatch
 ##
-## DP: add this missing test (taken from SVN)
+## DP: add missing AC_DEFINE for ACE_HAS_POSIX_SEM_TIMEOUT
 
 @DPATCH@
 --- ACE_wrappers.orig/configure.ac
 +++ ACE_wrappers/configure.ac
-@@ -4422,7 +4422,9 @@
+@@ -4422,7 +4422,8 @@
            dnl action if cross-compiling
            ace_cv_sem_timedwait_works=yes
           ])
 -       ],,)
 +       ],
-+        [AC_DEFINE([ACE_HAS_POSIX_SEM_TIMEOUT])],
-+        [AC_DEFINE([ACE_HAS_POSIX_SEM_TIMEOUT_EMULATION])])
++        [AC_DEFINE([ACE_HAS_POSIX_SEM_TIMEOUT])],)
  fi
  
  
