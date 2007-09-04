@@ -1,11 +1,11 @@
 01-change-tao-sonames
 02-fltk-no-gl
 02-qt4
-03-g++-new-throws
+#03-g++-new-throws
 04-reduce-opt
 08-fix-perl-shebang
-11-autoconf_ACE_LACKS_NAMED_POSIX_SEM_fix
-12-autoconf-ACE_HAS_POSIX_SEM_TIMEOUT_test
+#11-autoconf_ACE_LACKS_NAMED_POSIX_SEM_fix
+#12-autoconf-ACE_HAS_POSIX_SEM_TIMEOUT_test
 15-fix-fltk-include
 34-bts386713
 50-prepatch-dummy-mark

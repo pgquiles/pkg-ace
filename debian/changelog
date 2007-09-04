@@ -1,4 +1,4 @@
-ace (5.5.10-1) UNRELEASED; urgency=low
+ace (5.6-1) UNRELEASED; urgency=low
 
   * New upstream release.
   * Generate .am files instead of patching them; hence drop:
@@ -7,7 +7,7 @@ ace (5.5.10-1) UNRELEASED; urgency=low
   * Reenable IPv6 and enable IPv4/IPv6 migration.
   * Fix DEB_BUILD_OPTIONS=noopt.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Wed, 08 Aug 2007 22:08:18 +0200
+ -- Thomas Girard <thomas.g.girard@free.fr>  Tue, 04 Sep 2007 12:34:03 +0000
 
 ace (5.5.9-1) experimental; urgency=low
 
