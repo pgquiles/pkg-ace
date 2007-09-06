@@ -50,9 +50,6 @@ MAKEFILE_DPATCH_FILENAME := debian/patches/$(MAKEFILE_DPATCH_NAME).dpatch
 DPATCH_NAME := temp.dpatch
 DPATCH_DESC := No description.
 
-# This is the debhelper compatibility version to use.
-export DH_COMPAT=5
-
 extract: $(ACE_ARCHIVE)
 	tar -xjf $<
 	touch $@

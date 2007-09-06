@@ -4,8 +4,9 @@ ace (5.4.7-13) unstable; urgency=low
     o libace5.4.7c2a to libace5.4.7ldbl (Closes: #430244)
     o libtao1.4.7c2a to libtao1.4.7ldbl (Closes: #430307)
     for ldbl128 transition.
+  * Use debian/compat instead of DH_COMPAT.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Wed, 05 Sep 2007 22:27:41 +0000
+ -- Thomas Girard <thomas.g.girard@free.fr>  Thu, 06 Sep 2007 09:52:34 +0000
 
 ace (5.4.7-12) unstable; urgency=low
 
