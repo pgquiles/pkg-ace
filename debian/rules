@@ -23,7 +23,7 @@ TCL_HOME := /usr/lib/tcl8.4
 TK_HOME  := /usr/lib/tk8.4
 
 ACE_SUBDIR := ACE_wrappers
-ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO*-src.tar.bz2 2>/dev/null || echo ace-archive-missing)
+ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO-src-*.tar.bz2 2>/dev/null || echo ace-archive-missing)
 MPC_SUBDIR := MPC
 MPC_ARCHIVE := $(shell ls -1 MPC*.tar.gz 2>/dev/null || echo mpc-archive-missing)
 
