@@ -40,6 +40,7 @@ export MPC_ROOT := $(shell pwd)/$(MPC_SUBDIR)
 endif
 export ACE_ROOT := $(shell pwd)/$(ACE_SUBDIR)
 export TAO_ROOT := $(ACE_ROOT)/TAO
+export CIAO_ROOT := $(TAO_ROOT)/CIAO
 export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(ACE_ROOT)/lib
 export QTDIR := /usr/share/qt4
 
@@ -144,6 +145,12 @@ install: build
 
 	$(MAKE) -C objdir install DESTDIR=$(CURDIR)/$(DT)
 
+#	TEMPORARY: rename all lib*-1.6.so to lib*-1.6.1.so, then make a symlink
+	cd $(CURDIR)/$(DT)/usr/lib && for i in lib*-1.6.so ; do \
+		mv $$i $${i%-1.6.so}-1.6.1.so ; \
+		ln -s $${i%-1.6.so}-1.6.1.so $$i ; \
+	done
+
 #       Rename gperf to gperf-ace
 	mv $(DT)/usr/bin/gperf $(DT)/usr/bin/gperf-ace
 
@@ -245,7 +252,7 @@ configure-stamp: patch-stamp
            --with-zlib --with-zzip \
            --enable-ipv6 --enable-ipv4-ipv6 \
            --enable-inline --enable-probe \
-           --disable-symbol-visibility \
+           --enable-symbol-visibility \
            --enable-ace-reactor-notification-queue
 	echo '#define ACE_GPERF "gperf-ace"' >> objdir/ace/config.h
 	echo '#define TAO_IDL_INCLUDE_DIR "/usr/include/tao"' >> objdir/ace/config.h
