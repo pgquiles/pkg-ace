@@ -6,7 +6,6 @@ usr/lib/libTAO_Codeset-*.so
 usr/lib/libTAO_Compression-*.so
 usr/lib/libTAO_CSD_Framework-*.so
 usr/lib/libTAO_CSD_ThreadPool-*.so
-usr/lib/libTAO_Domain-*.so
 usr/lib/libTAO_DynamicAny-*.so
 usr/lib/libTAO_DynamicInterface-*.so
 usr/lib/libTAO_EndpointPolicy-*.so

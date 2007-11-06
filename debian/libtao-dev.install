@@ -22,9 +22,6 @@ usr/lib/pkgconfig/TAO_CSD_Framework.pc
 usr/include/tao/CSD_ThreadPool
 usr/lib/libTAO_CSD_ThreadPool.so
 usr/lib/pkgconfig/TAO_CSD_ThreadPool.pc
-usr/include/tao/Domain
-usr/lib/libTAO_Domain.so
-usr/lib/pkgconfig/TAO_Domain.pc
 usr/include/tao/DynamicAny
 usr/lib/libTAO_DynamicAny.so
 usr/lib/pkgconfig/TAO_DynamicAny.pc
