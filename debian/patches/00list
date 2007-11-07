@@ -4,6 +4,7 @@
 04-reduce-opt
 05-5.6-compat.dpatch
 06-revert-mpc-kokyu-change.dpatch
+07-use-short-names-for-ace-doxygen.dpatch
 08-fix-perl-shebang
 12-autoconf-ACE_HAS_POSIX_SEM_TIMEOUT_test
 15-fix-fltk-include
