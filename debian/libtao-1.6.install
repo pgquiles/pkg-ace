@@ -29,3 +29,5 @@ usr/lib/libTAO_TypeCodeFactory-*.so
 usr/lib/libTAO_Utils-*.so
 usr/lib/libTAO_Valuetype-*.so
 usr/lib/libTAO_ImR_Client-*.so
+usr/lib/libTAO_DiffServPolicy-*.so
+usr/lib/libTAO_ZlibCompressor-*.so
