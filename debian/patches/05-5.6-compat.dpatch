@@ -2,7 +2,7 @@
 ## 05-5.6-compat.dpatch by Thomas Girard <thomas.g.girard@free.fr>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
-## DP: make ACE+TAO+CIAO x.6.1 ABI compatible with ACE+TAO+CIAO x.6
+## DP: use x.6 SONAME as x.6.1 is ABI compatible with x.6
 
 @DPATCH@
 --- ACE_wrappers.orig/configure.ac
@@ -27,17 +27,3 @@
      includes += $(TAO_BUILDDIR)
      libpaths -= $(ACE_ROOT)/lib
    }
---- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/Notify/CosNotify_Service.h
-+++ ACE_wrappers/TAO/orbsvcs/orbsvcs/Notify/CosNotify_Service.h
-@@ -59,9 +59,8 @@
-     CosNotifyChannelAdmin::EventChannelFactory_ptr factory);
- 
-   /// Create the Channel Factory.
--  virtual CosNotifyChannelAdmin::EventChannelFactory_ptr create (
--    PortableServer::POA_ptr default_POA,
--    const char* factory_name = "EventChannelFactory");
-+  virtual CosNotifyChannelAdmin::EventChannelFactory_ptr
-+    create (PortableServer::POA_ptr default_POA, const char* factory_name);
- 
-   /// Called by the factory when it is destroyed.
-   virtual void remove (TAO_Notify_EventChannelFactory* ecf);
