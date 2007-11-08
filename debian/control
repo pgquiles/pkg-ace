@@ -7,10 +7,14 @@ Build-Depends: debhelper (>= 5), libssl-dev (>= 0.9.7d), dpatch (>= 2.0.10), lib
 Build-Depends-Indep: doxygen, graphviz
 Build-Conflicts: autoconf2.13, automake1.4
 Standards-Version: 3.7.2
+Vcs-Svn: svn://svn.debian.org/svn/pkg-ace/trunk
+Vcs-Browser: http://svn.debian.org/wsvn/pkg-ace/trunk
+Homepage: http://www.cs.wustl.edu/~schmidt/ACE.html
 
 Package: mpc-ace
 Architecture: all
 Section: devel
+Homepage: http://www.ociweb.com/products/MPC
 Depends: ${perl:Depends}
 Recommends: make
 Suggests: libace-dev, pkg-config
@@ -24,8 +28,6 @@ Description: makefile, project and workspace creator
  The following programs are included:
   * mpc-ace, generating project files for a single target
   * mwc-ace, generating workspace files for a set of projects
- .
-  Homepage: http://www.ociweb.com/products/MPC
 
 Package: libace-5.6
 Architecture: any
@@ -51,8 +53,6 @@ Description: C++ network programming framework
  these:
   * Reactor, to handle event demultiplexing and dispatching
   * Proactor, for asynchronous I/O driven programs
- .
-  Homepage: http://www.cs.wustl.edu/~schmidt/ACE.html
 
 Package: libace-dev
 Architecture: any
@@ -310,6 +310,7 @@ Description: ACE-GUI reactor integration for Fl development files
 Package: libtao-1.6
 Architecture: any
 Section: libs
+Homepage: http://www.cs.wustl.edu/~schmidt/TAO.html
 Depends: ${shlibs:Depends}
 Replaces: libtao1.4 (<< 5.4.7), libtao1.4.7
 Conflicts: libtao1.4 (<< 5.4.7), libtao1.4.7
@@ -319,8 +320,6 @@ Description: ACE based CORBA ORB core libraries
  supports real-time extensions.
  .
  This package contains TAO core libraries.
- .
-  Homepage: http://www.cs.wustl.edu/~schmidt/TAO.html
 
 Package: libtao-dev
 Architecture: any
