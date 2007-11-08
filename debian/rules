@@ -11,6 +11,7 @@ INSTALL_755 := $(INSTALL) -m 755
 
 export DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 export DEB_BUILD_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+export DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 
 ifeq ($(DEB_BUILD_GNU_TYPE),$(DEB_HOST_GNU_TYPE))
 confflags += --build $(DEB_HOST_GNU_TYPE)
@@ -51,6 +52,8 @@ UNTIL := $(PREPATCH_MARK)
 
 # Where we install every file before calling dh_install
 DT := debian/tmp
+
+CONFIG := objdir/ace/config.h
 
 extract-stamp: $(ACE_ARCHIVE)
 	tar -xjf $<
@@ -258,8 +261,20 @@ configure-stamp: patch-stamp
            --enable-inline --enable-probe \
            --enable-symbol-visibility \
            --enable-ace-reactor-notification-queue
-	echo '#define ACE_GPERF "gperf-ace"' >> objdir/ace/config.h
-	echo '#define TAO_IDL_INCLUDE_DIR "/usr/include/tao"' >> objdir/ace/config.h
+	echo '#define ACE_GPERF "gperf-ace"' >> $(CONFIG)
+	echo '#define TAO_IDL_INCLUDE_DIR "/usr/include/tao"' >> $(CONFIG)
+
+#	To remove once the autoconf macros exist
+	for i in 16 32 64 ; do \
+		echo "#define ACE_HAS_BSWAP_$$i" >> $(CONFIG) ; \
+	done
+	echo "#define ACE_HAS_RECURSIVE_MUTEXES" >> $(CONFIG)
+
+ifneq (,$(findstring $(DEB_HOST_ARCH),i386 amd64))
+	echo "#define ACE_HAS_INTEL_ASSEMBLY" >> $(CONFIG)
+endif
+
+#	TODO: ACE_GETNAME_RETURNS_RANDOM_SIN_ZERO?
 	touch $@
 
 .PHONY: configure
