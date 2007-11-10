@@ -270,6 +270,19 @@ configure-stamp: patch-stamp
 	done
 	echo "#define ACE_HAS_RECURSIVE_MUTEXES" >> $(CONFIG)
 
+	# Not sure about this one, but it can do no harm
+	echo "#define ACE_HAS_DLSYM_SEGFAULT_ON_INVALID_HANDLE" >> $(CONFIG)
+
+	echo "#define ACE_HAS_SCANDIR" >> $(CONFIG)
+	echo "#define ACE_SCANDIR_CMP_USES_CONST_VOIDPTR" >> $(CONFIG)
+
+	echo "#define ACE_HAS_SENDFILE" >> $(CONFIG)
+
+	echo "#define ACE_HAS_WCSNLEN" >> $(CONFIG)
+	echo "#define ACE_LACKS_WCSICMP" >> $(CONFIG)
+
+	echo "#define ACE_POSIX_SIG_PROACTOR" >> $(CONFIG)
+
 ifneq (,$(findstring $(DEB_HOST_ARCH),i386 amd64))
 	echo "#define ACE_HAS_INTEL_ASSEMBLY" >> $(CONFIG)
 endif
