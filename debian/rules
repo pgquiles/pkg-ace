@@ -148,16 +148,6 @@ install: build
 
 	$(MAKE) -C objdir install DESTDIR=$(CURDIR)/$(DT)
 
-#	TEMPORARY: rename all lib*-x.6.so to lib*-x.6.so.1, then make a symlink
-	cd $(CURDIR)/$(DT)/usr/lib && for v in 5.6 1.6 ; do \
-		for i in lib*-$$v.so ; do \
-			mv $$i $${i%-$$v.so}-$$v.so.1 ; \
-			ln -s $${i%-$$v.so}-$$v.so.1 $$i ; \
-			rm -f $${i%-$$v.so}.so ; \
-			ln -s $${i%-$$v.so}-$$v.so.1 $${i%-$$v.so}.so ; \
-		done \
-	done
-
 #       Rename gperf to gperf-ace
 	mv $(DT)/usr/bin/gperf $(DT)/usr/bin/gperf-ace
 
