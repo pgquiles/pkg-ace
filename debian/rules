@@ -267,14 +267,9 @@ configure-stamp: patch-stamp
 
 	echo "#define ACE_HAS_SENDFILE" >> $(CONFIG)
 
-	echo "#define ACE_HAS_WCSNLEN" >> $(CONFIG)
 	echo "#define ACE_LACKS_WCSICMP" >> $(CONFIG)
 
 	echo "#define ACE_POSIX_SIG_PROACTOR" >> $(CONFIG)
-
-ifneq (,$(findstring $(DEB_HOST_ARCH),i386 amd64))
-	echo "#define ACE_HAS_INTEL_ASSEMBLY" >> $(CONFIG)
-endif
 
 #	TODO: ACE_GETNAME_RETURNS_RANDOM_SIN_ZERO?
 	touch $@

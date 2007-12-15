@@ -3,9 +3,7 @@
 02-qt4
 04-reduce-opt
 06-revert-mpc-kokyu-change.dpatch
-07-svn-ace-doxygen-short-names.dpatch
 08-fix-perl-shebang
-12-autoconf-ACE_HAS_POSIX_SEM_TIMEOUT_test
 15-fix-fltk-include
 34-bts386713
 50-prepatch-dummy-mark
