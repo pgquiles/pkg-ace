@@ -9,9 +9,9 @@ ace (5.6.2-1) experimental; urgency=low
   * Enable symbol visibility.
   * Manually add missing some autoconf tests to reduce differences against
     regular ACE build method.
-  * Do not generate doxygen; it fails.
+  * Do not generate doxygen; it fails now.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Sat, 22 Dec 2007 17:56:23 +0100
+ -- Thomas Girard <thomas.g.girard@free.fr>  Sun, 06 Jan 2008 21:05:37 +0100
 
 ace (5.5.9-1) experimental; urgency=low
 
