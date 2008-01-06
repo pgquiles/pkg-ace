@@ -238,7 +238,7 @@ configure-stamp: patch-stamp
            --enable-fl-reactor --enable-qt-reactor --enable-xt-reactor \
            --enable-tk-reactor --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME) \
            --with-zlib --with-zzip \
-           --enable-inline --enable-probe \
+           --enable-inline \
            --enable-symbol-visibility \
            --enable-ace-reactor-notification-queue
 	echo '#define ACE_GPERF "gperf-ace"' >> $(CONFIG)
