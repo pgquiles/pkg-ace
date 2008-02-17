@@ -117,6 +117,15 @@ build: build-stamp manpages-stamp
 manpages-stamp: $(MAN1) $(MAN5)
 	touch $@
 
+doxygen-stamp: extract-stamp
+	cd $(ACE_ROOT) && bin/generate_doxygen.pl -is_release
+	find $(ACE_ROOT)/html/ace -name '*.tag' -o -name '*.md5' -o -name '*.dot' -o -name '*.idx' | xargs -r rm -f
+	find $(ACE_ROOT)/html/tao -name '*.tag' -o -name '*.md5' -o -name '*.dot' -o -name '*.idx' | xargs -r rm -f
+	touch $@
+
+.PHONY: doxygen
+doxygen: doxygen-stamp
+
 build-stamp: configure-stamp
 	dh_testdir
 
@@ -190,7 +199,7 @@ install: build
 	rm -f $(DT)/usr/bin/TAO_Service
 	dh_install --sourcedir=$(DT) --fail-missing
 
-binary-indep: build install
+binary-indep: build install doxygen-stamp
 	dh_testdir -i
 	dh_testroot -i
 	dh_installdocs -i
@@ -244,18 +253,21 @@ configure-stamp: patch-stamp
 	echo '#define ACE_GPERF "gperf-ace"' >> $(CONFIG)
 	echo '#define TAO_IDL_INCLUDE_DIR "/usr/include/tao"' >> $(CONFIG)
 
-#	To remove once the autoconf macros exist
+#	To remove once the autoconf macros are fixed, see bz#3134
 	for i in 16 32 64 ; do \
 		echo "#define ACE_HAS_BSWAP_$$i" >> $(CONFIG) ; \
 	done
+
+	# bz#3138
 	echo "#define ACE_HAS_RECURSIVE_MUTEXES" >> $(CONFIG)
 
-	# Not sure about this one, but it can do no harm
+	# Not sure about this one, but it can do no harm (bz#3141)
 	echo "#define ACE_HAS_DLSYM_SEGFAULT_ON_INVALID_HANDLE" >> $(CONFIG)
 
 	echo "#define ACE_HAS_SCANDIR" >> $(CONFIG)
 	echo "#define ACE_SCANDIR_CMP_USES_CONST_VOIDPTR" >> $(CONFIG)
 
+	# bz#3144
 	echo "#define ACE_HAS_SENDFILE" >> $(CONFIG)
 
 	echo "#define ACE_LACKS_WCSICMP" >> $(CONFIG)
