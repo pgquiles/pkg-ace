@@ -74,3 +74,23 @@
 +AM_CONDITIONAL([BUILD_TAO_FOXRESOURCE],
 +               [test X$ace_user_enable_fox_reactor = Xyes])
 +])
+--- ACE_wrappers.orig/bin/MakeProjectCreator/config/global.features
++++ ACE_wrappers/bin/MakeProjectCreator/config/global.features
+@@ -90,6 +90,8 @@
+ ace_tkreactor    = 1
+ // Use FlReactor
+ ace_flreactor    = 1
++// Use FoxReactor
++ace_foxreactor   = 1
+ 
+ // Features for TAO support for various GUI libraries
+ // Use QtResources for TAO
+@@ -100,6 +102,8 @@
+ tao_tkresource    = 1
+ // Use FlResources for TAO
+ tao_flresource    = 1
++// Use FoxResources for TAO
++tao_foxresource   = 1
+ 
+ //Use the ZIP_Wrapper feature for when using the ZIP wrapper classes
+ ZIP_Wrapper = 0
