@@ -94,3 +94,13 @@
  
  //Use the ZIP_Wrapper feature for when using the ZIP wrapper classes
  ZIP_Wrapper = 0
+--- ACE_wrappers.orig/ace/ace.mwc
++++ ACE_wrappers/ace/ace.mwc
+@@ -6,6 +6,7 @@
+   ace.mpc
+   ace_for_tao.mpc
+   ace_flreactor.mpc
++  ace_foxreactor.mpc
+   ace_qtreactor.mpc
+   ace_tkreactor.mpc
+   ace_xtreactor.mpc
