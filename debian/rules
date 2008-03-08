@@ -28,6 +28,8 @@ ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO-src-*.tar.bz2 2>/dev/null || echo ace-
 MPC_SUBDIR := MPC
 MPC_ARCHIVE := $(shell ls -1 MPC*.tar.gz 2>/dev/null || echo mpc-archive-missing)
 
+MWCFLAGS := -type automake -features "ssl=1,zlib=1,zzip=1,xt=1,tk=1,fl=1,qt=1,fox=1" -noreldefs
+
 MAN1 := debian/Basic_Logging_Service.1 \
 	debian/Event_Logging_Service.1 \
 	debian/Notify_Logging_Service.1 \
@@ -79,7 +81,8 @@ else
 prepatch-stamp: extract-stamp
 endif
 	dpatch apply-until $(UNTIL)
-	cd $(TAO_ROOT) && ../bin/mwc.pl -type automake -noreldefs TAO.mwc
+	cd $(ACE_ROOT) &&    bin/mwc.pl $(MWCFLAGS) ACE.mwc
+	cd $(TAO_ROOT) && ../bin/mwc.pl $(MWCFLAGS) TAO.mwc
 	touch $@
 
 .PHONY: prepatch
@@ -129,8 +132,6 @@ doxygen: doxygen-stamp
 build-stamp: configure-stamp
 	dh_testdir
 
-	# Hack to remove when this bug is fixed
-	mkdir -p objdir/ace/QtReactor
 	$(MAKE) -C objdir
 
 	touch $@

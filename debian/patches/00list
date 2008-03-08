@@ -2,7 +2,7 @@
 02-fltk-no-gl
 02-qt4
 04-reduce-opt
-06-revert-mpc-kokyu-change.dpatch
+05-autoconf-fox
 08-fix-perl-shebang
 15-fix-fltk-include
 34-bts386713
