@@ -104,3 +104,13 @@
    ace_qtreactor.mpc
    ace_tkreactor.mpc
    ace_xtreactor.mpc
+--- ACE_wrappers.orig/TAO/configure.ac
++++ ACE_wrappers/TAO/configure.ac
+@@ -183,6 +183,7 @@
+ ACE_ENABLE_QT_REACTOR
+ ACE_ENABLE_TK_REACTOR
+ ACE_ENABLE_XT_REACTOR
++ACE_ENABLE_FOX_REACTOR
+ ACE_PATH_ZZIP
+ ACE_PATH_ZLIB
+ 
