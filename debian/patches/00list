@@ -3,6 +3,7 @@
 02-qt4
 04-reduce-opt
 05-autoconf-fox
+07-autoconf-fix-gperf
 08-fix-perl-shebang
 15-fix-fltk-include
 34-bts386713

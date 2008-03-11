@@ -83,6 +83,7 @@ endif
 	dpatch apply-until $(UNTIL)
 	cd $(ACE_ROOT) &&    bin/mwc.pl $(MWCFLAGS) ACE.mwc
 	cd $(TAO_ROOT) && ../bin/mwc.pl $(MWCFLAGS) TAO.mwc
+	patch -p0 < debian/patches/09-autoconf-fix-no-base-include-headers.diff
 	touch $@
 
 .PHONY: prepatch
