@@ -6,6 +6,7 @@
 07-autoconf-fix-gperf
 08-fix-perl-shebang
 10-fix-fox-resource-export
+11-fix-fox-reactor
 15-fix-fltk-include
 34-bts386713
 50-prepatch-dummy-mark
