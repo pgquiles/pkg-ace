@@ -7,6 +7,8 @@
 08-fix-perl-shebang
 10-fix-fox-resource-export
 11-fix-fox-reactor
+12-fix-fox-include
+13-fix-fox-errors
 15-fix-fltk-include
 34-bts386713
 50-prepatch-dummy-mark

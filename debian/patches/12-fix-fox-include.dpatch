@@ -1,0 +1,18 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 12-fix-fox-include.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: drop fox/ prefix in include, it's correctly set by fox-config
+
+@DPATCH@
+--- ACE_wrappers.orig/ace/FoxReactor/FoxReactor.h
++++ ACE_wrappers/ace/FoxReactor/FoxReactor.h
+@@ -27,7 +27,7 @@
+ 
+ #include "ace/Select_Reactor.h"
+ 
+-#include <fox/fx.h>
++#include <fx.h>
+ 
+ /**
+  * @class ACE_FoxReactor
