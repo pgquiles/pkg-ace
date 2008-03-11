@@ -131,8 +131,9 @@ doxygen: doxygen-stamp
 
 build-stamp: configure-stamp
 	dh_testdir
-
+	mkdir -p objdir/ace/QtReactor
 	$(MAKE) -C objdir
+	$(MAKE) -C objdir/TAO
 
 	touch $@
 
@@ -246,7 +247,8 @@ configure-stamp: patch-stamp
            --disable-tao-examples --disable-tao-tests \
            --disable-ace-examples --disable-ace-tests \
            --enable-fl-reactor --enable-qt-reactor --enable-xt-reactor \
-           --enable-tk-reactor --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME) \
+           --enable-tk-reactor --enable-fox-reactor \
+           --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME) \
            --with-zlib --with-zzip \
            --enable-inline \
            --enable-symbol-visibility \
