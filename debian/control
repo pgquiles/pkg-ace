@@ -305,6 +305,28 @@ Description: ACE-GUI reactor integration for Fl development files
  This package contains header files and static library for the ACE-Fl
  reactor integration.
 
+Package: libace-foxreactor-5.6.3
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: ACE-GUI reactor integration for FOX
+ Recognizing the need to write reactor-based GUI applications, the ACE
+ community has created several reactor extensions for use with X Window
+ System. Each of these extends the ACE_Select_Reactor to work with a
+ specific toolkit. By using these reactors, your GUI application can remain
+ single threaded yet still respond to both GUI events, such as button
+ presses, any your own application events.
+ .
+ The ACE_FoxReactor integrates with the FOX toolkit.
+
+Package: libace-foxreactor-dev
+Architecture: any
+Section: libdevel
+Depends: libace-foxreactor-5.6.3 (= ${binary:Version}), libace-dev (= ${binary:Version}), libfox-1.6-dev
+Description: ACE-GUI reactor integration for FOX development files
+ This package contains header files and static library for the ACE-FOX
+ reactor integration.
+
 Package: libtao-1.6.3
 Architecture: any
 Section: libs
@@ -425,6 +447,21 @@ Section: libdevel
 Depends: libtao-tkresource-1.6.3 (= ${binary:Version}), libace-tkreactor-dev (= ${binary:Version}), libtao-dev (= ${binary:Version})
 Description: TAO-GUI reactor integration for Tk development files
  This package contains header files and static library for the TAO-Tk
+ reactor integration.
+
+Package: libtao-foxresource-1.6.3
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: TAO-GUI reactor integration for FOX
+ The Fl resource factory integrates ACE FoxReactor into TAO ORB reactor.
+
+Package: libtao-foxresource-dev
+Architecture: any
+Section: libdevel
+Depends: libtao-foxresource-1.6.3 (= ${binary:Version}), libace-foxreactor-dev (= ${binary:Version}), libtao-dev (= ${binary:Version})
+Description: TAO-GUI reactor integration for FOX development files
+ This package contains header files and static library for the TAO-FOX
  reactor integration.
 
 Package: tao-idl

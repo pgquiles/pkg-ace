@@ -150,6 +150,7 @@ install: build
 	dh_installdirs
 
 	$(MAKE) -C objdir install DESTDIR=$(CURDIR)/$(DT)
+	$(MAKE) -C objdir/TAO install DESTDIR=$(CURDIR)/$(DT)
 
 #       Rename gperf to gperf-ace
 	mv $(DT)/usr/bin/gperf $(DT)/usr/bin/gperf-ace
