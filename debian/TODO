@@ -1,0 +1,15 @@
+= Misc =
+ * see current bugs
+ * compare installed files with traditional method
+ * try to rebuild rdeps
+
+= autoconf support =
+ * some macros are missing (see rules)
+
+= TAO =
+ * when ACE_HAS_IPV6 is set and no endpoint is specified, only IPv6 is
+   tried
+
+= CIAO =
+ * autoconf support
+ * cidlc
