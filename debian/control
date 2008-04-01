@@ -535,7 +535,7 @@ Package: tao-naming
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}
-Recommends: tao-nsutils
+Recommends: tao-utils
 Conflicts: libtao-orbsvcs1.4.7c2a (<< 5.4.7-11)
 Description: TAO naming service
  TAO implementation of CORBA interoperable naming service (INS).
