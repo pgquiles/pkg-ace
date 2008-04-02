@@ -258,11 +258,6 @@ configure-stamp: patch-stamp
 	echo '#define ACE_GPERF "gperf-ace"' >> $(CONFIG)
 	echo '#define TAO_IDL_INCLUDE_DIR "/usr/include/tao"' >> $(CONFIG)
 
-#	To remove once the autoconf macros are fixed, see bz#3134
-	for i in 16 32 64 ; do \
-		echo "#define ACE_HAS_BSWAP_$$i" >> $(CONFIG) ; \
-	done
-
 	# bz#3138
 	echo "#define ACE_HAS_RECURSIVE_MUTEXES" >> $(CONFIG)
 

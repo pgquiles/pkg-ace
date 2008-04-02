@@ -13,6 +13,7 @@
 14-autoconf-tao
 15-fix-fltk-include
 17-protect-mpc-path
+18-fix-bswap-detection
 34-bts386713
 50-prepatch-dummy-mark
 90-patch-mpc-basedir
