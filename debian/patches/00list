@@ -3,7 +3,7 @@
 02-qt4
 04-reduce-opt
 05-autoconf-fox
-06-revert-mpc-kokyu-change
+06-fix-kokyu-mpc
 07-autoconf-fix-gperf
 08-fix-perl-shebang
 10-fix-fox-resource-export
