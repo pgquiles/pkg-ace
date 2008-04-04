@@ -14,6 +14,8 @@
 15-fix-fltk-include
 17-protect-mpc-path
 18-fix-bswap-detection
+19-gcc43
+20-fix-iostream-detection
 34-bts386713
 50-prepatch-dummy-mark
 90-patch-mpc-basedir
