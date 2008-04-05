@@ -20,3 +20,90 @@
  
  dnl Check if platform needs to #include <regexpr.h> for
  dnl regular expression support
+@@ -2014,14 +2012,18 @@
+   [ace_cv_feature_char_right_shifts],
+   [
+    AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
++#ifdef ACE_USES_OLD_IOSTREAM
+ #include <iostream.h>
++#else
++#include <iostream>
++#endif
+                   ]],[[
+ unsigned char a = 0;
+-cin >> a;
++std::cin >> a;
+ 
+ #ifndef ACE_LACKS_SIGNED_CHAR
+ signed char b = 0;
+-cin >> b;
++std::cin >> b;
+ #endif
+                   ]])],[
+                    ace_cv_feature_char_right_shifts=yes
+@@ -2036,14 +2038,18 @@
+   [ace_cv_feature_char_ptr_right_shifts],
+   [
+    AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
++#ifdef ACE_USES_OLD_IOSTREAMS
+ #include <iostream.h>
++#else
++#include <iostream>
++#endif
+                   ]],[[
+ unsigned char * a = 0;
+-cin >> a;
++std::cin >> a;
+ 
+ #ifndef ACE_LACKS_SIGNED_CHAR
+ signed char * b = 0;
+-cin >> b;
++std::cin >> b;
+ #endif
+                   ]])],[
+                    ace_cv_feature_char_ptr_right_shifts=yes
+@@ -5814,9 +5820,13 @@
+ ACE_CACHE_CHECK([for iostream method ipfx()],
+   [ace_cv_feature_has_iostream_ipfx],[
+     AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
++#ifdef ACE_USES_OLD_IOSTREAMS
+ #include <iostream.h>
++#else
++#include <iostream>
++#endif
+       ]], [[
+-       cin.ipfx();
++       std::cin.ipfx();
+       ]])],[
+        ace_cv_feature_has_iostream_ipfx=yes
+       ],[
+@@ -5828,9 +5838,13 @@
+ ACE_CACHE_CHECK([for line-buffered streambufs],
+   [ace_cv_feature_has_linebuffered_streambuf],[
+     AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
++#ifdef ACE_USES_OLD_IOSTREAMS
+ #include <iostream.h>
++#else
++#include <iostream>
++#endif
+       ]], [[
+-       cin.rdbuf()->linebuffered(1);
++       std::cin.rdbuf()->linebuffered(1);
+       ]])],[
+        ace_cv_feature_has_linebuffered_streambuf=yes
+       ],[
+@@ -5842,9 +5856,13 @@
+ ACE_CACHE_CHECK([for unbuffered streambufs],
+   [ace_cv_feature_has_unbuffered_streambuf],[
+     AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
++#ifdef ACE_USES_OLD_IOSTREAMS
+ #include <iostream.h>
++#else
++#include <iostream>
++#endif
+       ]], [[
+-       cin.rdbuf()->unbuffered(1);
++       std::cin.rdbuf()->unbuffered(1);
+       ]])],[
+        ace_cv_feature_has_unbuffered_streambuf=yes
+       ],[
