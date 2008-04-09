@@ -62,7 +62,7 @@
  #endif
                    ]])],[
                     ace_cv_feature_char_ptr_right_shifts=yes
-@@ -5814,9 +5820,13 @@
+@@ -5823,9 +5829,17 @@
  ACE_CACHE_CHECK([for iostream method ipfx()],
    [ace_cv_feature_has_iostream_ipfx],[
      AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
@@ -72,12 +72,15 @@
 +#include <iostream>
 +#endif
        ]], [[
--       cin.ipfx();
++#ifdef ACE_USES_STD_NAMESPACE_FOR_STDCPP_LIB
 +       std::cin.ipfx();
++#else
+        cin.ipfx();
++#endif
        ]])],[
         ace_cv_feature_has_iostream_ipfx=yes
        ],[
-@@ -5828,9 +5838,13 @@
+@@ -5837,9 +5851,17 @@
  ACE_CACHE_CHECK([for line-buffered streambufs],
    [ace_cv_feature_has_linebuffered_streambuf],[
      AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
@@ -87,12 +90,15 @@
 +#include <iostream>
 +#endif
        ]], [[
--       cin.rdbuf()->linebuffered(1);
++#ifdef ACE_USES_STD_NAMESPACE_FOR_STDCPP_LIB
 +       std::cin.rdbuf()->linebuffered(1);
++#else
+        cin.rdbuf()->linebuffered(1);
++#endif
        ]])],[
         ace_cv_feature_has_linebuffered_streambuf=yes
        ],[
-@@ -5842,9 +5856,13 @@
+@@ -5851,9 +5873,17 @@
  ACE_CACHE_CHECK([for unbuffered streambufs],
    [ace_cv_feature_has_unbuffered_streambuf],[
      AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
@@ -102,8 +108,21 @@
 +#include <iostream>
 +#endif
        ]], [[
--       cin.rdbuf()->unbuffered(1);
++#ifdef ACE_USES_STD_NAMESPACE_FOR_STDCPP_LIB
 +       std::cin.rdbuf()->unbuffered(1);
++#else
+        cin.rdbuf()->unbuffered(1);
++#endif
        ]])],[
         ace_cv_feature_has_unbuffered_streambuf=yes
        ],[
+--- ACE_wrappers.orig/m4/aio.m4
++++ ACE_wrappers/m4/aio.m4
+@@ -64,7 +64,6 @@
+ #include <string.h>
+ #include <errno.h>
+ #include <stdio.h>
+-#include <iostream.h>
+ 
+ #include <aio.h>
+ 
