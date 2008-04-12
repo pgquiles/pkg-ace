@@ -3,7 +3,6 @@
    o generate platform_macros.GNU and ship it
    o netsvcs library
    o websvcs library
- * try to rebuild rdeps
  * rewrite the patch to load TAO libraries by SONAME and RFC it
  * move ACE_ROOT from /usr/share/ace to /usr/lib/ace?
  * hide .real programs in /usr/lib/ace?
