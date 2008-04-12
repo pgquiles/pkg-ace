@@ -1,13 +1,16 @@
-ace (5.6.3-1) experimental; urgency=low
+ace (5.6.3-1) unstable; urgency=low
 
   * New upstream release:
-    o fix wrong library path in TAO_PI.pc. Closes: #449498.
+    o missing os_include/os_byteswap.h is included. Closes: #469844.
+  * Upload to unstable.
+  * New packages: libace-foxreactor and libtao-foxresource, integrating
+    with the FOX toolkit.
   * Build doxygen again.
-  * XXX Fix gperf-ace copyright file. Spotted by lintian.
-  * XXX Provide ACE netsvcs library. Closes: #466137.
+  * Rewrite debian/copyright, following proposal from:
+    http://wiki.debian.org/Proposals/CopyrightFormat
   * Add a watch file.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Sat, 16 Feb 2008 21:38:25 +0100
+ -- Thomas Girard <thomas.g.girard@free.fr>  Sat, 12 Apr 2008 17:10:14 +0000
 
 ace (5.6.2-1) experimental; urgency=low
 
