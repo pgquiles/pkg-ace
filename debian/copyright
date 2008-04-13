@@ -5,7 +5,7 @@ This package was debianized by Ossama Othman <ossama@debian.org> on Fri,
 It was downloaded from: <http://download.dre.vanderbilt.edu/>
 
 Files: *
-Copyright: © 1993-2008 Douglas C. Schmidt and his research group at
+Copyright: Â© 1993-2008 Douglas C. Schmidt and his research group at
              Washington University, University of California, Irvine,
              and Vanderbilt University
 License: other-BSD
@@ -131,13 +131,13 @@ License: other-BSD
  22. http://www.cs.wustl.edu/ACE.html
 
 Files: apps/gperf/*
-Copyright: © 1989 Free Software Foundation, Inc.
+Copyright: Â© 1989 Free Software Foundation, Inc.
 License: GPL-2+
  On Debian systems the full text of the GNU General Public License (Version 2)
  can be found in the `/usr/share/common-licenses/GPL-2' file.
 
 Files: ACE_wrappers/MPC/*
-Copyright: © 2003-2006 OCI. St. Louis MO USA
+Copyright: Â© 2003-2006 OCI. St. Louis MO USA
 License: other-BSD
  MPC (Licensed Product) is protected by copyright, and is distributed under
  the following terms.
@@ -194,7 +194,7 @@ License: other-BSD
  MPC copyright OCI. St. Louis MO USA, 2003-2006
 
 Files: ACE_wrappers/contrib/minizip/*.[ch]
-Copyright: © 1998-2005 Gilles Vollant
+Copyright: Â© 1998-2005 Gilles Vollant
 License: ZLIB
  This software is provided 'as-is', without any express or implied
  warranty.  In no event will the authors be held liable for any damages
@@ -213,7 +213,7 @@ License: ZLIB
  3. This notice may not be removed or altered from any source distribution.
 
 Files: ACE_wrappers/contrib/utility/*
-Copyright: © 2002-2003 Boris Kolpackov
+Copyright: Â© 2002-2003 Boris Kolpackov
 License: other-BSD
  This software or documentation is provided 'as-is', without any
  express or implied warranty.  In no event will the author or contributors
@@ -248,7 +248,7 @@ Files: ACE_wrappers/TAO/TAO_IDL/*
        ACE_wrappers/*/drv_*_ifr.*
        ACE_wrappers/*/be_produce.cpp
        ACE_wrappers/*/be_extern.h
-Copyright: © 1992-1995 Sun Micosystems, Inc
+Copyright: Â© 1992-1995 Sun Micosystems, Inc
 License: other
  COPYRIGHT
  
@@ -332,7 +332,7 @@ Files: ACE_wrappers/TAO/tao/DynamicInterface/Unknown_User_Exception.h
        ACE_wrappers/TAO/tao/Object.cpp
        ACE_wrappers/TAO/tao/Principal.h
        ACE_wrappers/TAO/tao/Principal.cpp
-Copyright: © 1995 Sun Microsystems, Inc
+Copyright: Â© 1995 Sun Microsystems, Inc
 License: other
  This notice applies to all files in this software distribution that
  were originally derived from SunSoft IIOP code (these files contain
@@ -402,13 +402,13 @@ License: other
  Mountain View, California  94043
 
 Files: ACE_wrappers/ace/OS_NS_unistd.inl (swab function)
-Copyright: © 1994-2006 Red Hat, Inc.
+Copyright: Â© 1994-2006 Red Hat, Inc.
 License: BSD-3
 
 Files: ACE_wrappers/ace/UTF32_Encoding_Converter.cpp
        ACE_wrappers/ace/UTF16_Encoding_Converter.cpp
        ACE_wrappers/ace/UTF16_Encoding_Converter.inl
-Copyright: © 2001-2004 Unicode, Inc.
+Copyright: Â© 2001-2004 Unicode, Inc.
 License: other
  Limitations on Rights to Redistribute This Code
  
@@ -419,7 +419,7 @@ License: other
  remains attached.
 
 Files: ACE_wrappers/apps/JAWS3/*
-Copyright: © 2000 James Hu and Entera, Inc.
+Copyright: Â© 2000 James Hu and Entera, Inc.
 License: other
  Copyright and Licensing Information for JAWS Adaptive Web Server,
  version 3 (JAWS3).
@@ -479,7 +479,7 @@ License: other
  jxh@entera.com
 
 Files: ACE_wrappers/apps/JAWS/clients/WebSTONE/*
-Copyright: © 1995 Silicon Graphics, Inc.
+Copyright: Â© 1995 Silicon Graphics, Inc.
 License: other
  This file and all files contained in this directory are 
  copyright 1995, Silicon Graphics, Inc.
@@ -498,9 +498,9 @@ License: other
  Silicon Graphics, Inc. has been advised of the possibility of such damages.
 
 Files: ACE_wrappers/ASNMP/*
-Copyright: © 1996 Hewlett-Packard Company
-           © 1988, 1989, 1991, 1992 Carnegie Mellon University
-           © 1997 Cisco Systems, Inc.
+Copyright: Â© 1996 Hewlett-Packard Company
+           Â© 1988, 1989, 1991, 1992 Carnegie Mellon University
+           Â© 1997 Cisco Systems, Inc.
 License: other-BSD
  These copyrights apply to the SNMP++ module shipped with the ACE library:
  
@@ -568,7 +568,7 @@ License: other-BSD
  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
 
 Files: ACE_wrappers/ace/OS_NS_wchar.cpp (wcs*_emulation functions)
-Copyright: © 1991, 1993 The Regents of the University of California
+Copyright: Â© 1991, 1993 The Regents of the University of California
 License: BSD-4
  Copyright (c) 1991, 1993
       The Regents of the University of California.  All rights reserved.
@@ -605,8 +605,8 @@ License: BSD-4
  SUCH DAMAGE.
 
 Files: ACE_wrappers/ace/Get_Opt.cpp
-Copyright: © 1987, 1993, 1994 The Regents of the University of California
-           © 2000 The NetBSD Foundation, Inc.
+Copyright: Â© 1987, 1993, 1994 The Regents of the University of California
+           Â© 2000 The NetBSD Foundation, Inc.
 License: BSD-4
  Copyright (c) 1987, 1993, 1994
       The Regents of the University of California.  All rights reserved.
@@ -678,7 +678,7 @@ License: BSD-4
 Files: ACE_wrappers/examples/C++NPv1
        ACE_wrappers/examples/C++NPv2
        ACE_wrappers/examples/APG
-Copyright: © 2001, 2003 Addison Wesley
+Copyright: Â© 2001, 2003 Addison Wesley
 License: other
  All of the files in these directories are copyright Addison Wesley,
  and they come with absolutely no warranty whatsoever.  Permission is
