@@ -97,7 +97,7 @@ LD       = $(CXX)
 LIBS     += @LIBS@
 
 ifeq ($(optimize),1)
-  SOFLAGS += -Wl,-O3
+  SOFLAGS += -Wl,-O2
 endif
 
 SOFLAGS += $(CPPFLAGS) -shared
@@ -110,15 +110,8 @@ PRELIB  = @true
 #
 include $(ACE_ROOT)/include/makeinclude/platform_g++_common.GNU
 
-# TAO with GCC 4.0.2 and -O3 seems to result in runtime issues, for example
-# the ForwardRequest PI test will fail. For GCC 4.0.2 we default to -O2
-ifeq ($(CXX_VERSION),4.0.2)
-  OCFLAGS ?= -O2
-  OCCFLAGS ?=-O2
-else
-  OCFLAGS ?= -O3
-  OCCFLAGS ?= -O3
-endif
+OCFLAGS  ?= -O2
+OCCFLAGS ?= -O2
 
 CFLAGS  += $(FLAGS_C_CC)
 CCFLAGS += $(FLAGS_C_CC) $(TEMPLATES_FLAG)
