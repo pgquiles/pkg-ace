@@ -59,6 +59,7 @@ CONFIG := objdir/ace/config.h
 
 extract-stamp: $(ACE_ARCHIVE)
 	tar -xjf $<
+	cp debian/platform_macros.GNU.in ACE_wrappers/include/makeinclude
 	touch $@
 
 .PHONY: extract
@@ -84,6 +85,7 @@ endif
 	cd $(ACE_ROOT) &&    bin/mwc.pl -noreldefs $(MWCFLAGS) ACE.mwc
 	cd $(TAO_ROOT) && ../bin/mwc.pl -noreldefs $(MWCFLAGS) TAO.mwc
 	patch -p0 < debian/patches/09-autoconf-fix-no-base-include-headers.diff
+	patch -p0 < debian/patches/21-generate-platform_macros.GNU.diff
 	touch $@
 
 .PHONY: prepatch
