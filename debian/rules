@@ -20,8 +20,8 @@ confflags += --build $(DEB_BUILD_GNU_TYPE) \
              --host $(DEB_HOST_GNU_TYPE)
 endif
 
-TCL_HOME := /usr/lib/tcl8.4
-TK_HOME  := /usr/lib/tk8.4
+TCL_HOME := /usr/lib
+TK_HOME  := /usr/lib
 
 ACE_SUBDIR := ACE_wrappers
 ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO-src-*.tar.bz2 2>/dev/null || echo ace-archive-missing)
@@ -267,6 +267,7 @@ configure-stamp: patch-stamp
            --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME) \
            --with-zlib --with-zzip \
            --enable-inline \
+           --enable-pthreads \
            --enable-symbol-visibility \
            --enable-ace-reactor-notification-queue
 	echo '#define ACE_GPERF "gperf-ace"' >> $(CONFIG)
