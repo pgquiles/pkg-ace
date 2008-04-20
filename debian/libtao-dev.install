@@ -94,3 +94,4 @@ usr/lib/pkgconfig/TAO_DiffServPolicy.pc
 usr/include/tao/DiffServPolicy
 usr/lib/libTAO_ZlibCompressor.so
 usr/lib/pkgconfig/TAO_ZlibCompressor.pc
+usr/share/ace/TAO/rules.tao.GNU

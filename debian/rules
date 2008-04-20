@@ -38,6 +38,13 @@ MAN1 := debian/Basic_Logging_Service.1 \
 	debian/mpc-ace.1
 MAN5 :=
 
+DOXYGEN_FILES_TO_REMOVE := -name '*.tag' -o \
+                           -name '*.md5' -o \
+                           -name '*.dot' -o \
+                           -name '*.idx' -o \
+                           -name '*.map' -o \
+                           -name 'index.hh?'
+
 ifneq (mpc-archive-missing,$(MPC_ARCHIVE))
 export MPC_ROOT := $(shell pwd)/$(MPC_SUBDIR)
 endif
@@ -125,8 +132,8 @@ manpages-stamp: $(MAN1) $(MAN5)
 
 doxygen-stamp: extract-stamp
 	cd $(ACE_ROOT) && bin/generate_doxygen.pl -is_release
-	find $(ACE_ROOT)/html/ace -name '*.tag' -o -name '*.md5' -o -name '*.dot' -o -name '*.idx' | xargs -r rm -f
-	find $(ACE_ROOT)/html/tao -name '*.tag' -o -name '*.md5' -o -name '*.dot' -o -name '*.idx' | xargs -r rm -f
+	find $(ACE_ROOT)/html/ace $(DOXYGEN_FILES_TO_REMOVE) | xargs -r rm -f
+	find $(ACE_ROOT)/html/tao $(DOXYGEN_FILES_TO_REMOVE) | xargs -r rm -f
 	touch $@
 
 .PHONY: doxygen
@@ -152,7 +159,12 @@ install: build
 	dh_installdirs
 
 	$(MAKE) -C objdir install DESTDIR=$(CURDIR)/$(DT)
+	mkdir -p $(DT)/usr/share/ace/include/makeinclude
+	cp -a $(ACE_ROOT)/include $(DT)/usr/share/ace
+	cp objdir/include/makeinclude/platform_macros.GNU $(DT)/usr/share/ace/include/makeinclude
 	$(MAKE) -C objdir/TAO install DESTDIR=$(CURDIR)/$(DT)
+	mkdir -p $(DT)/usr/share/ace/TAO
+	cp $(TAO_ROOT)/rules.tao.GNU $(DT)/usr/share/ace/TAO
 
 #       Rename gperf to gperf-ace
 	mv $(DT)/usr/bin/gperf $(DT)/usr/bin/gperf-ace
