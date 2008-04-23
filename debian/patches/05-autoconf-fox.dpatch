@@ -23,15 +23,15 @@
 +#---------------------------------------------------------------------------
 +AC_DEFUN([ACE_PATH_FOX],
 +[AC_ARG_WITH([fox-config],
-+ AS_HELP_STRING([--with-fox-config=DIR],
++ AS_HELP_STRING([--with-fox-config=PATH],
 +                [path to fox-config [[automatic]]]),
-+ [ ac_fox_config_dir="${withval}" ])
-+ if test X"${ac_fox_config_dir}" = X; then
++ [ ac_fox_config="${withval}" ])
++ if test X"${ac_fox_config}" = X; then
 +   AC_PATH_PROG([FOXCONFIG], [fox-config], [], [])
 + else
-+  AC_MSG_CHECKING([whether fox-config exists in ${ac_fox_config_dir}])
-+   if test -f "${ac_fox_config_dir}/fox-config"; then
-+     FOXCONFIG="${ac_fox_config_dir}/fox-config"
++  AC_MSG_CHECKING([whether ${ac_fox_config} exists])
++   if test -f "${ac_fox_config}"; then
++     FOXCONFIG="${ac_fox_config}"
 +     AC_MSG_RESULT([yes])
 +   else
 +     AC_MSG_RESULT([no])

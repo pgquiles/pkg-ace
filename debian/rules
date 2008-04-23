@@ -263,7 +263,8 @@ configure-stamp: patch-stamp
            --disable-tao-examples --disable-tao-tests \
            --disable-ace-examples --disable-ace-tests \
            --enable-fl-reactor --enable-qt-reactor --enable-xt-reactor \
-           --enable-tk-reactor --enable-fox-reactor \
+           --enable-tk-reactor \
+           --with-fox-config=/usr/bin/fox-config-1.6 --enable-fox-reactor \
            --with-tclconfig=$(TCL_HOME) --with-tkconfig=$(TK_HOME) \
            --with-zlib --with-zzip \
            --enable-inline \
