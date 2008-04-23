@@ -1,3 +1,20 @@
+ace (5.6.3-2) unstable; urgency=low
+
+  * Add missing libfox-1.6-dev build dependency. Thanks to Bastian Blank for
+    the report. Closes: #476822.
+  * Build depend on libqt4-dev (>= 4.4~rc1-4) to fix FTBFS. Thanks to
+    Martin Zobel-Helas for the report and to Sune Vuorela for the fix.
+    Closes: #476505.
+  * Add platform_macros.GNU.in and have autotools handle it so that it's
+    possible to ship rules.*.GNU. Closes: #469843, #469845.
+  * Remove doxygen-generated files we don't need.
+  * (Build-)Depend on tk-dev instead of tk8.4-dev.
+  * Rework debian/patches/05-autoconf-fox.dpatch not to link against too
+    many libs.
+  * Restore doxygen build-dependency.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Tue, 22 Apr 2008 18:23:46 +0000
+
 ace (5.6.3-1) unstable; urgency=low
 
   * New upstream release:

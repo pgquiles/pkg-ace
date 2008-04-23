@@ -38,8 +38,8 @@
 +   fi
 + fi
 + if test X"${FOXCONFIG}" != X; then
-+   ACE_FOX_CPPFLAGS=`$FOXCONFIG --cflags 2>/dev/null`
-+   ACE_FOX_LIBS=`$FOXCONFIG --libs 2>/dev/null`
++   ACE_FOX_CPPFLAGS=-I/usr/include/fox-1.6
++   ACE_FOX_LIBS=-lFOX-1.6
 +   AC_SUBST(ACE_FOX_CPPFLAGS)
 +   AC_SUBST(ACE_FOX_LIBS)
 + fi
