@@ -1,25 +1,21 @@
 = Misc =
  * see current bugs:
-   o generate platform_macros.GNU and ship it
-   o netsvcs library
-   o websvcs library
+   o package netsvcs library
+   o package websvcs library?
  * rewrite the patch to load TAO libraries by SONAME and RFC it
  * move ACE_ROOT from /usr/share/ace to /usr/lib/ace?
  * hide .real programs in /usr/lib/ace?
- * make all TAO programs start with tao-, and put
-   distribution compatible program in /usr/lib/tao
- * Skipping JAWS does not work
+ * make all TAO programs start with tao_, and put distribution compatible
+   program in /usr/lib/tao
 
 = MWC and MPC =
  * they should define $ACE_ROOT and $TAO_ROOT if they're not
+ * some makefile are not regenerated (e.g. JAWS). Seems like a bug.
 
 = autoconf support =
  * some macros are missing (see rules)
 
-= TAO =
- * when ACE_HAS_IPV6 is set and no endpoint is specified, only IPv6 is
-   tried
-
 = CIAO =
+ * to restore
  * autoconf support
  * cidlc
