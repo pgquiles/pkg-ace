@@ -1,4 +1,7 @@
 = Misc =
+ * default tao_idl lookup path?
+ * put IDL in /usr/share/idl
+ * current IDL should be in orvsvcs/orbsvcs
  * see current bugs:
    o package netsvcs library
    o package websvcs library?
