@@ -4,7 +4,7 @@
 # written February 2002 by Ossama Othman <ossama@debian.org>
 # Modified August 2003 by Brian Nelson <pyro@debian.org>
 # Copyright (C) 2004  Raphael Bossek <bossekr@debian.org>
-# Modified 2005, 2006, 2007 by Thomas Girard <thomas.g.girard@free.fr>
+# Copyright © 2005-2008 Thomas Girard <thomas.g.girard@free.fr>
 
 INSTALL := install -o root -g root
 INSTALL_755 := $(INSTALL) -m 755
@@ -291,7 +291,10 @@ configure-stamp: patch-stamp
 
 	echo "#define ACE_POSIX_SIG_PROACTOR" >> $(CONFIG)
 
-#	TODO: ACE_GETNAME_RETURNS_RANDOM_SIN_ZERO?
+	# TODO: ACE_GETNAME_RETURNS_RANDOM_SIN_ZERO?
+
+	# Remove PACKAGE_* from the generated config.h
+	sed -i -e '/package/I D' objdir/ace/config.h
 	touch $@
 
 .PHONY: configure

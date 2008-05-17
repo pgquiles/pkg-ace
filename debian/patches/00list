@@ -16,6 +16,7 @@
 18-fix-bswap-detection
 19-gcc43
 20-fix-iostream-detection
+22-remove-Ge-doc
 34-bts386713
 50-prepatch-dummy-mark
 90-patch-mpc-basedir
