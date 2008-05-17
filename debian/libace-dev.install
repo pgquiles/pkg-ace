@@ -1,3 +1,8 @@
+ACE_wrappers/bin/generate_export_file.pl
+ACE_wrappers/bin/split-cpp
+ACE_wrappers/bin/g++-dep
+ACE_wrappers/bin/add_rel_link.sh
+usr/share/ace/bin/depgen.pl
 usr/include/ace/*.{h,inl,cpp}
 usr/include/ace/os_include
 usr/lib/libACE.so

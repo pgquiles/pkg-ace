@@ -1,6 +1,5 @@
 usr/bin/mpc-ace
 usr/bin/mwc-ace
-usr/share/ace/bin/depgen.pl
 usr/share/ace/bin/DependencyGenerator
 usr/share/ace/bin/MakeProjectCreator
 usr/share/ace/MPC/modules
