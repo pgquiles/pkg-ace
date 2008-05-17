@@ -1,7 +1,7 @@
-ACE_wrappers/bin/generate_export_file.pl
-ACE_wrappers/bin/split-cpp
-ACE_wrappers/bin/g++-dep
-ACE_wrappers/bin/add_rel_link.sh
+ACE_wrappers/bin/generate_export_file.pl usr/share/ace/bin
+ACE_wrappers/bin/split-cpp               usr/share/ace/bin
+ACE_wrappers/bin/g++-dep                 usr/share/ace/bin
+ACE_wrappers/bin/add_rel_link.sh         usr/share/ace/bin
 usr/share/ace/bin/depgen.pl
 usr/include/ace/*.{h,inl,cpp}
 usr/include/ace/os_include

@@ -196,7 +196,6 @@ install: build
 #       Copy MPC files.
 	$(INSTALL_755) -D $(ACE_ROOT)/bin/mpc.pl $(DT)/usr/bin/mpc-ace
 	$(INSTALL_755) -D $(ACE_ROOT)/bin/mwc.pl $(DT)/usr/bin/mwc-ace
-	$(INSTALL_755) -D $(ACE_ROOT)/bin/depgen.pl $(DT)/usr/share/ace/bin/depgen.pl
 	cp -a $(ACE_SUBDIR)/bin/DependencyGenerator $(DT)/usr/share/ace/bin
 	cp -a $(ACE_SUBDIR)/bin/MakeProjectCreator $(DT)/usr/share/ace/bin
 	mkdir -p $(DT)/usr/share/ace/MPC
