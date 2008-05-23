@@ -88,10 +88,10 @@ usr/lib/pkgconfig/TAO_Utils.pc
 usr/include/tao/Valuetype
 usr/lib/libTAO_Valuetype.so
 usr/lib/pkgconfig/TAO_Valuetype.pc
-usr/share/ace/TAO/MPC/config
 usr/lib/libTAO_DiffServPolicy.so
 usr/lib/pkgconfig/TAO_DiffServPolicy.pc
 usr/include/tao/DiffServPolicy
 usr/lib/libTAO_ZlibCompressor.so
 usr/lib/pkgconfig/TAO_ZlibCompressor.pc
-usr/share/ace/TAO/rules.tao.GNU
+../../ACE_wrappers/TAO/MPC/config        usr/share/ace/TAO/MPC
+../../ACE_wrappers/TAO/rules.tao.GNU     usr/share/ace/TAO

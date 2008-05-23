@@ -66,7 +66,7 @@ CONFIG := objdir/ace/config.h
 
 extract-stamp: $(ACE_ARCHIVE)
 	tar -xjf $<
-	cp debian/platform_macros.GNU.in ACE_wrappers/include/makeinclude
+	cp debian/platform_macros.GNU.in $(ACE_ROOT)/include/makeinclude
 	touch $@
 
 .PHONY: extract
@@ -159,12 +159,7 @@ install: build
 	dh_installdirs
 
 	$(MAKE) -C objdir install DESTDIR=$(CURDIR)/$(DT)
-	mkdir -p $(DT)/usr/share/ace/include/makeinclude
-	cp -a $(ACE_ROOT)/include $(DT)/usr/share/ace
-	cp objdir/include/makeinclude/platform_macros.GNU $(DT)/usr/share/ace/include/makeinclude
 	$(MAKE) -C objdir/TAO install DESTDIR=$(CURDIR)/$(DT)
-	mkdir -p $(DT)/usr/share/ace/TAO
-	cp $(TAO_ROOT)/rules.tao.GNU $(DT)/usr/share/ace/TAO
 
 #       Rename gperf to gperf-ace
 	mv $(DT)/usr/bin/gperf $(DT)/usr/bin/gperf-ace
@@ -196,17 +191,8 @@ install: build
 #       Copy MPC files.
 	$(INSTALL_755) -D $(ACE_ROOT)/bin/mpc.pl $(DT)/usr/bin/mpc-ace
 	$(INSTALL_755) -D $(ACE_ROOT)/bin/mwc.pl $(DT)/usr/bin/mwc-ace
-	cp -a $(ACE_SUBDIR)/bin/DependencyGenerator $(DT)/usr/share/ace/bin
-	cp -a $(ACE_SUBDIR)/bin/MakeProjectCreator $(DT)/usr/share/ace/bin
-	mkdir -p $(DT)/usr/share/ace/MPC
+
 	rm -f $(ACE_SUBDIR)/MPC/config/.cvsignore
-	cp -a $(ACE_SUBDIR)/MPC/config $(DT)/usr/share/ace/MPC
-	cp -a $(ACE_SUBDIR)/MPC/modules $(DT)/usr/share/ace/MPC
-	cp -a $(ACE_SUBDIR)/MPC/templates $(DT)/usr/share/ace/MPC
-	cp -a $(ACE_SUBDIR)/MPC/*.pl $(DT)/usr/share/ace/MPC
-	cp -a $(ACE_SUBDIR)/MPC/ChangeLog $(DT)/usr/share/ace/MPC
-	mkdir -p $(DT)/usr/share/ace/TAO/MPC
-	cp -a $(ACE_SUBDIR)/TAO/MPC/config $(DT)/usr/share/ace/TAO/MPC
 
 #	Be lintian clean, fix permissions on examples
 	-chmod -x `find $(TAO_ROOT)/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
