@@ -32,6 +32,6 @@ F1=`mktemp -t ace_regular.XXXXXXXXXX`
 F2=`mktemp -t ace_autoconf.XXXXXXXXXX`
 trap "rm $F1 $F2" 0
 
-ff $P1 | sed -e "s@$P1@@" -e "s@/TAO@@" -e "s@/protocols@@" | drop | unused | sort >> $F1
+ff $P1 | sed -e "s@$P1@@" -e "s@/TAO@@" -e "s@/protocols@@" -e "s@^/orbsvcs@@" | drop | unused | sort >> $F1
 ff $P2 | sed -e "s@$P2@@" | sort >> $F2
 diff -u $F1 $F2

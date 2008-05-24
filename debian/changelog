@@ -12,8 +12,9 @@ ace (5.6.3-4) unstable; urgency=low
   * Remove PACKAGE_* definitions from /usr/include/ace/config.h. Thanks to
     Pascal Giard for reporting this.
   * Remove pre-etch Conflicts: and Replaces: information.
+  * Add missing headers found with cmp-installation.sh. Closes: #481088.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Wed, 21 May 2008 20:57:42 +0000
+ -- Thomas Girard <thomas.g.girard@free.fr>  Sat, 24 May 2008 15:47:01 +0000
 
 ace (5.6.3-3) unstable; urgency=low
 

@@ -66,3 +66,86 @@
      Truncate.h
      UPIPE_Addr.h
      Value_Ptr.h
+--- ACE_wrappers.orig/Kokyu/Kokyu.mpc
++++ ACE_wrappers/Kokyu/Kokyu.mpc
+@@ -10,11 +10,18 @@
+     Kokyu.cpp
+     Default_Dispatcher_Impl.cpp
+     Dispatcher_Task.cpp
++    Dispatch_Deferrer.cpp
+     Kokyu_defs.cpp
+   }
+ 
++  Header_Files {
++    kokyu_config.h
++    kokyu_export.h
++  }
++
+   Template_Files {
+     Kokyu_dsrt.cpp
++    DSRT_CV_Dispatcher_Impl_T.cpp
+     DSRT_Direct_Dispatcher_Impl_T.cpp
+     DSRT_Dispatcher_Impl_T.cpp
+     DSRT_Dispatch_Item_T.cpp
+--- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/RTEvent_Serv.mpc
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/RTEvent_Serv.mpc
+@@ -84,6 +84,13 @@
+     Event/EC_Thread_Flags.cpp
+   }
+ 
++  Header_Files {
++    Event/event_serv_export.h
++    Event/EC_Defaults.h
++    Event/ECG_Defaults.h
++    Event/ECG_Address_Server_Base.h
++  }
++
+   Template_Files {
+     Event/EC_Busy_Lock.cpp
+     Event/EC_Lifetime_Utils_T.cpp
+--- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/RTCORBAEvent.mpc
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/RTCORBAEvent.mpc
+@@ -17,6 +17,7 @@
+   }
+ 
+   Header_Files {
++    Event/rtcorba_event_export.h
+   }
+ 
+   Inline_Files {
+--- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/RTKokyuEvent.mpc
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/RTKokyuEvent.mpc
+@@ -19,6 +19,10 @@
+     }
+   }
+ 
++  Header_Files {
++    Event/rtkokyu_event_export.h
++  }
++
+   Template_Files {
+   }
+ }
+--- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/RTSchedEvent.mpc
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/RTSchedEvent.mpc
+@@ -20,6 +20,10 @@
+     }
+   }
+ 
++  Header_Files {
++    Event/sched_event_export.h
++  }
++
+   Template_Files {
+   }
+ }
+--- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/RTEvent.mpc
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/RTEvent.mpc
+@@ -26,6 +26,7 @@
+ 
+   Header_Files {
+     Event_Utilities.h
++    Event_Service_Constants.h
+     RtecDefaultEventDataC.h
+     RtecEventCommC.h
+     RtecEventChannelAdminC.h
