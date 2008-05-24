@@ -68,11 +68,7 @@
      Value_Ptr.h
 --- ACE_wrappers.orig/Kokyu/Kokyu.mpc
 +++ ACE_wrappers/Kokyu/Kokyu.mpc
-@@ -10,11 +10,18 @@
-     Kokyu.cpp
-     Default_Dispatcher_Impl.cpp
-     Dispatcher_Task.cpp
-+    Dispatch_Deferrer.cpp
+@@ -14,8 +14,14 @@
      Kokyu_defs.cpp
    }
  
