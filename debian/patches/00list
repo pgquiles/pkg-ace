@@ -18,6 +18,7 @@
 20-fix-iostream-detection
 22-remove-Ge-doc
 23-add-sh-shebang
+24-add-missing-headers
 34-bts386713
 50-prepatch-dummy-mark
 90-patch-mpc-basedir
