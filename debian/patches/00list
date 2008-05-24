@@ -17,7 +17,7 @@
 19-gcc43
 20-fix-iostream-detection
 22-remove-Ge-doc
-23-addd-sh-shebang
+23-add-sh-shebang
 34-bts386713
 50-prepatch-dummy-mark
 90-patch-mpc-basedir
