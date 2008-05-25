@@ -145,3 +145,114 @@
      RtecDefaultEventDataC.h
      RtecEventCommC.h
      RtecEventChannelAdminC.h
+--- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/FTORB.mpc
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/FTORB.mpc
+@@ -22,6 +22,9 @@
+ 
+   Header_Files {
+     FaultTolerance/FT_ORB_Utils_export.h
++    FaultTolerance/FT_ORBInitializer.h
++    FaultTolerance/ftconf.h
++    FaultTolerance/FT_Service_Activate.h
+   }
+ 
+   Pkgconfig_Files {
+@@ -53,6 +56,10 @@
+     }
+   }
+ 
++  Header_Files {
++    FaultTolerance/FT_ClientORB_export.h
++  }
++
+   Template_Files {
+   }
+ 
+@@ -80,6 +87,10 @@
+     }
+   }
+ 
++  Header_Files {
++    FaultTolerance/FT_ServerORB_export.h
++  }
++
+   Template_Files {
+   }
+ 
+--- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/FtRtEvent.mpc
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/FtRtEvent.mpc
+@@ -32,6 +32,11 @@
+     }
+   }
+ 
++  Header_Files {
++    FtRtEvent/Utils/ScopeGuard.h
++    FtRtEvent/Utils/ftrtevent_export.h
++  }
++
+   Template_Files {
+   }
+ }
+@@ -50,6 +55,10 @@
+     }
+   }
+ 
++  Header_Files {
++    FtRtEvent/ClientORB/ftrt_clientorb_export.h
++  }
++
+   Inline_Files {
+   }
+ 
+@@ -79,5 +88,8 @@
+ 
+   Header_Files {
+     FtRtEvent/EventChannel/ftrtec_export.h
++    FtRtEvent/EventChannel/FTEC_Fault_Listener.h
++    FtRtEvent/EventChannel/FTRTEC_ServiceActivate.h
++    FtRtEvent/EventChannel/Fault_Listener.h
+   }
+ }
+--- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/HTIOP.mpc
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/HTIOP.mpc
+@@ -26,4 +26,8 @@
+       HTIOP
+     }
+   }
++
++  Header_Files {
++    HTIOP/HTIOP_Export.h
++  }
+ }
+--- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/CosLoadBalancing.mpc
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/CosLoadBalancing.mpc
+@@ -41,6 +41,16 @@
+     }
+   }
+ 
++  Header_Files {
++    LoadBalancing/LB_LoadAlertMap.h
++    LoadBalancing/LB_LoadListMap.h
++    LoadBalancing/LB_LoadMap.h
++    LoadBalancing/LB_Location_Index_Map.h
++    LoadBalancing/LB_MonitorMap.h
++    LoadBalancing/LB_conf.h
++    LoadBalancing/LoadBalancing_export.h
++  }
++
+   Template_Files {
+   }
+ 
+--- ACE_wrappers.orig/TAO/orbsvcs/orbsvcs/CosLifeCycle.mpc
++++ ACE_wrappers/TAO/orbsvcs/orbsvcs/CosLifeCycle.mpc
+@@ -23,6 +23,10 @@
+     }
+   }
+ 
++  Header_Files {
++    LifeCycle/lifecycle_export.h
++  }
++
+   Template_Files {
+   }
+ 
