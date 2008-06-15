@@ -1,3 +1,12 @@
+ace (5.6.3-5) unstable; urgency=low
+
+  * Do not ship MPC config files in both mpc-ace and libace-dev packages;
+    they're meant to be only in mpc-ace. Make mpc-ace Replaces: the bogus
+    previous upload. Closes: #484718.
+  * Bump Standards-Version: to 3.8.0.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Fri, 13 Jun 2008 21:52:28 +0000
+
 ace (5.6.3-4) unstable; urgency=low
 
   * Add the following missing programs to libace-dev:

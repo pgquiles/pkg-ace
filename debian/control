@@ -5,7 +5,7 @@ Maintainer: Debian ACE+TAO maintainers <pkg-ace-devel@lists.alioth.debian.org>
 Uploaders: Konstantinos Margaritis <markos@debian.org>, Brian Nelson <pyro@debian.org>, Thomas Girard <thomas.g.girard@free.fr>
 Build-Depends: debhelper (>= 5), libssl-dev (>= 0.9.7d), dpatch (>= 2.0.10), libxt-dev (>= 4.3.0), libfltk1.1-dev (>= 1.1.4), libqt4-dev (>= 4.4~rc1-4), tk-dev (>= 8.4.7), libfox-1.6-dev, zlib1g-dev, libzzip-dev, docbook-to-man, bzip2, autoconf, automake, libtool, autotools-dev, doxygen
 Build-Conflicts: autoconf2.13, automake1.4
-Standards-Version: 3.7.3
+Standards-Version: 3.8.0
 Vcs-Svn: svn://svn.debian.org/svn/pkg-ace/trunk
 Vcs-Browser: http://svn.debian.org/wsvn/pkg-ace/trunk
 Homepage: http://www.cs.wustl.edu/~schmidt/ACE.html
@@ -15,6 +15,7 @@ Architecture: all
 Section: devel
 Depends: ${perl:Depends}
 Recommends: make
+Replaces: libace-dev (= 5.6.3-4)
 Suggests: libace-dev, pkg-config
 Description: makefile, project and workspace creator
  This package contains the Makefile, Project and Workspace Creator (MPC)
