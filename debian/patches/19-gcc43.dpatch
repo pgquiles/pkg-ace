@@ -15,27 +15,6 @@
  #elif defined (__DMC__)
    #define ACE_UNUSED_ID(identifier)
    template <class T>
---- ACE_wrappers.orig/ace/Free_List.cpp
-+++ ACE_wrappers/ace/Free_List.cpp
-@@ -115,11 +115,13 @@
- 
-   // Check if we are allowed to resize
-   if (this->mode_ != ACE_PURE_FREE_LIST)
--    // Check to see if we grow or shrink
--    if (newsize < this->size_)
--      this->dealloc (this->size_ - newsize);
--    else
--      this->alloc (newsize - this->size_);
-+    {
-+      // Check to see if we grow or shrink
-+      if (newsize < this->size_)
-+        this->dealloc (this->size_ - newsize);
-+      else
-+        this->alloc (newsize - this->size_);
-+    }
- }
- 
- // Allocates <n> extra nodes for the freelist
 --- ACE_wrappers.orig/apps/JAWS/server/HTTP_Server.cpp
 +++ ACE_wrappers/apps/JAWS/server/HTTP_Server.cpp
 @@ -143,10 +143,12 @@

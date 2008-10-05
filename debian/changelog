@@ -1,3 +1,9 @@
+ace (5.6.6-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Fri, 03 Oct 2008 21:57:29 +0000
+
 ace (5.6.3-5) unstable; urgency=low
 
   * Do not ship MPC config files in both mpc-ace and libace-dev packages;
