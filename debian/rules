@@ -267,7 +267,6 @@ configure-stamp: patch-stamp
 	echo "#define ACE_HAS_DLSYM_SEGFAULT_ON_INVALID_HANDLE" >> $(CONFIG)
 
 	echo "#define ACE_HAS_SCANDIR" >> $(CONFIG)
-	echo "#define ACE_SCANDIR_CMP_USES_CONST_VOIDPTR" >> $(CONFIG)
 
 	# bz#3144
 	echo "#define ACE_HAS_SENDFILE" >> $(CONFIG)
