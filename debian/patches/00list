@@ -20,6 +20,7 @@
 23-add-sh-shebang
 24-add-missing-headers
 34-bts386713
+49-missing-template
 50-prepatch-dummy-mark
 90-patch-mpc-basedir
 91-patch-dg-basedir
