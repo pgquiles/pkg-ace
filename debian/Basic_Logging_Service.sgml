@@ -1,6 +1,6 @@
 <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook V4.1//EN" [
   <!ENTITY applname "Basic_Logging_Service">
-  <!ENTITY revision "$Revision: 1.1 $">
+  <!ENTITY revision "$Revision: 83993 $">
   <!ENTITY man_tao_orb_options "<citerefentry><refentrytitle>TAO_ORB_Options</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
   <!ENTITY man_notify_logging_service "<citerefentry><refentrytitle>Notify_Logging_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
   <!ENTITY man_event_logging_service "<citerefentry><refentrytitle>Event_Logging_Service</refentrytitle><manvolnum>1</manvolnum></citerefentry>">
