@@ -1,3 +1,19 @@
+ace (5.6.3-6) unstable; urgency=low
+
+  * Remove obsolete maintainers:
+    - Konstantinos Margaritis <markos@debian.org>
+    - Brian Nelson <pyro@debian.org>
+    Closes: #521487.
+  * Bump Standards-Version: to 3.8.3.
+  * Remove erroneous #define ACE_SCANDIR_CMP_USES_CONST_VOIDPTR in config.h;
+    causing diagnostics to FTBFS. Closes: #552899.
+  * Remove extra ACLOCAL_AMFLAGS from already existing Makefile.am; causing
+    recent aclocal to abort. Thanks to Pau Garcia i Quiles for the patch.
+    Closes: #518735.
+  * Add README.source.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Wed, 11 Nov 2009 21:06:51 +0100
+
 ace (5.6.3-5) unstable; urgency=low
 
   * Do not ship MPC config files in both mpc-ace and libace-dev packages;

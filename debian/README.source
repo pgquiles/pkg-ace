@@ -1,0 +1,13 @@
+= Compiling ACE+TAO Debian packages =
+
+ * ACE+TAO+CIAO-src-<version>.tar.bz2 is the one retrieved from:
+     http://download.dre.vanderbilt.edu/previous_versions/
+   The -src version does not contain pre-generated Makefiles. We regenerate
+   them in the buid process.
+
+ * Patching relies on dpatch; see: /usr/share/doc/dpatch/README.source.gz
+
+ * Use the autotools: debian/rules target whenever you've added a patch that
+   will change how GNU Makefile are generated with MPC.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>, Wed, 11 Nov 2009 00:20:39 +0100

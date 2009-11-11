@@ -19,7 +19,6 @@
 22-remove-Ge-doc
 23-add-sh-shebang
 24-add-missing-headers
-25-autoconf-fix-ACLOCAL_AMFLAGS
 34-bts386713
 49-missing-template
 50-prepatch-dummy-mark
