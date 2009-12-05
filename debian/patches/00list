@@ -22,6 +22,7 @@
 34-bts386713
 35-autoconf-fix-else-fi
 49-missing-template
+36-autoconf-fix-fidone
 50-prepatch-dummy-mark
 90-patch-mpc-basedir
 91-patch-dg-basedir
