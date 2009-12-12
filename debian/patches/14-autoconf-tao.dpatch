@@ -40,10 +40,10 @@
 +AC_LIBTOOL_DLOPEN
 +
 +dnl Enable support for "clean" DLLs.
-+AC_LIBTOOL_WIN32_DLL
++dnl AC_LIBTOOL_WIN32_DLL
 +
 +dnl Check for libtool and turn on Automake processing for Libtool
-+AC_PROG_LIBTOOL
++LT_INIT
 +
 +CXXFLAGS="$ACE_CXXFLAGS $X_CFLAGS $CXXFLAGS"
 +CFLAGS="$ACE_CFLAGS $X_CFLAGS $CFLAGS"
