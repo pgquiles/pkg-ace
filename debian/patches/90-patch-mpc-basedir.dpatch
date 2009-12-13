@@ -2,7 +2,7 @@
 ## 90-patch-mpc-basedir.dpatch by Thomas Girard <thomas.g.girard@free.fr>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
-## DP: No description
+## DP: Use /usr/share/ace/bin/MakeProjectCreator path for MPC.
 
 @DPATCH@
 --- ACE_wrappers.orig/bin/mwc.pl
