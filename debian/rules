@@ -51,8 +51,6 @@ endif
 export ACE_ROOT := $(shell pwd)/$(ACE_SUBDIR)
 export TAO_ROOT := $(ACE_ROOT)/TAO
 export CIAO_ROOT := $(TAO_ROOT)/CIAO
-export DANCE_ROOT := $(CIAO_ROOT)/DAnCE
-export DDS_ROOT := $(CIAO_ROOT)/connectors/dds4ccm
 export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(ACE_ROOT)/lib
 export QTDIR := /usr/share/qt4
 
@@ -91,10 +89,17 @@ else
 prepatch-stamp: extract-stamp
 endif
 	dpatch apply-until $(UNTIL)
+	patch -p0 < debian/patches/25-remove-duplicate-files.dpatch
 	cd $(ACE_ROOT) &&    bin/mwc.pl -noreldefs $(MWCFLAGS) ACE.mwc
 	cd $(TAO_ROOT) && ../bin/mwc.pl -noreldefs $(MWCFLAGS) TAO.mwc
-	patch -p0 < debian/patches/09-autoconf-fix-no-base-include-headers.diff
-	patch -p0 < debian/patches/21-generate-platform_macros.GNU.diff
+	patch -p1 -d $(ACE_ROOT) < debian/patches/26-autoupdate.diff
+	patch -p1 -d $(ACE_ROOT) < debian/patches/09-autoconf-fix-no-base-include-headers.diff
+	patch -p1 -d $(ACE_ROOT) < debian/patches/21-generate-platform_macros.GNU.diff
+	patch -p1 -d $(ACE_ROOT) < debian/patches/93-hack-to-fix-libtoolize.dpatch
+	patch -p1 -d $(ACE_ROOT) < debian/patches/94-build-crosscompile.dpatch
+	patch -p1 -d $(TAO_ROOT) < debian/patches/94-build-crosscompile.dpatch
+	patch -p1 -d $(ACE_ROOT) < debian/patches/96-build-athena3d.dpatch
+#	patch -p1 -d $(ACE_ROOT) < debian/patches/98-ignore-win32-acdefun-error.diff
 	touch $@
 
 .PHONY: prepatch
@@ -107,8 +112,6 @@ pl-stamp: extract-stamp
 patch-stamp: pl-stamp autotools-stamp
 	dpatch apply-all
 	chmod +x $(ACE_ROOT)/configure $(ACE_ROOT)/TAO/configure
-	# MPC incorrectly generates "fidone" instead of "fi done"
-	perl -w -i -p -e "s/fidone/fi done/g" ACE_wrappers/configure
 	touch $@
 
 .PHONY: patch
@@ -123,12 +126,9 @@ ifeq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
 endif
 
 autotools-stamp: prepatch-stamp
-	patch -p1 -d $(ACE_ROOT) < debian/patches/93-hack-to-fix-libtoolize.dpatch
-	patch -p1 -d $(ACE_ROOT) < debian/patches/94-build-crosscompile.dpatch
-	patch -p1 -d $(TAO_ROOT) < debian/patches/94-build-crosscompile.dpatch
-	patch -p1 -d $(ACE_ROOT) < debian/patches/95-build-ace-for-tao.dpatch
-	patch -p1 -d $(ACE_ROOT) < debian/patches/96-build-athena3d.dpatch
 	cd $(ACE_ROOT) && bin/bootstrap
+	patch -p0 < debian/patches/97-fix-empty-elseif.dpatch
+#	patch -p0 < debian/patches/98-ignore-win32-acdefun-error.diff
 	touch $@
 
 .PHONY: autotools
@@ -253,6 +253,8 @@ binary: binary-indep binary-arch
 
 configure-stamp: patch-stamp
 	mkdir -p objdir
+	# MPC incorrectly generates "fidone" instead of "fi done"
+	perl -w -i -p -e "s/fidone/fi done/g" ACE_wrappers/configure
 	cd objdir && ../ACE_wrappers/configure $(confflags) --prefix=/usr \
            --disable-tao-examples --disable-tao-tests \
            --disable-ace-examples --disable-ace-tests \
@@ -273,10 +275,10 @@ configure-stamp: patch-stamp
 	echo "#define ACE_HAS_RECURSIVE_MUTEXES" >> $(CONFIG)
 
 	# Not sure about this one, but it can do no harm (bz#3141)
-	# echo "#define ACE_HAS_DLSYM_SEGFAULT_ON_INVALID_HANDLE" >> $(CONFIG)
+	echo "#define ACE_HAS_DLSYM_SEGFAULT_ON_INVALID_HANDLE" >> $(CONFIG)
 
 	echo "#define ACE_HAS_SCANDIR" >> $(CONFIG)
-	
+
 	# bz#3144
 	echo "#define ACE_HAS_SENDFILE" >> $(CONFIG)
 

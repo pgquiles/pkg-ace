@@ -1,0 +1,27 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 22-remove-Ge-doc.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## DP: Remove documentation for -Ge flag, which was removed.
+@DPATCH@
+--- ACE_wrappers.orig/TAO/TAO_IDL/tao_idl.1
++++ ACE_wrappers/TAO/TAO_IDL/tao_idl.1
+@@ -194,19 +194,6 @@
+ .B \-Gi
+ Generate stubs and skeletons using interpretive marshaling (default for now).
+ .TP
+-.BI "\-Ge " "flag"
+-If the value of
+-.I flag
+-is 0,
+-.B tao_idl
+-will generate code that will use native C++ exceptions. If the value
+-of
+-.I flag
+-is 1,
+-.B tao_idl
+-will generate code that will use environment variable for passing
+-exceptions.
+-.TP
+ .B \-Gl
+ .B For TAO Core developers only.
+ Generate locality constrained interface implementation. This flag is

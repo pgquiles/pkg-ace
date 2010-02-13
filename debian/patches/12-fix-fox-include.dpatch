@@ -1,15 +1,12 @@
 #! /bin/sh /usr/share/dpatch/dpatch-run
-## 12-fix-for-fox-include.dpatch by Thomas Girard <thomas.g.girard@free.fre>,
-## updated for ACE 5.7.4 by Pau Garcia i Quiles <pgquiles@elpauer.org>
+## 12-fix-fox-include.dpatch by Thomas Girard <thomas.g.girard@free.fr>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
-## DP: Drop fox/ prefix in include, it's correctly set by fox-config
+## DP: drop fox/ prefix in include, it's correctly set by fox-config
 
 @DPATCH@
-
-diff -rupd ACE_wrappers.orig/ace/FoxReactor/FoxReactor.h ACE_wrappers/ace/FoxReactor/FoxReactor.h
---- ACE_wrappers.orig/ace/FoxReactor/FoxReactor.h	2009-11-23 01:19:58.000000000 +0100
-+++ ACE_wrappers/ace/FoxReactor/FoxReactor.h	2009-11-23 23:50:17.000000000 +0100
+--- ACE_wrappers.orig/ace/FoxReactor/FoxReactor.h	2009-12-14 00:42:27.802165159 +0100
++++ ACE_wrappers/ace/FoxReactor/FoxReactor.h	2009-12-14 00:49:07.535266080 +0100
 @@ -28,7 +28,7 @@
  #include "ace/Select_Reactor.h"
  #include "ace/FoxReactor/ACE_FoxReactor_export.h"
@@ -19,3 +16,14 @@ diff -rupd ACE_wrappers.orig/ace/FoxReactor/FoxReactor.h ACE_wrappers/ace/FoxRea
  
  /**
   * @class ACE_FoxReactor
+--- ACE_wrappers.orig/TAO/tao/FoxResource/FoxResource_Loader.h	2009-12-14 00:42:09.042167248 +0100
++++ ACE_wrappers/TAO/tao/FoxResource/FoxResource_Loader.h	2009-12-14 00:47:36.175273810 +0100
+@@ -24,7 +24,7 @@
+ 
+ #include "tao/Versioned_Namespace.h"
+ 
+-#include <fox/fx.h>
++#include <fx.h>
+ 
+ TAO_BEGIN_VERSIONED_NAMESPACE_DECL
+ 
