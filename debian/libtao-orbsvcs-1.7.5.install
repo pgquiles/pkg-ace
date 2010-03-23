@@ -23,6 +23,7 @@ usr/lib/libTAO_CosTime-*.so*
 usr/lib/libTAO_CosTrading-*.so*
 usr/lib/libTAO_CosTrading_Skel-*.so*
 usr/lib/libTAO_CosTrading_Serv-*.so*
+usr/lib/libTAO_CosLifeCycle_Skel-*.so*
 usr/lib/libTAO_DsEventLogAdmin-*.so*
 usr/lib/libTAO_DsEventLogAdmin_Skel-*.so*
 usr/lib/libTAO_DsEventLogAdmin_Serv-*.so*
@@ -57,3 +58,9 @@ usr/lib/libTAO_RT_Notification-*.so*
 usr/lib/libTAO_SSLIOP-*.so*
 usr/lib/libTAO_Security-*.so*
 usr/lib/libTAO_Svc_Utils-*.so*
+usr/lib/libTAO_ZIOP-*.so*
+usr/lib/libTAO_Notify_Service-*.so
+usr/lib/libTAO_CosTime_Serv-*.so
+usr/lib/libTAO_CosTime_Skel-*.so
+usr/lib/libTAO_Monitor-*.so
+usr/lib/libTAO_Catior_i-*.so

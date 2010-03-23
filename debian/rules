@@ -90,6 +90,7 @@ prepatch-stamp: extract-stamp
 endif
 	dpatch apply-until $(UNTIL)
 	patch -p0 < debian/patches/25-remove-duplicate-files.dpatch
+	patch -p1 -d $(ACE_ROOT) < debian/patches/03-fix-TAO-logWalker.dpatch
 	cd $(ACE_ROOT) &&    bin/mwc.pl -noreldefs $(MWCFLAGS) ACE.mwc
 	cd $(TAO_ROOT) && ../bin/mwc.pl -noreldefs $(MWCFLAGS) TAO.mwc
 	patch -p1 -d $(ACE_ROOT) < debian/patches/26-autoupdate.diff
@@ -170,22 +171,6 @@ install: build
 	$(MAKE) -C objdir install DESTDIR=$(CURDIR)/$(DT)
 	$(MAKE) -C objdir/TAO install DESTDIR=$(CURDIR)/$(DT)
 
-#       Rename gperf to gperf-ace
-	mv $(DT)/usr/bin/gperf $(DT)/usr/bin/gperf-ace
-
-	sed -e 's/gperf/gperf-ace/g' \
-            -e 's/GPERF/GPERF-ACE/g' \
-           $(DT)/usr/share/man/man1/gperf.1 > \
-	   $(DT)/usr/share/man/man1/gperf-ace.1
-	rm -f $(DT)/usr/share/man/man1/gperf.1
-	sed -e 's/gperf\.info/gperf-ace\.info/g' \
-            -e 's/(gperf)\.    /(gperf-ace)\./g' \
-           $(ACE_ROOT)/apps/gperf/gperf.info > \
-           $(ACE_ROOT)/apps/gperf/gperf-ace.info
-
-#	Rename the catior utility, it already exists in another package
-	mv $(DT)/usr/bin/catior $(DT)/usr/bin/tao-catior
-
 #       Multiple README
 	cp $(TAO_ROOT)/utils/catior/README $(TAO_ROOT)/utils/catior/README.catior
 	cp $(TAO_ROOT)/utils/nslist/README $(TAO_ROOT)/utils/nslist/README.nslist
@@ -200,11 +185,15 @@ install: build
 #       Copy MPC files.
 	$(INSTALL_755) -D $(ACE_ROOT)/bin/mpc.pl $(DT)/usr/bin/mpc-ace
 	$(INSTALL_755) -D $(ACE_ROOT)/bin/mwc.pl $(DT)/usr/bin/mwc-ace
+#	MWC-ACE currently gets lots when autgenerating workspace in hierarchical fashion
+	$(INSTALL_755) -D $(ACE_ROOT)/bin/mpc.pl $(DT)/usr/bin/mpc.pl
+	$(INSTALL_755) -D $(ACE_ROOT)/bin/mwc.pl $(DT)/usr/bin/mwc.pl
 
 	rm -f $(ACE_SUBDIR)/MPC/config/.cvsignore
 
 #	Be lintian clean, fix permissions on examples
-	-chmod -x `find $(TAO_ROOT)/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
+#       But find returns nothing..
+#	-chmod -x `find $(TAO_ROOT)/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
 
 #       We don't install .la files
 	find $(DT) -name '*.la' -print0 | xargs -0 rm
@@ -232,7 +221,7 @@ binary-arch: build install
 	dh_testroot -a
 	dh_installdocs -a -A
 	dh_installman -a
-	dh_installinfo -pgperf-ace $(ACE_ROOT)/apps/gperf/gperf-ace.info
+	dh_installinfo -pgperf-ace $(ACE_ROOT)/apps/gperf/ace_gperf.info
 	dh_installchangelogs -a $(ACE_ROOT)/ChangeLog
 	dh_installchangelogs -pgperf-ace $(ACE_ROOT)/apps/gperf/ChangeLog
 	dh_strip -a
@@ -255,6 +244,8 @@ configure-stamp: patch-stamp
 	mkdir -p objdir
 	# MPC incorrectly generates "fidone" instead of "fi done"
 	perl -w -i -p -e "s/fidone/fi done/g" ACE_wrappers/configure
+	# ACE_wrappers/configure.status --recheck runs configure once again ..
+	patch -p1 -d $(ACE_ROOT) < debian/patches/36-autoconf-fix-fidone.dpatch
 	cd objdir && ../ACE_wrappers/configure $(confflags) --prefix=/usr \
            --disable-tao-examples --disable-tao-tests \
            --disable-ace-examples --disable-ace-tests \
@@ -268,7 +259,7 @@ configure-stamp: patch-stamp
            --enable-pthreads \
            --enable-symbol-visibility \
            --enable-ace-reactor-notification-queue
-	echo '#define ACE_GPERF "gperf-ace"' >> $(CONFIG)
+	echo '#define ACE_GPERF "ace_gperf"' >> $(CONFIG)
 	echo '#define TAO_IDL_INCLUDE_DIR "/usr/include/tao"' >> $(CONFIG)
 
 	# bz#3138

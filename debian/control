@@ -144,10 +144,10 @@ Package: gperf-ace
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: ACE perfect hash function generator
- gperf-ace is the ACE version of gperf.
+ ace_gperf is the ACE version of gperf.
  .
- Both gperf-ace and gperf were written by the same author, and have
- basically the same options and functionality. gperf-ace simply takes
+ Both ace_gperf and gperf were written by the same author, and have
+ basically the same options and functionality. ace_gperf simply takes
  advantage of the some of the features provided by the ACE library.
 
 Package: libacexml-5.7.5
@@ -477,9 +477,9 @@ Description: TAO naming service and IOR utilities
  service, and to dump an IOR.
  .
  The following programs are included:
-  * nslist, to list naming context and object bindings
-  * nsadd, to create bindings
-  * nsdel, to remove bindings
+  * tao-nslist, to list naming context and object bindings
+  * tao-nsadd, to create bindings
+  * tao-nsdel, to remove bindings
   * tao-catior, to dump the content of an Interoperable Object Reference
 
 Package: tao-naming
