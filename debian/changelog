@@ -1,3 +1,9 @@
+ace (5.7.5-2) unstable; urgency=low
+  [ Marek Brudka ]
+  * Change build method to MPC generated makefiles
+  * Changed installation method to MPC/prj_install.pl
+  * Resolved bug 3408 and changed .so naming from -x.y.z.so to so.x.y.z
+
 ace (5.7.5-1) unstable; urgency=low
 
   [ Pau Garcia i Quiles ]

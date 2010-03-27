@@ -427,7 +427,7 @@ Description: TAO-GUI reactor integration for FOX development files
 
 Package: tao-idl
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: libtao-1.7.5 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
 Description: TAO IDL to C++ compiler
  This package provides a Interface Definition Language (IDL) to C++ compiler.
  .
@@ -436,7 +436,7 @@ Description: TAO IDL to C++ compiler
 
 Package: tao-ifr
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: libtao-1.7.5 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
 Description: TAO interface repository
  CORBA-aware programs can contact an interface repository to get objects
  interfaces at run-time. Then they can use the Dynamic Invocation
