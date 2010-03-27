@@ -74,7 +74,7 @@ else
 prepatch-stamp: extract-stamp
 endif
 	dpatch apply-until $(UNTIL)
-	patch -p0 < debian/patches/25-remove-duplicate-files.dpatch
+	# patch -p0 < debian/patches/25-remove-duplicate-files.dpatch
 
 	cp debian/ACE-DPKG.mwc $(ACE_ROOT)
 	cd $(ACE_ROOT) &&  bin/mwc.pl $(MWCFLAGS) ACE-DPKG.mwc
@@ -152,12 +152,12 @@ install: build
 	mkdir -p $(CURDIR)/$(DT)/usr/share/man/man1
 	cd $(CURDIR)/$(DT)/usr/share/man && find . -iname *.1 -exec mv {}  man1 ';' && rm -rf apps
 
-#	Move orbsvcs files from include/tao/orbsvcs into include/orbsvcs
-	cd $(CURDIR)/$(DT)/usr/include/orbsvcs && mv -f orbsvcs/* . && rm -rf orsvcs  
+#	Copy generated corba headers *[C,S,A].[h,inl]
+	cd $(TAO_ROOT)/tao && find . -name '*[C,S,A].[h,inl]' -exec cp {} $(CURDIR)/$(DT)/usr/include/tao/{} ';'
+	cd $(TAO_ROOT)/orbsvcs && find . -name '*[C,S,A].[h,inl]' -exec cp {} $(CURDIR)/$(DT)/usr/include/orbsvcs/{} ';'
 
-#       Multiple README
-	cp $(TAO_ROOT)/utils/catior/README $(TAO_ROOT)/utils/catior/README.catior
-	cp $(TAO_ROOT)/utils/nslist/README $(TAO_ROOT)/utils/nslist/README.nslist
+#	Move orbsvcs files from include/tao/orbsvcs into include/orbsvcs
+	cd $(CURDIR)/$(DT)/usr/include/orbsvcs && mv -f orbsvcs/* . && rm -rf orbsvcs  
 
 #	We provide scripts replacement for tao_idl and tao_ifr ; they
 #	automatically define ACE_ROOT and TAO_ROOT
@@ -166,9 +166,9 @@ install: build
 	mv  $(DT)/usr/bin/tao_ifr  $(DT)/usr/bin/tao_ifr.real
 	$(INSTALL_755) -D debian/tao_ifr $(DT)/usr/bin/tao_ifr
 
-#       Provide bootstrap scripts for mpc-ace.
-	$(INSTALL_755) -D debian/mpc-ace.sh $(DT)/usr/bin/mpc-ace
-	$(INSTALL_755) -D debian/mwc-ace.sh $(DT)/usr/bin/mwc-ace
+#       Install mpc scripts
+	$(INSTALL_755) -D $(ACE_ROOT)/bin/mpc.pl $(DT)/usr/bin/mpc-ace
+	$(INSTALL_755) -D $(ACE_ROOT)/bin/mwc.pl $(DT)/usr/bin/mwc-ace
 
 	rm -f $(ACE_SUBDIR)/MPC/config/.cvsignore
 
