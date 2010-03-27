@@ -104,10 +104,10 @@ manpages-stamp: $(MAN1) $(MAN5)
 	touch $@
 
 doxygen-stamp: extract-stamp
-	#cd $(ACE_ROOT) && bin/generate_doxygen.pl -is_release
-	#find $(ACE_ROOT)/html/ace $(DOXYGEN_FILES_TO_REMOVE) | xargs -r rm -f
-	#find $(ACE_ROOT)/html/tao $(DOXYGEN_FILES_TO_REMOVE) | xargs -r rm -f
-	#touch $@
+	cd $(ACE_ROOT) && bin/generate_doxygen.pl -is_release
+	find $(ACE_ROOT)/html/ace $(DOXYGEN_FILES_TO_REMOVE) | xargs -r rm -f
+	find $(ACE_ROOT)/html/tao $(DOXYGEN_FILES_TO_REMOVE) | xargs -r rm -f
+	touch $@
 
 doxygen: doxygen-stamp
 
