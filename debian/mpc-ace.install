@@ -1,5 +1,3 @@
-usr/bin/mpc-ace
-usr/bin/mwc-ace
 ../../ACE_wrappers/bin/m[p,w]c.pl          usr/share/ace/bin
 ../../ACE_wrappers/bin/MakeProjectCreator  usr/share/ace/bin
 ../../ACE_wrappers/MPC/config              usr/share/ace/MPC

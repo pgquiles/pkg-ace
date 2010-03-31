@@ -153,12 +153,6 @@ install: build
 	mv  $(DT)/usr/bin/tao_ifr  $(DT)/usr/bin/tao_ifr.real
 	$(INSTALL_755) -D debian/tao_ifr $(DT)/usr/bin/tao_ifr
 
-#       Install mpc scripts
-	$(INSTALL_755) -D $(ACE_ROOT)/bin/mpc.pl $(DT)/usr/bin/mpc-ace
-	$(INSTALL_755) -D $(ACE_ROOT)/bin/mwc.pl $(DT)/usr/bin/mwc-ace
-
-	rm -f $(ACE_SUBDIR)/MPC/config/.cvsignore
-
 #	Be lintian clean, fix permissions on examples
 #       But find returns nothing..
 #	-chmod -x `find $(TAO_ROOT)/examples/ -perm 755 ! -type d -a ! \( -name "*.pl" -o -name "*.sh" \)`
