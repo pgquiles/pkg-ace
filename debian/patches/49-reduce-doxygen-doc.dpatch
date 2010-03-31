@@ -1,0 +1,865 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 49-reduce-doxygen-doc.dpatch by Marek Brudka <mbrudka@aster.pl>
+##
+## DP: Enforce doxygen to generate smaller doxumentation
+
+@DPATCH@
+diff -ru ACE_wrappers.orig/etc/ace.doxygen ACE_wrappers/etc/ace.doxygen
+--- ACE_wrappers.orig/etc/ace.doxygen	2010-01-06 14:34:01.000000000 +0100
++++ ACE_wrappers/etc/ace.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -159,11 +159,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+Tylko w ACE_wrappers/etc: ace.doxygen~
+diff -ru ACE_wrappers.orig/etc/ace_qos.doxygen ACE_wrappers/etc/ace_qos.doxygen
+--- ACE_wrappers.orig/etc/ace_qos.doxygen	2010-01-06 14:34:01.000000000 +0100
++++ ACE_wrappers/etc/ace_qos.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -147,11 +147,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/etc/ace_rmcast.doxygen ACE_wrappers/etc/ace_rmcast.doxygen
+--- ACE_wrappers.orig/etc/ace_rmcast.doxygen	2010-01-06 14:34:01.000000000 +0100
++++ ACE_wrappers/etc/ace_rmcast.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -147,11 +147,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/etc/ace_ssl.doxygen ACE_wrappers/etc/ace_ssl.doxygen
+--- ACE_wrappers.orig/etc/ace_ssl.doxygen	2010-01-06 14:34:01.000000000 +0100
++++ ACE_wrappers/etc/ace_ssl.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -147,11 +147,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/etc/acexml.doxygen ACE_wrappers/etc/acexml.doxygen
+--- ACE_wrappers.orig/etc/acexml.doxygen	2010-01-06 14:34:01.000000000 +0100
++++ ACE_wrappers/etc/acexml.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -147,11 +147,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/CIAO/etc/ciao_config_handlers.doxygen ACE_wrappers/TAO/CIAO/etc/ciao_config_handlers.doxygen
+--- ACE_wrappers.orig/TAO/CIAO/etc/ciao_config_handlers.doxygen	2010-02-04 11:21:23.000000000 +0100
++++ ACE_wrappers/TAO/CIAO/etc/ciao_config_handlers.doxygen	2010-03-30 22:40:08.000000000 +0200
+@@ -156,11 +156,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/CIAO/etc/ciao_DAnCE.doxygen ACE_wrappers/TAO/CIAO/etc/ciao_DAnCE.doxygen
+--- ACE_wrappers.orig/TAO/CIAO/etc/ciao_DAnCE.doxygen	2010-02-04 11:21:23.000000000 +0100
++++ ACE_wrappers/TAO/CIAO/etc/ciao_DAnCE.doxygen	2010-03-30 22:40:08.000000000 +0200
+@@ -156,11 +156,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/CIAO/etc/ciao_dds4ccm.doxygen ACE_wrappers/TAO/CIAO/etc/ciao_dds4ccm.doxygen
+--- ACE_wrappers.orig/TAO/CIAO/etc/ciao_dds4ccm.doxygen	2010-01-06 14:32:13.000000000 +0100
++++ ACE_wrappers/TAO/CIAO/etc/ciao_dds4ccm.doxygen	2010-03-30 22:40:08.000000000 +0200
+@@ -156,11 +156,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/CIAO/etc/ciao.doxygen ACE_wrappers/TAO/CIAO/etc/ciao.doxygen
+--- ACE_wrappers.orig/TAO/CIAO/etc/ciao.doxygen	2010-02-04 11:21:23.000000000 +0100
++++ ACE_wrappers/TAO/CIAO/etc/ciao.doxygen	2010-03-30 22:40:08.000000000 +0200
+@@ -157,11 +157,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_anytypecode.doxygen ACE_wrappers/TAO/etc/tao_anytypecode.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_anytypecode.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_anytypecode.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -150,11 +150,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_av.doxygen ACE_wrappers/TAO/etc/tao_av.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_av.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_av.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -154,11 +154,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_compression.doxygen ACE_wrappers/TAO/etc/tao_compression.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_compression.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_compression.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -150,11 +150,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_cosevent.doxygen ACE_wrappers/TAO/etc/tao_cosevent.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_cosevent.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_cosevent.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -155,11 +155,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_cosnaming.doxygen ACE_wrappers/TAO/etc/tao_cosnaming.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_cosnaming.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_cosnaming.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -151,11 +151,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_cosnotification.doxygen ACE_wrappers/TAO/etc/tao_cosnotification.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_cosnotification.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_cosnotification.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -161,11 +161,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_costime.doxygen ACE_wrappers/TAO/etc/tao_costime.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_costime.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_costime.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -152,11 +152,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_costrader.doxygen ACE_wrappers/TAO/etc/tao_costrader.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_costrader.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_costrader.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -155,11 +155,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao.doxygen ACE_wrappers/TAO/etc/tao.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -149,11 +149,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_dynamicany.doxygen ACE_wrappers/TAO/etc/tao_dynamicany.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_dynamicany.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_dynamicany.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -150,11 +150,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_dynamicinterface.doxygen ACE_wrappers/TAO/etc/tao_dynamicinterface.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_dynamicinterface.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_dynamicinterface.doxygen	2010-03-30 22:40:08.000000000 +0200
+@@ -149,11 +149,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_esf.doxygen ACE_wrappers/TAO/etc/tao_esf.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_esf.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_esf.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -151,11 +151,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_ifr.doxygen ACE_wrappers/TAO/etc/tao_ifr.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_ifr.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_ifr.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -153,11 +153,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_implrepo.doxygen ACE_wrappers/TAO/etc/tao_implrepo.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_implrepo.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_implrepo.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -152,11 +152,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_iormanip.doxygen ACE_wrappers/TAO/etc/tao_iormanip.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_iormanip.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_iormanip.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -150,11 +150,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_iortable.doxygen ACE_wrappers/TAO/etc/tao_iortable.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_iortable.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_iortable.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -150,11 +150,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_pi.doxygen ACE_wrappers/TAO/etc/tao_pi.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_pi.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_pi.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -150,11 +150,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_pi_server.doxygen ACE_wrappers/TAO/etc/tao_pi_server.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_pi_server.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_pi_server.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -150,11 +150,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_portablegroup.doxygen ACE_wrappers/TAO/etc/tao_portablegroup.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_portablegroup.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_portablegroup.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -154,11 +154,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_portableserver.doxygen ACE_wrappers/TAO/etc/tao_portableserver.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_portableserver.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_portableserver.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -150,11 +150,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_pss.doxygen ACE_wrappers/TAO/etc/tao_pss.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_pss.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_pss.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -151,11 +151,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_rtcorba.doxygen ACE_wrappers/TAO/etc/tao_rtcorba.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_rtcorba.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_rtcorba.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -150,11 +150,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_rtevent.doxygen ACE_wrappers/TAO/etc/tao_rtevent.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_rtevent.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_rtevent.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -161,11 +161,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_rtportableserver.doxygen ACE_wrappers/TAO/etc/tao_rtportableserver.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_rtportableserver.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_rtportableserver.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -150,11 +150,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_security.doxygen ACE_wrappers/TAO/etc/tao_security.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_security.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_security.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -156,11 +156,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_smartproxies.doxygen ACE_wrappers/TAO/etc/tao_smartproxies.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_smartproxies.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_smartproxies.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -149,11 +149,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_ssliop.doxygen ACE_wrappers/TAO/etc/tao_ssliop.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_ssliop.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_ssliop.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -157,11 +157,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_strategies.doxygen ACE_wrappers/TAO/etc/tao_strategies.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_strategies.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_strategies.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -149,11 +149,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_transportcurrent.doxygen ACE_wrappers/TAO/etc/tao_transportcurrent.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_transportcurrent.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_transportcurrent.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -151,11 +151,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =
+diff -ru ACE_wrappers.orig/TAO/etc/tao_ziop.doxygen ACE_wrappers/TAO/etc/tao_ziop.doxygen
+--- ACE_wrappers.orig/TAO/etc/tao_ziop.doxygen	2010-01-06 14:33:41.000000000 +0100
++++ ACE_wrappers/TAO/etc/tao_ziop.doxygen	2010-03-30 22:40:08.000000000 +0200
+@@ -151,11 +151,15 @@
+ 
+ HAVE_DOT              = YES
+ CLASS_GRAPH           = YES
+-COLLABORATION_GRAPH   = YES
+-INCLUDE_GRAPH         = YES
+-INCLUDED_BY_GRAPH     = YES
++COLLABORATION_GRAPH   = NO
++INCLUDE_GRAPH         = NO
++INCLUDED_BY_GRAPH     = NO
+ GRAPHICAL_HIERARCHY   = YES
+ DOT_MULTI_TARGETS     = YES
++DOT_GRAPH_MAX_NODES   = 15
++MAX_DOT_GRAPH_DEPTH   = 2
++DOT_IMAGE_FORMAT      = png
++
+ # The tag DOT_PATH can be used to specify the path where the dot tool can be
+ # found. If left blank, it is assumed the dot tool can be found on the path.
+ DOT_PATH              =

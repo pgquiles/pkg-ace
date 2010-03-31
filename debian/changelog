@@ -7,7 +7,8 @@ ace (5.7.7-1) unstable; urgency=low
   * Dropped 25-remove-duplicate-file patch
   * Added PerlACE to mpc-ace. This should resolve #522557
   * Replaced find [C,S,A].[h,inl] by 2-pass mpc generation
-  * Remove obsolete patches
+  * Removed obsolete patches
+  * Created patch to reduce the size of doxygen doc
   
  -- Marek Brudka <mbrudka@aster.pl>  Sat, 27 Mar 2010 20:00:00 +0100
 
