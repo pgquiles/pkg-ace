@@ -23,8 +23,7 @@ MAN5 :=
 # Where we install every file before calling dh_install
 DT := debian/tmp
 
-DOXYGEN_FILES_TO_REMOVE := -name '*.tag' -o \
-                           -name '*.md5' -o \
+DOXYGEN_FILES_TO_REMOVE := -name '*.md5' -o \
                            -name '*.dot' -o \
                            -name '*.idx' -o \
                            -name '*.map' -o \

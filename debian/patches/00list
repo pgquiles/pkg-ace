@@ -4,6 +4,7 @@
 19-gcc43
 24-add-missing-headers
 34-bts386713
+48-fix-doxygen-cross-links.dpatch
 49-reduce-doxygen-doc.dpatch
 50-prepatch-dummy-mark
 90-patch-mpc-basedir

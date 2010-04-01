@@ -9,6 +9,7 @@ ace (5.7.7-1) unstable; urgency=low
   * Replaced find [C,S,A].[h,inl] by 2-pass mpc generation
   * Removed obsolete patches
   * Created patch to reduce the size of doxygen doc
+  * Created patch to fix cross references in doxygen tags
   
  -- Marek Brudka <mbrudka@aster.pl>  Sat, 27 Mar 2010 20:00:00 +0100
 
