@@ -131,6 +131,12 @@ install: build
 	cd $(TAO_ROOT) && ../MPC/prj_install.pl -k -s man_files,exe_output,lib_output  -b exe_output=usr/bin -b man_files=usr/share/man -b lib_output=usr/lib  $(CURDIR)/$(DT) TAO_IDL
 	cd $(TAO_ROOT) && ../MPC/prj_install.pl $(PRJ_INSTALL_FLAGS) $(CURDIR)/$(DT) utils
 
+
+#	Install netsvcs files in $(CURDIR)/$(DT)
+	cd $(ACE_ROOT) && ./MPC/prj_install.pl -k -s man_files,exe_output,lib_output,svc_conf_files -b svc_conf_files=usr/share/ace-netsvcs -b exe_output=usr/bin -b man_files=usr/share/man -b lib_output=usr/lib $(CURDIR)/$(DT) netsvcs
+	cd $(ACE_ROOT)/netsvcs/lib && ../../MPC/prj_install.pl -k -s header_files,inline_files,template_files  -b template_files=usr/include/netsvcs -b header_files=usr/include/netsvcs -b inline_files=usr/include/netsvcs $(CURDIR)/$(DT) .
+	cd $(ACE_ROOT)/netsvcs/servers && ../../MPC/prj_install.pl -k -s svc_conf_files -b svc_conf_files=usr/share/ace-netsvcs $(CURDIR)/$(DT) .
+	
 #	Move libraries and excutable to lib and bin, then remove subdirectories
 	cd $(CURDIR)/$(DT)/usr/bin &&  find . -executable -a -type f -exec mv {} . ';' && find . -type d -delete
 	cd $(CURDIR)/$(DT)/usr/lib &&  find . -type f -exec mv {} . ';' && find . -type d -delete

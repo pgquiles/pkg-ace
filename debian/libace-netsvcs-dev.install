@@ -1,0 +1,2 @@
+usr/lib/libnetsvcs.so
+usr/include/netsvcs/*.{h,inl,cpp}

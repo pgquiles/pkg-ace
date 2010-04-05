@@ -605,3 +605,35 @@ Description: TAO time service
  This package contains two programs:
   * Time_Service_Clerk, answering client requests
   * Time_Service_Server, queried by clerks to keep their time synchronized
+
+Package: netsvcs-ace
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: ACE network service implementations
+ ACE network services provide reusable components for common distributed 
+ system tasks such as logging, naming, locking, and time synchronization.
+ .
+ This package contains driver program and exemplary configuration files 
+ that links the various ACE network services together, either statically 
+ or dynamically, to form complete server programs.
+
+Package: libace-netsvcs-5.7.7
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: ACE network service implementations
+ ACE network services provide reusable components for common distributed 
+ system tasks such as logging, naming, locking, and time synchronization.
+ .
+ This package contains runtime libraries for ACE network services.
+
+Package: libace-netsvcs-dev
+Architecture: any
+Section: libdevel
+Depends: libace-netsvcs-5.7.7 (= ${binary:Version}), libace-dev (= ${binary:Version}), ${misc:Depends}
+Description: ACE network service implementations
+ ACE network services provide reusable components for common distributed 
+ system tasks such as logging, naming, locking, and time synchronization.
+ .
+ This package contains header files and static library for the ACE network services library.
+

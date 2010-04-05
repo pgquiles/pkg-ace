@@ -10,7 +10,8 @@ ace (5.7.7-1) unstable; urgency=low
   * Removed obsolete patches
   * Created patch to reduce the size of doxygen doc
   * Created patch to fix cross references in doxygen tags
-  
+  * Created netsvcs packages
+
  -- Marek Brudka <mbrudka@aster.pl>  Sat, 27 Mar 2010 20:00:00 +0100
 
 ace (5.7.5-2) unstable; urgency=low
@@ -18,6 +19,8 @@ ace (5.7.5-2) unstable; urgency=low
   * Change build method to MPC generated makefiles
   * Changed installation method to MPC/prj_install.pl
   * Changed .so naming from -x.y.z.so to so.x.y.z
+
+ -- Marek Brudka <mbrudka@aster.pl>  Sat, 20 Mar 2010 20:00:00 +0100
 
 ace (5.7.5-1) unstable; urgency=low
 

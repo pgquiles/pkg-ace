@@ -1,0 +1,17 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 47-change-netsvcs.dpatch by Marek Brudka <mbrudka@aster.pl>
+##
+## DP: Changes the name of netsvcs supersrver to ace_netsvcs [should be added to the upstream] 
+
+@DPATCH@
+--- ACE_wrappers.orig/netsvcs/servers/servers.mpc	2008-03-04 15:51:23.000000000 +0100
++++ ACE_wrappers/netsvcs/servers/servers.mpc	2010-04-05 15:18:50.000000000 +0200
+@@ -2,7 +2,7 @@
+ // $Id: servers.mpc 80826 2008-03-04 14:51:23Z wotte $
+ 
+ project(Netsvcs_server) : aceexe, avoids_ace_for_tao {
+-  exename  = main
++  exename  = ace_netsvcs
+   libs     += netsvcs
+   after    += netsvcs
+   includes += $(ACE_ROOT)/netsvcs/lib

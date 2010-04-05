@@ -24,5 +24,7 @@ workspace {
     contrib
     protocols/tests
     protocols/examples
+
+    netsvcs/clients
   }
 }
