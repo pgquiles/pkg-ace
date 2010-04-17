@@ -1,5 +1,4 @@
 ace (5.7.7-1) unstable; urgency=low
-
   [ Marek Brudka ]
   * New upstream release
   * Install fix related with MPC bug for *.ins files
@@ -11,18 +10,23 @@ ace (5.7.7-1) unstable; urgency=low
   * Created patch to reduce the size of doxygen doc
   * Created patch to fix cross references in doxygen tags
   * Created netsvcs packages
-
- -- Marek Brudka <mbrudka@aster.pl>  Sat, 27 Mar 2010 20:00:00 +0100
-
-ace (5.7.5-2) unstable; urgency=low
-  [ Marek Brudka ]
   * Change build method to MPC generated makefiles
   * Changed installation method to MPC/prj_install.pl
   * Changed .so naming from -x.y.z.so to so.x.y.z
-
- -- Marek Brudka <mbrudka@aster.pl>  Sat, 20 Mar 2010 20:00:00 +0100
-
-ace (5.7.5-1) unstable; urgency=low
+  * renamed gperf-ace to ace_gperf to follow the upstream convention
+  * fixed fidone once again
+  * created gperf-ace-5.7.5 and gperf-ace-dev package for gperf runtime libraries
+  * included number of runtime and static libraries with headers (Monitor, ZIOP, ETCL, Catior) to libtao-orbsvcs-* packages
+  * renamed split-cpp to split-cpp.pl in libace-dev to follow the upstream 
+    conventions
+  * renamed utilities (ns{add,del,list> to tao_ns{add,del,list}) in tao-utils 
+    to follow the upstream changes
+  * removed permission fixes for example in debian/rules as there is nothing to fix
+  * created libace_gperf runtime and devel libraries
+  * added libACE_ETCL to libace (separate package?)
+  * added libACE_Monitor_Control to libace (separate package?)
+  * added libACE_gperf to libace (separate package?)
+  * temporarily excluded logWalker from build
 
   [ Pau Garcia i Quiles ]
   * New upstream release
@@ -58,23 +62,8 @@ ace (5.7.5-1) unstable; urgency=low
   * Remove DH_COMPAT definition from the debian/rules file, it's already in
     debian/compat
   * Fix fox-config location, detection method has changed since 5.6.3
-  [Marek Brudka]
-  * renamed gperf-ace to ace_gperf to follow the upstream convention
-  * fixed fidone once again
-  * created gperf-ace-5.7.5 and gperf-ace-dev package for gperf runtime libraries
-  * included number of runtime and static libraries with headers (Monitor, ZIOP, ETCL, Catior) to libtao-orbsvcs-* packages
-  * renamed split-cpp to split-cpp.pl in libace-dev to follow the upstream 
-    conventions
-  * renamed utilities (ns{add,del,list> to tao_ns{add,del,list}) in tao-utils 
-    to follow the upstream changes
-  * removed permission fixes for example in debian/rules as there is nothing to fix
-  * created libace_gperf runtime and devel libraries
-  * added libACE_ETCL to libace (separate package?)
-  * added libACE_Monitor_Control to libace (separate package?)
-  * added libACE_gperf to libace (separate package?)
-  * added usr/bin/m[w,p]c.pl to avoid some problems related with $0 and workspace generation
-  * temporarily excluded logWalker from build
- -- Pau Garcia i Quiles <pgquiles@elpauer.org>, Marek Brudka <mbrudka@aster.pl>  Sun, 25 Oct 2009 12:59:18 +0100
+
+ -- Marek Brudka <mbrudka@aster.pl>  Sat, 27 Mar 2010 20:00:00 +0100
 
 ace (5.6.3-6) unstable; urgency=low
 
