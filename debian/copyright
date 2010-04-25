@@ -1,10 +1,12 @@
 This package was debianized by:
  Ossama Othman <ossama@debian.org> on Fri, 25 Sep 1998 16:43:42 -0400.
-
-It is now maintained by:
+Then maintained by:
  Brian Nelson <pyro@debian.org>
  Konstantinos Margaritis <markos@debian.org>
  Thomas Girard <thomas.g.girard@free.fr>
+
+It is now maintained by:
+ Debian ACE+TAO maintainers <pkg-ace-devel@lists.alioth.debian.org>
 
 It was downloaded from: <http://download.dre.vanderbilt.edu/>
 
