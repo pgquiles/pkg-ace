@@ -1,0 +1,20 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 15-fix-lzo-flags.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: hardcode LZO headers location.
+
+@DPATCH@
+
+--- ACE_wrappers/MPC/config/lzo1.mpb-	2009-05-07 17:44:53.000000000 +0200
++++ ACE_wrappers/MPC/config/lzo1.mpb	2010-05-01 13:41:44.652596448 +0200
+@@ -2,8 +2,7 @@
+ // $Id: lzo1.mpb 1577 2009-05-07 15:44:53Z elliott_c $
+ 
+ feature(lzo1) {
+-  includes += $(LZO1_ROOT)/include
+-  libpaths += $(LZO1_ROOT)/lib
++  includes += /usr/include/lzo
+   specific (prop:microsoft) {
+     lit_libs += liblzo
+   } else {

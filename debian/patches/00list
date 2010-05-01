@@ -1,6 +1,8 @@
 10-fix-prj-install.dpatch
 11-create-ace_qt4reactor-mpb.dpatch
 11-promote-QtResource-to-qt4.dpatch
+14-fix-tcl-flags.dpatch
+15-fix-lzo-flags.dpatch
 19-gcc43
 24-add-missing-headers
 34-bts386713
