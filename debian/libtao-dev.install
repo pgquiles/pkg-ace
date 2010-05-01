@@ -62,6 +62,8 @@ usr/lib/libTAO_Valuetype.so
 usr/lib/libTAO_DiffServPolicy.so
 usr/include/tao/DiffServPolicy
 usr/lib/libTAO_ZlibCompressor.so
+usr/lib/libTAO_Bzip2Compressor.so
+usr/lib/libTAO_LzoCompressor.so
 ../../ACE_wrappers/TAO/MPC/config        usr/share/ace/TAO/MPC
 ../../ACE_wrappers/TAO/rules.tao.GNU     usr/share/ace/TAO
 usr/lib/libTAO_IFR_BE.so
