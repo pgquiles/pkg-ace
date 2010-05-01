@@ -1,5 +1,5 @@
 #! /bin/sh /usr/share/dpatch/dpatch-run
-## 24-add-missing-headers.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+## 24-add-missing-headers.dpatch by Pau Garcia i Quiles <pgquiles@elpauer.org>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
 ## DP: adds missing headers
