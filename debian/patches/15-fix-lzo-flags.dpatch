@@ -6,9 +6,9 @@
 
 @DPATCH@
 
---- ACE_wrappers/MPC/config/lzo1.mpb-	2009-05-07 17:44:53.000000000 +0200
-+++ ACE_wrappers/MPC/config/lzo1.mpb	2010-05-01 13:41:44.652596448 +0200
-@@ -2,8 +2,7 @@
+--- ACE_wrappers/MPC/config/lzo1.mpb-	2010-05-01 15:07:26.844624908 +0200
++++ ACE_wrappers/MPC/config/lzo1.mpb	2010-05-01 15:08:11.812596536 +0200
+@@ -2,11 +2,10 @@
  // $Id: lzo1.mpb 1577 2009-05-07 15:44:53Z elliott_c $
  
  feature(lzo1) {
@@ -18,3 +18,7 @@
    specific (prop:microsoft) {
      lit_libs += liblzo
    } else {
+-    lit_libs += lzo
++    lit_libs += lzo2
+   }
+ }
