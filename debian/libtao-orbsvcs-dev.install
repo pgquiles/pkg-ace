@@ -33,7 +33,6 @@ usr/lib/libTAO_DsLogAdmin_Serv.so
 usr/lib/libTAO_DsNotifyLogAdmin.so
 usr/lib/libTAO_DsNotifyLogAdmin_Skel.so
 usr/lib/libTAO_DsNotifyLogAdmin_Serv.so
-usr/lib/libTAO_ETCL.so
 usr/lib/libTAO_FT_ServerORB.so
 usr/lib/libTAO_FT_ClientORB.so
 usr/lib/libTAO_FTORB_Utils.so
@@ -62,14 +61,10 @@ usr/lib/libTAO_CosLifeCycle_Skel.so
 usr/lib/libTAO_Notify_Service.so
 usr/lib/libTAO_CosTime_Serv.so
 usr/lib/libTAO_CosTime_Skel.so
-usr/lib/libTAO_Monitor.so
 usr/lib/libTAO_Catior_i.so
-usr/include/tao/ETCL
-usr/include/tao/Monitor
-usr/include/utils/catior                                                                                          
-usr/lib/libTAO_ReplicationManagerLib.so                                                                           
+usr/include/utils/catior
+usr/lib/libTAO_ReplicationManagerLib.so
 usr/lib/libTAO_ImR_Activator.so                                                                                   
-usr/lib/libTAO_ImR_Locator.so                                                                                     
-usr/lib/libTAO_ImR_Locator_IDL.so                                                                                 
+usr/lib/libTAO_ImR_Locator.so
+usr/lib/libTAO_ImR_Locator_IDL.so
 usr/lib/libTAO_ImR_Activator_IDL.so
-

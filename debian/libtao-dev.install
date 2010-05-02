@@ -66,6 +66,10 @@ usr/lib/libTAO_ZIOP.so
 usr/lib/libTAO_ZlibCompressor.so
 usr/lib/libTAO_Bzip2Compressor.so
 usr/lib/libTAO_LzoCompressor.so
+usr/include/tao/ETCL
+usr/lib/libTAO_ETCL.so
+usr/include/tao/Monitor
+usr/lib/libTAO_Monitor.so
 ../../ACE_wrappers/TAO/MPC/config        usr/share/ace/TAO/MPC
 ../../ACE_wrappers/TAO/rules.tao.GNU     usr/share/ace/TAO
 usr/lib/libTAO_IFR_BE.so

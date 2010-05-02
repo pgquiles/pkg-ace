@@ -37,3 +37,5 @@ usr/lib/libTAO_IFR_BE.so.*
 usr/lib/libTAO_IDL_FE.so.*
 usr/lib/libTAO_IDL_BE.so.*
 usr/lib/libTAO_ZIOP.so.*
+usr/lib/libTAO_ETCL.so.*
+usr/lib/libTAO_Monitor.so.*
