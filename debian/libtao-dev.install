@@ -61,6 +61,8 @@ usr/include/tao/Valuetype
 usr/lib/libTAO_Valuetype.so
 usr/lib/libTAO_DiffServPolicy.so
 usr/include/tao/DiffServPolicy
+usr/include/tao/ZIOP
+usr/lib/libTAO_ZIOP.so
 usr/lib/libTAO_ZlibCompressor.so
 usr/lib/libTAO_Bzip2Compressor.so
 usr/lib/libTAO_LzoCompressor.so

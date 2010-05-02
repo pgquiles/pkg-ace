@@ -58,7 +58,6 @@ usr/lib/libTAO_RT_Notification.so.*
 usr/lib/libTAO_SSLIOP.so.*
 usr/lib/libTAO_Security.so.*
 usr/lib/libTAO_Svc_Utils.so.*
-usr/lib/libTAO_ZIOP.so.*
 usr/lib/libTAO_Notify_Service.so.*
 usr/lib/libTAO_CosTime_Serv.so.*
 usr/lib/libTAO_CosTime_Skel.so.*

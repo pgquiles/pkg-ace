@@ -36,3 +36,4 @@ usr/lib/libTAO_LzoCompressor.so.*
 usr/lib/libTAO_IFR_BE.so.*
 usr/lib/libTAO_IDL_FE.so.*
 usr/lib/libTAO_IDL_BE.so.*
+usr/lib/libTAO_ZIOP.so.*
