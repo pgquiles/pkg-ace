@@ -10,8 +10,8 @@ INSTALL := install -o root -g root
 INSTALL_755 := $(INSTALL) -m 755
 ACE_SUBDIR := ACE_wrappers
 ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO-src-*.tar.bz2 2>/dev/null || echo ace-archive-missing)
-MWCFLAGS := -type gnuace -features "ssl=1,zlib=1,zzip=1,xt=1,tk=1,fl=1,fox=1,qt4=1,exceptions=1,ace_qt4reactor=1,bzip2=1,lzo1=1" -noreldefs -genins
-ACE_MAKE_FLAGS := ssl=1 zlib=1 zzip=1 xt=1 tk=1 fl=1 fox=1 qt4=1 debug=0 inline=1 optimize=1 exceptions=1 ace_qt4reactor=1 bzip2=1 lzo1=1
+MWCFLAGS := -type gnuace -features "ssl=1,zlib=1,zzip=1,xt=1,tk=1,fl=1,fox=1,qt4=1,exceptions=1,ace_qt4reactor=1,bzip2=1,lzo1=1,ipv6=1" -noreldefs -genins
+ACE_MAKE_FLAGS := ssl=1 zlib=1 zzip=1 xt=1 tk=1 fl=1 fox=1 qt4=1 debug=0 inline=1 optimize=1 exceptions=1 ace_qt4reactor=1 bzip2=1 lzo1=1 ipv6=1
 PRJ_INSTALL_FLAGS := -k -s man_files,lib_output,header_files,inline_files,exe_output,idl_files,pidl_files,template_files  -b lib_output=usr/lib -b exe_output=usr/bin -b idl_files=usr/include -b pidl_files=usr/include -b template_files=usr/include -b header_files=usr/include -b inline_files=usr/include -b idl_files=usr/include -b man_files=usr/share/man
 MAN1 := debian/Basic_Logging_Service.1 \
 	debian/Event_Logging_Service.1 \
