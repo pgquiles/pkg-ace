@@ -35,7 +35,7 @@
 +PLATFORM_TK_LDFLAGS=
 +
 +PLATFORM_TCL_CPPFLAGS=$(shell . /usr/lib/tclConfig.sh && echo -n $$TCL_INCLUDE_SPEC $$TCL_DEFS)
-+PLATFORM_TCL_LIBS=$(shell . /usr/lib/tcl*/tclConfig.sh && echo -n $$(eval echo $$TCL_LIB_FLAG))
++PLATFORM_TCL_LIBS=$(shell . /usr/lib/tclConfig.sh && echo -n $$(eval echo $$TCL_LIB_FLAG))
 +PLATFORM_TCL_LDFLAGS=
  
  PLATFORM_QT_CPPFLAGS ?= -I$(QTDIR)/include
