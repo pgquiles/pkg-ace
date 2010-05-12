@@ -183,3 +183,14 @@
 +    SONAME = $(SHLIB:.$(SOEXT)=-$(TAO_MAJOR_VERSION).$(TAO_MINOR_VERSION).$(TAO_BETA_VERSION).$(SOEXT))
 +  endif # SONAME
  endif # versioned_so
+--- ACE_wrappers/MPC/prj_install.pl~	2010-05-11 14:43:56.524240543 +0200
++++ ACE_wrappers/MPC/prj_install.pl	2010-05-11 14:47:30.100236926 +0200
+@@ -144,7 +144,7 @@
+     my $fh   = new FileHandle();
+     if (opendir($fh, $odir)) {
+       foreach my $file (grep(!/^\.\.?$/, readdir($fh))) {
+-        if ($file =~ /^lib$name\.(a|so|sl)/ ||
++        if ($file =~ /^lib$name(-[0-9]+(\.[0-9]+)*)?\.(a|so|sl)/ ||
+             $file =~ /^(lib)?$name.*\.(dll|lib)$/i) {
+           push(@libs, "$dir$file");
+         }
