@@ -140,15 +140,24 @@ Description: ACE protocol over HTTP tunneling library development files
  This package contains the header files and static library for the ACE
  HTBP library.
 
-Package: gperf-ace
+Package: ace-gperf
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: gperf-ace (<< 5.7.7-1)
 Description: ACE perfect hash function generator
  ace_gperf is the ACE version of gperf.
  .
  Both ace_gperf and gperf were written by the same author, and have
  basically the same options and functionality. ace_gperf simply takes
  advantage of the some of the features provided by the ACE library.
+
+Package: gperf-ace
+Architecture: all
+Depends: ace-gperf
+Description: ACE perfect hash function generator (transitional package)
+ This package is a transitional package to ace-gperf.
+ .
+ It can be safely removed after installation.
 
 Package: libacexml-5.7.7
 Architecture: any
@@ -480,18 +489,18 @@ Description: TAO fault tolerant services
 Package: tao-utils
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Suggests: tao-naming
+Suggests: tao-cosnaming
 Description: TAO naming service and IOR utilities
  This package includes programs to query or control a CORBA naming
  service, and to dump an IOR.
  .
  The following programs are included:
-  * tao-nslist, to list naming context and object bindings
-  * tao-nsadd, to create bindings
-  * tao-nsdel, to remove bindings
-  * tao-catior, to dump the content of an Interoperable Object Reference
+  * tao_nslist, to list naming context and object bindings
+  * tao_nsadd, to create bindings
+  * tao_nsdel, to remove bindings
+  * tao_catior, to dump the content of an Interoperable Object Reference
 
-Package: tao-naming
+Package: tao-cosnaming
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: tao-utils
@@ -501,8 +510,19 @@ Description: TAO naming service
  A naming service provides a location service for CORBA objects.
  Given a name, it will return the Interoperable Object Reference (IOR)
  for the CORBA object that was registered with this name.
+ .
+ The following program is included:
+  * tao_cosnaming
 
-Package: tao-trading
+Package: tao-naming
+Architecture: all
+Depends: tao-cosnaming
+Description: TAO naming service (transitional package)
+ This package is a transitional package to tao-cosnaming.
+ .
+ It can be safely removed after installation.
+
+Package: tao-costrading
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: TAO trading service
@@ -511,8 +531,19 @@ Description: TAO trading service
  A trading service is quite like a naming service except that it
  relies on a set of properties instead of a name to find object
  references.
+ .
+ The following program is included:
+  * tao_costrading
 
-Package: tao-event
+Package: tao-trading
+Architecture: all
+Depends: tao-costrading
+Description: TAO trading service (transitional package)
+ This package is a transitional package to tao-costrading.
+ .
+ It can be safely removed after installation.
+
+Package: tao-cosevent
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: TAO event service
@@ -522,6 +553,17 @@ Description: TAO event service
  .
  This event service supports both the Push and Pull styles for event
  communication.
+ .
+ The following program is included:
+  * tao_cosevent
+
+Package: tao-event
+Architecture: all
+Depends: tao-cosevent
+Description: TAO event service (transitional package)
+ This package is a transitional package to tao-cosevent.
+ .
+ It can be safely removed after installation.
 
 Package: tao-rtevent
 Architecture: any
@@ -532,6 +574,9 @@ Description: TAO real-time event service
  .
  This version does not support the Pull style but provides a real-time
  event channel.
+ .
+ The following program is included:
+  * tao_rtevent
 
 Package: tao-ftrtevent
 Architecture: any
@@ -545,7 +590,7 @@ Description: TAO fault-tolerant real-time event service
   * ftrtec_factory_service, spawning ftrt_eventservice processes
   * ftrtec_gateway_service, relaying events to FT CORBA unaware clients
 
-Package: tao-notify
+Package: tao-cosnotification
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: TAO notification service
@@ -555,6 +600,17 @@ Description: TAO notification service
  The notification service adds:
   * quality of service control on reliability and speed
   * event filtering
+ .
+ This package contains:
+  * tao_cosnotification
+
+Package: tao-notify
+Architecture: all
+Depends: tao-cosnotification
+Description: TAO notification service (transitional package)
+ This package is a transitional package to tao-cosnotification.
+ .
+ It can be safely removed after installation.
 
 Package: tao-load
 Architecture: any
@@ -567,17 +623,27 @@ Description: TAO load balancing service
   * LoadManager, that distributes loads across objects
   * LoadMonitor, that monitors and reports loads to a manager
 
-Package: tao-log
+Package: tao-tls
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: tao-log (<< 5.7.7-1)
+Replaces: tao-log (<< 5.7.7-1)
 Description: TAO telecom log services
  TAO implementations of CORBA telecom log service.
  .
  Four separate services are provided:
-  * Basic_Logging_Service
-  * Event_Logging_Service
-  * Notify_Logging_Service
-  * RTEvent_Logging_Service
+  * tao_tls_basic
+  * tao_tls_event
+  * tao_tls_notify
+  * tao_tls_rtevent
+
+Package: tao-log
+Architecture: all
+Depends: tao-tls
+Description: TAO telecom log services (transitional package)
+ This package is a transitional package to tao-tls.
+ .
+ It can be safely removed after installation.
 
 Package: tao-scheduling
 Architecture: any
@@ -589,7 +655,7 @@ Description: TAO scheduling service
   * Scheduling_Service
   * Dump_Schedule
 
-Package: tao-concurrency
+Package: tao-cosconcurrency
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: TAO concurrency service
@@ -598,7 +664,15 @@ Description: TAO concurrency service
  .
  TAO version does not support transactions.
 
-Package: tao-lifecycle
+Package: tao-concurrency
+Architecture: all
+Depends: tao-cosconcurrency
+Description: TAO concurrency service (transitional package)
+ This package is a transitional package to tao-cosconcurrency.
+ .
+ It can be safely removed after installation.
+
+Package: tao-coslifecycle
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: TAO lifecycle service
@@ -607,18 +681,34 @@ Description: TAO lifecycle service
  .
  This package contains the TAO implementation of such service.
 
-Package: tao-time
+Package: tao-lifecycle
+Architecture: all
+Depends: tao-coslifecycle
+Description: TAO lifecycle service (transitional package)
+ This package is a transitional package to tao-coslifecycle.
+ .
+ It can be safely removed after installation.
+
+Package: tao-costime
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: TAO time service
  A time service offers globally synchronized time to clients.
  .
  This package contains two programs:
-  * Time_Service_Clerk, answering client requests
-  * Time_Service_Server, queried by clerks to keep their time
+  * tao_costime_clerk, answering client requests
+  * tao_costime_server, queried by clerks to keep their time
     synchronized
 
-Package: netsvcs-ace
+Package: tao-time
+Architecture: all
+Depends: tao-costime
+Description: TAO time service (transitional package)
+ This package is a transitional package to tao-costime.
+ .
+ It can be safely removed after installation.
+
+Package: ace-netsvcs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: ACE network service implementations
@@ -652,4 +742,3 @@ Description: ACE network service implementations
  .
  This package contains header files and static library for the ACE
  network services library.
-
