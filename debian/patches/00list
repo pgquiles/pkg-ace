@@ -4,6 +4,7 @@
 14-fix-tcl-flags.dpatch
 15-fix-lzo-flags.dpatch
 19-gcc43
+20-versioned_libs.dpatch
 24-add-missing-headers
 34-bts386713
 47-change-netsvcs.dpatch
