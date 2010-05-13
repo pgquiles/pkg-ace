@@ -119,3 +119,12 @@
 -  exename  = CosEvent_Service
 +  exename  = tao_cosevent
  }
+--- ACE_wrappers/TAO/orbsvcs/LifeCycle_Service/LifeCycle_Service.mpc-	2008-09-23 23:50:40.000000000 +0200
++++ ACE_wrappers/TAO/orbsvcs/LifeCycle_Service/LifeCycle_Service.mpc	2010-05-13 11:32:27.776383749 +0200
+@@ -2,5 +2,5 @@
+ // $Id: LifeCycle_Service.mpc 82815 2008-09-23 21:50:40Z jtc $
+ 
+ project : orbsvcsexe, lifecycle_skel, naming, trading_serv, avoids_minimum_corba, utils, install {
+-  exename  = LifeCycle_Service
++  exename  = tao_coslifecycle
+ }
