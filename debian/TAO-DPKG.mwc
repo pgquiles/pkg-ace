@@ -15,6 +15,7 @@ workspace {
     orbsvcs/tests
     orbsvcs/examples/CosEC/RtEC_Based/tests
 
+    docs
     DevGuideExamples
     orbsvcs/DevGuideExamples
     utils/logWalker
