@@ -15,3 +15,14 @@
 +  after    += ACE_QtReactor
 +  libs     += ACE_QtReactor
 +}
+--- ACE_wrappers/ace/ace_qt4reactor.mpc-	2009-03-05 20:22:29.000000000 +0100
++++ ACE_wrappers/ace/ace_qt4reactor.mpc	2010-05-13 22:59:07.644384775 +0200
+@@ -4,7 +4,7 @@
+ project(ACE_Qt4Reactor_moc) : acedefaults, ace_qt4 {
+   custom_only = 1
+   MOC_Files {
+-    QtReactor
++    QtReactor/QtReactor.h
+   }
+ }
+ 
