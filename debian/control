@@ -144,6 +144,7 @@ Package: ace-gperf
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: gperf-ace (<< 5.7.7-1)
+Replaces: gperf-ace (<< 5.7.7-1)
 Description: ACE perfect hash function generator
  ace_gperf is the ACE version of gperf.
  .
@@ -503,6 +504,8 @@ Description: TAO naming service and IOR utilities
 Package: tao-cosnaming
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: tao-naming (<< 5.7.7-1)
+Replaces: tao-naming (<< 5.7.7-1)
 Recommends: tao-utils
 Description: TAO naming service
  TAO implementation of CORBA interoperable naming service (INS).
@@ -525,6 +528,8 @@ Description: TAO naming service (transitional package)
 Package: tao-costrading
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: tao-trading (<< 5.7.7-1)
+Replaces: tao-trading (<< 5.7.7-1)
 Description: TAO trading service
  TAO implementation of CORBA trading service.
  .
@@ -546,6 +551,8 @@ Description: TAO trading service (transitional package)
 Package: tao-cosevent
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: tao-event (<< 5.7.7-1)
+Replaces: tao-event (<< 5.7.7-1)
 Description: TAO event service
  An event service creates channels where suppliers and consumers can
  push or pull events. This channel enables asynchronous, message based
@@ -570,7 +577,8 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: TAO real-time event service
  Another TAO implementation of CORBA event service. For more
- information on CORBA event service have a look at tao-event package.
+ information on CORBA event service have a look at tao-cosevent
+ package.
  .
  This version does not support the Pull style but provides a real-time
  event channel.
@@ -583,7 +591,8 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: TAO fault-tolerant real-time event service
  TAO fault-tolerant, real-time CORBA event service. For more
- information on CORBA event service have a look at tao-event package.
+ information on CORBA event service have a look at tao-cosevent
+ package.
  .
  This package contains:
   * ftrt_eventservice, the fault-tolerant event channel
@@ -593,9 +602,12 @@ Description: TAO fault-tolerant real-time event service
 Package: tao-cosnotification
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: tao-notify (<< 5.7.7-1)
+Replaces: tao-notify (<< 5.7.7-1)
 Description: TAO notification service
  A notification service enhances an event service. For more
- information on CORBA event service have a look at tao-event package.
+ information on CORBA event service have a look at tao-cosevent
+ package.
  .
  The notification service adds:
   * quality of service control on reliability and speed
@@ -658,6 +670,8 @@ Description: TAO scheduling service
 Package: tao-cosconcurrency
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: tao-concurrency (<< 5.7.7-1)
+Replaces: tao-concurrency (<< 5.7.7-1)
 Description: TAO concurrency service
  A concurrency service provides a mechanism to acquire and release
  locks in a distributed system.
@@ -675,6 +689,8 @@ Description: TAO concurrency service (transitional package)
 Package: tao-coslifecycle
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: tao-lifecycle (<< 5.7.7-1)
+Replaces: tao-lifecycle (<< 5.7.7-1)
 Description: TAO lifecycle service
  The CORBA lifecycle service allows clients to create, delete, copy
  and move objects.
@@ -692,6 +708,8 @@ Description: TAO lifecycle service (transitional package)
 Package: tao-costime
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: tao-time (<< 5.7.7-1)
+Replaces: tao-time (<< 5.7.7-1)
 Description: TAO time service
  A time service offers globally synchronized time to clients.
  .
