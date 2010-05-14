@@ -10,13 +10,15 @@ INSTALL := install -o root -g root
 INSTALL_755 := $(INSTALL) -m 755
 ACE_SUBDIR := ACE_wrappers
 ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO-src-*.tar.bz2 2>/dev/null || echo ace-archive-missing)
-MWCFLAGS := -type gnuace -features "ssl=1,zlib=1,zzip=1,xt=1,tk=1,fl=1,fox=1,qt4=1,exceptions=1,ace_qt4reactor=1,bzip2=1,lzo1=1,ipv6=1" -noreldefs -genins
-ACE_MAKE_FLAGS := ssl=1 zlib=1 zzip=1 xt=1 tk=1 fl=1 fox=1 qt4=1 debug=0 inline=1 optimize=1 exceptions=1 ace_qt4reactor=1 bzip2=1 lzo1=1 ipv6=1 versioned_so=2
-PRJ_INSTALL_FLAGS := -k -s man_files,lib_output,header_files,inline_files,exe_output,idl_files,pidl_files,template_files  -o lib_output=usr/lib -o exe_output=usr/bin -b idl_files=usr/include -b pidl_files=usr/include -b template_files=usr/include -b header_files=usr/include -b inline_files=usr/include -b idl_files=usr/include -b man_files=usr/share/man
-MAN1 := debian/Basic_Logging_Service.1 \
-	debian/Event_Logging_Service.1 \
-	debian/Notify_Logging_Service.1 \
-	debian/RTEvent_Logging_Service.1 \
+MWCFLAGS := -type gnuace -noreldefs -genins
+ACE_MAKE_FLAGS := versioned_so=2
+PRJ_INSTALL_ALL := -k -s man_files,lib_output,header_files,inline_files,exe_output,idl_files,pidl_files,template_files  -o lib_output=usr/lib -o exe_output=usr/bin -b idl_files=usr/include -b pidl_files=usr/include -b template_files=usr/include -b header_files=usr/include -b inline_files=usr/include -b idl_files=usr/include -o man_files=usr/share/man/man1
+PRJ_INSTALL_BIN := -k -s man_files,exe_output,lib_output  -o exe_output=usr/bin -o man_files=usr/share/man/man1 -o lib_output=usr/lib
+
+MAN1 := debian/tao_tls_basic.1 \
+	debian/tao_tls_event.1 \
+	debian/tao_tls_notify.1 \
+	debian/tao_tls_rtevent.1 \
 	debian/TAO_ORB_Options.1 \
 	debian/mpc-ace.1
 # Where we install every file before calling dh_install
@@ -48,12 +50,15 @@ extract-stamp: $(ACE_ARCHIVE)
 	tar -xjf $<
 	cp debian/platform_macros.GNU $(ACE_ROOT)/include/makeinclude
 	cp debian/config.h $(ACE_ROOT)/ace/config.h
+	cp debian/default.features $(ACE_ROOT)/bin/MakeProjectCreator/config
+	# We need to delete this one to prevent an empty library generation
+	rm -f $(ACE_ROOT)/ace/ace_qt3reactor.mpc
 	touch $@
 
 debian/mpc-ace.sgml: ACE_wrappers/MPC/docs/MPC.sgml
 	sed -e 's/mpc\.pl/mpc-ace/g' -e 's/mwc\.pl/mwc-ace/g' $< > $@
 
-debian/%.1 debian/%.5: debian/%.sgml
+debian/%.1: debian/%.sgml
 	docbook-to-man $< > $@
 
 # Prepare a ACE_wrappers directory where most of the patches are applied.
@@ -70,10 +75,6 @@ configure-stamp: prepatch-stamp
 	cd $(TAO_ROOT) &&  ./../bin/mwc.pl $(MWCFLAGS) TAO-DPKG.mwc
 	touch $@
 
-pl-stamp: prepatch-stamp
-	for fn in `find "$(ACE_ROOT)" -name "*.pl"`; do (echo '#!/usr/bin/perl'; cat "$$fn") > "$${fn}T"; mv "$${fn}T" "$$fn"; chmod a+x "$$fn"; done
-	touch $@
-
 patch: patch-stamp
 patch-stamp: configure-stamp
 	dpatch apply-all
@@ -87,14 +88,10 @@ doxygen-stamp: build-stamp
 	touch $@
 
 build: build-stamp manpages-stamp
-build-stamp: pl-stamp patch-stamp
+build-stamp: patch-stamp
 	dh_testdir
 	cd $(ACE_ROOT) && $(MAKE) $(ACE_MAKE_FLAGS)
 	cd $(TAO_ROOT) && $(MAKE) $(ACE_MAKE_FLAGS)
-#       2nd-pass MPC generation is a quick bugfix related with write_install_files@MPC/modules/ProjectCreator.pm
-#	echo 2nd-pass MPC generation
-#	cd $(ACE_ROOT) &&  ./bin/mwc.pl $(MWCFLAGS) ACE-DPKG.mwc
-#	cd $(TAO_ROOT) &&  ./../bin/mwc.pl $(MWCFLAGS) TAO-DPKG.mwc
 	touch $@
 
 manpages-stamp: $(MAN1)
@@ -111,31 +108,28 @@ install: build
 	dh_clean -k
 	dh_installdirs
 #	Install ACE files in $(CURDIR)/$(DT)
-	echo Installing..
-	cd $(ACE_ROOT) && MPC/prj_install.pl $(PRJ_INSTALL_FLAGS) $(CURDIR)/$(DT) ace
-	cd $(ACE_ROOT) && MPC/prj_install.pl $(PRJ_INSTALL_FLAGS) $(CURDIR)/$(DT) apps
-	cd $(ACE_ROOT) && MPC/prj_install.pl $(PRJ_INSTALL_FLAGS) $(CURDIR)/$(DT) ACEXML
-	cd $(ACE_ROOT) && MPC/prj_install.pl $(PRJ_INSTALL_FLAGS) $(CURDIR)/$(DT) Kokyu
-	cd $(ACE_ROOT)/protocols && ../MPC/prj_install.pl $(PRJ_INSTALL_FLAGS) $(CURDIR)/$(DT) ace
+	@echo Installing..
+	for p in ace apps ACEXML Kokyu; do \
+	  cd $(ACE_ROOT) && MPC/prj_install.pl $(PRJ_INSTALL_ALL) $(CURDIR)/$(DT) $$p; \
+	done
+
+	cd $(ACE_ROOT)/protocols && ../MPC/prj_install.pl $(PRJ_INSTALL_ALL) $(CURDIR)/$(DT) ace
 
 #	Install TAO files in $(CURDIR)/$(DT)
-	cd $(TAO_ROOT) && ../MPC/prj_install.pl $(PRJ_INSTALL_FLAGS) $(CURDIR)/$(DT) tao 
-	cd $(TAO_ROOT) && ../MPC/prj_install.pl $(PRJ_INSTALL_FLAGS) $(CURDIR)/$(DT) orbsvcs
-	cd $(TAO_ROOT) && ../MPC/prj_install.pl -k -s man_files,exe_output,lib_output  -o exe_output=usr/bin -b man_files=usr/share/man -o lib_output=usr/lib  $(CURDIR)/$(DT) TAO_IDL
-	cd $(TAO_ROOT) && ../MPC/prj_install.pl $(PRJ_INSTALL_FLAGS) $(CURDIR)/$(DT) utils
+	for p in tao orbsvcs; do \
+	  cd $(TAO_ROOT) && ../MPC/prj_install.pl $(PRJ_INSTALL_ALL) $(CURDIR)/$(DT) $$p; \
+	done
 
+	cd $(TAO_ROOT) && ../MPC/prj_install.pl $(PRJ_INSTALL_BIN) $(CURDIR)/$(DT) TAO_IDL
+	cd $(TAO_ROOT) && ../MPC/prj_install.pl $(PRJ_INSTALL_ALL) $(CURDIR)/$(DT) utils
 
 #	Install netsvcs files in $(CURDIR)/$(DT)
-	cd $(ACE_ROOT) && ./MPC/prj_install.pl -k -s man_files,exe_output,lib_output -o exe_output=usr/bin -b man_files=usr/share/man -o lib_output=usr/lib $(CURDIR)/$(DT) netsvcs
+	cd $(ACE_ROOT) && ./MPC/prj_install.pl $(PRJ_INSTALL_BIN) $(CURDIR)/$(DT) netsvcs
 	cd $(ACE_ROOT)/netsvcs/lib && ../../MPC/prj_install.pl -k -s header_files,inline_files,template_files  -b template_files=usr/include/netsvcs -b header_files=usr/include/netsvcs -b inline_files=usr/include/netsvcs $(CURDIR)/$(DT) .
 	cd $(ACE_ROOT)/netsvcs/servers && ../../MPC/prj_install.pl -k -s svc_conf_files -b svc_conf_files=usr/share/ace-netsvcs $(CURDIR)/$(DT) .
 
 #	Create .so links instead of copies
 	cd $(CURDIR)/$(DT)/usr/lib && for f in $$(find -name 'lib*-*.so' -print) ; do ln -sf $${f#./*} $${f%%-*}.so ; done
-
-#	Change man1 files location
-	mkdir -p $(CURDIR)/$(DT)/usr/share/man/man1
-	cd $(CURDIR)/$(DT)/usr/share/man && find . -iname *.1 -exec mv {}  man1 ';' && rm -rf apps
 
 #	Move orbsvcs files from include/tao/orbsvcs into include/orbsvcs
 	cd $(CURDIR)/$(DT)/usr/include/orbsvcs && mv -f orbsvcs/* . && rm -rf orbsvcs  

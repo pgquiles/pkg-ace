@@ -1,4 +1,4 @@
-debian/Basic_Logging_Service.1
-debian/Event_Logging_Service.1
-debian/Notify_Logging_Service.1
-debian/RTEvent_Logging_Service.1
+debian/tao_tls_basic.1
+debian/tao_tls_event.1
+debian/tao_tls_notify.1
+debian/tao_tls_rtevent.1

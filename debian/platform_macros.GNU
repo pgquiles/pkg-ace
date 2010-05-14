@@ -12,6 +12,10 @@ fox            = 1
 qt4            = 1
 ace_qt4reactor = 1
 
+bzip2          = 1
+lzo1           = 1
+zlib           = 1
+
 include $(ACE_ROOT)/include/makeinclude/platform_linux.GNU
 
 PLATFORM_FOX_CPPFLAGS=-I/usr/include/fox-1.6
