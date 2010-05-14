@@ -5,8 +5,8 @@
 ## DP: TODO
 
 @DPATCH@
---- ./ACE_wrappers/include/makeinclude/wrapper_macros.GNU-	2010-02-25 20:12:17.000000000 +0100
-+++ ./ACE_wrappers/include/makeinclude/wrapper_macros.GNU	2010-05-04 22:59:40.733945662 +0200
+--- ACE_wrappers/include/makeinclude/wrapper_macros.GNU-	2010-02-25 20:12:17.000000000 +0100
++++ ACE_wrappers/include/makeinclude/wrapper_macros.GNU	2010-05-04 22:59:40.733945662 +0200
 @@ -82,7 +82,10 @@
  #                   If versioned_so is 1 (enabled), the SOVERSION make
  #                   variable can also be set to specify the version info
@@ -19,8 +19,8 @@
  #  wfmo             Build with wfmo support (Win32 only)
  #  winregistry      Build with windows registry support (Win32 only)
  #  winnt            Build WinNT-specific projects (Win32 only)
---- ./ACE_wrappers/bin/MakeProjectCreator/templates/gnu.mpd-	2010-01-25 15:52:41.000000000 +0100
-+++ ./ACE_wrappers/bin/MakeProjectCreator/templates/gnu.mpd	2010-05-04 23:30:46.029547058 +0200
+--- ACE_wrappers/bin/MakeProjectCreator/templates/gnu.mpd-	2010-01-25 15:52:41.000000000 +0100
++++ ACE_wrappers/bin/MakeProjectCreator/templates/gnu.mpd	2010-05-04 23:30:46.029547058 +0200
 @@ -171,6 +171,8 @@
  
  ifeq ($(versioned_so),1)
@@ -30,8 +30,8 @@
  endif # versioned_so
  
  <%endif%>
---- ./ACE_wrappers/include/makeinclude/rules.lib.GNU-	2010-05-05 22:19:39.924909173 +0200
-+++ ./ACE_wrappers/include/makeinclude/rules.lib.GNU	2010-05-05 23:41:05.528925245 +0200
+--- ACE_wrappers/include/makeinclude/rules.lib.GNU-	2010-05-05 22:19:39.924909173 +0200
++++ ACE_wrappers/include/makeinclude/rules.lib.GNU	2010-05-05 23:41:05.528925245 +0200
 @@ -10,24 +10,37 @@
  #---------------------------------------------------------------------------
  #       Library versioning
