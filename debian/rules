@@ -43,7 +43,7 @@ PREPATCH_MARK := 50-prepatch-dummy-mark.dpatch
 UNTIL := $(PREPATCH_MARK)
 
 .NOTPARALLEL: debian/mpc-ace.sgml debian/%.1 prepatch extract doxygen clean install build binary-indep binary-arch binary
-.PHONY: doxygen patch prepatch extract build clean binary-indep binary-arch binary install source diff configure
+.PHONY: doxygen patch unpatch prepatch extract build clean binary-indep binary-arch binary install source diff configure
 
 extract: extract-stamp
 extract-stamp: $(ACE_ARCHIVE)
@@ -80,11 +80,17 @@ patch-stamp: configure-stamp
 	dpatch apply-all
 	touch $@
 
+unpatch:
+	dpatch deapply-all
+	rm -rf patch-stamp debian/patched
+
 doxygen: doxygen-stamp
 doxygen-stamp: build-stamp
-	cd $(ACE_ROOT) && bin/generate_doxygen.pl -is_release
-	#find $(ACE_ROOT)/html/ace $(DOXYGEN_FILES_TO_REMOVE) | xargs -r rm -f
-	#find $(ACE_ROOT)/html/tao $(DOXYGEN_FILES_TO_REMOVE) | xargs -r rm -f
+	cd $(ACE_ROOT) && bin/generate_doxygen.pl -is_release -exclude_ciao
+	find $(ACE_ROOT)/html/libace-doc $(DOXYGEN_FILES_TO_REMOVE) | xargs -r rm -f
+	find $(ACE_ROOT)/html/libtao-doc $(DOXYGEN_FILES_TO_REMOVE) | xargs -r rm -f
+#	Somehow search/ is still generated, even if we don't want it.
+	find $(ACE_ROOT)/html -type d -name search | xargs -r rm -Rf
 	touch $@
 
 build: build-stamp manpages-stamp

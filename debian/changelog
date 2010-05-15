@@ -12,14 +12,12 @@ ace (5.7.7-1) experimental; urgency=low
   * Reverted mpc-ace changes
   * Dropped 25-remove-duplicate-file patch
   * Added PerlACE to mpc-ace. Closes: #522557.
-  * Replaced find [C,S,A].[h,inl] by 2-pass mpc generation
   * Removed patches no longer needed because traditional method is used
   * Created patch to reduce the size of doxygen doc
   * Created patch to fix cross references in doxygen tags
-  * Created netsvcs packages. Closes: #466137. Addresses: LP#185285.
+  * Created ace-netsvcs packages. Closes: #466137. Addresses: LP#185285.
   * Change build method to MPC generated makefiles
   * Changed installation method to MPC/prj_install.pl
-  * Changed .so naming from -x.y.z.so to so.x.y.z
   * renamed gperf-ace to ace_gperf to follow the upstream convention
   * included number of runtime and static libraries with headers
     (Monitor, ZIOP, ETCL, Catior) to libtao-orbsvcs-* packages

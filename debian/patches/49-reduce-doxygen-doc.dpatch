@@ -4,9 +4,17 @@
 ## DP: Enforce doxygen to generate smaller doxumentation
 
 @DPATCH@
-diff -ru ACE_wrappers.orig/etc/ace.doxygen ACE_wrappers/etc/ace.doxygen
---- ACE_wrappers.orig/etc/ace.doxygen	2010-01-06 14:34:01.000000000 +0100
-+++ ACE_wrappers/etc/ace.doxygen	2010-03-30 22:40:07.000000000 +0200
+--- ACE_wrappers/etc/ace.doxygen-	2010-05-15 19:05:16.160407681 +0200
++++ ACE_wrappers/etc/ace.doxygen	2010-05-15 19:11:01.425651792 +0200
+@@ -87,7 +87,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -159,11 +159,15 @@
  
  HAVE_DOT              = YES
@@ -26,10 +34,23 @@ diff -ru ACE_wrappers.orig/etc/ace.doxygen ACE_wrappers/etc/ace.doxygen
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-Tylko w ACE_wrappers/etc: ace.doxygen~
-diff -ru ACE_wrappers.orig/etc/ace_qos.doxygen ACE_wrappers/etc/ace_qos.doxygen
---- ACE_wrappers.orig/etc/ace_qos.doxygen	2010-01-06 14:34:01.000000000 +0100
-+++ ACE_wrappers/etc/ace_qos.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -172,4 +176,4 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+--- ACE_wrappers/etc/ace_qos.doxygen-	2010-05-15 19:05:16.164407073 +0200
++++ ACE_wrappers/etc/ace_qos.doxygen	2010-05-15 19:10:54.532417597 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -147,11 +147,15 @@
  
  HAVE_DOT              = YES
@@ -49,9 +70,24 @@ diff -ru ACE_wrappers.orig/etc/ace_qos.doxygen ACE_wrappers/etc/ace_qos.doxygen
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/etc/ace_rmcast.doxygen ACE_wrappers/etc/ace_rmcast.doxygen
---- ACE_wrappers.orig/etc/ace_rmcast.doxygen	2010-01-06 14:34:01.000000000 +0100
-+++ ACE_wrappers/etc/ace_rmcast.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -160,5 +164,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/etc/ace_rmcast.doxygen-	2010-05-15 19:05:16.168405627 +0200
++++ ACE_wrappers/etc/ace_rmcast.doxygen	2010-05-15 19:10:48.593645277 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -147,11 +147,15 @@
  
  HAVE_DOT              = YES
@@ -71,9 +107,24 @@ diff -ru ACE_wrappers.orig/etc/ace_rmcast.doxygen ACE_wrappers/etc/ace_rmcast.do
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/etc/ace_ssl.doxygen ACE_wrappers/etc/ace_ssl.doxygen
---- ACE_wrappers.orig/etc/ace_ssl.doxygen	2010-01-06 14:34:01.000000000 +0100
-+++ ACE_wrappers/etc/ace_ssl.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -160,5 +164,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/etc/ace_ssl.doxygen-	2010-05-15 19:05:16.172389793 +0200
++++ ACE_wrappers/etc/ace_ssl.doxygen	2010-05-15 19:10:42.316417037 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -147,11 +147,15 @@
  
  HAVE_DOT              = YES
@@ -93,9 +144,24 @@ diff -ru ACE_wrappers.orig/etc/ace_ssl.doxygen ACE_wrappers/etc/ace_ssl.doxygen
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/etc/acexml.doxygen ACE_wrappers/etc/acexml.doxygen
---- ACE_wrappers.orig/etc/acexml.doxygen	2010-01-06 14:34:01.000000000 +0100
-+++ ACE_wrappers/etc/acexml.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -160,5 +164,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/etc/acexml.doxygen-	2010-05-15 19:05:16.176389953 +0200
++++ ACE_wrappers/etc/acexml.doxygen	2010-05-15 19:10:36.545642322 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -147,11 +147,15 @@
  
  HAVE_DOT              = YES
@@ -115,9 +181,24 @@ diff -ru ACE_wrappers.orig/etc/acexml.doxygen ACE_wrappers/etc/acexml.doxygen
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/CIAO/etc/ciao_config_handlers.doxygen ACE_wrappers/TAO/CIAO/etc/ciao_config_handlers.doxygen
---- ACE_wrappers.orig/TAO/CIAO/etc/ciao_config_handlers.doxygen	2010-02-04 11:21:23.000000000 +0100
-+++ ACE_wrappers/TAO/CIAO/etc/ciao_config_handlers.doxygen	2010-03-30 22:40:08.000000000 +0200
+@@ -160,5 +164,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/CIAO/etc/ciao_config_handlers.doxygen-	2010-05-15 19:05:16.176389953 +0200
++++ ACE_wrappers/TAO/CIAO/etc/ciao_config_handlers.doxygen	2010-05-15 19:10:30.217642894 +0200
+@@ -76,7 +76,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -156,11 +156,15 @@
  
  HAVE_DOT              = YES
@@ -137,9 +218,24 @@ diff -ru ACE_wrappers.orig/TAO/CIAO/etc/ciao_config_handlers.doxygen ACE_wrapper
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/CIAO/etc/ciao_DAnCE.doxygen ACE_wrappers/TAO/CIAO/etc/ciao_DAnCE.doxygen
---- ACE_wrappers.orig/TAO/CIAO/etc/ciao_DAnCE.doxygen	2010-02-04 11:21:23.000000000 +0100
-+++ ACE_wrappers/TAO/CIAO/etc/ciao_DAnCE.doxygen	2010-03-30 22:40:08.000000000 +0200
+@@ -169,5 +173,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/CIAO/etc/ciao_DAnCE.doxygen-	2010-05-15 19:05:16.180407713 +0200
++++ ACE_wrappers/TAO/CIAO/etc/ciao_DAnCE.doxygen	2010-05-15 19:10:22.337634604 +0200
+@@ -76,7 +76,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -156,11 +156,15 @@
  
  HAVE_DOT              = YES
@@ -159,9 +255,23 @@ diff -ru ACE_wrappers.orig/TAO/CIAO/etc/ciao_DAnCE.doxygen ACE_wrappers/TAO/CIAO
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/CIAO/etc/ciao_dds4ccm.doxygen ACE_wrappers/TAO/CIAO/etc/ciao_dds4ccm.doxygen
---- ACE_wrappers.orig/TAO/CIAO/etc/ciao_dds4ccm.doxygen	2010-01-06 14:32:13.000000000 +0100
-+++ ACE_wrappers/TAO/CIAO/etc/ciao_dds4ccm.doxygen	2010-03-30 22:40:08.000000000 +0200
+@@ -169,4 +173,4 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+--- ACE_wrappers/TAO/CIAO/etc/ciao_dds4ccm.doxygen-	2010-05-15 19:05:16.184407245 +0200
++++ ACE_wrappers/TAO/CIAO/etc/ciao_dds4ccm.doxygen	2010-05-15 19:10:11.497643759 +0200
+@@ -76,7 +76,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -156,11 +156,15 @@
  
  HAVE_DOT              = YES
@@ -181,9 +291,23 @@ diff -ru ACE_wrappers.orig/TAO/CIAO/etc/ciao_dds4ccm.doxygen ACE_wrappers/TAO/CI
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/CIAO/etc/ciao.doxygen ACE_wrappers/TAO/CIAO/etc/ciao.doxygen
---- ACE_wrappers.orig/TAO/CIAO/etc/ciao.doxygen	2010-02-04 11:21:23.000000000 +0100
-+++ ACE_wrappers/TAO/CIAO/etc/ciao.doxygen	2010-03-30 22:40:08.000000000 +0200
+@@ -169,4 +173,4 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+--- ACE_wrappers/TAO/CIAO/etc/ciao.doxygen-	2010-05-15 19:05:16.188389595 +0200
++++ ACE_wrappers/TAO/CIAO/etc/ciao.doxygen	2010-05-15 19:10:04.305637668 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -157,11 +157,15 @@
  
  HAVE_DOT              = YES
@@ -203,9 +327,24 @@ diff -ru ACE_wrappers.orig/TAO/CIAO/etc/ciao.doxygen ACE_wrappers/TAO/CIAO/etc/c
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_anytypecode.doxygen ACE_wrappers/TAO/etc/tao_anytypecode.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_anytypecode.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_anytypecode.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -170,5 +174,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_anytypecode.doxygen-	2010-05-15 19:05:16.192390244 +0200
++++ ACE_wrappers/TAO/etc/tao_anytypecode.doxygen	2010-05-15 19:09:57.929643498 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -150,11 +150,15 @@
  
  HAVE_DOT              = YES
@@ -225,9 +364,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_anytypecode.doxygen ACE_wrappers/TAO/etc/
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_av.doxygen ACE_wrappers/TAO/etc/tao_av.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_av.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_av.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -163,5 +167,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_av.doxygen-	2010-05-15 19:05:16.196393966 +0200
++++ ACE_wrappers/TAO/etc/tao_av.doxygen	2010-05-15 19:09:52.088419478 +0200
+@@ -80,7 +80,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -154,11 +154,15 @@
  
  HAVE_DOT              = YES
@@ -247,9 +401,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_av.doxygen ACE_wrappers/TAO/etc/tao_av.do
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_compression.doxygen ACE_wrappers/TAO/etc/tao_compression.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_compression.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_compression.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -167,5 +171,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_compression.doxygen-	2010-05-15 19:05:16.200391123 +0200
++++ ACE_wrappers/TAO/etc/tao_compression.doxygen	2010-05-15 19:09:46.072425406 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -150,11 +150,15 @@
  
  HAVE_DOT              = YES
@@ -269,9 +438,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_compression.doxygen ACE_wrappers/TAO/etc/
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_cosevent.doxygen ACE_wrappers/TAO/etc/tao_cosevent.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_cosevent.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_cosevent.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -163,5 +167,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_cosevent.doxygen-	2010-05-15 19:05:16.204390933 +0200
++++ ACE_wrappers/TAO/etc/tao_cosevent.doxygen	2010-05-15 19:09:39.785639718 +0200
+@@ -80,7 +80,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -155,11 +155,15 @@
  
  HAVE_DOT              = YES
@@ -291,9 +475,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_cosevent.doxygen ACE_wrappers/TAO/etc/tao
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_cosnaming.doxygen ACE_wrappers/TAO/etc/tao_cosnaming.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_cosnaming.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_cosnaming.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -168,5 +172,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_cosnaming.doxygen-	2010-05-15 19:05:16.204390933 +0200
++++ ACE_wrappers/TAO/etc/tao_cosnaming.doxygen	2010-05-15 19:09:33.585634481 +0200
+@@ -78,7 +78,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -151,11 +151,15 @@
  
  HAVE_DOT              = YES
@@ -313,9 +512,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_cosnaming.doxygen ACE_wrappers/TAO/etc/ta
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_cosnotification.doxygen ACE_wrappers/TAO/etc/tao_cosnotification.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_cosnotification.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_cosnotification.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -164,5 +168,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_cosnotification.doxygen-	2010-05-15 19:05:16.204390933 +0200
++++ ACE_wrappers/TAO/etc/tao_cosnotification.doxygen	2010-05-15 19:09:25.681626986 +0200
+@@ -85,7 +85,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -161,11 +161,15 @@
  
  HAVE_DOT              = YES
@@ -335,9 +549,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_cosnotification.doxygen ACE_wrappers/TAO/
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_costime.doxygen ACE_wrappers/TAO/etc/tao_costime.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_costime.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_costime.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -174,5 +178,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_costime.doxygen-	2010-05-15 19:05:16.208388020 +0200
++++ ACE_wrappers/TAO/etc/tao_costime.doxygen	2010-05-15 19:09:14.392425087 +0200
+@@ -78,7 +78,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -152,11 +152,15 @@
  
  HAVE_DOT              = YES
@@ -357,9 +586,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_costime.doxygen ACE_wrappers/TAO/etc/tao_
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_costrader.doxygen ACE_wrappers/TAO/etc/tao_costrader.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_costrader.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_costrader.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -165,5 +169,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_costrader.doxygen-	2010-05-15 19:05:16.208388020 +0200
++++ ACE_wrappers/TAO/etc/tao_costrader.doxygen	2010-05-15 19:09:04.753631947 +0200
+@@ -81,7 +81,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -155,11 +155,15 @@
  
  HAVE_DOT              = YES
@@ -379,9 +623,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_costrader.doxygen ACE_wrappers/TAO/etc/ta
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao.doxygen ACE_wrappers/TAO/etc/tao.doxygen
---- ACE_wrappers.orig/TAO/etc/tao.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -168,5 +172,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao.doxygen-	2010-05-15 19:05:16.208388020 +0200
++++ ACE_wrappers/TAO/etc/tao.doxygen	2010-05-15 19:08:58.233629350 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -149,11 +149,15 @@
  
  HAVE_DOT              = YES
@@ -401,9 +660,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao.doxygen ACE_wrappers/TAO/etc/tao.doxygen
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_dynamicany.doxygen ACE_wrappers/TAO/etc/tao_dynamicany.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_dynamicany.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_dynamicany.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -162,5 +166,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_dynamicany.doxygen-	2010-05-15 19:05:16.212388390 +0200
++++ ACE_wrappers/TAO/etc/tao_dynamicany.doxygen	2010-05-15 19:08:52.241629601 +0200
+@@ -78,7 +78,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -150,11 +150,15 @@
  
  HAVE_DOT              = YES
@@ -423,9 +697,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_dynamicany.doxygen ACE_wrappers/TAO/etc/t
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_dynamicinterface.doxygen ACE_wrappers/TAO/etc/tao_dynamicinterface.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_dynamicinterface.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_dynamicinterface.doxygen	2010-03-30 22:40:08.000000000 +0200
+@@ -163,5 +167,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_dynamicinterface.doxygen-	2010-05-15 19:05:16.212388390 +0200
++++ ACE_wrappers/TAO/etc/tao_dynamicinterface.doxygen	2010-05-15 19:08:43.577627809 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -149,11 +149,15 @@
  
  HAVE_DOT              = YES
@@ -445,9 +734,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_dynamicinterface.doxygen ACE_wrappers/TAO
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_esf.doxygen ACE_wrappers/TAO/etc/tao_esf.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_esf.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_esf.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -162,5 +166,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_esf.doxygen-	2010-05-15 19:05:16.216387851 +0200
++++ ACE_wrappers/TAO/etc/tao_esf.doxygen	2010-05-15 19:08:37.865621183 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -151,11 +151,15 @@
  
  HAVE_DOT              = YES
@@ -467,9 +771,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_esf.doxygen ACE_wrappers/TAO/etc/tao_esf.
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_ifr.doxygen ACE_wrappers/TAO/etc/tao_ifr.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_ifr.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_ifr.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -164,5 +168,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_ifr.doxygen-	2010-05-15 19:05:16.216387851 +0200
++++ ACE_wrappers/TAO/etc/tao_ifr.doxygen	2010-05-15 19:08:31.969632450 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -153,11 +153,15 @@
  
  HAVE_DOT              = YES
@@ -489,9 +808,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_ifr.doxygen ACE_wrappers/TAO/etc/tao_ifr.
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_implrepo.doxygen ACE_wrappers/TAO/etc/tao_implrepo.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_implrepo.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_implrepo.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -166,5 +170,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_implrepo.doxygen-	2010-05-15 19:05:16.216387851 +0200
++++ ACE_wrappers/TAO/etc/tao_implrepo.doxygen	2010-05-15 19:08:26.428418559 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -152,11 +152,15 @@
  
  HAVE_DOT              = YES
@@ -511,9 +845,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_implrepo.doxygen ACE_wrappers/TAO/etc/tao
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_iormanip.doxygen ACE_wrappers/TAO/etc/tao_iormanip.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_iormanip.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_iormanip.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -165,5 +169,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_iormanip.doxygen-	2010-05-15 19:05:16.220389268 +0200
++++ ACE_wrappers/TAO/etc/tao_iormanip.doxygen	2010-05-15 19:08:20.492417265 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -150,11 +150,15 @@
  
  HAVE_DOT              = YES
@@ -533,9 +882,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_iormanip.doxygen ACE_wrappers/TAO/etc/tao
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_iortable.doxygen ACE_wrappers/TAO/etc/tao_iortable.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_iortable.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_iortable.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -163,5 +167,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_iortable.doxygen-	2010-05-15 19:05:16.220389268 +0200
++++ ACE_wrappers/TAO/etc/tao_iortable.doxygen	2010-05-15 19:08:14.624412942 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -150,11 +150,15 @@
  
  HAVE_DOT              = YES
@@ -555,9 +919,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_iortable.doxygen ACE_wrappers/TAO/etc/tao
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_pi.doxygen ACE_wrappers/TAO/etc/tao_pi.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_pi.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_pi.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -163,5 +167,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_pi.doxygen-	2010-05-15 19:05:16.220389268 +0200
++++ ACE_wrappers/TAO/etc/tao_pi.doxygen	2010-05-15 19:08:06.865623350 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -150,11 +150,15 @@
  
  HAVE_DOT              = YES
@@ -577,9 +956,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_pi.doxygen ACE_wrappers/TAO/etc/tao_pi.do
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_pi_server.doxygen ACE_wrappers/TAO/etc/tao_pi_server.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_pi_server.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_pi_server.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -163,5 +167,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_pi_server.doxygen-	2010-05-15 19:05:16.224388241 +0200
++++ ACE_wrappers/TAO/etc/tao_pi_server.doxygen	2010-05-15 19:08:00.809622380 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -150,11 +150,15 @@
  
  HAVE_DOT              = YES
@@ -599,9 +993,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_pi_server.doxygen ACE_wrappers/TAO/etc/ta
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_portablegroup.doxygen ACE_wrappers/TAO/etc/tao_portablegroup.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_portablegroup.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_portablegroup.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -163,5 +167,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_portablegroup.doxygen-	2010-05-15 19:05:16.224388241 +0200
++++ ACE_wrappers/TAO/etc/tao_portablegroup.doxygen	2010-05-15 19:07:54.633621934 +0200
+@@ -80,7 +80,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -154,11 +154,15 @@
  
  HAVE_DOT              = YES
@@ -621,9 +1030,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_portablegroup.doxygen ACE_wrappers/TAO/et
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_portableserver.doxygen ACE_wrappers/TAO/etc/tao_portableserver.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_portableserver.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_portableserver.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -167,5 +171,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_portableserver.doxygen-	2010-05-15 19:05:16.224388241 +0200
++++ ACE_wrappers/TAO/etc/tao_portableserver.doxygen	2010-05-15 19:07:48.112419248 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -150,11 +150,15 @@
  
  HAVE_DOT              = YES
@@ -643,9 +1067,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_portableserver.doxygen ACE_wrappers/TAO/e
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_pss.doxygen ACE_wrappers/TAO/etc/tao_pss.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_pss.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_pss.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -163,5 +167,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_pss.doxygen-	2010-05-15 19:05:16.228387912 +0200
++++ ACE_wrappers/TAO/etc/tao_pss.doxygen	2010-05-15 19:07:40.400425824 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -151,11 +151,15 @@
  
  HAVE_DOT              = YES
@@ -665,9 +1104,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_pss.doxygen ACE_wrappers/TAO/etc/tao_pss.
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_rtcorba.doxygen ACE_wrappers/TAO/etc/tao_rtcorba.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_rtcorba.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_rtcorba.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -164,5 +168,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_rtcorba.doxygen-	2010-05-15 19:05:16.228387912 +0200
++++ ACE_wrappers/TAO/etc/tao_rtcorba.doxygen	2010-05-15 19:07:33.193620062 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -150,11 +150,15 @@
  
  HAVE_DOT              = YES
@@ -687,9 +1141,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_rtcorba.doxygen ACE_wrappers/TAO/etc/tao_
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_rtevent.doxygen ACE_wrappers/TAO/etc/tao_rtevent.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_rtevent.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_rtevent.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -163,5 +167,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_rtevent.doxygen-	2010-05-15 19:05:16.228387912 +0200
++++ ACE_wrappers/TAO/etc/tao_rtevent.doxygen	2010-05-15 19:07:26.449618668 +0200
+@@ -86,7 +86,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -161,11 +161,15 @@
  
  HAVE_DOT              = YES
@@ -709,9 +1178,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_rtevent.doxygen ACE_wrappers/TAO/etc/tao_
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_rtportableserver.doxygen ACE_wrappers/TAO/etc/tao_rtportableserver.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_rtportableserver.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_rtportableserver.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -174,5 +178,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_rtportableserver.doxygen-	2010-05-15 19:05:16.232389049 +0200
++++ ACE_wrappers/TAO/etc/tao_rtportableserver.doxygen	2010-05-15 19:07:19.353617003 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -150,11 +150,15 @@
  
  HAVE_DOT              = YES
@@ -731,9 +1215,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_rtportableserver.doxygen ACE_wrappers/TAO
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_security.doxygen ACE_wrappers/TAO/etc/tao_security.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_security.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_security.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -163,5 +167,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_security.doxygen-	2010-05-15 19:05:16.232389049 +0200
++++ ACE_wrappers/TAO/etc/tao_security.doxygen	2010-05-15 19:07:12.425616877 +0200
+@@ -82,7 +82,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -156,11 +156,15 @@
  
  HAVE_DOT              = YES
@@ -753,9 +1252,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_security.doxygen ACE_wrappers/TAO/etc/tao
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_smartproxies.doxygen ACE_wrappers/TAO/etc/tao_smartproxies.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_smartproxies.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_smartproxies.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -169,5 +173,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_smartproxies.doxygen-	2010-05-15 19:05:16.236387812 +0200
++++ ACE_wrappers/TAO/etc/tao_smartproxies.doxygen	2010-05-15 19:07:05.697614982 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -149,11 +149,15 @@
  
  HAVE_DOT              = YES
@@ -775,9 +1289,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_smartproxies.doxygen ACE_wrappers/TAO/etc
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_ssliop.doxygen ACE_wrappers/TAO/etc/tao_ssliop.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_ssliop.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_ssliop.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -162,5 +166,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_ssliop.doxygen-	2010-05-15 19:05:16.236387812 +0200
++++ ACE_wrappers/TAO/etc/tao_ssliop.doxygen	2010-05-15 19:06:58.385608300 +0200
+@@ -82,7 +82,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -157,11 +157,15 @@
  
  HAVE_DOT              = YES
@@ -797,9 +1326,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_ssliop.doxygen ACE_wrappers/TAO/etc/tao_s
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_strategies.doxygen ACE_wrappers/TAO/etc/tao_strategies.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_strategies.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_strategies.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -170,5 +174,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_strategies.doxygen-	2010-05-15 19:05:16.236387812 +0200
++++ ACE_wrappers/TAO/etc/tao_strategies.doxygen	2010-05-15 19:06:50.945619688 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -149,11 +149,15 @@
  
  HAVE_DOT              = YES
@@ -819,9 +1363,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_strategies.doxygen ACE_wrappers/TAO/etc/t
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_transportcurrent.doxygen ACE_wrappers/TAO/etc/tao_transportcurrent.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_transportcurrent.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_transportcurrent.doxygen	2010-03-30 22:40:07.000000000 +0200
+@@ -162,5 +166,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_transportcurrent.doxygen-	2010-05-15 19:05:16.240388042 +0200
++++ ACE_wrappers/TAO/etc/tao_transportcurrent.doxygen	2010-05-15 19:06:42.913618695 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -151,11 +151,15 @@
  
  HAVE_DOT              = YES
@@ -841,9 +1400,24 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_transportcurrent.doxygen ACE_wrappers/TAO
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
-diff -ru ACE_wrappers.orig/TAO/etc/tao_ziop.doxygen ACE_wrappers/TAO/etc/tao_ziop.doxygen
---- ACE_wrappers.orig/TAO/etc/tao_ziop.doxygen	2010-01-06 14:33:41.000000000 +0100
-+++ ACE_wrappers/TAO/etc/tao_ziop.doxygen	2010-03-30 22:40:08.000000000 +0200
+@@ -164,5 +168,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
+--- ACE_wrappers/TAO/etc/tao_ziop.doxygen-	2010-05-15 19:05:16.240388042 +0200
++++ ACE_wrappers/TAO/etc/tao_ziop.doxygen	2010-05-15 19:06:31.465239644 +0200
+@@ -77,7 +77,7 @@
+ HTML_FOOTER           =
+ HTML_STYLESHEET       =
+ HTML_ALIGN_MEMBERS    = YES
+-GENERATE_HTMLHELP     = YES
++GENERATE_HTMLHELP     = NO
+ 
+ #---------------------------------------------------------------------------
+ # configuration options related to the LaTeX output
 @@ -151,11 +151,15 @@
  
  HAVE_DOT              = YES
@@ -863,3 +1437,10 @@ diff -ru ACE_wrappers.orig/TAO/etc/tao_ziop.doxygen ACE_wrappers/TAO/etc/tao_zio
  # The tag DOT_PATH can be used to specify the path where the dot tool can be
  # found. If left blank, it is assumed the dot tool can be found on the path.
  DOT_PATH              =
+@@ -164,5 +168,5 @@
+ # Configuration::additions related to the search engine
+ #---------------------------------------------------------------------------
+ 
+-SEARCHENGINE          = YES
++SEARCHENGINE          = NO
+ 
