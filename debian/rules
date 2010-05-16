@@ -122,6 +122,7 @@ install: build
 	rm -Rf $(CURDIR)/$(DT)/usr/include/apps/gperf
 
 	cd $(ACE_ROOT)/protocols && ../MPC/prj_install.pl $(PRJ_INSTALL_ALL) $(CURDIR)/$(DT) ace
+	cd $(ACE_ROOT)/bin/PerlACE && ../../MPC/prj_install.pl -s script_files -b script_files=usr/share/ace/bin/PerlACE $(CURDIR)/$(DT) PerlACE.ins
 
 #	Install TAO files in $(CURDIR)/$(DT)
 	for p in tao orbsvcs; do \

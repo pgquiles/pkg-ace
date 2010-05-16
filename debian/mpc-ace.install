@@ -5,4 +5,3 @@
 ../../ACE_wrappers/MPC/templates           usr/share/ace/MPC
 ../../ACE_wrappers/MPC/*.pl                usr/share/ace/MPC
 ../../ACE_wrappers/MPC/ChangeLog           usr/share/ace/MPC
-../../ACE_wrappers/bin/PerlACE             usr/share/ace/bin
