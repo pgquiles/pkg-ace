@@ -118,6 +118,8 @@ install: build
 	for p in ace apps ACEXML Kokyu; do \
 	  cd $(ACE_ROOT) && MPC/prj_install.pl $(PRJ_INSTALL_ALL) $(CURDIR)/$(DT) $$p; \
 	done
+#	Remove gperf headers -- we don't need them
+	rm -Rf $(CURDIR)/$(DT)/usr/include/apps/gperf
 
 	cd $(ACE_ROOT)/protocols && ../MPC/prj_install.pl $(PRJ_INSTALL_ALL) $(CURDIR)/$(DT) ace
 

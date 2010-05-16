@@ -5,30 +5,30 @@ ace (5.7.7-1) experimental; urgency=low
   * Remove dependencies on autotools; these are no longer needed now that we
     have agreed to move back to the traditional compilation method.
   * Add bzip2 and lzo ZIOP implementation.
+  * New patch: 20-versioned_libs.dpatch, to generate libraries with names
+    following libACE-5.7.7.so pattern instead of libACE.so.5.7.7.
+  * Rename binaries and packages to follow what is used in RPMs.
 
   [ Marek Brudka ]
-  * New upstream release
-  * Install fix related with MPC bug for *.ins files
-  * Reverted mpc-ace changes
-  * Dropped 25-remove-duplicate-file patch
-  * Added PerlACE to mpc-ace. Closes: #522557.
-  * Removed patches no longer needed because traditional method is used
-  * Created patch to reduce the size of doxygen doc. Closes: #562164.
+  * New upstream release:
+    o add libACE_gperf, libACE_ETCL and libACE_Monitor_Control to libace
+    o add headers and libraries for Monitor, ZIOP, ETCL to libtao package
+    o renamed gperf-ace to ace_gperf to follow the upstream convention
+    o renamed utilities (ns{add,del,list} to tao_ns{add,del,list}) in tao-utils
+      to follow the upstream changes
+  * Change compilation back to traditional ACE+TAO build method:
+    o adapt existing Debian build mechanism
+    o remove patches no longer needed because of this switch
+    o use MPC generated makefiles
+    o install build result using MPC/prj_install.pl and .ins files
+    o temporarily excluded logWalker from build
+  * New patch: 10-fix-prj-install to work-around a problem installing files
+  * Added PerlACE to mpc-ace. Closes: #522557
+  * Created patch to reduce the size of doxygen doc. Closes: #562164
   * Created patch to fix cross references in doxygen tags
-  * Created ace-netsvcs packages. Closes: #466137. Addresses: LP#185285.
-  * Change build method to MPC generated makefiles
-  * Changed installation method to MPC/prj_install.pl
-  * renamed gperf-ace to ace_gperf to follow the upstream convention
-  * included number of runtime and static libraries with headers
-    (Monitor, ZIOP, ETCL, Catior) to libtao-orbsvcs-* packages
-  * renamed utilities (ns{add,del,list} to tao_ns{add,del,list}) in tao-utils 
-    to follow the upstream changes
-  * removed permission fixes for example in debian/rules as there is nothing to
+  * Created ace-netsvcs packages. Closes: #466137. Addresses: LP#185285
+  * Removed permission fixes for example in debian/rules as there is nothing to
     fix
-  * added libACE_ETCL to libace (separate package?)
-  * added libACE_Monitor_Control to libace (separate package?)
-  * added libACE_gperf to libace
-  * temporarily excluded logWalker from build
 
   [ Pau Garcia i Quiles ]
   * New upstream release
