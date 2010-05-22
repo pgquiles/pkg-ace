@@ -26,7 +26,7 @@ ace (5.7.7-1) experimental; urgency=low
   * Added PerlACE to mpc-ace. Closes: #522557
   * Created patch to reduce the size of doxygen doc. Closes: #562164
   * Created patch to fix cross references in doxygen tags
-  * Created ace-netsvcs packages. Closes: #466137. Addresses: LP#185285
+  * Created libnetsvcs packages. Closes: #466137. Addresses: LP#185285
   * Removed permission fixes for example in debian/rules as there is nothing to
     fix
 

@@ -11,7 +11,7 @@ Homepage: http://www.cs.wustl.edu/~schmidt/ACE.html
 
 Package: mpc-ace
 Architecture: all
-Depends: ${perl:Depends}
+Depends: ${perl:Depends}, ${misc:Depends}
 Recommends: make
 Replaces: libace-dev (= 5.6.3-4)
 Suggests: libace-dev, pkg-config
@@ -62,6 +62,7 @@ Description: C++ network programming framework development files
 Package: libace-doc
 Architecture: all
 Section: doc
+Depends: ${misc:Depends}
 Suggests: libace-dev
 Description: C++ network programming framework documentation
  This package contains the ACE overview documentation, tutorials,
@@ -154,7 +155,7 @@ Description: ACE perfect hash function generator
 
 Package: gperf-ace
 Architecture: all
-Depends: ace-gperf
+Depends: ace-gperf, ${misc:Depends}
 Description: ACE perfect hash function generator (transitional package)
  This package is a transitional package to ace-gperf.
  .
@@ -339,7 +340,7 @@ Description: ACE based CORBA ORB core libraries development files
 Package: libtao-doc
 Architecture: all
 Section: doc
-Depends: libace-doc (= ${source:Version})
+Depends: libace-doc (= ${source:Version}), ${misc:Depends}
 Suggests: libtao-dev
 Description: ACE based CORBA ORB core libraries documentation
  This package contains the TAO overview documentation, tutorials,
@@ -519,7 +520,7 @@ Description: TAO naming service
 
 Package: tao-naming
 Architecture: all
-Depends: tao-cosnaming
+Depends: tao-cosnaming, ${misc:Depends}
 Description: TAO naming service (transitional package)
  This package is a transitional package to tao-cosnaming.
  .
@@ -542,7 +543,7 @@ Description: TAO trading service
 
 Package: tao-trading
 Architecture: all
-Depends: tao-costrading
+Depends: tao-costrading, ${misc:Depends}
 Description: TAO trading service (transitional package)
  This package is a transitional package to tao-costrading.
  .
@@ -566,7 +567,7 @@ Description: TAO event service
 
 Package: tao-event
 Architecture: all
-Depends: tao-cosevent
+Depends: tao-cosevent, ${misc:Depends}
 Description: TAO event service (transitional package)
  This package is a transitional package to tao-cosevent.
  .
@@ -618,7 +619,7 @@ Description: TAO notification service
 
 Package: tao-notify
 Architecture: all
-Depends: tao-cosnotification
+Depends: tao-cosnotification, ${misc:Depends}
 Description: TAO notification service (transitional package)
  This package is a transitional package to tao-cosnotification.
  .
@@ -651,7 +652,7 @@ Description: TAO telecom log services
 
 Package: tao-log
 Architecture: all
-Depends: tao-tls
+Depends: tao-tls, ${misc:Depends}
 Description: TAO telecom log services (transitional package)
  This package is a transitional package to tao-tls.
  .
@@ -680,7 +681,7 @@ Description: TAO concurrency service
 
 Package: tao-concurrency
 Architecture: all
-Depends: tao-cosconcurrency
+Depends: tao-cosconcurrency, ${misc:Depends}
 Description: TAO concurrency service (transitional package)
  This package is a transitional package to tao-cosconcurrency.
  .
@@ -699,7 +700,7 @@ Description: TAO lifecycle service
 
 Package: tao-lifecycle
 Architecture: all
-Depends: tao-coslifecycle
+Depends: tao-coslifecycle, ${misc:Depends}
 Description: TAO lifecycle service (transitional package)
  This package is a transitional package to tao-coslifecycle.
  .
@@ -720,7 +721,7 @@ Description: TAO time service
 
 Package: tao-time
 Architecture: all
-Depends: tao-costime
+Depends: tao-costime, ${misc:Depends}
 Description: TAO time service (transitional package)
  This package is a transitional package to tao-costime.
  .
@@ -738,7 +739,7 @@ Description: ACE network service implementations
  files that links the various ACE network services together, either
  statically or dynamically, to form complete server programs.
 
-Package: libace-netsvcs-5.7.7
+Package: libnetsvcs-5.7.7
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
@@ -749,10 +750,10 @@ Description: ACE network service implementations
  .
  This package contains runtime libraries for ACE network services.
 
-Package: libace-netsvcs-dev
+Package: libnetsvcs-dev
 Architecture: any
 Section: libdevel
-Depends: libace-netsvcs-5.7.7 (= ${binary:Version}), libace-dev (= ${binary:Version}), ${misc:Depends}
+Depends: libnetsvcs-5.7.7 (= ${binary:Version}), libace-dev (= ${binary:Version}), ${misc:Depends}
 Description: ACE network service implementations
  ACE network services provide reusable components for common
  distributed system tasks such as logging, naming, locking, and time
