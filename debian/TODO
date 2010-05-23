@@ -6,10 +6,13 @@
    o package websvcs library?
    o create man pages for ace/tao binaries
  * rewrite the patch to load TAO libraries by SONAME and RFC it
- * move ACE_ROOT from /usr/share/ace to /usr/lib/ace?
- * hide .real programs in /usr/lib/ace?
  * make all TAO programs start with tao_, and put distribution compatible
    program in /usr/lib/tao
+ * add cpp dependency to tao_idl
+ * install .mpc files?
+ * rename mpc-ace to ace-mpc to be consistent?
+ * What about REACTOR_NOTIFICATION_QUEUE?
+ * Move .idl files to usr/share/idl/tao?
 
 = MWC and MPC =
  * they should define $ACE_ROOT and $TAO_ROOT if they're not

@@ -8,6 +8,7 @@ ace (5.7.7-1) experimental; urgency=low
   * New patch: 20-versioned_libs.dpatch, to generate libraries with names
     following libACE-5.7.7.so pattern instead of libACE.so.5.7.7.
   * Rename binaries and packages to follow what is used in RPMs.
+  * Move $ACE_ROOT to /usr/lib/ace.
 
   [ Marek Brudka ]
   * New upstream release:
@@ -27,8 +28,6 @@ ace (5.7.7-1) experimental; urgency=low
   * Created patch to reduce the size of doxygen doc. Closes: #562164
   * Created patch to fix cross references in doxygen tags
   * Created libnetsvcs packages. Closes: #466137. Addresses: LP#185285
-  * Removed permission fixes for example in debian/rules as there is nothing to
-    fix
 
   [ Pau Garcia i Quiles ]
   * New upstream release
@@ -65,7 +64,7 @@ ace (5.7.7-1) experimental; urgency=low
     debian/compat
   * Fix fox-config location, detection method has changed since 5.6.3
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Sat, 24 Apr 2010 09:04:30 +0200
+ -- Thomas Girard <thomas.g.girard@free.fr>  Sun, 23 May 2010 16:58:42 +0200
 
 ace (5.6.3-6) unstable; urgency=low
 

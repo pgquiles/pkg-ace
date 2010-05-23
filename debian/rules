@@ -67,8 +67,12 @@ prepatch-stamp: extract-stamp
 	dpatch apply-until $(UNTIL)
 	touch $@
 
+pl-stamp: prepatch-stamp
+	for fn in `find "$(ACE_ROOT)" -name "*.pl"`; do (echo '#!/usr/bin/perl'; cat "$$fn") > "$${fn}T"; mv "$${fn}T" "$$fn"; chmod a+x "$$fn"; done
+	touch $@
+
 configure: configure-stamp
-configure-stamp: prepatch-stamp
+configure-stamp: prepatch-stamp pl-stamp
 	cp debian/ACE-DPKG.mwc $(ACE_ROOT)
 	cd $(ACE_ROOT) &&  ./bin/mwc.pl $(MWCFLAGS) ACE-DPKG.mwc
 	cp debian/TAO-DPKG.mwc $(TAO_ROOT)
@@ -122,7 +126,7 @@ install: build
 	rm -Rf $(CURDIR)/$(DT)/usr/include/apps/gperf
 
 	cd $(ACE_ROOT)/protocols && ../MPC/prj_install.pl $(PRJ_INSTALL_ALL) $(CURDIR)/$(DT) ace
-	cd $(ACE_ROOT)/bin/PerlACE && ../../MPC/prj_install.pl -s script_files -b script_files=usr/share/ace/bin/PerlACE $(CURDIR)/$(DT) PerlACE.ins
+	cd $(ACE_ROOT)/bin/PerlACE && ../../MPC/prj_install.pl -s script_files -b script_files=usr/lib/ace/bin/PerlACE $(CURDIR)/$(DT) PerlACE.ins
 
 #	Install TAO files in $(CURDIR)/$(DT)
 	for p in tao orbsvcs; do \
@@ -145,13 +149,17 @@ install: build
 
 #	We provide scripts replacement for tao_idl and tao_ifr ; they
 #	automatically define ACE_ROOT and TAO_ROOT
-	mv $(DT)/usr/bin/tao_idl $(DT)/usr/bin/tao_idl.real
+	mkdir -p $(DT)/usr/lib/ace/TAO
+	mv $(DT)/usr/bin/tao_idl $(DT)/usr/bin/tao_ifr $(DT)/usr/lib/ace/TAO
 	$(INSTALL_755) -D debian/tao_idl $(DT)/usr/bin/tao_idl
-	mv  $(DT)/usr/bin/tao_ifr  $(DT)/usr/bin/tao_ifr.real
 	$(INSTALL_755) -D debian/tao_ifr $(DT)/usr/bin/tao_ifr
 
 	rm -f $(DT)/usr/bin/TAO_Service
 	dh_install --sourcedir=$(DT) --fail-missing
+
+	chmod -x debian/libtao-doc/usr/share/doc/libtao-doc/examples/RTCORBA/Activity/svc.conf.server
+	chmod -x debian/libtao-doc/usr/share/doc/libtao-doc/examples/Simulator/DOVEBrowser/make.bat
+	chmod -x debian/libtao-doc/usr/share/doc/libtao-doc/examples/RTCORBA/Activity/svc.conf.client
 
 binary-indep: build install doxygen-stamp
 	dh_testdir -i
