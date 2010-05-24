@@ -17,7 +17,7 @@
 -  $basePath = VMS::Filespec::unixify($basePath);
 -}
 -unshift(@INC, $basePath . '/DependencyGenerator');
-+my($basePath) = '/usr/share/ace/bin/DependencyGenerator';
++my($basePath) = '/usr/lib/ace/bin/DependencyGenerator';
 +unshift(@INC, $basePath);
  
  require DependencyEditor;

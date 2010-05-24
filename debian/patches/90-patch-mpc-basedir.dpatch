@@ -21,7 +21,7 @@ diff -rupd ACE_wrappers.orig/bin/mpc.pl ACE_wrappers/bin/mpc.pl
 -  $basePath = VMS::Filespec::unixify($basePath);
 -}
 -$basePath .= '/MakeProjectCreator';
-+my($basePath) = '/usr/share/ace/bin/MakeProjectCreator';
++my($basePath) = '/usr/lib/ace/bin/MakeProjectCreator';
  
  my($mpcroot) = $ENV{MPC_ROOT};
  my($mpcpath) = (defined $mpcroot ? $mpcroot :
@@ -39,7 +39,7 @@ diff -rupd ACE_wrappers.orig/bin/mwc.pl ACE_wrappers/bin/mwc.pl
 -  $basePath = VMS::Filespec::unixify($basePath);
 -}
 -$basePath .= '/MakeProjectCreator';
-+my($basePath) = '/usr/share/ace/bin/MakeProjectCreator';
++my($basePath) = '/usr/lib/ace/bin/MakeProjectCreator';
  
  my($mpcroot) = $ENV{MPC_ROOT};
  my($mpcpath) = (defined $mpcroot ? $mpcroot :
