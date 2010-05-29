@@ -37,10 +37,12 @@ export CIAO_ROOT := $(TAO_ROOT)/CIAO
 export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(ACE_ROOT)/lib
 export QTDIR := /usr/share/qt4
 
-# This dpatch is only a place holder. The `prepatch' targets stops
+# This dpatches are only a place holders. The `prepatch' and `postbuild' targets stops
 # here by default.
 PREPATCH_MARK := 50-prepatch-dummy-mark.dpatch
-UNTIL := $(PREPATCH_MARK)
+POST_BUILD_MARK := 75-post-build-dummy-mark.dpatch
+UNTIL_BUILD := $(PREPATCH_MARK)
+UNTIL_POST_BUILD := $(POST_BUILD_MARK)
 
 .NOTPARALLEL: debian/mpc-ace.sgml debian/%.1 prepatch extract doxygen clean install build binary-indep binary-arch binary
 .PHONY: doxygen patch unpatch prepatch extract build clean binary-indep binary-arch binary install source diff configure
@@ -64,7 +66,7 @@ debian/%.1: debian/%.sgml
 # Prepare a ACE_wrappers directory where most of the patches are applied.
 prepatch: prepatch-stamp
 prepatch-stamp: extract-stamp
-	dpatch apply-until $(UNTIL)
+	dpatch apply-until $(UNTIL_BUILD)
 	touch $@
 
 pl-stamp: prepatch-stamp
@@ -81,7 +83,7 @@ configure-stamp: prepatch-stamp pl-stamp
 
 patch: patch-stamp
 patch-stamp: configure-stamp
-	dpatch apply-all
+	dpatch apply-until $(UNTIL_POST_BUILD)
 	touch $@
 
 unpatch:
@@ -116,7 +118,13 @@ clean:
 	rm -rf $(ACE_SUBDIR) debian/patched $(MAN1) *-stamp debian/mpc-ace.sgml
 	dh_clean
 
-install: build
+post-build-patch: post-build-patch-stamp
+post-build-patch-stamp: build-stamp
+	dpatch apply-all
+	touch $@
+
+
+install: post-build-patch
 	dh_testdir
 	dh_testroot
 	dh_clean -k

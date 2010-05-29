@@ -12,6 +12,7 @@
 48-fix-doxygen-cross-links.dpatch
 49-reduce-doxygen-doc.dpatch
 50-prepatch-dummy-mark.dpatch
+75-post-build-dummy-mark.dpatch
 90-patch-mpc-basedir.dpatch
 91-patch-dg-basedir.dpatch
 92-default-ACE_ROOT.dpatch
