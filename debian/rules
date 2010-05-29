@@ -12,7 +12,7 @@ ACE_SUBDIR := ACE_wrappers
 ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO-src-*.tar.bz2 2>/dev/null || echo ace-archive-missing)
 MWCFLAGS := -type gnuace -noreldefs -genins
 ACE_MAKE_FLAGS := versioned_so=2
-PRJ_INSTALL_ALL := -k -s man_files,lib_output,header_files,inline_files,exe_output,idl_files,pidl_files,template_files  -o lib_output=usr/lib -o exe_output=usr/bin -b idl_files=usr/include -b pidl_files=usr/include -b template_files=usr/include -b header_files=usr/include -b inline_files=usr/include -b idl_files=usr/include -o man_files=usr/share/man/man1
+PRJ_INSTALL_ALL := -k -s man_files,lib_output,header_files,inline_files,exe_output,idl_files,pidl_files,template_files  -o lib_output=usr/lib -o exe_output=usr/bin -b idl_files=usr/share/idl -b pidl_files=usr/share/idl -b template_files=usr/include -b header_files=usr/include -b inline_files=usr/include -o man_files=usr/share/man/man1
 PRJ_INSTALL_BIN := -k -s man_files,exe_output,lib_output  -o exe_output=usr/bin -o man_files=usr/share/man/man1 -o lib_output=usr/lib
 
 MAN1 := debian/tao_tls_basic.1 \

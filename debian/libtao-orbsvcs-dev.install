@@ -1,4 +1,5 @@
 usr/include/orbsvcs
+usr/share/idl/orbsvcs
 usr/lib/libTAO_AV.so
 usr/lib/libTAO_CosConcurrency.so
 usr/lib/libTAO_CosConcurrency_Skel.so

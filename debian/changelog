@@ -28,6 +28,7 @@ ace (5.7.7-1) experimental; urgency=low
   * Created patch to reduce the size of doxygen doc. Closes: #562164
   * Created patch to fix cross references in doxygen tags
   * Created libnetsvcs packages. Closes: #466137. Addresses: LP#185285
+  * Moved IDL fiels from /usr/include into /usr/share/idl
 
   [ Pau Garcia i Quiles ]
   * New upstream release
