@@ -7,7 +7,4 @@
 
  * Patching relies on dpatch; see: /usr/share/doc/dpatch/README.source.gz
 
- * Use the autotools: debian/rules target whenever you've added a patch that
-   will change how GNU Makefile are generated with MPC.
-
- -- Thomas Girard <tgg@micmac>, Sat, 21 Nov 2009 12:36:06 +0100
+ -- Thomas Girard <thomas.g.girard@free.fr>, Sat,  5 Jun 2010 14:39:44 +0200
