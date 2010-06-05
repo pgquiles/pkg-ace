@@ -6,8 +6,7 @@
 # Copyright (C) 2004  Raphael Bossek <bossekr@debian.org>
 # Copyright © 2005-2010 Thomas Girard <thomas.g.girard@free.fr>
 
-INSTALL := install -o root -g root
-INSTALL_755 := $(INSTALL) -m 755
+INSTALL_755 := install -o root -g root -m 755
 ACE_SUBDIR := ACE_wrappers
 ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO-src-*.tar.bz2 2>/dev/null || echo ace-archive-missing)
 MWCFLAGS := -type gnuace -noreldefs -genins
@@ -141,12 +140,12 @@ install: post-build-patch
 	cd $(ACE_ROOT)/bin/PerlACE && ../../MPC/prj_install.pl -s script_files -b script_files=usr/lib/ace/bin/PerlACE $(CURDIR)/$(DT) PerlACE.ins
 
 #	Install TAO files in $(CURDIR)/$(DT)
-	for p in tao orbsvcs; do \
-	  cd $(TAO_ROOT) && ../MPC/prj_install.pl $(PRJ_INSTALL_ALL) $(CURDIR)/$(DT) $$p; \
-	done
+	cd $(TAO_ROOT) && ../MPC/prj_install.pl $(PRJ_INSTALL_ALL) $(CURDIR)/$(DT) tao
+	cd $(TAO_ROOT) && ../MPC/prj_install.pl $(PRJ_INSTALL_ALL) $(CURDIR)/$(DT) orbsvcs/orbsvcs
 
-	cd $(TAO_ROOT) && ../MPC/prj_install.pl $(PRJ_INSTALL_BIN) $(CURDIR)/$(DT) TAO_IDL
-	cd $(TAO_ROOT) && ../MPC/prj_install.pl $(PRJ_INSTALL_ALL) $(CURDIR)/$(DT) utils
+	for p in orbsvcs TAO_IDL utils; do \
+	  cd $(TAO_ROOT) && ../MPC/prj_install.pl $(PRJ_INSTALL_BIN) $(CURDIR)/$(DT) $$p ; \
+	done
 
 #	Install netsvcs files in $(CURDIR)/$(DT)
 	cd $(ACE_ROOT) && ./MPC/prj_install.pl $(PRJ_INSTALL_BIN) $(CURDIR)/$(DT) netsvcs
@@ -159,10 +158,11 @@ install: post-build-patch
 #	Move orbsvcs files from include/tao/orbsvcs into include/orbsvcs
 	cd $(CURDIR)/$(DT)/usr/include/orbsvcs && mv -f orbsvcs/* . && rm -rf orbsvcs  
 
-#	We provide scripts replacement for tao_idl and tao_ifr ; they
+#	We provide scripts replacement for tao_idl and tao_ifr; they
 #	automatically define ACE_ROOT and TAO_ROOT
 	mkdir -p $(DT)/usr/lib/ace/TAO
 	mv $(DT)/usr/bin/tao_idl $(DT)/usr/bin/tao_ifr $(DT)/usr/lib/ace/TAO
+
 	$(INSTALL_755) -D debian/tao_idl $(DT)/usr/bin/tao_idl
 	$(INSTALL_755) -D debian/tao_ifr $(DT)/usr/bin/tao_ifr
 

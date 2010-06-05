@@ -63,7 +63,6 @@ usr/lib/libTAO_Notify_Service.so
 usr/lib/libTAO_CosTime_Serv.so
 usr/lib/libTAO_CosTime_Skel.so
 usr/lib/libTAO_Catior_i.so
-usr/include/utils/catior
 usr/lib/libTAO_ReplicationManagerLib.so
 usr/lib/libTAO_ImR_Activator.so
 usr/lib/libTAO_ImR_Locator.so
