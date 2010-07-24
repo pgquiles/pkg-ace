@@ -27,6 +27,7 @@ DOXYGEN_FILES_TO_REMOVE := -name '*.md5' -o \
                            -name '*.dot' -o \
                            -name '*.idx' -o \
                            -name '*.map' -o \
+                           -name '*.tag' -o \
                            -name 'index.hh?'
 
 export ACE_ROOT := $(shell pwd)/$(ACE_SUBDIR)
