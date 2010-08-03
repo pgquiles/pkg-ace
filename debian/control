@@ -267,7 +267,7 @@ Description: ACE-GUI reactor integration for Tk
 Package: libace-tkreactor-dev
 Architecture: any
 Section: libdevel
-Depends: libace-tkreactor-5.7.7 (= ${binary:Version}), libace-dev (= ${binary:Version}), tk-dev (>= 8.5), ${misc:Depends}
+Depends: libace-tkreactor-5.7.7 (= ${binary:Version}), libace-dev (= ${binary:Version}), tk-dev (>= 8.4.7), ${misc:Depends}
 Description: ACE-GUI reactor integration for Tk development files
  This package contains header files and static library for the ACE-Tk
  reactor integration.
