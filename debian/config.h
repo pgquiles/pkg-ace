@@ -1,6 +1,8 @@
 #ifndef ACE_CONFIG_H_INCLUDED
 #define ACE_CONFIG_H_INCLUDED
-
+#ifdef __FreeBSD_version
+#include "config-freebsd.h"
+#else // assume linux 
 /*
  * Macros that were enabled in Debian are stored here.
  *
@@ -25,4 +27,5 @@
 #endif
 
 #include "config-linux.h"
+#endif // __FreeBSD_version
 #endif /* ACE_CONFIG_H_INCLUDED */

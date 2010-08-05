@@ -1,3 +1,8 @@
+ace (5.7.7-3) unstable; urgency=low
+  [Marek Brudka]
+  * A quick bugfix to resolve: #591586. Not verified yet.
+
+
 ace (5.7.7-2) unstable; urgency=low
 
   * Rebuild with sid tk-dev build-dependency. Closes: #590512.
