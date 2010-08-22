@@ -1,6 +1,6 @@
 ace (5.7.7-3) unstable; urgency=low
   [Marek Brudka]
-  * A quick bugfix to resolve: #591586. Not verified yet.
+  * Configuration file for KFreeBSD created. Shall fix: #591586.
 
  -- Marek Brudka <mbrudka@aster.pl>  Thu, 04 Aug 2010 11:12:57 +0200
 

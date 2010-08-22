@@ -1,6 +1,7 @@
 10-fix-prj-install.dpatch
 11-create-ace_qt4reactor-mpb.dpatch
 11-promote-QtResource-to-qt4.dpatch
+12-create-config_kfreebsd.dpatch
 14-fix-tcl-flags.dpatch
 15-fix-lzo-flags.dpatch
 16-rename-tao-programs.dpatch
