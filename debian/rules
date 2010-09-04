@@ -11,7 +11,7 @@ ACE_SUBDIR := ACE_wrappers
 ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO-src-*.tar.bz2 2>/dev/null || echo ace-archive-missing)
 MWCFLAGS := -type gnuace -noreldefs -genins
 ACE_MAKE_FLAGS := versioned_so=2
-PRJ_INSTALL_ALL := -k -s man_files,lib_output,header_files,inline_files,exe_output,idl_files,pidl_files,template_files  -o lib_output=usr/lib -o exe_output=usr/bin -b idl_files=usr/share/idl -b pidl_files=usr/share/idl -b template_files=usr/include -b header_files=usr/include -b inline_files=usr/include -o man_files=usr/share/man/man1
+PRJ_INSTALL_ALL := -k -s pkgconfig_files,man_files,lib_output,header_files,inline_files,exe_output,idl_files,pidl_files,template_files  -o lib_output=usr/lib -o exe_output=usr/bin -b idl_files=usr/share/idl -b pidl_files=usr/share/idl -b template_files=usr/include -b header_files=usr/include -b inline_files=usr/include -o man_files=usr/share/man/man1 -o pkgconfig_files=usr/lib/pkgconfig
 PRJ_INSTALL_BIN := -k -s man_files,exe_output,lib_output  -o exe_output=usr/bin -o man_files=usr/share/man/man1 -o lib_output=usr/lib
 
 MAN1 := debian/tao_tls_basic.1 \
@@ -159,6 +159,9 @@ install: post-build-patch
 #	Move orbsvcs files from include/tao/orbsvcs into include/orbsvcs
 	cd $(CURDIR)/$(DT)/usr/include/orbsvcs && mv -f orbsvcs/* . && rm -rf orbsvcs  
 
+#       Process pkgconfig_files *.pc.in
+	cd $(CURDIR) && for f in $(DT)/usr/lib/pkgconfig/*.pc.in ; do sh ./debian/generate_pkgconfig.sh $$f > $${f%%.in}  ; done && rm $(DT)/usr/lib/pkgconfig/*.pc.in
+
 #	We provide scripts replacement for tao_idl and tao_ifr; they
 #	automatically define ACE_ROOT and TAO_ROOT
 	mkdir -p $(DT)/usr/lib/ace/TAO
@@ -169,7 +172,7 @@ install: post-build-patch
 
 	rm -f $(DT)/usr/bin/TAO_Service
 	dh_install --sourcedir=$(DT) --fail-missing
-
+	
 binary-indep: build install doxygen-stamp
 	dh_testdir -i
 	dh_testroot -i
