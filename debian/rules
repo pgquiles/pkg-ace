@@ -160,7 +160,7 @@ install: post-build-patch
 	cd $(CURDIR)/$(DT)/usr/include/orbsvcs && mv -f orbsvcs/* . && rm -rf orbsvcs  
 
 #       Process pkgconfig_files *.pc.in
-	cd $(CURDIR) && for f in $(DT)/usr/lib/pkgconfig/*.pc.in ; do sh ./debian/generate_pkgconfig.sh $$f > $${f%%.in}  ; done && rm $(DT)/usr/lib/pkgconfig/*.pc.in
+	cd $(CURDIR) && for f in $(DT)/usr/lib/pkgconfig/*.pc.in ; do sh ./debian/generator_pkgconfig.sh $$f > $${f%%.in}  ; done && rm $(DT)/usr/lib/pkgconfig/*.pc.in
 
 #	We provide scripts replacement for tao_idl and tao_ifr; they
 #	automatically define ACE_ROOT and TAO_ROOT
