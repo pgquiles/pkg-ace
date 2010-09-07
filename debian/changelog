@@ -1,9 +1,13 @@
 ace (5.7.7-3) unstable; urgency=low
-  [Marek Brudka]
-  * Configuration file for KFreeBSD created. Fixes #591586.
-  * Restored pkgconfig files. Fixes #591610.
+  [ Marek Brudka ]
+  * Configuration file for KFreeBSD created. Closes: #591586.
+  * Restored pkgconfig files. Closes: #591610.
 
- -- Marek Brudka <mbrudka@aster.pl>  Thu, 04 Aug 2010 11:12:57 +0200
+  [ Thomas Girard ]
+  * Disable -fvisibility=hidden on armel since it does not seem to work on
+    that platform. Closes: #593225.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Tue, 07 Sep 2010 20:04:20 +0200
 
 ace (5.7.7-2) unstable; urgency=low
 
