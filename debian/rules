@@ -6,7 +6,13 @@
 # Copyright (C) 2004  Raphael Bossek <bossekr@debian.org>
 # Copyright © 2005-2010 Thomas Girard <thomas.g.girard@free.fr>
 
+#some variables for generator_pkgconfig.sh
+export PKGCONFIG_AV := 5.7.7
+export PKGCONFIG_TV := 1.7.7
+export PKGCONFIG_CV := 0.7.7
+
 INSTALL_755 := install -o root -g root -m 755
+
 ACE_SUBDIR := ACE_wrappers
 ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO-src-*.tar.bz2 2>/dev/null || echo ace-archive-missing)
 MWCFLAGS := -type gnuace -noreldefs -genins
