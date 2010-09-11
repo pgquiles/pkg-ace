@@ -20,7 +20,11 @@ ACE_MAKE_FLAGS := versioned_so=2
 PRJ_INSTALL_ALL := -k -s pkgconfig_files,man_files,lib_output,header_files,inline_files,exe_output,idl_files,pidl_files,template_files  -o lib_output=usr/lib -o exe_output=usr/bin -b idl_files=usr/share/idl -b pidl_files=usr/share/idl -b template_files=usr/include -b header_files=usr/include -b inline_files=usr/include -o man_files=usr/share/man/man1 -o pkgconfig_files=usr/lib/pkgconfig
 PRJ_INSTALL_BIN := -k -s man_files,exe_output,lib_output  -o exe_output=usr/bin -o man_files=usr/share/man/man1 -o lib_output=usr/lib
 
-MAN1 := debian/tao_tls_basic.1 \
+MAN1 := debian/tao_catior.1 \
+	debian/tao_nslist.1 \
+	debian/tao_nsadd.1 \
+	debian/tao_nsdel.1 \
+	debian/tao_tls_basic.1 \
 	debian/tao_tls_event.1 \
 	debian/tao_tls_notify.1 \
 	debian/tao_tls_rtevent.1 \
