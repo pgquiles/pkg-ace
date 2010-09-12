@@ -64,6 +64,9 @@ case "$IN" in
     ;;
 esac
 
+if test "s$INDIR" != "s." ; then
+  INCDIR="$INCDIR/$INDIR"
+fi
 
 cat "$1" | sed -e 's#@prefix@#/usr#g' \
                -e 's#@exec_prefix@#$\{prefix\}#g' \
