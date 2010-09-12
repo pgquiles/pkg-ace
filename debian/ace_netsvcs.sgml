@@ -123,6 +123,29 @@
        </variablelist>
   </refsect1>
   <refsect1>
+    <title>EXAMPLES</title>
+      <variablelist>
+      <varlistentry>
+	<term><code>&applname; -f /usr/share/ace-netsvcs/svc.conf</code></term>
+	<listitem>
+	  <para>
+	    Starts ACE network services using example configuration.
+	  </para>
+	</listitem>
+	</varlistentry>
+      <varlistentry>
+	<term><code>&applname; -S &#39;dynamic Name_Server Service_Object * netsvcs:_make_ACE_Name_Acceptor() ""-p 20006""&#39; </code></term>
+	<listitem>
+	  <para>
+	    Starts ACE Naming service using command line configuration.
+	  </para>
+	</listitem>
+	</varlistentry>
+
+
+      </variablelist>
+  </refsect1>
+  <refsect1>
     <title>SEE ALSO</title>
     <para>&seealso;</para>
   </refsect1>
