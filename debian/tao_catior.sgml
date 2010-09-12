@@ -63,7 +63,6 @@ encoded information to stdout.
           </para>
 	</listitem>
       </varlistentry>
-      </variablelist>
       <varlistentry>
 	<term><parameter>-n</parameter> <replaceable>named</replaceable></term>
 	<listitem>
