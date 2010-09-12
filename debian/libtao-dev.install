@@ -82,6 +82,7 @@ usr/lib/pkgconfig/TAO_DynamicInterface.pc
 usr/lib/pkgconfig/TAO_ZlibCompressor.pc
 usr/lib/pkgconfig/TAO_AnyTypeCode.pc
 usr/lib/pkgconfig/TAO_Bzip2Compressor.pc
+usr/lib/pkgconfig/TAO_LzoCompressor.pc
 usr/lib/pkgconfig/TAO_Valuetype.pc
 usr/lib/pkgconfig/TAO_BiDirGIOP.pc
 usr/lib/pkgconfig/TAO_IORInterceptor.pc

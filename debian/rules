@@ -6,11 +6,6 @@
 # Copyright (C) 2004  Raphael Bossek <bossekr@debian.org>
 # Copyright © 2005-2010 Thomas Girard <thomas.g.girard@free.fr>
 
-#some variables for generator_pkgconfig.sh
-export PKGCONFIG_AV := 5.7.7
-export PKGCONFIG_TV := 1.7.7
-export PKGCONFIG_CV := 0.7.7
-
 INSTALL_755 := install -o root -g root -m 755
 
 ACE_SUBDIR := ACE_wrappers
@@ -171,6 +166,8 @@ install: post-build-patch
 	cd $(CURDIR)/$(DT)/usr/include/orbsvcs && mv -f orbsvcs/* . && rm -rf orbsvcs  
 
 #       Process pkgconfig_files *.pc.in
+#	Add missing pkgconfig files -- TO REPORT UPSTREAM
+	cp $(ACE_ROOT)/ACEXML/apps/svcconf/ACEXML_XML_Svc_Conf_Parser.pc.in $(TAO_ROOT)/tao/Compression/lzo/TAO_LzoCompressor.pc.in $(DT)/usr/lib/pkgconfig
 	cd $(CURDIR) && for f in $(DT)/usr/lib/pkgconfig/*.pc.in ; do sh ./debian/generator_pkgconfig.sh $$f > $${f%%.in}  ; done && rm $(DT)/usr/lib/pkgconfig/*.pc.in
 
 #	We provide scripts replacement for tao_idl and tao_ifr; they
