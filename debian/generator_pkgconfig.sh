@@ -56,7 +56,7 @@ case "$IN" in
 esac
 
 case "$IN" in
- TAO_*)
+ *TAO_*)
     VERSION="$TV"
     ;;
  *)
