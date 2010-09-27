@@ -75,7 +75,6 @@ usr/lib/pkgconfig/TAO_DsLogAdmin_Skel.pc
 usr/lib/pkgconfig/TAO_DsEventLogAdmin.pc
 usr/lib/pkgconfig/TAO_CosProperty_Skel.pc
 usr/lib/pkgconfig/TAO_CosEvent_Serv.pc
-usr/lib/pkgconfig/TAO_IFR_Client.pc
 usr/lib/pkgconfig/TAO_CosNotification_Skel.pc
 usr/lib/pkgconfig/TAO_DsNotifyLogAdmin_Serv.pc
 usr/lib/pkgconfig/TAO_CosTime_Skel.pc
@@ -98,7 +97,6 @@ usr/lib/pkgconfig/TAO_CosTime_Serv.pc
 usr/lib/pkgconfig/TAO_CosNaming_Skel.pc
 usr/lib/pkgconfig/TAO_CosProperty_Serv.pc
 usr/lib/pkgconfig/TAO_DsNotifyLogAdmin_Skel.pc
-usr/lib/pkgconfig/TAO_ImR_Client.pc
 usr/lib/pkgconfig/TAO_CosEvent_Skel.pc
 usr/lib/pkgconfig/TAO_CosNotification_Serv.pc
 usr/lib/pkgconfig/TAO_FTORB_Utils.pc
@@ -107,12 +105,11 @@ usr/lib/pkgconfig/TAO_DsNotifyLogAdmin.pc
 usr/lib/pkgconfig/TAO_CosNaming_Serv.pc
 usr/lib/pkgconfig/TAO_DsLogAdmin_Serv.pc
 usr/lib/pkgconfig/TAO_CosTime.pc
-usr/lib/pkgconfig/TAO_RTPortableServer.pc
 usr/lib/pkgconfig/TAO_RTEvent_Serv.pc
 usr/lib/pkgconfig/TAO_CosTrading_Serv.pc
 usr/lib/pkgconfig/TAO_CosLifeCycle.pc
 usr/lib/pkgconfig/TAO_DsEventLogAdmin_Serv.pc
 usr/lib/pkgconfig/TAO_RTEventLogAdmin.pc
 usr/lib/pkgconfig/TAO_RTEventLogAdmin_Serv.pc
-usr/lib/pkgconfig/TAO_RTCORBA.pc
 usr/lib/pkgconfig/TAO_Svc_Utils.pc
+usr/lib/pkgconfig/TAO_PortableGroup.pc

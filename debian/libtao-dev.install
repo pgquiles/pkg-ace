@@ -88,7 +88,6 @@ usr/lib/pkgconfig/TAO_BiDirGIOP.pc
 usr/lib/pkgconfig/TAO_IORInterceptor.pc
 usr/lib/pkgconfig/TAO_SmartProxies.pc
 usr/lib/pkgconfig/TAO_PortableServer.pc
-usr/lib/pkgconfig/TAO_PortableGroup.pc
 usr/lib/pkgconfig/TAO_TypeCodeFactory.pc
 usr/lib/pkgconfig/TAO.pc
 usr/lib/pkgconfig/TAO_Messaging.pc
@@ -107,5 +106,9 @@ usr/lib/pkgconfig/TAO_IORManip.pc
 usr/lib/pkgconfig/TAO_ZIOP.pc
 usr/lib/pkgconfig/TAO_DiffServPolicy.pc
 usr/lib/pkgconfig/TAO_PI.pc
-usr/lib/pkgconfig/TAO_ETCL.pc
 usr/lib/pkgconfig/TAO_Utils.pc
+usr/lib/pkgconfig/TAO_IFR_Client.pc
+usr/lib/pkgconfig/TAO_ETCL.pc
+usr/lib/pkgconfig/TAO_RTPortableServer.pc
+usr/lib/pkgconfig/TAO_RTCORBA.pc
+usr/lib/pkgconfig/TAO_ImR_Client.pc

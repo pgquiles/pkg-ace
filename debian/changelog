@@ -1,8 +1,15 @@
+ace (5.7.7-4) unstable; urgency=low
+  [ Marek Brudka ]
+  * Synchronized *.pc with *.so and created transitional tags. Closes: #598169
+
+ -- Marek Brudka <mbrudka@aster.pl>  Mon, 27 Sep 2010 20:36:00 +0200
+
 ace (5.7.7-3) unstable; urgency=low
   [ Marek Brudka ]
   * Configuration file for KFreeBSD created. Closes: #591586.
   * Restored pkgconfig files. Closes: #591610.
-  * Provided manpages for tao_catior, tao_nslist, tao_nsdel, tao_nsadd, ace_netsvcs.
+  * Provided manpages for tao_catior, tao_nslist, tao_nsdel, 
+    tao_nsadd, ace_netsvcs.
 
   [ Thomas Girard ]
   * Disable -fvisibility=hidden on armel since it does not seem to work on
