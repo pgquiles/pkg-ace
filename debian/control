@@ -176,7 +176,7 @@ Description: ACE SAX based XML parsing library
 Package: libacexml-dev
 Architecture: any
 Section: libdevel
-Replaces: libace-dev (<< 5.7.7-3)
+Replaces: libace-dev (<< 5.7.7-4)
 Depends: libacexml-5.7.7 (= ${binary:Version}), libace-dev (= ${binary:Version}), ${misc:Depends}
 Description: ACE SAX based XML parsing library development files
  This package contains the header files and static library for the ACE
@@ -332,7 +332,7 @@ Description: ACE based CORBA ORB core libraries
 Package: libtao-dev
 Architecture: any
 Section: libdevel
-Replaces: libtao-orbsvcs-dev (<< 5.7.7-3)
+Replaces: libtao-orbsvcs-dev (<< 5.7.7-4)
 Depends: libtao-1.7.7 (= ${binary:Version}), libace-dev (= ${binary:Version}), ${misc:Depends}
 Suggests: libtao-doc, libtao-orbsvcs-dev
 Description: ACE based CORBA ORB core libraries development files
@@ -358,7 +358,7 @@ Description: TAO CORBA services libraries
 Package: libtao-orbsvcs-dev
 Architecture: any
 Section: libdevel
-Replaces: libtao-dev (<< 5.7.7-3)
+Replaces: libtao-dev (<< 5.7.7-4)
 Depends: libtao-orbsvcs-1.7.7 (= ${binary:Version}), libtao-dev (= ${binary:Version}), ${misc:Depends}
 Description: TAO CORBA services development files
  This package contains the header files for the TAO CORBA services.
