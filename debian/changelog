@@ -1,4 +1,41 @@
-ace (5.7.7-4) unstable; urgency=low
+ace (6.0.0-1) experimental; urgency=low
+
+  * New upstream release:
+    o use new make install target.
+    o remove generator_pkgconfig.sh, no longer needed.
+    o new binary renaming:
+      - LoadManager => tao_loadmanager
+      - LoadMonitor => tao_loadmonitor
+      - ImplRepo_Service => tao_imr_locator
+      - ImR_Activator => tao_imr_activator
+      - IFR_Service => tao_ifr_service
+      - Fault_Detector => tao_fault_detector
+      - Fault_Notifier => tao_fault_notifier
+      - Scheduling_Service => tao_cosscheduling
+      - Dump_Schedule => tao_dump_schedule
+    o remove libACE_gperf_lib.
+    o remove patches that were merged upstream:
+      - 11-create-ace_qt4reactor-mpb.dpatch
+      - 12-create-config_kfreebsd.dpatch
+      - 16-rename-tao-programs.dpatch
+      - 24-add-missing-headers.dpatch
+      - 25-remove-duplicate-files.dpatch
+      - 47-change-netsvcs.dpatch
+      - 48-fix-doxygen-cross-links.dpatch
+    o remove useless patches:
+      - 10-fix-prj-install.dpatch
+    o rework existing patches:
+      - 20-versioned_libs.dpatch, for versioned_so=2
+      - 34-bts386713.dpatch
+      - 90-patch-mpc-basedir.dpatch
+    o new patches or scripts:
+      - 12-add-DESTDIR-to-MPC.dpatch, to add and use DESTDIR in make install
+      - fix_doxygen.sh, to regenerate the patch for Doxygen reduction.
+  * Bump Standards-Version: to 3.9.1.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Tue, 21 Dec 2010 21:30:38 +0100
+
+ace (5.7.7-4) unstable; urgency=high
   [ Marek Brudka ]
   * Synchronized *.pc with *.so and created transitional tags. Closes: #598169
 

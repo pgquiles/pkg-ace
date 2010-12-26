@@ -12,8 +12,6 @@ ACE_SUBDIR := ACE_wrappers
 ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO-src-*.tar.bz2 2>/dev/null || echo ace-archive-missing)
 MWCFLAGS := -type gnuace -noreldefs -genins
 ACE_MAKE_FLAGS := versioned_so=2
-PRJ_INSTALL_ALL := -k -s pkgconfig_files,man_files,lib_output,header_files,inline_files,exe_output,idl_files,pidl_files,template_files  -o lib_output=usr/lib -o exe_output=usr/bin -b idl_files=usr/share/idl -b pidl_files=usr/share/idl -b template_files=usr/include -b header_files=usr/include -b inline_files=usr/include -o man_files=usr/share/man/man1 -o pkgconfig_files=usr/lib/pkgconfig
-PRJ_INSTALL_BIN := -k -s man_files,exe_output,lib_output  -o exe_output=usr/bin -o man_files=usr/share/man/man1 -o lib_output=usr/lib
 
 MAN1 := debian/ace_netsvcs.1 \
 	debian/tao_catior.1 \
@@ -110,10 +108,6 @@ build-stamp: patch-stamp
 	dh_testdir
 	cd $(ACE_ROOT) && $(MAKE) $(ACE_MAKE_FLAGS)
 	cd $(TAO_ROOT) && $(MAKE) $(ACE_MAKE_FLAGS)
-#       2nd-pass MPC generation is a quick bugfix related with write_install_files@MPC/modules/ProjectCreator.pm
-	echo 2nd-pass MPC generation
-	cd $(ACE_ROOT) &&  ./bin/mwc.pl $(MWCFLAGS) ACE-DPKG.mwc
-	cd $(TAO_ROOT) &&  ./../bin/mwc.pl $(MWCFLAGS) TAO-DPKG.mwc
 	touch $@
 
 manpages-stamp: $(MAN1)
@@ -133,42 +127,29 @@ post-build-patch-stamp: build-stamp
 install: post-build-patch
 	dh_testdir
 	dh_testroot
-	dh_clean -k
+	dh_prep
 	dh_installdirs
-#	Install ACE files in $(CURDIR)/$(DT)
-	@echo Installing..
-	for p in ace apps ACEXML Kokyu; do \
-	  cd $(ACE_ROOT) && MPC/prj_install.pl $(PRJ_INSTALL_ALL) $(CURDIR)/$(DT) $$p; \
-	done
-#	Remove gperf headers -- we don't need them
-	rm -Rf $(CURDIR)/$(DT)/usr/include/apps/gperf
+#	Install all files in debian/tmp
+	cd $(ACE_ROOT) && $(MAKE) install DESTDIR=$(CURDIR)/$(DT)/ INSTALL_PREFIX=/usr install_rpath=0 $(ACE_MAKE_FLAGS)
+	cd $(TAO_ROOT) && $(MAKE) install DESTDIR=$(CURDIR)/$(DT)/ INSTALL_PREFIX=/usr install_rpath=0 $(ACE_MAKE_FLAGS)
 
-	cd $(ACE_ROOT)/protocols && ../MPC/prj_install.pl $(PRJ_INSTALL_ALL) $(CURDIR)/$(DT) ace
-	cd $(ACE_ROOT)/bin/PerlACE && ../../MPC/prj_install.pl -s script_files -b script_files=usr/lib/ace/bin/PerlACE $(CURDIR)/$(DT) PerlACE.ins
+	mkdir -p $(DT)/usr/share/man/man1
+	cp $(ACE_ROOT)/apps/gperf/ace_gperf.1 $(DT)/usr/share/man/man1
 
-#	Install TAO files in $(CURDIR)/$(DT)
-	cd $(TAO_ROOT) && ../MPC/prj_install.pl $(PRJ_INSTALL_ALL) $(CURDIR)/$(DT) tao
-	cd $(TAO_ROOT) && ../MPC/prj_install.pl $(PRJ_INSTALL_ALL) $(CURDIR)/$(DT) orbsvcs/orbsvcs
+#	Relocate .idl and .pidl files
+	cd $(DT) && for f in $$(find usr/include -name '*.idl' -o -name '*.pidl') ; do \
+	   g=$$(echo $${f%%include*}share/idl/$${f##*usr/include/}) ; \
+	   mkdir -p $$(dirname $$g) ; \
+	   mv $$f $$g ; \
+	   done
 
-	for p in orbsvcs TAO_IDL utils; do \
-	  cd $(TAO_ROOT) && ../MPC/prj_install.pl $(PRJ_INSTALL_BIN) $(CURDIR)/$(DT) $$p ; \
-	done
+	# Missing: PerlACE, MPC, netsvcs
+	#cd $(ACE_ROOT)/bin/PerlACE && ../../MPC/prj_install.pl -s script_files -b script_files=usr/lib/ace/bin/PerlACE $(CURDIR)/$(DT) PerlACE.ins
 
 #	Install netsvcs files in $(CURDIR)/$(DT)
-	cd $(ACE_ROOT) && ./MPC/prj_install.pl $(PRJ_INSTALL_BIN) $(CURDIR)/$(DT) netsvcs
-	cd $(ACE_ROOT)/netsvcs/lib && ../../MPC/prj_install.pl -k -s header_files,inline_files,template_files  -b template_files=usr/include/netsvcs -b header_files=usr/include/netsvcs -b inline_files=usr/include/netsvcs $(CURDIR)/$(DT) .
-	cd $(ACE_ROOT)/netsvcs/servers && ../../MPC/prj_install.pl -k -s svc_conf_files -b svc_conf_files=usr/share/ace-netsvcs $(CURDIR)/$(DT) .
-
-#	Create .so links instead of copies
-	cd $(CURDIR)/$(DT)/usr/lib && for f in $$(find -name 'lib*-*.so' -print) ; do ln -sf $${f#./*} $${f%%-*}.so ; done
-
-#	Move orbsvcs files from include/tao/orbsvcs into include/orbsvcs
-	cd $(CURDIR)/$(DT)/usr/include/orbsvcs && mv -f orbsvcs/* . && rm -rf orbsvcs  
-
-#       Process pkgconfig_files *.pc.in
-#	Add missing pkgconfig files -- TO REPORT UPSTREAM
-	cp $(ACE_ROOT)/ACEXML/apps/svcconf/ACEXML_XML_Svc_Conf_Parser.pc.in $(TAO_ROOT)/tao/Compression/lzo/TAO_LzoCompressor.pc.in $(DT)/usr/lib/pkgconfig
-	cd $(CURDIR) && for f in $(DT)/usr/lib/pkgconfig/*.pc.in ; do sh ./debian/generator_pkgconfig.sh $$f > $${f%%.in}  ; done && rm $(DT)/usr/lib/pkgconfig/*.pc.in
+	#cd $(ACE_ROOT) && ./MPC/prj_install.pl $(PRJ_INSTALL_BIN) $(CURDIR)/$(DT) netsvcs
+	#cd $(ACE_ROOT)/netsvcs/lib && ../../MPC/prj_install.pl -k -s header_files,inline_files,template_files  -b template_files=usr/include/netsvcs -b header_files=usr/include/netsvcs -b inline_files=usr/include/netsvcs $(CURDIR)/$(DT) .
+	#cd $(ACE_ROOT)/netsvcs/servers && ../../MPC/prj_install.pl -k -s svc_conf_files -b svc_conf_files=usr/share/ace-netsvcs $(CURDIR)/$(DT) .
 
 #	We provide scripts replacement for tao_idl and tao_ifr; they
 #	automatically define ACE_ROOT and TAO_ROOT
@@ -178,8 +159,7 @@ install: post-build-patch
 	$(INSTALL_755) -D debian/tao_idl $(DT)/usr/bin/tao_idl
 	$(INSTALL_755) -D debian/tao_ifr $(DT)/usr/bin/tao_ifr
 
-	rm -f $(DT)/usr/bin/TAO_Service
-	dh_install --sourcedir=$(DT) --fail-missing
+	dh_install --sourcedir=$(DT) --list-missing
 
 binary-indep: build install doxygen-stamp
 	dh_testdir -i

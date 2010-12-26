@@ -2,12 +2,12 @@
 ## 20-versioned_libs.dpatch by Thomas Girard <thomas.g.girard@free.fr>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
-## DP: TODO
+## DP: Change versioning from libACE.so.x.y.z to libACE-x.y.z.so.
 
 @DPATCH@
---- ACE_wrappers/include/makeinclude/wrapper_macros.GNU-	2010-02-25 20:12:17.000000000 +0100
-+++ ACE_wrappers/include/makeinclude/wrapper_macros.GNU	2010-05-04 22:59:40.733945662 +0200
-@@ -82,7 +82,10 @@
+--- ACE_wrappers.orig/include/makeinclude/wrapper_macros.GNU	2010-10-05 09:27:20.000000000 +0200
++++ ACE_wrappers/include/makeinclude/wrapper_macros.GNU	2010-12-22 15:40:14.126127937 +0100
+@@ -78,7 +78,10 @@
  #                   If versioned_so is 1 (enabled), the SOVERSION make
  #                   variable can also be set to specify the version info
  #                   to append to the name - it should have a leading '.' -
@@ -19,82 +19,20 @@
  #  wfmo             Build with wfmo support (Win32 only)
  #  winregistry      Build with windows registry support (Win32 only)
  #  winnt            Build WinNT-specific projects (Win32 only)
---- ACE_wrappers/bin/MakeProjectCreator/templates/gnu.mpd-	2010-01-25 15:52:41.000000000 +0100
-+++ ACE_wrappers/bin/MakeProjectCreator/templates/gnu.mpd	2010-05-04 23:30:46.029547058 +0200
-@@ -171,6 +171,8 @@
- 
- ifeq ($(versioned_so),1)
-   SOVERSION = .<%version%>
-+else ifeq ($(versioned_so),2)
-+  SOVERSION = -<%version%>
- endif # versioned_so
- 
- <%endif%>
---- ACE_wrappers/include/makeinclude/rules.lib.GNU-	2010-05-05 22:19:39.924909173 +0200
-+++ ACE_wrappers/include/makeinclude/rules.lib.GNU	2010-05-05 23:41:05.528925245 +0200
-@@ -10,24 +10,37 @@
- #---------------------------------------------------------------------------
- #       Library versioning
- #---------------------------------------------------------------------------
--
--ifeq ($(versioned_so),1)
-+ifneq ($(versioned_so),0)
-   # Turn on symbol versioning. The scheme that we follow is to allow
-   # applications dependent on libraries, with same version numbers (major,
-   # minor and beta) to run, but applications with dependencies on libraries
-   # with different minor or major or beta versions to fail.
--  #
--  # Version number of the libraries
--  #
--  ifeq ($(SOVERSION),)
--    SOVERSION = .$(ACE_MAJOR_VERSION).$(ACE_MINOR_VERSION).$(ACE_BETA_VERSION)
--  endif # SOVERSION
-+  ifeq ($(versioned_so),1)
-+    versioned_lib = $(1)$(2)
-+
-+    ifeq ($(SOVERSION),)
-+      SOVERSION = .$(ACE_MAJOR_VERSION).$(ACE_MINOR_VERSION).$(ACE_BETA_VERSION)
-+    endif # SOVERSION
-+
-+  else ifeq ($(versioned_so),2)
-+    versioned_lib = $(patsubst %.$(SOEXT),%,$(1))$(2).$(SOEXT)
-+
-+    ifeq ($(SOVERSION),)
-+      SOVERSION = -$(ACE_MAJOR_VERSION).$(ACE_MINOR_VERSION).$(ACE_BETA_VERSION)
-+    endif # SOVERSION
-+
-+  else
-+    $(error unknown value for versioned_so: $(versioned_so))
-+  endif
- 
-   # Name that will be written into the dynamic library
-   #
-   ifeq ($(SONAME),)
--    SONAME = $(SHLIB)$(SOVERSION)
-+    SONAME = $(call versioned_lib,$(SHLIB),$(SOVERSION))
-   endif # SONAME
-+
-+else
-+  versioned_lib = $(1)
- endif # versioned_so
- 
- 
-@@ -47,9 +60,9 @@
- # Setup shared library variables, including versions.
- VSHLIB_NO_VER = $(ARCH_SHLIB:%.$(SOEXT)=%$(VAR).$(SOEXT))
- CLEANUP_VSHLIB_NO_VER = $(CLEANUP_SHLIB:%.$(SOEXT)=%$(VAR).$(SOEXT))
--VSHLIB = $(VSHLIB_NO_VER:%=%$(SOVERSION))
--CLEANUP_VSHLIB = $(CLEANUP_VSHLIB_NO_VER:%=%$(SOVERSION))
--SHLIB_WITH_VER = $(SHLIB:%=%$(SOVERSION))
-+VSHLIB = $(call versioned_lib,$(VSHLIB_NO_VER),$(SOVERSION))
-+CLEANUP_VSHLIB = $(call versioned_lib,$(CLEANUP_VSHLIB_NO_VER),$(SOVERSION))
-+SHLIB_WITH_VER = $(call versioned_lib,$(SHLIB),$(SOVERSION))
- 
- SHLIBA ?=
- VSHLIBA = $(ARCH_SHLIBA:%.$(LIBEXT)=%$(VAR).$(LIBEXT))
---- ACE_wrappers/include/makeinclude/platform_g++_common.GNU-	2010-05-05 23:36:24.748924445 +0200
-+++ ACE_wrappers/include/makeinclude/platform_g++_common.GNU	2010-05-05 23:36:47.412924264 +0200
-@@ -32,7 +32,7 @@
+--- ACE_wrappers.orig/MPC/prj_install.pl	2010-09-14 21:39:33.000000000 +0200
++++ ACE_wrappers/MPC/prj_install.pl	2010-12-22 15:38:28.746110985 +0100
+@@ -186,7 +186,7 @@
+     my $fh   = new FileHandle();
+     if (opendir($fh, $odir)) {
+       foreach my $file (grep(!/^\.\.?$/, readdir($fh))) {
+-        if ($file =~ /^lib$name\.(a|so|sl)/ ||
++        if ($file =~ /^lib$name(-[0-9]+(\.[0-9]+)*)?\.(a|so|sl)/ ||
+             $file =~ /^(lib)?$name.*\.(dll|lib)$/i) {
+           push(@libs, "$dir$insdir$binarydir$file");
+         }
+--- ACE_wrappers.orig/include/makeinclude/platform_g++_common.GNU	2010-11-19 16:47:53.000000000 +0100
++++ ACE_wrappers/include/makeinclude/platform_g++_common.GNU	2010-12-22 16:16:05.914110606 +0100
+@@ -72,7 +72,7 @@
  # If the platform file didn't already set versioned_so, default to 1.
  versioned_so ?= 1
  with_ld ?=
@@ -103,38 +41,91 @@
    ifeq ($(with_ld),hpux)
      SOFLAGS += -Wl,+h -Wl,$(SONAME)
    else
---- ACE_wrappers/include/makeinclude/rules.local.GNU-	2010-05-08 14:51:19.501988017 +0200
-+++ ACE_wrappers/include/makeinclude/rules.local.GNU	2010-05-08 15:13:11.405949278 +0200
-@@ -305,6 +305,7 @@
- 		fi ; \
+--- ACE_wrappers.orig/include/makeinclude/rules.lib.GNU	2010-09-23 18:17:42.000000000 +0200
++++ ACE_wrappers/include/makeinclude/rules.lib.GNU	2010-12-22 16:38:13.874115232 +0100
+@@ -11,7 +11,7 @@
+ #       Library versioning
+ #---------------------------------------------------------------------------
+ 
+-ifeq ($(versioned_so),1)
++ifneq ($(versioned_so),0)
+   # Turn on symbol versioning. The scheme that we follow is to allow
+   # applications dependent on libraries, with same version numbers (major,
+   # minor and beta) to run, but applications with dependencies on libraries
+@@ -20,13 +20,23 @@
+   # Version number of the libraries
+   #
+   ifeq ($(SOVERSION),)
+-    SOVERSION = .$(GNUACE_PROJECT_VERSION)
++    ifeq ($(versioned_so),1)
++      SOVERSION = .$(GNUACE_PROJECT_VERSION)
++    else ifeq ($(versioned_so),2)
++      SOVERSION = -$(GNUACE_PROJECT_VERSION)
++    else
++      $(error unknown value for versioned_so: $(versioned_so))
++    endif
+   endif # SOVERSION
+ 
+   # Name that will be written into the dynamic library
+   #
+   ifeq ($(SONAME),)
+-    SONAME = $(SHLIB)$(SOVERSION)
++    ifeq ($(versioned_so),1)
++      SONAME = $(SHLIB)$(SOVERSION)
++    else ifeq ($(versioned_so),2)
++      SONAME = $(patsubst %.$(SOEXT),%,$(SHLIB))$(SOVERSION).$(SOEXT)
++    endif
+   endif # SONAME
+ endif # versioned_so
+ 
+@@ -47,9 +57,15 @@
+ # Setup shared library variables, including versions.
+ VSHLIB_NO_VER = $(ARCH_SHLIB:%.$(SOEXT)=%$(VAR).$(SOEXT))
+ CLEANUP_VSHLIB_NO_VER = $(CLEANUP_SHLIB:%.$(SOEXT)=%$(VAR).$(SOEXT))
+-VSHLIB = $(VSHLIB_NO_VER:%=%$(SOVERSION))
+-CLEANUP_VSHLIB = $(CLEANUP_VSHLIB_NO_VER:%=%$(SOVERSION))
+-SHLIB_WITH_VER = $(SHLIB:%=%$(SOVERSION))
++ifneq ($(versioned_so),2)
++  VSHLIB = $(VSHLIB_NO_VER:%=%$(SOVERSION))
++  CLEANUP_VSHLIB = $(CLEANUP_VSHLIB_NO_VER:%=%$(SOVERSION))
++  SHLIB_WITH_VER = $(SHLIB:%=%$(SOVERSION))
++else
++  VSHLIB = $(patsubst %.$(SOEXT),%,$(VSHLIB_NO_VER))$(SOVERSION).$(SOEXT)
++  CLEANUP_VSHLIB = $(patsubst %.$(SOEXT),%,$(CLEANUP_VSHLIB_NO_VER))$(SOVERSION).$(SOEXT)
++  SHLIB_WITH_VER = $(patsubst %.$(SOEXT),%,$(SHLIB))$(SOVERSION).$(SOEXT)
++endif
+ 
+ SHLIBA ?=
+ VSHLIBA = $(ARCH_SHLIBA:%.$(LIBEXT)=%$(VAR).$(LIBEXT))
+--- ACE_wrappers.orig/include/makeinclude/rules.local.GNU	2010-11-05 15:31:15.000000000 +0100
++++ ACE_wrappers/include/makeinclude/rules.local.GNU	2010-12-22 17:21:40.474300601 +0100
+@@ -297,13 +297,23 @@
  	fi
      else #firstword of LN_S is not cp, so we're using real symlinks
-+ifeq ($(versioned_so),1)
- 	@if test $(ARCH_SOURCE_DIR) != $(@D) -o -n "$(SOVERSION)" ; then \
- 		if test -s $@ ; then \
- 			echo "$(@F) already installed" ; \
-@@ -317,6 +318,20 @@
- 			$(LN_S) $(ARCH_SOURCE_DIR)/$(@F) $@; \
+       ifneq ($(SOVERSION),)
+-	@if test $(ARCH_SOURCE_DIR) != $(@D) ; then \
++       ifneq ($(versioned_so),2)
++	    @if test $(ARCH_SOURCE_DIR) != $(@D) ; then \
+ 		if test ! -s $@ ; then \
+ 			$(RM) $(@:%.$(SOEXT)$(SOVERSION)=%.$(SOEXT)); \
+ 			echo $(LN_S) $(ARCH_SOURCE_DIR)/$(@F) $(@:%.$(SOEXT)$(SOVERSION)=%.$(SOEXT)); \
+ 			$(LN_S) $(ARCH_SOURCE_DIR)/$(@F) $(@:%.$(SOEXT)$(SOVERSION)=%.$(SOEXT)); \
  		fi ; \
- 	fi
-+else ifeq ($(versioned_so),2)
-+	@if test $(ARCH_SOURCE_DIR) != $(@D) -o -n "$(SOVERSION)" ; then \
-+		if test -s $@ ; then \
-+			echo "$(@F) already installed" ; \
-+		else \
-+			echo "Installing $(@F:%$(SOVERSION).$(SOEXT)=%.$(SOEXT)) -> $(@D)" ; \
+-	fi
++	    fi
++       else
++	    @if test $(ARCH_SOURCE_DIR) != $(@D) ; then \
++		if test ! -s $@ ; then \
 +			$(RM) $(@:%$(SOVERSION).$(SOEXT)=%.$(SOEXT)); \
++			echo $(LN_S) $(ARCH_SOURCE_DIR)/$(@F) $(@:%$(SOVERSION).$(SOEXT)=%.$(SOEXT)); \
 +			$(LN_S) $(ARCH_SOURCE_DIR)/$(@F) $(@:%$(SOVERSION).$(SOEXT)=%.$(SOEXT)); \
-+			echo "Installing $(@F) -> $(@D)" ; \
-+			$(RM) $@; \
-+			$(LN_S) $(ARCH_SOURCE_DIR)/$(@F) $@; \
 +		fi ; \
-+	fi
-+endif
-     endif #firstword
- endif #vxworks_ntbuild
- 
-@@ -344,6 +359,8 @@
++	    fi
++        endif #versioned_so
+       endif #SOVERSION
+ 	@if test $(ARCH_SOURCE_DIR) != $(@D) ; then \
+ 		if test ! -s $@ ; then \
+@@ -336,6 +346,8 @@
  	-$(RM) $(SHLIB_UNCHECKED)
  ifeq ($(versioned_so),1)
  	-$(RM) $(SHLIB_UNCHECKED)$(SOVERSION)
@@ -143,54 +134,3 @@
  endif
  endif
  
---- ACE_wrappers/TAO/CIAO/rules.ciao.GNU-	2010-05-08 18:23:46.756157569 +0200
-+++ ACE_wrappers/TAO/CIAO/rules.ciao.GNU	2010-05-08 18:27:19.588127898 +0200
-@@ -63,4 +63,17 @@
-   ifneq ($(SONAME),)
-     SONAME = $(SHLIB).$(CIAO_MAJOR_VERSION).$(CIAO_MINOR_VERSION).$(CIAO_BETA_VERSION)
-   endif # SONAME
-+
-+else ifeq ($(versioned_so),2)
-+  # Only set SOVERSION for CIAO if versioning is turned on and SOVERION is
-+  # blank, which gives users to ability to override it.
-+  ifeq ($(SOVERSION),)
-+    SOVERSION = -$(CIAO_MAJOR_VERSION).$(CIAO_MINOR_VERSION).$(CIAO_BETA_VERSION)
-+  endif # SOVERSION
-+
-+  # Name that will be written into the dynamic library
-+  #
-+  ifneq ($(SONAME),)
-+    SONAME = $(SHLIB:.$(SOEXT)=-$(CIAO_MAJOR_VERSION).$(CIAO_MINOR_VERSION).$(CIAO_BETA_VERSION).$(SOEXT))
-+  endif # SONAME
- endif # versioned_so
---- ACE_wrappers/TAO/rules.tao.GNU-	2010-05-08 18:09:27.572163282 +0200
-+++ ACE_wrappers/TAO/rules.tao.GNU	2010-05-08 18:15:43.701002140 +0200
-@@ -148,4 +148,17 @@
-   ifneq ($(SONAME),)
-     SONAME = $(SHLIB).$(TAO_MAJOR_VERSION).$(TAO_MINOR_VERSION).$(TAO_BETA_VERSION)
-   endif # SONAME
-+
-+else ifeq ($(versioned_so),2)
-+  # Only set SOVERSION for TAO if versioning is turned on and SOVERION is
-+  # blank, which gives users to ability to override it.
-+  ifeq ($(SOVERSION),)
-+    SOVERSION = -$(TAO_MAJOR_VERSION).$(TAO_MINOR_VERSION).$(TAO_BETA_VERSION)
-+  endif # SOVERSION
-+
-+  # Name that will be written into the dynamic library
-+  #
-+  ifneq ($(SONAME),)
-+    SONAME = $(SHLIB:.$(SOEXT)=-$(TAO_MAJOR_VERSION).$(TAO_MINOR_VERSION).$(TAO_BETA_VERSION).$(SOEXT))
-+  endif # SONAME
- endif # versioned_so
---- ACE_wrappers/MPC/prj_install.pl~	2010-05-11 14:43:56.524240543 +0200
-+++ ACE_wrappers/MPC/prj_install.pl	2010-05-11 14:47:30.100236926 +0200
-@@ -144,7 +144,7 @@
-     my $fh   = new FileHandle();
-     if (opendir($fh, $odir)) {
-       foreach my $file (grep(!/^\.\.?$/, readdir($fh))) {
--        if ($file =~ /^lib$name\.(a|so|sl)/ ||
-+        if ($file =~ /^lib$name(-[0-9]+(\.[0-9]+)*)?\.(a|so|sl)/ ||
-             $file =~ /^(lib)?$name.*\.(dll|lib)$/i) {
-           push(@libs, "$dir$file");
-         }
