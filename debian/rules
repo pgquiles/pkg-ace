@@ -131,7 +131,6 @@ install: post-build-patch
 	dh_installdirs
 #	Install all files in debian/tmp
 	cd $(ACE_ROOT) && $(MAKE) install DESTDIR=$(CURDIR)/$(DT)/ INSTALL_PREFIX=/usr install_rpath=0 $(ACE_MAKE_FLAGS)
-	cd $(ACE_ROOT)/netsvcs && $(MAKE) install DESTDIR=$(CURDIR)/$(DT)/ INSTALL_PREFIX=/usr install_rpath=0 $(ACE_MAKE_FLAGS)
 	cd $(TAO_ROOT) && $(MAKE) install DESTDIR=$(CURDIR)/$(DT)/ INSTALL_PREFIX=/usr install_rpath=0 $(ACE_MAKE_FLAGS)
 
 	mkdir -p $(DT)/usr/share/man/man1
