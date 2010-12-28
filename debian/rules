@@ -10,7 +10,7 @@ INSTALL_755 := install -o root -g root -m 755
 
 ACE_SUBDIR := ACE_wrappers
 ACE_ARCHIVE := $(shell ls -1 ACE+TAO+CIAO-src-*.tar.bz2 2>/dev/null || echo ace-archive-missing)
-MWCFLAGS := -type gnuace -noreldefs -genins
+MWCFLAGS := -type gnuace -noreldefs
 ACE_MAKE_FLAGS := versioned_so=2
 
 MAN1 := debian/ace_netsvcs.1 \
@@ -131,6 +131,7 @@ install: post-build-patch
 	dh_installdirs
 #	Install all files in debian/tmp
 	cd $(ACE_ROOT) && $(MAKE) install DESTDIR=$(CURDIR)/$(DT)/ INSTALL_PREFIX=/usr install_rpath=0 $(ACE_MAKE_FLAGS)
+	cd $(ACE_ROOT)/netsvcs && $(MAKE) install DESTDIR=$(CURDIR)/$(DT)/ INSTALL_PREFIX=/usr install_rpath=0 $(ACE_MAKE_FLAGS)
 	cd $(TAO_ROOT) && $(MAKE) install DESTDIR=$(CURDIR)/$(DT)/ INSTALL_PREFIX=/usr install_rpath=0 $(ACE_MAKE_FLAGS)
 
 	mkdir -p $(DT)/usr/share/man/man1
