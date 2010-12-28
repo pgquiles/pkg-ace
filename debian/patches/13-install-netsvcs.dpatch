@@ -16,14 +16,25 @@
    sharedname    = netsvcs
    dynamicflags += ACE_BUILD_SVC_DLL
 --- ACE_wrappers.orig/netsvcs/servers/servers.mpc	2010-08-26 15:08:43.000000000 +0200
-+++ ACE_wrappers/netsvcs/servers/servers.mpc	2010-12-28 20:36:20.435133215 +0100
++++ ACE_wrappers/netsvcs/servers/servers.mpc	2010-12-28 23:03:38.597927826 +0100
 @@ -1,7 +1,8 @@
  // -*- MPC -*-
  // $Id: servers.mpc 91489 2010-08-26 13:08:43Z johnnyw $
  
 -project(Netsvcs_server) : aceexe, avoids_ace_for_tao {
 +project(Netsvcs_server) : aceexe, avoids_ace_for_tao, install {
-+  install = $(ACE_ROOT)/bin
++  install  = $(ACE_ROOT)/bin
    exename  = ace_netsvcs
    libs     += netsvcs
    after    += netsvcs
+@@ -13,4 +14,10 @@
+   Source_Files {
+     main.cpp
+   }
++
++  InstallData_Files {
++    gendir = ../ace-netsvcs
++    svc.conf
++    svc.conf.xml
++  }
+ }
