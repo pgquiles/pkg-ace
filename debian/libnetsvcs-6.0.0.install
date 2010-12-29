@@ -1,1 +1,1 @@
-usr/lib/libnetsvcs-*.so
+../../ACE_wrappers/netsvcs/lib/libnetsvcs-*.so usr/lib
