@@ -143,13 +143,8 @@ install: post-build-patch
 	   mv $$f $$g ; \
 	   done
 
-	# Missing: PerlACE, MPC, netsvcs
+	# Missing: PerlACE, MPC
 	#cd $(ACE_ROOT)/bin/PerlACE && ../../MPC/prj_install.pl -s script_files -b script_files=usr/lib/ace/bin/PerlACE $(CURDIR)/$(DT) PerlACE.ins
-
-#	Install netsvcs files in $(CURDIR)/$(DT)
-	#cd $(ACE_ROOT) && ./MPC/prj_install.pl $(PRJ_INSTALL_BIN) $(CURDIR)/$(DT) netsvcs
-	#cd $(ACE_ROOT)/netsvcs/lib && ../../MPC/prj_install.pl -k -s header_files,inline_files,template_files  -b template_files=usr/include/netsvcs -b header_files=usr/include/netsvcs -b inline_files=usr/include/netsvcs $(CURDIR)/$(DT) .
-	#cd $(ACE_ROOT)/netsvcs/servers && ../../MPC/prj_install.pl -k -s svc_conf_files -b svc_conf_files=usr/share/ace-netsvcs $(CURDIR)/$(DT) .
 
 #	We provide scripts replacement for tao_idl and tao_ifr; they
 #	automatically define ACE_ROOT and TAO_ROOT
