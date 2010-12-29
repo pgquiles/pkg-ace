@@ -143,9 +143,6 @@ install: post-build-patch
 	   mv $$f $$g ; \
 	   done
 
-	# Missing: PerlACE, MPC
-	#cd $(ACE_ROOT)/bin/PerlACE && ../../MPC/prj_install.pl -s script_files -b script_files=usr/lib/ace/bin/PerlACE $(CURDIR)/$(DT) PerlACE.ins
-
 #	We provide scripts replacement for tao_idl and tao_ifr; they
 #	automatically define ACE_ROOT and TAO_ROOT
 	mkdir -p $(DT)/usr/lib/ace/TAO
