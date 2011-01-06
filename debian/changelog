@@ -33,10 +33,11 @@ ace (6.0.0-1) experimental; urgency=low
       - 12-add-DESTDIR-to-MPC.dpatch, to add and use DESTDIR in make install
       - 13-add-QtReactor_export.h.dpatch, to add a missing header in
         libace-qtreactor-dev package.
+      - 16-fix-pidl-install.dpatch, to add missing .pidl files.
       - fix_doxygen.sh, to regenerate the patch for Doxygen reduction.
   * Bump Standards-Version: to 3.9.1.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Thu, 30 Dec 2010 20:56:08 +0100
+ -- Thomas Girard <thomas.g.girard@free.fr>  Thu, 06 Jan 2011 07:39:04 +0100
 
 ace (5.7.7-4) unstable; urgency=high
   [ Marek Brudka ]
