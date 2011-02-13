@@ -8,6 +8,8 @@ ace (6.0.1-1) unstable; urgency=low
   * Update patch 11-promote-QtResource-to-qt4
   * Update patch 15-fix-lzo-flags
   * Update patch 34-bts386713
+  * Require debhelper >= 7 (it was already required, in practice)
+  * Register documentation with doc-base
 
  -- Pau Garcia i Quiles <pgquiles@elpauer.org>  Sun, 13 Feb 2011 19:38:05 +0100
 
