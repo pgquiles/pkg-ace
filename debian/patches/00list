@@ -1,9 +1,5 @@
 11-promote-QtResource-to-qt4.dpatch
-12-add-DESTDIR-to-MPC.dpatch
-13-add-QtReactor_export.h.dpatch
-14-fix-tcl-flags.dpatch
 15-fix-lzo-flags.dpatch
-16-fix-pidl-install.dpatch
 20-versioned_libs.dpatch
 34-bts386713.dpatch
 49-reduce-doxygen-doc.dpatch
