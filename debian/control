@@ -64,6 +64,7 @@ Architecture: all
 Section: doc
 Depends: ${misc:Depends}
 Suggests: libace-dev
+Recommends: doc-base
 Description: C++ network programming framework documentation
  This package contains the ACE overview documentation, tutorials,
  examples, and information regarding upstream development.
@@ -344,6 +345,7 @@ Architecture: all
 Section: doc
 Depends: libace-doc (= ${source:Version}), ${misc:Depends}
 Suggests: libtao-dev
+Recommends: doc-base
 Description: ACE based CORBA ORB core libraries documentation
  This package contains the TAO overview documentation, tutorials,
  examples, and information regarding upstream development.
