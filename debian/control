@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Debian ACE+TAO maintainers <pkg-ace-devel@lists.alioth.debian.org>
 Uploaders: Thomas Girard <thomas.g.girard@free.fr>, Pau Garcia i Quiles <pgquiles@elpauer.org>, Marek Brudka <mbrudka@aster.pl>
-Build-Depends: debhelper (>= 7), libssl-dev (>= 0.9.7d), dpatch (>= 2.0.10), libxt-dev (>= 4.3.0), libfltk1.1-dev (>= 1.1.4), libqt4-dev (>= 4.4~rc1-4), tk-dev (>= 8.4.7), libfox-1.6-dev, zlib1g-dev, libzzip-dev, liblzo2-dev, docbook-to-man, bzip2, libbz2-dev, doxygen, graphviz
+Build-Depends: debhelper (>= 7), libssl-dev (>= 0.9.7d), dpatch (>= 2.0.10), libxt-dev (>= 4.3.0), libfltk1.1-dev (>= 1.1.4), libqt4-dev (>= 4.4~rc1-4), tk-dev (>= 8.5), libfox-1.6-dev, zlib1g-dev, libzzip-dev, liblzo2-dev, docbook-to-man, bzip2, libbz2-dev, doxygen, graphviz
 Standards-Version: 3.9.1
 Vcs-Svn: svn://svn.debian.org/svn/pkg-ace/trunk
 Vcs-Browser: http://svn.debian.org/wsvn/pkg-ace/trunk
@@ -13,7 +13,6 @@ Package: mpc-ace
 Architecture: all
 Depends: ${perl:Depends}, ${misc:Depends}
 Recommends: make
-Replaces: libace-dev (= 5.6.3-4)
 Suggests: libace-dev, pkg-config
 Description: makefile, project and workspace creator
  This package contains the Makefile, Project and Workspace Creator (MPC)
@@ -54,7 +53,6 @@ Architecture: any
 Section: libdevel
 Depends: libace-6.0.1 (= ${binary:Version}), ${misc:Depends}
 Suggests: libace-doc, libtao-dev, pkg-config
-Replaces: mpc-ace (<< 5.6.3-4)
 Description: C++ network programming framework development files
  This package contains the header files and static library for the ACE
  framework.
@@ -145,22 +143,12 @@ Description: ACE protocol over HTTP tunneling library development files
 Package: ace-gperf
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: gperf-ace (<< 5.7.7-1)
-Replaces: gperf-ace (<< 5.7.7-1)
 Description: ACE perfect hash function generator
  ace_gperf is the ACE version of gperf.
  .
  Both ace_gperf and gperf were written by the same author, and have
  basically the same options and functionality. ace_gperf simply takes
  advantage of the some of the features provided by the ACE library.
-
-Package: gperf-ace
-Architecture: all
-Depends: ace-gperf, ${misc:Depends}
-Description: ACE perfect hash function generator (transitional package)
- This package is a transitional package to ace-gperf.
- .
- It can be safely removed after installation.
 
 Package: libacexml-6.0.1
 Architecture: any
@@ -177,7 +165,6 @@ Description: ACE SAX based XML parsing library
 Package: libacexml-dev
 Architecture: any
 Section: libdevel
-Replaces: libace-dev (<< 5.7.7-4)
 Depends: libacexml-6.0.1 (= ${binary:Version}), libace-dev (= ${binary:Version}), ${misc:Depends}
 Description: ACE SAX based XML parsing library development files
  This package contains the header files and static library for the ACE
@@ -269,7 +256,7 @@ Description: ACE-GUI reactor integration for Tk
 Package: libace-tkreactor-dev
 Architecture: any
 Section: libdevel
-Depends: libace-tkreactor-6.0.1 (= ${binary:Version}), libace-dev (= ${binary:Version}), tk-dev (>= 8.4.7), ${misc:Depends}
+Depends: libace-tkreactor-6.0.1 (= ${binary:Version}), libace-dev (= ${binary:Version}), tk-dev (>= 8.5), ${misc:Depends}
 Description: ACE-GUI reactor integration for Tk development files
  This package contains header files and static library for the ACE-Tk
  reactor integration.
@@ -333,7 +320,6 @@ Description: ACE based CORBA ORB core libraries
 Package: libtao-dev
 Architecture: any
 Section: libdevel
-Replaces: libtao-orbsvcs-dev (<< 5.7.7-4)
 Depends: libtao-2.0.1 (= ${binary:Version}), libace-dev (= ${binary:Version}), ${misc:Depends}
 Suggests: libtao-doc, libtao-orbsvcs-dev
 Description: ACE based CORBA ORB core libraries development files
@@ -360,7 +346,6 @@ Description: TAO CORBA services libraries
 Package: libtao-orbsvcs-dev
 Architecture: any
 Section: libdevel
-Replaces: libtao-dev (<< 5.7.7-4)
 Depends: libtao-orbsvcs-2.0.1 (= ${binary:Version}), libtao-dev (= ${binary:Version}), ${misc:Depends}
 Description: TAO CORBA services development files
  This package contains the header files for the TAO CORBA services.
@@ -510,8 +495,6 @@ Description: TAO naming service and IOR utilities
 Package: tao-cosnaming
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: tao-naming (<< 5.7.7-1)
-Replaces: tao-naming (<< 5.7.7-1)
 Recommends: tao-utils
 Description: TAO naming service
  TAO implementation of CORBA interoperable naming service (INS).
@@ -523,19 +506,9 @@ Description: TAO naming service
  The following program is included:
   * tao_cosnaming
 
-Package: tao-naming
-Architecture: all
-Depends: tao-cosnaming, ${misc:Depends}
-Description: TAO naming service (transitional package)
- This package is a transitional package to tao-cosnaming.
- .
- It can be safely removed after installation.
-
 Package: tao-costrading
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: tao-trading (<< 5.7.7-1)
-Replaces: tao-trading (<< 5.7.7-1)
 Description: TAO trading service
  TAO implementation of CORBA trading service.
  .
@@ -546,19 +519,9 @@ Description: TAO trading service
  The following program is included:
   * tao_costrading
 
-Package: tao-trading
-Architecture: all
-Depends: tao-costrading, ${misc:Depends}
-Description: TAO trading service (transitional package)
- This package is a transitional package to tao-costrading.
- .
- It can be safely removed after installation.
-
 Package: tao-cosevent
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: tao-event (<< 5.7.7-1)
-Replaces: tao-event (<< 5.7.7-1)
 Description: TAO event service
  An event service creates channels where suppliers and consumers can
  push or pull events. This channel enables asynchronous, message based
@@ -569,14 +532,6 @@ Description: TAO event service
  .
  The following program is included:
   * tao_cosevent
-
-Package: tao-event
-Architecture: all
-Depends: tao-cosevent, ${misc:Depends}
-Description: TAO event service (transitional package)
- This package is a transitional package to tao-cosevent.
- .
- It can be safely removed after installation.
 
 Package: tao-rtevent
 Architecture: any
@@ -608,8 +563,6 @@ Description: TAO fault-tolerant real-time event service
 Package: tao-cosnotification
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: tao-notify (<< 5.7.7-1)
-Replaces: tao-notify (<< 5.7.7-1)
 Description: TAO notification service
  A notification service enhances an event service. For more
  information on CORBA event service have a look at tao-cosevent
@@ -621,14 +574,6 @@ Description: TAO notification service
  .
  This package contains:
   * tao_cosnotification
-
-Package: tao-notify
-Architecture: all
-Depends: tao-cosnotification, ${misc:Depends}
-Description: TAO notification service (transitional package)
- This package is a transitional package to tao-cosnotification.
- .
- It can be safely removed after installation.
 
 Package: tao-load
 Architecture: any
@@ -644,8 +589,6 @@ Description: TAO load balancing service
 Package: tao-tls
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: tao-log (<< 5.7.7-1)
-Replaces: tao-log (<< 5.7.7-1)
 Description: TAO telecom log services
  TAO implementations of CORBA telecom log service.
  .
@@ -654,14 +597,6 @@ Description: TAO telecom log services
   * tao_tls_event
   * tao_tls_notify
   * tao_tls_rtevent
-
-Package: tao-log
-Architecture: all
-Depends: tao-tls, ${misc:Depends}
-Description: TAO telecom log services (transitional package)
- This package is a transitional package to tao-tls.
- .
- It can be safely removed after installation.
 
 Package: tao-scheduling
 Architecture: any
@@ -676,46 +611,24 @@ Description: TAO scheduling service
 Package: tao-cosconcurrency
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: tao-concurrency (<< 5.7.7-1)
-Replaces: tao-concurrency (<< 5.7.7-1)
 Description: TAO concurrency service
  A concurrency service provides a mechanism to acquire and release
  locks in a distributed system.
  .
  TAO version does not support transactions.
 
-Package: tao-concurrency
-Architecture: all
-Depends: tao-cosconcurrency, ${misc:Depends}
-Description: TAO concurrency service (transitional package)
- This package is a transitional package to tao-cosconcurrency.
- .
- It can be safely removed after installation.
-
 Package: tao-coslifecycle
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: tao-lifecycle (<< 5.7.7-1)
-Replaces: tao-lifecycle (<< 5.7.7-1)
 Description: TAO lifecycle service
  The CORBA lifecycle service allows clients to create, delete, copy
  and move objects.
  .
  This package contains the TAO implementation of such service.
 
-Package: tao-lifecycle
-Architecture: all
-Depends: tao-coslifecycle, ${misc:Depends}
-Description: TAO lifecycle service (transitional package)
- This package is a transitional package to tao-coslifecycle.
- .
- It can be safely removed after installation.
-
 Package: tao-costime
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: tao-time (<< 5.7.7-1)
-Replaces: tao-time (<< 5.7.7-1)
 Description: TAO time service
  A time service offers globally synchronized time to clients.
  .
@@ -723,14 +636,6 @@ Description: TAO time service
   * tao_costime_clerk, answering client requests
   * tao_costime_server, queried by clerks to keep their time
     synchronized
-
-Package: tao-time
-Architecture: all
-Depends: tao-costime, ${misc:Depends}
-Description: TAO time service (transitional package)
- This package is a transitional package to tao-costime.
- .
- It can be safely removed after installation.
 
 Package: ace-netsvcs
 Architecture: any

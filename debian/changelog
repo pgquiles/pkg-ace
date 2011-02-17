@@ -1,5 +1,6 @@
 ace (6.0.1-1) unstable; urgency=low
 
+  [ Pau Garcia i Quiles ]
   * New upstream release
   * Drop patch 12-add-DESTDIR-to-MPC (applied upstream)
   * Drop patch 13-add-QtReactor-export (applied upstream)
@@ -11,7 +12,12 @@ ace (6.0.1-1) unstable; urgency=low
   * Require debhelper >= 7 (it was already required, in practice)
   * Register documentation with doc-base
 
- -- Pau Garcia i Quiles <pgquiles@elpauer.org>  Sun, 13 Feb 2011 19:38:05 +0100
+  [ Thomas Girard ]
+  * Remove old Conflicts: Replaces: and transitional packages now that
+    Squeeze was released.
+  * Build-depend on Tcl/Tk >= 8.5.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Thu, 17 Feb 2011 22:47:16 +0100
 
 ace (6.0.0-1) experimental; urgency=low
 
