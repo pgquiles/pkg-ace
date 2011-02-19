@@ -13,11 +13,9 @@ ace (6.0.1-1) unstable; urgency=low
   * Register documentation with doc-base
 
   [ Thomas Girard ]
-  * Remove old Conflicts: Replaces: and transitional packages now that
-    Squeeze was released.
   * Build-depend on Tcl/Tk >= 8.5.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Thu, 17 Feb 2011 22:47:16 +0100
+ -- Thomas Girard <thomas.g.girard@free.fr>  Sat, 19 Feb 2011 10:22:32 +0100
 
 ace (6.0.0-1) experimental; urgency=low
 
