@@ -11,6 +11,7 @@ ace (6.0.1-1) unstable; urgency=low
   * Update patch 34-bts386713
   * Require debhelper >= 7 (it was already required, in practice)
   * Register documentation with doc-base
+  * Explicitly set source format 1.0 until we move to 3.0
 
   [ Thomas Girard ]
   * Build-depend on Tcl/Tk >= 8.5.
