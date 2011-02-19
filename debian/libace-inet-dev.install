@@ -63,3 +63,4 @@ usr/include/ace/INet/FTP_Response.inl
 usr/include/ace/INet/FTP_URL.inl
 usr/include/ace/INet/HTTP_StreamPolicy.h
 usr/include/ace/INet/Request.h
+usr/lib/pkgconfig/ACE_INet.pc
