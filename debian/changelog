@@ -17,7 +17,7 @@ ace (6.0.1-1) unstable; urgency=low
   [ Thomas Girard ]
   * Build-depend on Tcl/Tk >= 8.5.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Sun, 20 Feb 2011 16:33:13 +0100
+ -- Pau Garcia i Quiles <pgquiles@elpauer.org>  Sun, 20 Feb 2011 16:33:13 +0100
 
 ace (6.0.0-1) experimental; urgency=low
 
