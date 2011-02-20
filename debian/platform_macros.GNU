@@ -1,4 +1,5 @@
-exceptions     = 1
+// $Id$
+
 debug          = 0
 optimize       = 1
 inline         = 1

@@ -1,4 +1,5 @@
 #!/bin/sh
+# $Id$
 #
 # This script compares autoconf-based installation against regular builds
 # provided files.

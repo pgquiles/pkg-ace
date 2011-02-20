@@ -1,3 +1,5 @@
+// $Id$
+
 #ifndef ACE_CONFIG_H_INCLUDED
 #define ACE_CONFIG_H_INCLUDED
 #ifdef __FreeBSD_kernel__
@@ -20,10 +22,6 @@
 
 #ifndef __ACE_INLINE__
 #define __ACE_INLINE__
-#endif
-
-#ifndef ACE_HAS_EXCEPTIONS
-#define ACE_HAS_EXCEPTIONS
 #endif
 
 #include "config-linux.h"
