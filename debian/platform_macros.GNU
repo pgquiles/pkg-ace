@@ -1,4 +1,4 @@
-// $Id$
+# $Id$
 
 debug          = 0
 optimize       = 1
