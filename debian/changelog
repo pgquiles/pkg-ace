@@ -325,6 +325,25 @@ ace (5.5.6-1) experimental; urgency=low
 
  -- Thomas Girard <thomas.g.girard@free.fr>  Thu, 15 Mar 2007 22:12:29 +0000
 
+ace (5.4.7-13) unstable; urgency=low
+
+  * Rename packages:
+    o libace5.4.7c2a to libace5.4.7ldbl (Closes: #430244)
+    o libtao1.4.7c2a to libtao1.4.7ldbl (Closes: #430307)
+    for ldbl128 transition.
+  * Use debian/compat instead of DH_COMPAT.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Thu, 06 Sep 2007 09:52:34 +0000
+
+ace (5.4.7-12) unstable; urgency=low
+
+  * debian/control: tao-naming recommends tao-utils (Closes: #393032).
+  * debian/libtao-dev.install: add libTAO.so symlink (Closes: #396303).
+  * debian/patches/20-check-_REENTRANT.dpatch: do not automatically
+    define _REENTRANT (Closes: #380739).
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Sun,  5 Nov 2006 11:14:00 +0100
+
 ace (5.4.7-11) unstable; urgency=low
 
   * debian/control: package HTBP, the protocol over HTTP tunneling library.
