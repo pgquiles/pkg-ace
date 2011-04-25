@@ -2,8 +2,9 @@ ace (6.0.1-2) unstable; urgency=low
 
   * Import into git.
   * debian/control: change Vcs-* accordingly.
+  * Restore lost changelog entries, thanks to git!
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Thu, 14 Apr 2011 22:32:59 +0200
+ -- Thomas Girard <thomas.g.girard@free.fr>  Sun, 24 Apr 2011 13:41:27 +0200
 
 ace (6.0.1-1) unstable; urgency=low
 
