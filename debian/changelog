@@ -1,3 +1,9 @@
+ace (6.0.2-1) unstable; urgency=low
+
+  * New upstream patch release
+
+ -- Pau Garcia i Quiles <pgquiles@elpauer.org>  Sun, 24 Apr 2011 20:31:37 +0200
+
 ace (6.0.1-2) unstable; urgency=low
 
   * Import into git.
