@@ -11,6 +11,7 @@ ace (6.0.1-2) unstable; urgency=low
   [ Thomas Girard ]
   * Import into git.
   * debian/control: change Vcs-* accordingly.
+  * Restore lost changelog entries, thanks to git!
 
   [ Pau Garcia i Quiles ]
   * Disable SSLv2 by adding patch 35_disable_sslv2 (Closes: #622074)
