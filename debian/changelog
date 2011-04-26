@@ -1,9 +1,13 @@
 ace (6.0.1-2) unstable; urgency=low
 
+  [ Thomas Girard ]
   * Import into git.
   * debian/control: change Vcs-* accordingly.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Thu, 14 Apr 2011 22:32:59 +0200
+  [ Pau Garcia i Quiles ]
+  * Disable SSLv2 by adding patch 35_disable_sslv2 (Closes: #622074)
+
+ -- Pau Garcia i Quiles <pgquiles@elpauer.org>  Tue, 26 Apr 2011 22:39:35 +0200
 
 ace (6.0.1-1) unstable; urgency=low
 
