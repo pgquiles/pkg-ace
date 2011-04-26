@@ -1,6 +1,8 @@
 ace (6.0.2-1) unstable; urgency=low
 
   * New upstream patch release
+  * Drop patch 11-promote-QtResource-to-qt4
+  * Add patch 35_disable_sslv2 (Closes #622074)
 
  -- Pau Garcia i Quiles <pgquiles@elpauer.org>  Sun, 24 Apr 2011 20:31:37 +0200
 
