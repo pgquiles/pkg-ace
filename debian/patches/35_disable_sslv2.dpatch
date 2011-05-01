@@ -1,5 +1,5 @@
 #! /bin/sh /usr/share/dpatch/dpatch-run
-## 35_disable_sslv2.dpatch by  <pgquiles@mcpau>
+## 35_disable_sslv2.dpatch by Pau Garcia i Quiles <pgquiles@elpauer.org>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
 ## DP: SSLv2 has been disabled in Debian in OpenSSL 1.0.0d, remove it from ACE 
