@@ -3,6 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Debian ACE+TAO maintainers <pkg-ace-devel@lists.alioth.debian.org>
 Uploaders: Thomas Girard <thomas.g.girard@free.fr>, Pau Garcia i Quiles <pgquiles@elpauer.org>, Marek Brudka <mbrudka@aster.pl>
+DM-Upload-Allowed: yes
 Build-Depends: debhelper (>= 7), libssl-dev (>= 0.9.7d), dpatch (>= 2.0.10), libxt-dev (>= 4.3.0), libfltk1.1-dev (>= 1.1.4), libqt4-dev (>= 4.4~rc1-4), tk-dev (>= 8.5), libfox-1.6-dev, zlib1g-dev, libzzip-dev, liblzo2-dev, docbook-to-man, bzip2, libbz2-dev, doxygen, graphviz
 Standards-Version: 3.9.1
 Vcs-Svn: git://git.debian.org/pkg-ace/pkg-ace.git
