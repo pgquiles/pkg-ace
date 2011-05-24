@@ -2,7 +2,6 @@ ace (6.0.2-1) unstable; urgency=low
 
   * New upstream patch release
   * Drop patch 11-promote-QtResource-to-qt4
-  * Add patch 35_disable_sslv2 (Closes #622074)
 
  -- Pau Garcia i Quiles <pgquiles@elpauer.org>  Sun, 24 Apr 2011 20:31:37 +0200
 
@@ -12,11 +11,13 @@ ace (6.0.1-2) unstable; urgency=low
   * Import into git.
   * debian/control: change Vcs-* accordingly.
   * Restore lost changelog entries, thanks to git!
+  * Add DM-Upload-Allowed: yes to debian/control.
+  * Bump Standards-Version: to 3.9.2.
 
   [ Pau Garcia i Quiles ]
   * Disable SSLv2 by adding patch 35_disable_sslv2 (Closes: #622074)
 
- -- Pau Garcia i Quiles <pgquiles@elpauer.org>  Tue, 26 Apr 2011 22:39:35 +0200
+ -- Thomas Girard <thomas.g.girard@free.fr>  Sun, 01 May 2011 13:02:17 +0200
 
 ace (6.0.1-1) unstable; urgency=low
 
