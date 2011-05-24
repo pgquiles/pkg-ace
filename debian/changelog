@@ -5,6 +5,7 @@ ace (6.0.1-2) unstable; urgency=low
   * debian/control: change Vcs-* accordingly.
   * Restore lost changelog entries, thanks to git!
   * Add DM-Upload-Allowed: yes to debian/control.
+  * Bump Standards-Version: to 3.9.2.
 
   [ Pau Garcia i Quiles ]
   * Disable SSLv2 by adding patch 35_disable_sslv2 (Closes: #622074)
