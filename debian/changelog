@@ -1,3 +1,13 @@
+ace (6.0.1-3) unstable; urgency=low
+
+  * debian/patches/multiarch.dpatch: change detection of librt.so to use
+    getconf so that it does not break with multiarch locations.
+    Closes: #629657.
+  * debian/NEWS.Debian: mention that SSL v2 was removed from Debian
+    packages.
+
+ -- Thomas Girard <tgg@gratos>  Sat, 11 Jun 2011 18:52:25 +0200
+
 ace (6.0.1-2) unstable; urgency=low
 
   [ Thomas Girard ]
