@@ -1,0 +1,28 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 12-multiarch.dpatch by Thomas Girard <thomas.g.girard@free.fr>
+##
+## DP: Change the way librt.so get detected so that it works with multiarch
+
+@DPATCH@
+--- ACE_wrappers/include/makeinclude/platform_linux.GNU.orig	2011-06-11 14:35:52.810824286 +0200
++++ ACE_wrappers/include/makeinclude/platform_linux.GNU	2011-06-11 14:50:37.239210056 +0200
+@@ -73,7 +73,7 @@
+ ifeq ($(threads),1)
+   LIBS += -lpthread
+   # look for the rt library in the usual places
+-  LIBS += $(shell test "`ls -L /usr/lib*/librt.so* /lib*/librt.so*`" && echo -lrt)
++  LIBS += $(shell getconf AIO_LISTIO_MAX >/dev/null 2>&1 && echo -lrt)
+ endif
+ 
+ ifeq ($(optimize),1)
+--- ACE_wrappers/include/makeinclude/platform_linux_common.GNU.orig	2011-06-11 14:49:41.310932837 +0200
++++ ACE_wrappers/include/makeinclude/platform_linux_common.GNU	2011-01-23 19:07:43.000000000 +0100
+@@ -83,7 +83,7 @@
+ endif
+ 
+ PLATFORM_AIO_SUPPORT := \
+-       $(shell test "`ls -L /usr/lib*/librt.so* /lib*/librt.so*`" && echo -DACE_HAS_AIO_CALLS)
++       $(shell getconf AIO_LISTIO_MAX >/dev/null 2>&1 && echo -DACE_HAS_AIO_CALLS)
+ 
+ GNU_LIBPTHREAD_VERSION := $(shell getconf GNU_LIBPTHREAD_VERSION 2> /dev/null || echo Unknown)
+ ifeq (NPTL, $(word 1,$(GNU_LIBPTHREAD_VERSION)))
