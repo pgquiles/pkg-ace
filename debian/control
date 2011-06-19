@@ -302,8 +302,7 @@ Description: ACE-GUI reactor integration for Tk
 Package: libace-tkreactor-dev
 Architecture: any
 Section: libdevel
-Depends: libace-tkreactor-6.0.1 (= ${binary:Version}), libace-dev (=
-${binary:Version}), tk-dev (>= 8.5), ${misc:Depends}
+Depends: libace-tkreactor-6.0.1 (= ${binary:Version}), libace-dev (= ${binary:Version}), tk-dev (>= 8.5), ${misc:Depends}
 Description: ACE-GUI reactor integration for Tk - development files
  This package contains header files and static library for the ACE-Tk
  reactor integration.
@@ -348,8 +347,7 @@ Description: ACE-GUI reactor integration for FOX
 Package: libace-foxreactor-dev
 Architecture: any
 Section: libdevel
-Depends: libace-foxreactor-6.0.1 (= ${binary:Version}), libace-dev (=
-${binary:Version}), libfox-1.6-dev, ${misc:Depends}
+Depends: libace-foxreactor-6.0.1 (= ${binary:Version}), libace-dev (= ${binary:Version}), libfox-1.6-dev, ${misc:Depends}
 Description: ACE-GUI reactor integration for FOX - development files
  This package contains header files and static library for the ACE-FOX
  reactor integration.
