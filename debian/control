@@ -153,8 +153,7 @@ Description: ACE Inet protocol library
 Package: libace-inet-dev
 Architecture: any
 Section: libdevel
-Depends: libace-inet-6.0.1 (= ${binary:Version}), libace-dev (=
-${binary:Version}), ${misc:Depends}
+Depends: libace-inet-6.0.1 (= ${binary:Version}), libace-dev (= ${binary:Version}), ${misc:Depends}
 Description: ACE Inet protocol library - development files
  This package contains the header files and static library for the ACE
  Inet protocol library.
@@ -162,8 +161,7 @@ Description: ACE Inet protocol library - development files
 Package: libace-inet-ssl-6.0.1
 Architecture: any
 Section: libs
-Depends: libace-inet-6.0.1, libace-ssl-6.0.1, ${shlibs:Depends},
-${misc:Depends}
+Depends: libace-inet-6.0.1, libace-ssl-6.0.1, ${shlibs:Depends}, ${misc:Depends}
 Description: ACE SSL-enabled Inet protocol library
  This package provides an ACE addon library for clients (and possibly
  servers at some point) using Inet protocols which support SSL, such as
@@ -172,8 +170,7 @@ Description: ACE SSL-enabled Inet protocol library
 Package: libace-inet-ssl-dev
 Architecture: any
 Section: libdevel
-Depends: libace-inet-ssl-6.0.1 (= ${binary:Version}), libace-inet-dev (=
-${binary:Version}), libace-ssl-dev (= ${binary:Version}), ${misc:Depends}
+Depends: libace-inet-ssl-6.0.1 (= ${binary:Version}), libace-inet-dev (= ${binary:Version}), libace-ssl-dev (= ${binary:Version}), ${misc:Depends}
 Description: ACE SSL-enabled Inet protocol library - development files
  This package contains the header files and static library for the ACE
  SSL-enabled Inet protocol library.
@@ -258,8 +255,7 @@ Description: ACE-GUI reactor integration for Qt
 Package: libace-qtreactor-dev
 Architecture: any
 Section: libdevel
-Depends: libace-qtreactor-6.0.1 (= ${binary:Version}), libace-dev (=
-${binary:Version}), libqt4-dev, ${misc:Depends}
+Depends: libace-qtreactor-6.0.1 (= ${binary:Version}), libace-dev (= ${binary:Version}), libqt4-dev, ${misc:Depends}
 Description: ACE-GUI reactor integration for Qt - development files
  This package contains header files and static library for the ACE-Qt
  reactor integration.
@@ -282,8 +278,7 @@ Description: ACE-GUI reactor integration for Xt
 Package: libace-xtreactor-dev
 Architecture: any
 Section: libdevel
-Depends: libace-xtreactor-6.0.1 (= ${binary:Version}), libace-dev (=
-${binary:Version}), libxt-dev (>= 4.3.0), ${misc:Depends}
+Depends: libace-xtreactor-6.0.1 (= ${binary:Version}), libace-dev (= ${binary:Version}), libxt-dev (>= 4.3.0), ${misc:Depends}
 Description: ACE-GUI reactor integration for Xt - development files
  This package contains header files and static library for the ACE-Xt
  reactor integration.
@@ -331,8 +326,7 @@ Description: ACE-GUI reactor integration for Fl
 Package: libace-flreactor-dev
 Architecture: any
 Section: libdevel
-Depends: libace-flreactor-6.0.1 (= ${binary:Version}), libace-dev (=
-${binary:Version}), libfltk1.1-dev (>= 1.1.4), ${misc:Depends}
+Depends: libace-flreactor-6.0.1 (= ${binary:Version}), libace-dev (= ${binary:Version}), libfltk1.1-dev (>= 1.1.4), ${misc:Depends}
 Description: ACE-GUI reactor integration for Fl - development files
  This package contains header files and static library for the ACE-Fl
  reactor integration.
@@ -375,8 +369,7 @@ Package: libtao-dev
 Architecture: any
 Section: libdevel
 Replaces: libtao-orbsvcs-dev (<< 5.7.7-4)
-Depends: libtao-2.0.1 (= ${binary:Version}), libace-dev (=
-${binary:Version}), ${misc:Depends}
+Depends: libtao-2.0.1 (= ${binary:Version}), libace-dev (= ${binary:Version}), ${misc:Depends}
 Suggests: libtao-doc, libtao-orbsvcs-dev
 Description: ACE based CORBA ORB core libraries - development files
  This package contains the header files for TAO. Due to the size of
@@ -413,7 +406,7 @@ Description: TAO CORBA services - development files
 Package: libtao-qtresource-2.0.1
 Architecture: any
 Section: libs
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: TAO-GUI reactor integration for Qt
  The Qt resource factory integrates ACE QtReactor into TAO ORB
  reactor.
@@ -492,8 +485,7 @@ Description: TAO-GUI reactor integration for FOX - development files
 
 Package: tao-idl
 Architecture: any
-Depends: libtao-2.0.1 (= ${binary:Version}), ${shlibs:Depends},
-${misc:Depends}
+Depends: libtao-2.0.1 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
 Description: TAO IDL to C++ compiler
  This package provides an Interface Definition Language (IDL) to C++
  compiler.
