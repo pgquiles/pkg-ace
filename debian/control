@@ -35,15 +35,8 @@ Description: C++ network programming framework
  This package contains the ADAPTIVE Communication Environment (ACE)
  framework.
  .
- It provides platform independent C++ wrappers for interprocess
- communication:
-  * signals
-  * pipes
-  * sockets
-  * message queues
-  * semaphores
-  * shared memory
- as well as thread, process management routines and much more.
+ It provides platform independent C++ wrappers for all forms of IPC,
+ thread- and process-management routines, and much more.
  .
  Moreover, it defines patterns for common communication tasks.
   * Reactor: handles event demultiplexing and dispatching
@@ -488,8 +481,8 @@ Description: TAO IDL to C++ compiler
  This package provides an Interface Definition Language (IDL) to C++
  compiler.
  .
- Use tao_idl to generate stubs and skeletons to call or implement
- CORBA distributed objects in C++.
+ tao_idl generates stubs and skeletons used to call or implement CORBA
+ distributed objects in C++.
 
 Package: tao-ifr
 Architecture: any
@@ -678,7 +671,8 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: tao-log (<< 5.7.7-1)
 Replaces: tao-log (<< 5.7.7-1)
 Description: TAO telecom log services
- Telecom log services provide a channel for propagating log events.
+ The TAO telecom log services implement the OMG Telecom Log Service
+ specification.
  .
  Four separate services are provided:
   * tao_tls_basic
@@ -751,9 +745,8 @@ Description: TAO time service
  A time service offers globally synchronized time to clients.
  .
  This package contains two programs:
-  * tao_costime_clerk, answering client requests
-  * tao_costime_server, queried by clerks to keep their time
-    synchronized
+  * tao_costime_clerk: answers client requests
+  * tao_costime_server: synchronizes querying clerks
 
 Package: tao-time
 Architecture: all
