@@ -8,4 +8,4 @@ ace (6.0.1-2) unstable; urgency=low
     usign SSL v2 will fail since the ACE_SSL_Context::SSLv2_* enums got
     removed.
 
- -- Thomas Girard <tgg@gratos>  Sat, 11 Jun 2011 18:51:20 +0200
+ -- Thomas Girard <thomas.g.girard@free.fr>  Sat, 11 Jun 2011 18:51:20 +0200
