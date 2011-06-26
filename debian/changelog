@@ -1,6 +1,11 @@
-ace (6.0.2-1) unstable; urgency=low
+ace (6.0.3-1) experimental; urgency=low
 
-  * New upstream patch release
+  [ Thomas Girard ]
+  * Drop obsolete patch multiarch.dpatch.
+  * Really install NEWS file with libace-ssl.
+
+  [ Pau Garcia i Quiles ]
+  * New upstream patch release. Closes: #628572.
   * Drop patch 11-promote-QtResource-to-qt4
 
  -- Pau Garcia i Quiles <pgquiles@elpauer.org>  Sun, 24 Apr 2011 20:31:37 +0200
