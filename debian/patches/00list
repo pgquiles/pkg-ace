@@ -1,5 +1,3 @@
-#11-promote-QtResource-to-qt4.dpatch
-12-multiarch.dpatch
 15-fix-lzo-flags.dpatch
 16-ace-inet-pkgconfig-files.dpatch
 20-versioned_libs.dpatch
