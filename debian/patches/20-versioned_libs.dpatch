@@ -19,17 +19,19 @@
  #  wfmo             Build with wfmo support (Win32 only)
  #  winregistry      Build with windows registry support (Win32 only)
  #  winnt            Build WinNT-specific projects (Win32 only)
+
 --- ACE_wrappers.orig/MPC/prj_install.pl	2010-09-14 21:39:33.000000000 +0200
 +++ ACE_wrappers/MPC/prj_install.pl	2010-12-22 15:38:28.746110985 +0100
 @@ -186,7 +186,7 @@
      my $fh   = new FileHandle();
      if (opendir($fh, $odir)) {
        foreach my $file (grep(!/^\.\.?$/, readdir($fh))) {
--        if ($file =~ /^lib$name\.(a|so|sl)/ ||
-+        if ($file =~ /^lib$name(-[0-9]+(\.[0-9]+)*)?\.(a|so|sl)/ ||
+-        if ($file =~ /^lib$name\.(a|so|sl|dylib)/ ||
++        if ($file =~ /^lib$name(-[0-9]+(\.[0-9]+)*)?\.(a|so|sl|dylib)/ ||
              $file =~ /^(lib)?$name.*\.(dll|lib)$/i) {
            push(@libs, "$dir$insdir$binarydir$file");
          }
+
 --- ACE_wrappers.orig/include/makeinclude/platform_g++_common.GNU	2010-11-19 16:47:53.000000000 +0100
 +++ ACE_wrappers/include/makeinclude/platform_g++_common.GNU	2010-12-22 16:16:05.914110606 +0100
 @@ -72,7 +72,7 @@
@@ -41,6 +43,7 @@
    ifeq ($(with_ld),hpux)
      SOFLAGS += -Wl,+h -Wl,$(SONAME)
    else
+
 --- ACE_wrappers.orig/include/makeinclude/rules.lib.GNU	2010-09-23 18:17:42.000000000 +0200
 +++ ACE_wrappers/include/makeinclude/rules.lib.GNU	2010-12-22 16:38:13.874115232 +0100
 @@ -11,7 +11,7 @@
@@ -97,6 +100,7 @@
  
  SHLIBA ?=
  VSHLIBA = $(ARCH_SHLIBA:%.$(LIBEXT)=%$(VAR).$(LIBEXT))
+
 --- ACE_wrappers.orig/include/makeinclude/rules.local.GNU	2010-11-05 15:31:15.000000000 +0100
 +++ ACE_wrappers/include/makeinclude/rules.local.GNU	2010-12-22 17:21:40.474300601 +0100
 @@ -297,13 +297,23 @@
