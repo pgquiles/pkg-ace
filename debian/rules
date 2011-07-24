@@ -87,6 +87,13 @@ override_dh_auto_clean:
 override_dh_compress:
 	dh_compress -Xexamples -Xtutorials
 
+override_dh_installchangelogs:
+	ifneq (,$(filter ace-gperf, $(shell dh_listpackages)))
+		dh_installchangelogs apps/gperf/ChangeLog
+	else
+		dh_installchangelogs
+	endif
+
 debian/mpc-ace.sgml: MPC/docs/MPC.sgml
 	sed -e 's/mpc\.pl/mpc-ace/g' -e 's/mwc\.pl/mwc-ace/g' $< > $@
 
