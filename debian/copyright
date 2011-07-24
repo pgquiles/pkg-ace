@@ -142,7 +142,7 @@ License: GPL-2+
  On Debian systems the full text of the GNU General Public License (Version 2)
  can be found in the `/usr/share/common-licenses/GPL-2' file.
 
-Files: ACE_wrappers/MPC/*
+Files: MPC/*
 Copyright: © 2003-2006 OCI. St. Louis MO USA
 License: other-BSD
  MPC (Licensed Product) is protected by copyright, and is distributed under
@@ -199,7 +199,7 @@ License: other-BSD
  
  MPC copyright OCI. St. Louis MO USA, 2003-2006
 
-Files: ACE_wrappers/contrib/minizip/*.[ch]
+Files: contrib/minizip/*.[ch]
 Copyright: © 1998-2005 Gilles Vollant
 License: ZLIB
  This software is provided 'as-is', without any express or implied
@@ -218,7 +218,7 @@ License: ZLIB
     misrepresented as being the original software.
  3. This notice may not be removed or altered from any source distribution.
 
-Files: ACE_wrappers/contrib/utility/*
+Files: contrib/utility/*
 Copyright: © 2002-2003 Boris Kolpackov
 License: other-BSD
  This software or documentation is provided 'as-is', without any
@@ -250,10 +250,10 @@ License: other-BSD
    used to endorse or promote products derived from this software or
    documentation without specific prior written permission.
 
-Files: ACE_wrappers/TAO/TAO_IDL/*
-       ACE_wrappers/*/drv_*_ifr.*
-       ACE_wrappers/*/be_produce.cpp
-       ACE_wrappers/*/be_extern.h
+Files: TAO/TAO_IDL/*
+       */drv_*_ifr.*
+       */be_produce.cpp
+       */be_extern.h
 Copyright: © 1992-1995 Sun Micosystems, Inc
 License: other
  COPYRIGHT
@@ -319,25 +319,25 @@ License: other
  SunOS, SunSoft, Sun, Solaris, Sun Microsystems or the Sun logo are
  trademarks or registered trademarks of Sun Microsystems, Inc.
 
-Files: ACE_wrappers/TAO/tao/DynamicInterface/Unknown_User_Exception.h
-       ACE_wrappers/TAO/tao/DynamicInterface/ExceptionList.h
-       ACE_wrappers/TAO/tao/DynamicInterface/Request.h
-       ACE_wrappers/TAO/tao/DynamicInterface/Server_Request.h
-       ACE_wrappers/TAO/tao/default_ports.h
-       ACE_wrappers/TAO/tao/Stub.h
-       ACE_wrappers/TAO/tao/corba.h
-       ACE_wrappers/TAO/tao/GIOP_Message_Base.h
-       ACE_wrappers/TAO/tao/Stub.cpp
-       ACE_wrappers/TAO/tao/Object.h
-       ACE_wrappers/TAO/tao/TAO_Server_Request.h
-       ACE_wrappers/TAO/tao/CDR.h
-       ACE_wrappers/TAO/tao/orbconf.h
-       ACE_wrappers/TAO/tao/AnyTypeCode/Marshal.cpp
-       ACE_wrappers/TAO/tao/AnyTypeCode/append.cpp
-       ACE_wrappers/TAO/tao/AnyTypeCode/NVList.h
-       ACE_wrappers/TAO/tao/Object.cpp
-       ACE_wrappers/TAO/tao/Principal.h
-       ACE_wrappers/TAO/tao/Principal.cpp
+Files: TAO/tao/DynamicInterface/Unknown_User_Exception.h
+       TAO/tao/DynamicInterface/ExceptionList.h
+       TAO/tao/DynamicInterface/Request.h
+       TAO/tao/DynamicInterface/Server_Request.h
+       TAO/tao/default_ports.h
+       TAO/tao/Stub.h
+       TAO/tao/corba.h
+       TAO/tao/GIOP_Message_Base.h
+       TAO/tao/Stub.cpp
+       TAO/tao/Object.h
+       TAO/tao/TAO_Server_Request.h
+       TAO/tao/CDR.h
+       TAO/tao/orbconf.h
+       TAO/tao/AnyTypeCode/Marshal.cpp
+       TAO/tao/AnyTypeCode/append.cpp
+       TAO/tao/AnyTypeCode/NVList.h
+       TAO/tao/Object.cpp
+       TAO/tao/Principal.h
+       TAO/tao/Principal.cpp
 Copyright: © 1995 Sun Microsystems, Inc
 License: other
  This notice applies to all files in this software distribution that
@@ -407,13 +407,13 @@ License: other
  2550 Garcia Avenue 
  Mountain View, California  94043
 
-Files: ACE_wrappers/ace/OS_NS_unistd.inl (swab function)
+Files: ace/OS_NS_unistd.inl (swab function)
 Copyright: © 1994-2006 Red Hat, Inc.
 License: BSD-3
 
-Files: ACE_wrappers/ace/UTF32_Encoding_Converter.cpp
-       ACE_wrappers/ace/UTF16_Encoding_Converter.cpp
-       ACE_wrappers/ace/UTF16_Encoding_Converter.inl
+Files: ace/UTF32_Encoding_Converter.cpp
+       ace/UTF16_Encoding_Converter.cpp
+       ace/UTF16_Encoding_Converter.inl
 Copyright: © 2001-2004 Unicode, Inc.
 License: other
  Limitations on Rights to Redistribute This Code
@@ -424,7 +424,7 @@ License: other
  for internal or external distribution as long as this notice
  remains attached.
 
-Files: ACE_wrappers/apps/JAWS3/*
+Files: apps/JAWS3/*
 Copyright: © 2000 James Hu and Entera, Inc.
 License: other
  Copyright and Licensing Information for JAWS Adaptive Web Server,
@@ -484,7 +484,7 @@ License: other
  Entera, Inc.
  jxh@entera.com
 
-Files: ACE_wrappers/apps/JAWS/clients/WebSTONE/*
+Files: apps/JAWS/clients/WebSTONE/*
 Copyright: © 1995 Silicon Graphics, Inc.
 License: other
  This file and all files contained in this directory are 
@@ -503,7 +503,7 @@ License: other
  profits or other special, indirect and consequential damages, even if 
  Silicon Graphics, Inc. has been advised of the possibility of such damages.
 
-Files: ACE_wrappers/ASNMP/*
+Files: ASNMP/*
 Copyright: © 1996 Hewlett-Packard Company
            © 1988, 1989, 1991, 1992 Carnegie Mellon University
            © 1997 Cisco Systems, Inc.
@@ -573,7 +573,7 @@ License: other-BSD
  DAMAGES.
  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
 
-Files: ACE_wrappers/ace/OS_NS_wchar.cpp (wcs*_emulation functions)
+Files: ace/OS_NS_wchar.cpp (wcs*_emulation functions)
 Copyright: © 1991, 1993 The Regents of the University of California
 License: BSD-4
  Copyright (c) 1991, 1993
@@ -610,7 +610,7 @@ License: BSD-4
  OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  SUCH DAMAGE.
 
-Files: ACE_wrappers/ace/Get_Opt.cpp
+Files: ace/Get_Opt.cpp
 Copyright: © 1987, 1993, 1994 The Regents of the University of California
            © 2000 The NetBSD Foundation, Inc.
 License: BSD-4
@@ -681,9 +681,9 @@ License: BSD-4
  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
 
-Files: ACE_wrappers/examples/C++NPv1
-       ACE_wrappers/examples/C++NPv2
-       ACE_wrappers/examples/APG
+Files: examples/C++NPv1
+       examples/C++NPv2
+       examples/APG
 Copyright: © 2001, 2003 Addison Wesley
 License: other
  All of the files in these directories are copyright Addison Wesley,

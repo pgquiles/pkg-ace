@@ -3,6 +3,11 @@ ace (6.0.3-1) experimental; urgency=low
   [ Thomas Girard ]
   * Drop obsolete patch multiarch.dpatch.
   * Really install NEWS file with libace-ssl.
+  * Convert to format 3.0 (quilt):
+    o Drop dpatch dependency
+    o Do not repackage upstream tarball
+  * Convert debian/rules to debhelper level 8.
+  * debian/watch: use ACE+TAO-src-*.tar.bz2 since we don't package CIAO.
 
   [ Pau Garcia i Quiles ]
   * New upstream patch release. Closes: #628572.
@@ -12,6 +17,12 @@ ace (6.0.3-1) experimental; urgency=low
 
 ace (6.0.1-3) unstable; urgency=low
 
+  * Convert to format 3.0 (quilt):
+    o Drop dpatch dependency
+    o Do not repackage upstream tarball
+  * Convert debian/rules to debhelper level 8.
+  * Port to GNU/Hurd.
+  * debian/watch: use ACE+TAO-src-*.tar.bz2 since we don't package CIAO.
   * debian/patches/multiarch.dpatch: change detection of librt.so to use
     getconf so that it does not break with multiarch locations.
     Closes: #629657.
