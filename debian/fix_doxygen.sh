@@ -2,10 +2,11 @@
 #
 # This script regenerates changes on the Doxygen templates.
 #
+set -e
 export QUILT_PATCHES=debian/patches
 
-quilt pop -a
-quilt delete reduce-doxygen-doc.diff
+#quilt pop -a
+#quilt delete reduce-doxygen-doc.diff
 quilt new reduce-doxygen-doc.diff
 
 for f in $(find $ACE_ROOT -name '*.doxygen')
