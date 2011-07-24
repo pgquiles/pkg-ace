@@ -76,12 +76,12 @@ override_dh_auto_install:
 override_dh_auto_clean:
 	[ -f $(ACE_ROOT)/GNUmakefile ] && $(MAKE) -C $(ACE_ROOT) realclean $(DSO_MAKE_FLAG) || true
 	[ -f $(TAO_ROOT)/GNUmakefile ] && $(MAKE) -C $(TAO_ROOT) realclean $(DSO_MAKE_FLAG) || true
-	find $(ACE_ROOT) -name 'GNUmakefile*' | xargs -r rm
+	find $(ACE_ROOT) -name 'GNUmakefile*' -o -name '.depend.*' | xargs -r rm
 	rm -f $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 	rm -f $(ACE_ROOT)/ace/config.h $(ACE_ROOT)/ace/config-hurd.h
 	rm -f $(ACE_ROOT)/ACE-DPKG.mwc $(TAO_ROOT)/TAO-DPKG.mwc
 	rm -f debian/*.1 debian/mpc-ace.sgml
-	rm -Rf $(ACE_ROOT)/html
+	rm -Rf $(ACE_ROOT)/html/libace-doc $(ACE_ROOT)/html/libtao-doc
 	rm -f *-stamp
 
 override_dh_compress:
