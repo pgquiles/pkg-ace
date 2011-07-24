@@ -6,9 +6,9 @@
 ## DP: because there is no Debian/VMS (yet :-)
 
 @DPATCH@
---- ACE_wrappers.orig/bin/mpc.pl	2010-03-08 16:38:06.000000000 +0100
-+++ ACE_wrappers/bin/mpc.pl	2010-12-22 15:04:58.478119377 +0100
-@@ -20,13 +20,7 @@
+--- pkg-ace.orig/bin/mpc.pl
++++ pkg-ace/bin/mpc.pl
+@@ -20,13 +20,9 @@
  use File::Spec;
  use File::Basename;
  
@@ -19,13 +19,15 @@
 -  $basePath = VMS::Filespec::unixify($basePath);
 -}
 -$basePath .= '/MakeProjectCreator';
-+my($basePath) = '/usr/lib/ace/bin/MakeProjectCreator';
++my($aceroot) = $ENV{ACE_ROOT};
++my($basePath) = (defined $aceroot ?
++		 $aceroot : '/usr/lib/ace') . '/bin/MakeProjectCreator';
  
  my($mpcroot) = $ENV{MPC_ROOT};
  my($mpcpath) = (defined $mpcroot ? $mpcroot :
---- ACE_wrappers.orig/bin/mwc.pl	2010-03-08 16:38:06.000000000 +0100
-+++ ACE_wrappers/bin/mwc.pl	2010-12-22 15:05:34.150111643 +0100
-@@ -20,13 +20,7 @@
+--- pkg-ace.orig/bin/mwc.pl
++++ pkg-ace/bin/mwc.pl
+@@ -20,13 +20,9 @@
  use File::Spec;
  use File::Basename;
  
@@ -36,7 +38,9 @@
 -  $basePath = VMS::Filespec::unixify($basePath);
 -}
 -$basePath .= '/MakeProjectCreator';
-+my($basePath) = '/usr/lib/ace/bin/MakeProjectCreator';
++my($aceroot) = $ENV{ACE_ROOT};
++my($basePath) = (defined $aceroot ?
++		 $aceroot : '/usr/lib/ace') . '/bin/MakeProjectCreator';
  
  my($mpcroot) = $ENV{MPC_ROOT};
  my($mpcpath) = (defined $mpcroot ? $mpcroot :
