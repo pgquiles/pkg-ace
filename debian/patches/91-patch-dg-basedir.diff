@@ -5,9 +5,9 @@
 ## DP: Fix path to DependencyGenerator.
 
 @DPATCH@
---- ACE_wrappers.orig/bin/depgen.pl	2008-12-09 05:42:49.000000000 +0100
-+++ ACE_wrappers/bin/depgen.pl	2010-12-22 15:15:11.046305586 +0100
-@@ -19,12 +19,8 @@
+--- pkg-ace.orig/bin/depgen.pl
++++ pkg-ace/bin/depgen.pl
+@@ -19,11 +19,9 @@
  use File::Spec;
  use File::Basename;
  
@@ -16,9 +16,9 @@
 -  $basePath = File::Spec->rel2abs(dirname($0)) if ($basePath eq '');
 -  $basePath = VMS::Filespec::unixify($basePath);
 -}
--unshift(@INC, $basePath . '/DependencyGenerator');
-+my($basePath) = '/usr/lib/ace/bin/DependencyGenerator';
-+unshift(@INC, $basePath);
++my($aceroot) = $ENV{ACE_ROOT};
++my($basePath) = (defined $aceroot ?
++		 $aceroot : '/usr/lib/ace') . '/bin';
+ unshift(@INC, $basePath . '/DependencyGenerator');
  
  my($mpcroot) = $ENV{MPC_ROOT};
- my($mpcpath) = (defined $mpcroot ? $mpcroot :
