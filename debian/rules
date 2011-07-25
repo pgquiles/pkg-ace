@@ -28,6 +28,11 @@ DOXYGEN_FILES_TO_REMOVE := -name '*.md5' -o \
                            -name '*.map' -o \
                            -name '*.tag'
 
+# Package names, used when overriding dh_installchangelogs
+ALL_PACKAGES := $(shell dh_listpackages)
+ALL_TAO      := $(filter tao% libtao%,$(ALL_PACKAGES))
+ALL_ACEXML   := $(filter libacexml%,$(ALL_PACKAGES))
+
 export ACE_ROOT := $(shell pwd)
 export MPC_ROOT := $(ACE_ROOT)/MPC
 export TAO_ROOT := $(ACE_ROOT)/TAO
@@ -82,18 +87,23 @@ override_dh_auto_clean:
 	rm -f $(ACE_ROOT)/ace/config.h $(ACE_ROOT)/ace/config-hurd.h
 	rm -f $(ACE_ROOT)/ACE-DPKG.mwc $(TAO_ROOT)/TAO-DPKG.mwc
 	rm -f debian/*.1 debian/mpc-ace.sgml
-	rm -Rf $(ACE_ROOT)/html/libace-doc $(ACE_ROOT)/html/libtao-doc
+	rm -Rf $(ACE_ROOT)/html/libace-doc $(ACE_ROOT)/html/libtao-doc $(ACE_ROOT)/html/libacexml-doc
 	rm -f *-stamp
 
 override_dh_compress:
 	dh_compress -Xexamples -Xtutorials
 
+# Add --list-missing to make sure we don't miss new binaries
+override_dh_install:
+	dh_install --list-missing
+
+# ACE+TAO has differet changelogs. Use the right one in every package.
 override_dh_installchangelogs:
-	ifneq (,$(filter ace-gperf, $(shell dh_listpackages)))
-		dh_installchangelogs apps/gperf/ChangeLog
-	else
-		dh_installchangelogs
-	endif
+	dh_installchangelogs -pace-gperf -pgperf-ace apps/gperf/ChangeLog
+	dh_installchangelogs -pmpc-ace MPC/ChangeLog
+	dh_installchangelogs $(addprefix -p,$(ALL_TAO)) TAO/ChangeLog
+	dh_installchangelogs $(addprefix -p,$(ALL_ACEXML)) ACEXML/ChangeLog
+	dh_installchangelogs --remaining-packages ChangeLog
 
 debian/mpc-ace.sgml: MPC/docs/MPC.sgml
 	sed -e 's/mpc\.pl/mpc-ace/g' -e 's/mwc\.pl/mwc-ace/g' $< > $@
@@ -112,8 +122,3 @@ doxygen-stamp:
 manpages: manpages-stamp
 manpages-stamp: $(MAN1)
 	touch $@
-
-# 	chmod -x debian/libtao-doc/usr/share/doc/libtao-doc/examples/RTCORBA/Activity/svc.conf.server
-# 	chmod -x debian/libtao-doc/usr/share/doc/libtao-doc/examples/Simulator/DOVEBrowser/make.bat
-# 	chmod -x debian/libtao-doc/usr/share/doc/libtao-doc/examples/RTCORBA/Activity/svc.conf.client
-# 	dh_shlibdeps -a -l `ls -1 debian/lib*.install | sed -e 's#\(.*\)\.install#\1/usr/lib#' | tr '\n' ':' | sed -e 's#:$$##'`
