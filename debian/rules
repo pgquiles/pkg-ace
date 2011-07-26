@@ -89,6 +89,9 @@ override_dh_auto_clean:
 	rm -f debian/*.1 debian/mpc-ace.sgml
 	rm -Rf $(ACE_ROOT)/html/libace-doc $(ACE_ROOT)/html/libtao-doc $(ACE_ROOT)/html/libacexml-doc
 	rm -f *-stamp
+# Remove stubs that get generated during TAO compilation but for some reason
+# are not removed on make realclean
+	rm -f `cat debian/TOREMOVE`
 
 override_dh_compress:
 	dh_compress -Xexamples -Xtutorials
@@ -97,7 +100,7 @@ override_dh_compress:
 override_dh_install:
 	dh_install --list-missing
 
-# ACE+TAO has differet changelogs. Use the right one in every package.
+# ACE+TAO has different changelogs. Use the right one in every package.
 override_dh_installchangelogs:
 	dh_installchangelogs -pace-gperf -pgperf-ace apps/gperf/ChangeLog
 	dh_installchangelogs -pmpc-ace MPC/ChangeLog
