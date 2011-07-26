@@ -1,14 +1,11 @@
-#! /bin/sh /usr/share/dpatch/dpatch-run
-## 15-fix-lzo-flags.dpatch by Thomas Girard <thomas.g.girard@free.fr>
-##
-## All lines beginning with `## DP:' are a description of the patch.
-## DP: hardcode LZO headers location.
+Description: hardcode LZO headers location
+ Use LZO2 instead of LZO, and replace variable with Debian path
+Forwarded: not-needed
+Author: Thomas Girard <thomas.g.girard@free.fr>
+Last-Update: 2011-02-13
 
-@DPATCH@
-
-diff -rupd ACE_wrappers.orig/MPC/config/lzo1.mpb ACE_wrappers/MPC/config/lzo1.mpb
---- ACE_wrappers.orig/MPC/config/lzo1.mpb	2011-02-13 20:54:12.115281001 +0100
-+++ ACE_wrappers/MPC/config/lzo1.mpb	2011-02-13 20:54:51.187281001 +0100
+--- a/MPC/config/lzo1.mpb
++++ b/MPC/config/lzo1.mpb
 @@ -8,11 +8,11 @@ feature(lzo1) {
      LZO1_INCDIR
      $(LZO1_ROOT)/include

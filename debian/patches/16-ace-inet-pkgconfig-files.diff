@@ -1,15 +1,11 @@
-#! /bin/sh /usr/share/dpatch/dpatch-run
-## 16_ace_inet_pkgconfig_files.dpatch by Pau Garcia i Quiles <pgquiles@elpauer.org>
-##
-## All lines beginning with `## DP:' are a description of the patch.
-## DP: Generate pkg-config files for libACE_INet and libACE_INet_SSL (they are 
-## DP: missing upstream)
+Description: generate pkg-config files for libACE_INet and libACE_INet_SSL
+ They are missing upstream.
+Forwarded: needed
+Author: Pau Garcia i Quiles <pgquiles@elpauer.org>
+Last-Update: 2011-02-19
 
-@DPATCH@
-
-diff -rupdN ACE_wrappers.orig/protocols/ace/INet/ACE_INet.pc.in ACE_wrappers/protocols/ace/INet/ACE_INet.pc.in
---- ACE_wrappers.orig/protocols/ace/INet/ACE_INet.pc.in	1970-01-01 01:00:00.000000000 +0100
-+++ ACE_wrappers/protocols/ace/INet/ACE_INet.pc.in	2011-02-19 19:30:49.620802002 +0100
+--- a/protocols/ace/INet/ACE_INet.pc.in
++++ b/protocols/ace/INet/ACE_INet.pc.in
 @@ -0,0 +1,11 @@
 +prefix=@prefix@
 +exec_prefix=@exec_prefix@
@@ -22,9 +18,8 @@ diff -rupdN ACE_wrappers.orig/protocols/ace/INet/ACE_INet.pc.in ACE_wrappers/pro
 +Version: @VERSION@
 +Libs: -L${libdir} -lACE_INet
 +Cflags: -I${includedir}
-diff -rupdN ACE_wrappers.orig/protocols/ace/INet/ACE_INet_SSL.pc.in ACE_wrappers/protocols/ace/INet/ACE_INet_SSL.pc.in
---- ACE_wrappers.orig/protocols/ace/INet/ACE_INet_SSL.pc.in	1970-01-01 01:00:00.000000000 +0100
-+++ ACE_wrappers/protocols/ace/INet/ACE_INet_SSL.pc.in	2011-02-19 19:31:26.220802002 +0100
+--- a/protocols/ace/INet/ACE_INet_SSL.pc.in
++++ b/protocols/ace/INet/ACE_INet_SSL.pc.in
 @@ -0,0 +1,11 @@
 +prefix=@prefix@
 +exec_prefix=@exec_prefix@
@@ -37,9 +32,8 @@ diff -rupdN ACE_wrappers.orig/protocols/ace/INet/ACE_INet_SSL.pc.in ACE_wrappers
 +Version: @VERSION@
 +Libs: -L${libdir} -lACE_INet_SSL
 +Cflags: -I${includedir}
-diff -rupdN ACE_wrappers.orig/protocols/ace/INet/inet.mpc ACE_wrappers/protocols/ace/INet/inet.mpc
---- ACE_wrappers.orig/protocols/ace/INet/inet.mpc	2011-02-19 19:25:01.104802002 +0100
-+++ ACE_wrappers/protocols/ace/INet/inet.mpc	2011-02-19 19:34:49.668802002 +0100
+--- a/protocols/ace/INet/inet.mpc
++++ b/protocols/ace/INet/inet.mpc
 @@ -54,6 +54,11 @@ project(INet) : acelib, ace_output, inst
    specific {
      install_dir = ace/INet
@@ -52,9 +46,8 @@ diff -rupdN ACE_wrappers.orig/protocols/ace/INet/inet.mpc ACE_wrappers/protocols
  }
  
  // This project will be generated with and without ssl=1 feature
-diff -rupdN ACE_wrappers.orig/protocols/ace/INet/inet_ssl.mpc ACE_wrappers/protocols/ace/INet/inet_ssl.mpc
---- ACE_wrappers.orig/protocols/ace/INet/inet_ssl.mpc	2011-02-19 19:25:01.104802002 +0100
-+++ ACE_wrappers/protocols/ace/INet/inet_ssl.mpc	2011-02-19 19:35:09.832802001 +0100
+--- a/protocols/ace/INet/inet_ssl.mpc
++++ b/protocols/ace/INet/inet_ssl.mpc
 @@ -25,4 +25,9 @@ project(INet_SSL) : acelib, ace_output,
    specific {
      install_dir = ace/INet

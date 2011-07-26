@@ -1,15 +1,11 @@
-#! /bin/sh /usr/share/dpatch/dpatch-run
-## 92-default-ACE_ROOT.dpatch by Thomas Girard <thomas.g.girard@free.fr>
-##
-## All lines beginning with `## DP:' are a description of the patch.
-## DP: Automatically set ACE_ROOT to /usr/share/ace in MPC generated
-## DP: GNUmakefile if no ACE_ROOT is set.
+Description: define $ACE_ROOT in generated GNUmakefile if needed
+ TODO: not sure whether we need it.
+Forwarded: no
+Author: Thomas Girard <thomas.g.girard@free.fr>
+Last-Update: 2010-05-24
 
-@DPATCH@
-Index: pkg-ace/bin/MakeProjectCreator/modules/GNUACEWorkspaceCreator.pm
-===================================================================
---- pkg-ace.orig/bin/MakeProjectCreator/modules/GNUACEWorkspaceCreator.pm	2010-09-17 09:52:52.000000000 +0200
-+++ pkg-ace/bin/MakeProjectCreator/modules/GNUACEWorkspaceCreator.pm	2011-07-22 16:01:52.788979314 +0200
+--- a/bin/MakeProjectCreator/modules/GNUACEWorkspaceCreator.pm
++++ b/bin/MakeProjectCreator/modules/GNUACEWorkspaceCreator.pm
 @@ -94,6 +94,9 @@
              "ifeq (\$(findstring k,\$(MAKEFLAGS)),k)$crlf",
              "  KEEP_GOING = -$crlf",
