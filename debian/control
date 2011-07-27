@@ -171,7 +171,7 @@ Description: ACE SSL-enabled Inet protocol library - development files
 Package: ace-gperf
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: gperf-ace (<< 5.7.7-1)
+Breaks: gperf-ace (<< 5.7.7-1)
 Replaces: gperf-ace (<< 5.7.7-1)
 Description: ACE perfect hash function generator
  ace_gperf is the ACE version of gperf.
@@ -536,7 +536,7 @@ Description: TAO naming service and IOR utilities
 Package: tao-cosnaming
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: tao-naming (<< 5.7.7-1)
+Breaks: tao-naming (<< 5.7.7-1)
 Replaces: tao-naming (<< 5.7.7-1)
 Recommends: tao-utils
 Description: TAO naming service
@@ -561,7 +561,7 @@ Description: TAO naming service (transitional package)
 Package: tao-costrading
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: tao-trading (<< 5.7.7-1)
+Breaks: tao-trading (<< 5.7.7-1)
 Replaces: tao-trading (<< 5.7.7-1)
 Description: TAO trading service
  TAO implementation of CORBA trading service.
@@ -584,7 +584,7 @@ Description: TAO trading service (transitional package)
 Package: tao-cosevent
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: tao-event (<< 5.7.7-1)
+Breaks: tao-event (<< 5.7.7-1)
 Replaces: tao-event (<< 5.7.7-1)
 Description: TAO event service
  An event service creates channels where suppliers and consumers can
@@ -635,7 +635,7 @@ Description: TAO fault-tolerant real-time event service
 Package: tao-cosnotification
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: tao-notify (<< 5.7.7-1)
+Breaks: tao-notify (<< 5.7.7-1)
 Replaces: tao-notify (<< 5.7.7-1)
 Description: TAO notification service
  A notification service enhances an event service, providing event
@@ -668,7 +668,7 @@ Description: TAO load balancing service
 Package: tao-tls
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: tao-log (<< 5.7.7-1)
+Breaks: tao-log (<< 5.7.7-1)
 Replaces: tao-log (<< 5.7.7-1)
 Description: TAO telecom log services
  The TAO telecom log services implement the OMG Telecom Log Service
@@ -701,7 +701,7 @@ Description: TAO scheduling service
 Package: tao-cosconcurrency
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: tao-concurrency (<< 5.7.7-1)
+Breaks: tao-concurrency (<< 5.7.7-1)
 Replaces: tao-concurrency (<< 5.7.7-1)
 Description: TAO concurrency service
  A concurrency service provides a mechanism to acquire and release
@@ -720,7 +720,7 @@ Description: TAO concurrency service (transitional package)
 Package: tao-coslifecycle
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: tao-lifecycle (<< 5.7.7-1)
+Breaks: tao-lifecycle (<< 5.7.7-1)
 Replaces: tao-lifecycle (<< 5.7.7-1)
 Description: TAO lifecycle service
  The CORBA lifecycle service allows clients to create, delete, copy,
@@ -739,7 +739,7 @@ Description: TAO lifecycle service (transitional package)
 Package: tao-costime
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: tao-time (<< 5.7.7-1)
+Breaks: tao-time (<< 5.7.7-1)
 Replaces: tao-time (<< 5.7.7-1)
 Description: TAO time service
  A time service offers globally synchronized time to clients.
