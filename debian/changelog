@@ -9,12 +9,13 @@ ace (6.0.3-1) experimental; urgency=low
   * Convert debian/rules to debhelper level 8.
   * debian/watch: use ACE+TAO-src-*.tar.bz2 since we don't package CIAO.
   * Port to GNU/Hurd.
+  * Make tao-idl and tao-ifr depend on g++; we need cpp for preprocessing.
 
   [ Pau Garcia i Quiles ]
   * New upstream patch release. Closes: #628572.
   * Drop patch 11-promote-QtResource-to-qt4
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Sun, 24 Jul 2011 15:28:04 +0200
+ -- Thomas Girard <thomas.g.girard@free.fr>  Wed, 27 Jul 2011 15:34:32 +0200
 
 ace (6.0.1-3) unstable; urgency=low
 
