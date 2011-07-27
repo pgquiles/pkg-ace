@@ -504,8 +504,8 @@ Description: TAO implementation repository
  An implementation repository activates CORBA servers on demand.
  .
  This package includes the following programs:
-  * ImplRepo_Service: the main server; delegates calls to activators
-  * ImR_Activator: activates and shuts servers down on demand
+  * tao_imr_locator: the main server; delegates calls to activators
+  * tao_imr_activator: activates and shuts servers down on demand
   * tao_imr: registers servers for later activation
 
 Package: tao-ft
@@ -515,9 +515,9 @@ Description: TAO fault tolerant services
  TAO supports Fault Tolerance for CORBA Objects.
  .
  This package includes three FT CORBA infrastructure components:
-  * Fault_Detector: monitors a process or a host
-  * Fault_Notifier: receives fault reports from detectors
-  * FT_ReplicationManager: manages object groups
+  * tao_fault_detector: monitors a process or a host
+  * tao_fault_notifier: receives fault reports from detectors
+  * tao_ft_replicationmanager: manages object groups
 
 Package: tao-utils
 Architecture: any
@@ -662,8 +662,8 @@ Description: TAO load balancing service
  Monitoring specification.
  .
  This package provides:
-  * LoadManager: distributes loads across objects
-  * LoadMonitor: monitors and reports loads to a manager
+  * tao_loadmanager: distributes loads across objects
+  * tao_loadmonitor: monitors and reports loads to a manager
 
 Package: tao-tls
 Architecture: any
@@ -695,8 +695,8 @@ Description: TAO scheduling service
  TAO scheduling implements CORBA scheduling services.
  .
  This package contains:
-  * Scheduling_Service
-  * Dump_Schedule
+  * tao_cosscheduling
+  * tao_dump_schedule
 
 Package: tao-cosconcurrency
 Architecture: any
