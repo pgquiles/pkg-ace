@@ -6,10 +6,13 @@ ace (6.0.3-1) experimental; urgency=low
   * Convert to format 3.0 (quilt):
     o Drop dpatch dependency
     o Do not repackage upstream tarball
+    o rework patches 90 and 91 so that they can be applied before building
   * Convert debian/rules to debhelper level 8.
+  * Convert patches to DEP3 format.
   * debian/watch: use ACE+TAO-src-*.tar.bz2 since we don't package CIAO.
   * Port to GNU/Hurd.
   * Make tao-idl and tao-ifr depend on g++; we need cpp for preprocessing.
+  * Change descriptions to match new binary names.
 
   [ Pau Garcia i Quiles ]
   * New upstream patch release. Closes: #628572.
