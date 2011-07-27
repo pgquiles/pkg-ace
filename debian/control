@@ -494,7 +494,7 @@ Description: TAO interface repository
  objects.
  .
  This package includes the following programs:
-  * IFR_Service: interface repository server
+  * tao_ifr_service: interface repository server
   * tao_ifr: feeds in the interface repository
 
 Package: tao-imr
