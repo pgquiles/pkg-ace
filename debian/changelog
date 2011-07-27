@@ -13,6 +13,9 @@ ace (6.0.3-1) experimental; urgency=low
   * Port to GNU/Hurd.
   * Make tao-idl and tao-ifr depend on g++; we need cpp for preprocessing.
   * Change descriptions to match new binary names.
+  * Replace Conflicts:/Replaces: with Breaks:/Replaces:, following lintian
+    recommendation.
+  * Register ace-netsvcs documentation with doc-base (again, thanks lintian).
 
   [ Pau Garcia i Quiles ]
   * New upstream patch release. Closes: #628572.
