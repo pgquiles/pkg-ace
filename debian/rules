@@ -39,13 +39,23 @@ export TAO_ROOT := $(ACE_ROOT)/TAO
 export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(ACE_ROOT)/lib
 export QTDIR := /usr/share/qt4
 
-.PHONY: build
-build %:
+%:
 	dh $@
+
+# This is our own arch-dependent target. Overriding this way
+# requires debhelper level 9
+.PHONY: build-arch
+build-arch: build-stamp manpages-stamp
+
+# This is our own arch-independent target. It builds doxygen documentation
+.PHONY: build-indep
+build-indep: doxygen-stamp
 
 # Implement our own configure machinery; it will copy Debian specific
 # configuration before launching MPC to generate ACE+TAO GNUmakefile
-override_dh_auto_configure:
+.PHONY: configure
+configure: configure-stamp
+configure-stamp:
 	cp debian/platform_macros.GNU $(ACE_ROOT)/include/makeinclude
 	cp debian/config*.h $(ACE_ROOT)/ace/
 	cp debian/default.features $(ACE_ROOT)/bin/MakeProjectCreator/config
@@ -53,10 +63,9 @@ override_dh_auto_configure:
 	cd $(ACE_ROOT) && $(ACE_ROOT)/bin/mwc.pl $(MWCFLAGS) ACE-DPKG.mwc
 	cp debian/TAO-DPKG.mwc $(TAO_ROOT)
 	cd $(TAO_ROOT) && $(ACE_ROOT)/bin/mwc.pl $(MWCFLAGS) TAO-DPKG.mwc
+	touch $@
 
-override_dh_auto_build: build-stamp manpages-stamp doxygen-stamp
-
-build-stamp:
+build-stamp: configure-stamp
 	$(MAKE) -C $(ACE_ROOT) $(DSO_MAKE_FLAG)
 	$(MAKE) -C $(TAO_ROOT) $(DSO_MAKE_FLAG)
 	touch $@
@@ -94,7 +103,7 @@ override_dh_auto_clean:
 	rm -f `cat debian/TOREMOVE`
 
 override_dh_compress:
-	dh_compress -Xexamples -Xtutorials
+	dh_compress -Xexamples
 
 # Add --list-missing to make sure we don't miss new binaries
 override_dh_install:
@@ -109,10 +118,14 @@ override_dh_installchangelogs:
 	dh_installchangelogs --remaining-packages ChangeLog
 
 override_dh_fixperms:
+ifneq (,$(filter libtao-doc, $(shell dh_listpackages)))
 	chmod -x debian/libtao-doc/usr/share/doc/libtao-doc/examples/RTCORBA/Activity/svc.conf.client
 	chmod -x debian/libtao-doc/usr/share/doc/libtao-doc/examples/RTCORBA/Activity/svc.conf.server
 	chmod -x debian/libtao-doc/usr/share/doc/libtao-doc/examples/Simulator/DOVEBrowser/make.bat
+endif
+ifneq (,$(filter libace-doc libtao-doc, $(shell dh_listpackages)))
 	find debian -name '*.pl' | xargs -r sed -i -e '1i#!/usr/bin/perl'
+endif
 	dh_fixperms
 
 debian/mpc-ace.sgml: MPC/docs/MPC.sgml

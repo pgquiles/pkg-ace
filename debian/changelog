@@ -1,3 +1,18 @@
+ace (6.0.3-2) unstable; urgency=low
+
+  * Upload to unstable.
+  * Remove the build part in build %: make rule. GNU make 3.82 doesn't
+    like it. Should fix the FTBFS seen on experimental/amd64 where make 3.82
+    is installed.
+  * debian/rules: prevent long generation of doxygen documentation in arch-dep
+    build by defining binary-arch: and binary-indep: targets. This requires
+    switching to debhelper level 9.
+  * debian/rules: overriding dh_fixperm for needed packages only.
+    Closes: #636028.
+  * debian/*.examples: move examples here.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Sat, 30 Jul 2011 21:38:07 +0200
+
 ace (6.0.3-1) experimental; urgency=low
 
   [ Thomas Girard ]
