@@ -10,6 +10,7 @@ ace (6.0.3-2) unstable; urgency=low
   * debian/rules: overriding dh_fixperm for needed packages only.
     Closes: #636028.
   * debian/*.examples: move examples here.
+  * debian/ace-netsvcs.doc-base: remove extra space at end of document field.
 
  -- Thomas Girard <thomas.g.girard@free.fr>  Sat, 30 Jul 2011 21:38:07 +0200
 
