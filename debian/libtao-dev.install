@@ -1,5 +1,4 @@
 usr/include/tao/*.h
-usr/include/tao/*.i
 usr/include/tao/*.inl
 usr/include/tao/*.cpp
 usr/share/idl/tao

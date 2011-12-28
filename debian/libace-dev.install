@@ -13,10 +13,7 @@ usr/include/ace/os_include
 usr/lib/libACE.so
 usr/include/ace/ETCL/*.h
 usr/include/ace/ETCL/*.inl
-usr/include/ace/ETCL/*.cpp
 usr/include/ace/Monitor_Control/*.h
-usr/include/ace/Monitor_Control/*.inl
-usr/include/ace/Monitor_Control/*.cpp
 usr/lib/libACE_ETCL_Parser.so
 usr/lib/libACE_Monitor_Control.so
 usr/lib/libACE_ETCL.so
