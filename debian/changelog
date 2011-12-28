@@ -5,6 +5,8 @@ ace (6.0.3-3) unstable; urgency=low
   * debian/lib{ace,tao}-dev.install, debian/tao-utils.install: perform brace
     expansion instead of letting debhelper do it "due to an accident". Helped
     removing no longer needed expansions.
+  * debian/control: move transitional packages to section oldlibs, priority
+    extra, as per lintian warning recommendation.
 
  -- Thomas Girard <thomas.g.girard@free.fr>  Wed, 28 Dec 2011 10:46:18 +0100
 
