@@ -182,6 +182,8 @@ Description: ACE perfect hash function generator
 
 Package: gperf-ace
 Architecture: all
+Section: oldlibs
+Priority: extra
 Depends: ace-gperf, ${misc:Depends}
 Description: ACE perfect hash function generator (transitional package)
  This package is a transitional package to ace-gperf.
@@ -552,6 +554,8 @@ Description: TAO naming service
 
 Package: tao-naming
 Architecture: all
+Section: oldlibs
+Priority: extra
 Depends: tao-cosnaming, ${misc:Depends}
 Description: TAO naming service (transitional package)
  This package is a transitional package to tao-cosnaming.
@@ -575,6 +579,8 @@ Description: TAO trading service
 
 Package: tao-trading
 Architecture: all
+Section: oldlibs
+Priority: extra
 Depends: tao-costrading, ${misc:Depends}
 Description: TAO trading service (transitional package)
  This package is a transitional package to tao-costrading.
@@ -599,6 +605,8 @@ Description: TAO event service
 
 Package: tao-event
 Architecture: all
+Section: oldlibs
+Priority: extra
 Depends: tao-cosevent, ${misc:Depends}
 Description: TAO event service (transitional package)
  This package is a transitional package to tao-cosevent.
@@ -648,6 +656,8 @@ Description: TAO notification service
 
 Package: tao-notify
 Architecture: all
+Section: oldlibs
+Priority: extra
 Depends: tao-cosnotification, ${misc:Depends}
 Description: TAO notification service (transitional package)
  This package is a transitional package to tao-cosnotification.
@@ -682,6 +692,8 @@ Description: TAO telecom log services
 
 Package: tao-log
 Architecture: all
+Section: oldlibs
+Priority: extra
 Depends: tao-tls, ${misc:Depends}
 Description: TAO telecom log services (transitional package)
  This package is a transitional package to tao-tls.
@@ -711,6 +723,8 @@ Description: TAO concurrency service
 
 Package: tao-concurrency
 Architecture: all
+Section: oldlibs
+Priority: extra
 Depends: tao-cosconcurrency, ${misc:Depends}
 Description: TAO concurrency service (transitional package)
  This package is a transitional package to tao-cosconcurrency.
@@ -730,6 +744,8 @@ Description: TAO lifecycle service
 
 Package: tao-lifecycle
 Architecture: all
+Section: oldlibs
+Priority: extra
 Depends: tao-coslifecycle, ${misc:Depends}
 Description: TAO lifecycle service (transitional package)
  This package is a transitional package to tao-coslifecycle.
@@ -750,6 +766,8 @@ Description: TAO time service
 
 Package: tao-time
 Architecture: all
+Section: oldlibs
+Priority: extra
 Depends: tao-costime, ${misc:Depends}
 Description: TAO time service (transitional package)
  This package is a transitional package to tao-costime.
