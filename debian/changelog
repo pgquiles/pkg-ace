@@ -1,3 +1,13 @@
+ace (6.0.3-3) unstable; urgency=low
+
+  * Build with g++-4.4 on armel to work-around #644722. Closes: #644826.
+    Thanks to Peter Green for the report and work-around investigation.
+  * debian/lib{ace,tao}-dev.install, debian/tao-utils.install: perform brace
+    expansion instead of letting debhelper do it "due to an accident". Helped
+    removing no longer needed expansions.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Wed, 28 Dec 2011 10:46:18 +0100
+
 ace (6.0.3-2) unstable; urgency=low
 
   * Upload to unstable.
