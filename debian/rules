@@ -77,6 +77,8 @@ override_dh_auto_install-arch: manpages-stamp
 	mv $(DT)/usr/bin/tao_idl $(DT)/usr/bin/tao_ifr $(DT)/usr/lib/ace/TAO
 	cp debian/tao_idl debian/tao_ifr $(DT)/usr/bin
 
+override_dh_auto_install-indep:
+
 override_dh_auto_clean-arch:
 	[ -f $(ACE_ROOT)/GNUmakefile ] && $(MAKE) -C $(ACE_ROOT) realclean $(DSO_MAKE_FLAG) $(FIXUP) || true
 	[ -f $(TAO_ROOT)/GNUmakefile ] && $(MAKE) -C $(TAO_ROOT) realclean $(DSO_MAKE_FLAG) $(FIXUP) || true
