@@ -6,12 +6,6 @@
 # Copyright (C) 2004  Raphael Bossek <bossekr@debian.org>
 # Copyright © 2005-2011 Thomas Girard <thomas.g.girard@free.fr>
 
-DEB_BUILD_ARCH := $(shell dpkg-architecture -qDEB_BUILD_ARCH)
-
-ifeq ($(DEB_BUILD_ARCH),armel)
-  FIXUP := CXX=g++-4.4
-endif
-
 MWCFLAGS := -type gnuace -noreldefs
 DSO_MAKE_FLAG := versioned_so=2
 INSTALL_FLAGS := DESTDIR=$(CURDIR)/debian/tmp INSTALL_PREFIX=/usr install_rpath=0 $(DSO_MAKE_FLAG)
@@ -48,15 +42,6 @@ export QTDIR := /usr/share/qt4
 %:
 	dh $@
 
-# This is our own arch-dependent target. Overriding this way
-# requires debhelper level 9
-.PHONY: build-arch
-build-arch: build-stamp manpages-stamp
-
-# This is our own arch-independent target. It builds doxygen documentation
-.PHONY: build-indep
-build-indep: doxygen-stamp
-
 # Implement our own configure machinery; it will copy Debian specific
 # configuration before launching MPC to generate ACE+TAO GNUmakefile
 .PHONY: configure
@@ -71,12 +56,11 @@ configure-stamp:
 	cd $(TAO_ROOT) && $(ACE_ROOT)/bin/mwc.pl $(MWCFLAGS) TAO-DPKG.mwc
 	touch $@
 
-build-stamp: configure-stamp
+override_dh_auto_build-arch: configure-stamp
 	$(MAKE) -C $(ACE_ROOT) $(DSO_MAKE_FLAG) $(FIXUP)
 	$(MAKE) -C $(TAO_ROOT) $(DSO_MAKE_FLAG) $(FIXUP)
-	touch $@
 
-override_dh_auto_install:
+override_dh_auto_install-arch: manpages-stamp
 	$(MAKE) -C $(ACE_ROOT) install $(INSTALL_FLAGS) $(FIXUP)
 	$(MAKE) -C $(TAO_ROOT) install $(INSTALL_FLAGS) $(FIXUP)
 	mkdir -p $(DT)/usr/share/man/man1
@@ -93,7 +77,7 @@ override_dh_auto_install:
 	mv $(DT)/usr/bin/tao_idl $(DT)/usr/bin/tao_ifr $(DT)/usr/lib/ace/TAO
 	cp debian/tao_idl debian/tao_ifr $(DT)/usr/bin
 
-override_dh_auto_clean:
+override_dh_auto_clean-arch:
 	[ -f $(ACE_ROOT)/GNUmakefile ] && $(MAKE) -C $(ACE_ROOT) realclean $(DSO_MAKE_FLAG) $(FIXUP) || true
 	[ -f $(TAO_ROOT)/GNUmakefile ] && $(MAKE) -C $(TAO_ROOT) realclean $(DSO_MAKE_FLAG) $(FIXUP) || true
 	find $(ACE_ROOT) -name 'GNUmakefile*' -o -name '.depend.*' | xargs -r rm
@@ -102,11 +86,13 @@ override_dh_auto_clean:
 	rm -f $(ACE_ROOT)/ace/config.h $(ACE_ROOT)/ace/config-hurd.h
 	rm -f $(ACE_ROOT)/ACE-DPKG.mwc $(TAO_ROOT)/TAO-DPKG.mwc
 	rm -f debian/*.1 debian/mpc-ace.sgml
-	rm -Rf $(ACE_ROOT)/html/libace-doc $(ACE_ROOT)/html/libtao-doc $(ACE_ROOT)/html/libacexml-doc
 	rm -f *-stamp
 # Remove stubs that get generated during TAO compilation but for some reason
 # are not removed on make realclean
 	rm -f `cat debian/TOREMOVE`
+
+override_dh_auto_clean-indep:
+	rm -Rf $(ACE_ROOT)/html/libace-doc $(ACE_ROOT)/html/libtao-doc $(ACE_ROOT)/html/libacexml-doc
 
 override_dh_compress:
 	dh_compress -Xexamples
@@ -140,12 +126,9 @@ debian/mpc-ace.sgml: MPC/docs/MPC.sgml
 debian/%.1: debian/%.sgml
 	docbook-to-man $< > $@
 
-.PHONY: doxygen
-doxygen: doxygen-stamp
-doxygen-stamp:
+override_dh_auto_build-indep:
 	cd $(ACE_ROOT) && bin/generate_doxygen.pl -is_release -exclude_ciao -exclude_dance
 	find $(ACE_ROOT)/html $(DOXYGEN_FILES_TO_REMOVE) | xargs -r rm -f
-	touch $@
 
 .PHONY: manpages
 manpages: manpages-stamp

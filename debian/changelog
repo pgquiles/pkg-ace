@@ -1,3 +1,12 @@
+ace (6.0.3-4) unstable; urgency=low
+
+  * Remove work-around for arm now that g++-4.6 ICE is fixed.
+    Closes: #653642, #654743.
+  * Really ensure doxygen is not being run when invoking build-arch.
+    Closes: #657844.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Sat, 04 Feb 2012 17:24:25 +0100
+
 ace (6.0.3-3) unstable; urgency=low
 
   * Build with g++-4.4 on armel to work-around #644722. Closes: #644826.
