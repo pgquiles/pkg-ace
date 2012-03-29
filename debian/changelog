@@ -1,3 +1,12 @@
+ace (6.0.3-5) unstable; urgency=low
+
+  * debian/control:
+    o define Build-Depends-Indep: for documentation generation.
+    o Build-Depends on dpkg-dev >= 1.16.2 to have dpkg-buildpackage -B
+      correctly invoke build-arch then binary-arch. Closes: #657844.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Thu, 29 Mar 2012 19:13:40 +0200
+
 ace (6.0.3-4) unstable; urgency=low
 
   * Remove work-around for arm now that g++-4.6 ICE is fixed.
