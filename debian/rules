@@ -4,7 +4,7 @@
 # written February 2002 by Ossama Othman <ossama@debian.org>
 # Modified August 2003 by Brian Nelson <pyro@debian.org>
 # Copyright (C) 2004  Raphael Bossek <bossekr@debian.org>
-# Copyright © 2005-2011 Thomas Girard <thomas.g.girard@free.fr>
+# Copyright © 2005-2012 Thomas Girard <thomas.g.girard@free.fr>
 
 MWCFLAGS := -type gnuace -noreldefs
 DSO_MAKE_FLAG := versioned_so=2
