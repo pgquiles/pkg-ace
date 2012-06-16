@@ -1,3 +1,16 @@
+ace (6.1.2-1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/patches/16-ace-inet-pkgconfig-files.diff: drop, integrated.
+  * debian/patches/prevent_doxygen_ace_manpages.diff: ditto.
+  * debian/patches/reduce-doxygen-doc.diff: reworked since HTMLHelp is
+    no longer generated.
+  * debian/patches/20-versioned_libs.diff: refreshed.
+  * debian/patches/34-bts386713.diff: refreshed.
+  * debian/patches/92-default-ACE_ROOT.diff: refreshed.
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Sat, 16 Jun 2012 20:51:01 +0200
+
 ace (6.0.3-5) unstable; urgency=low
 
   * debian/control:
