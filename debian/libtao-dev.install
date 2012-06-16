@@ -25,6 +25,7 @@ usr/include/tao/EndpointPolicy
 usr/lib/libTAO_EndpointPolicy.so
 usr/include/tao/IFR_Client
 usr/lib/libTAO_IFR_Client.so
+usr/lib/libTAO_IFR_Client_skel.so
 usr/include/tao/ImR_Client
 usr/lib/libTAO_ImR_Client.so
 usr/include/tao/IORInterceptor
