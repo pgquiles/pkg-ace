@@ -22,6 +22,9 @@ workspace {
     orbsvcs/DevGuideExamples
     utils/logWalker
     utils/monitor
+
+    CIAO
+    DAnCE
   }
 }
 
