@@ -5,6 +5,7 @@ ace_token       = 1
 ssl             = 1
 ipv6            = 1
 exceptions      = 1
+ace_xml_utils   = 1
 
 // GUI reactors
 xt              = 1
@@ -33,3 +34,4 @@ zlib          = 1
 zzip          = 1
 bzip2         = 1
 lzo1          = 1
+xerces3       = 1
