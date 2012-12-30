@@ -1,0 +1,12 @@
+--- TAO/tao/Compression/lzo/LzoCompressor.mpc-	2012-12-30 21:11:06.804107332 +0100
++++ TAO/tao/Compression/lzo/LzoCompressor.mpc	2012-12-30 21:11:16.840157098 +0100
+@@ -1,7 +1,7 @@
+ //$Id: LzoCompressor.mpc 91840 2010-09-17 20:23:03Z mitza $
+ 
+-project(LzoCompressor) : taolib, tao_output, install, compression, taoidldefaults, lzo1 {
+-  requires += lzo1
++project(LzoCompressor) : taolib, tao_output, install, compression, taoidldefaults, lzo2 {
++  requires += lzo2
+   sharedname   = TAO_LzoCompressor
+   dynamicflags += TAO_LZOCOMPRESSOR_BUILD_DLL
+ 

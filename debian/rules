@@ -38,8 +38,8 @@ export MPC_ROOT := $(ACE_ROOT)/MPC
 export TAO_ROOT := $(ACE_ROOT)/TAO
 export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(ACE_ROOT)/lib
 export QTDIR := /usr/share/qt4
-export LZO1_INCDIR := /usr/include/lzo
-export LZO1_ROOT := /usr
+export LZO2_INCDIR := /usr/include/lzo
+export LZO2_ROOT := /usr
 
 %:
 	dh $@
