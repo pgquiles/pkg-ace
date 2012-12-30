@@ -38,6 +38,8 @@ export MPC_ROOT := $(ACE_ROOT)/MPC
 export TAO_ROOT := $(ACE_ROOT)/TAO
 export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(ACE_ROOT)/lib
 export QTDIR := /usr/share/qt4
+export LZO1_INCDIR := /usr/include/lzo
+export LZO1_ROOT := /usr
 
 %:
 	dh $@
@@ -50,18 +52,14 @@ configure-stamp:
 	cp debian/platform_macros.GNU $(ACE_ROOT)/include/makeinclude
 	cp debian/config*.h $(ACE_ROOT)/ace/
 	cp debian/default.features $(ACE_ROOT)/bin/MakeProjectCreator/config
-	cp debian/ACE-DPKG.mwc $(ACE_ROOT)
-	cd $(ACE_ROOT) && $(ACE_ROOT)/bin/mwc.pl $(MWCFLAGS) ACE-DPKG.mwc
-	cp debian/TAO-DPKG.mwc $(TAO_ROOT)
-	cd $(TAO_ROOT) && $(ACE_ROOT)/bin/mwc.pl $(MWCFLAGS) TAO-DPKG.mwc
+	cp debian/TAO_ACE.mwc $(TAO_ROOT)
+	cd $(TAO_ROOT) && $(ACE_ROOT)/bin/mwc.pl $(MWCFLAGS) TAO-ACE.mwc
 	touch $@
 
 override_dh_auto_build-arch: configure-stamp
-	$(MAKE) -C $(ACE_ROOT) $(DSO_MAKE_FLAG) $(FIXUP)
 	$(MAKE) -C $(TAO_ROOT) $(DSO_MAKE_FLAG) $(FIXUP)
 
 override_dh_auto_install-arch: manpages-stamp
-	$(MAKE) -C $(ACE_ROOT) install $(INSTALL_FLAGS) $(FIXUP)
 	$(MAKE) -C $(TAO_ROOT) install $(INSTALL_FLAGS) $(FIXUP)
 	mkdir -p $(DT)/usr/share/man/man1
 	cp $(ACE_ROOT)/apps/gperf/ace_gperf.1 $(DT)/usr/share/man/man1
@@ -80,7 +78,6 @@ override_dh_auto_install-arch: manpages-stamp
 override_dh_auto_install-indep:
 
 override_dh_auto_clean-arch:
-	[ -f $(ACE_ROOT)/GNUmakefile ] && $(MAKE) -C $(ACE_ROOT) realclean $(DSO_MAKE_FLAG) $(FIXUP) || true
 	[ -f $(TAO_ROOT)/GNUmakefile ] && $(MAKE) -C $(TAO_ROOT) realclean $(DSO_MAKE_FLAG) $(FIXUP) || true
 	find $(ACE_ROOT) -name 'GNUmakefile*' -o -name '.depend.*' | xargs -r rm
 	rm -f $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
