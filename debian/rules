@@ -53,7 +53,7 @@ configure-stamp:
 	cp debian/config*.h $(ACE_ROOT)/ace/
 	cp debian/default.features $(ACE_ROOT)/bin/MakeProjectCreator/config
 	cp debian/TAO_ACE.mwc $(TAO_ROOT)
-	cd $(TAO_ROOT) && $(ACE_ROOT)/bin/mwc.pl $(MWCFLAGS) TAO-ACE.mwc
+	cd $(TAO_ROOT) && $(ACE_ROOT)/bin/mwc.pl $(MWCFLAGS) TAO_ACE.mwc
 	touch $@
 
 override_dh_auto_build-arch: configure-stamp
