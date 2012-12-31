@@ -1,0 +1,16 @@
+Description: compile netsvcs
+Author: Thomas Girard <thomas.g.girard@free.fr>
+Forwarded: no
+Last-Update: 2012-12-31
+
+--- ace-6.1.7.orig/TAO/TAO_ACE.mwc
++++ ace-6.1.7/TAO/TAO_ACE.mwc
+@@ -9,6 +9,8 @@ workspace {
+   $(ACE_ROOT)/ACEXML/apps/svcconf
+   $(ACE_ROOT)/Kokyu/Kokyu.mpc
+   $(ACE_ROOT)/protocols
++  $(ACE_ROOT)/netsvcs/lib
++  $(ACE_ROOT)/netsvcs/servers
+   tao
+   TAO_IDL
+   utils

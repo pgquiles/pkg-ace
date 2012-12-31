@@ -52,7 +52,6 @@ configure-stamp:
 	cp debian/platform_macros.GNU $(ACE_ROOT)/include/makeinclude
 	cp debian/config*.h $(ACE_ROOT)/ace/
 	cp debian/default.features $(ACE_ROOT)/bin/MakeProjectCreator/config
-	cp debian/TAO_ACE.mwc $(TAO_ROOT)
 	cd $(TAO_ROOT) && $(ACE_ROOT)/bin/mwc.pl $(MWCFLAGS) TAO_ACE.mwc
 	touch $@
 
