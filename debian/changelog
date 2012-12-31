@@ -1,10 +1,26 @@
-ace (6.1.3-1) experimental; urgency=low
+ace (6.1.7-1) experimental; urgency=low
 
+  [ Pau Garcia i Quiles ]
   * New upstream release
   * Add new library ACE XML_Utils (packages: libace-xml-utils-{6.1.3,dev})
     (adds a build-depenency on xerces3)
 
- -- Pau Garcia i Quiles <pgquiles@elpauer.org>  Sat, 11 Aug 2012 17:38:17 +0200
+  [ Johnny Willemsen ]
+  * Integrate most Debian changes into upstream repo, hence drop no longer
+    relevant patches.
+  * Ship and use TAO_ACE.mwc; this simplify makefile generation, compilation,
+    and installation.
+
+  [ Thomas Girard ]
+  * debian/README.source: remove obsolete instructions.
+  * debian/control lintian fixes:
+    o Bump Standards-Version: to 3.9.4.
+    o Tighen dependency on debhelper to be on par with debian/compat.
+    o Drop obsolete DM-Upload-Allowed: section. For the record, details
+      on how to do this now is available from:
+      https://lists.debian.org/debian-devel-announce/2012/09/msg00008.html
+
+ -- Thomas Girard <thomas.g.girard@free.fr>  Mon, 31 Dec 2012 22:00:48 +0100
 
 ace (6.1.2-1) experimental; urgency=low
 

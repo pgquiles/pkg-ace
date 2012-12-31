@@ -5,13 +5,11 @@
    The -src version does not contain pre-generated Makefiles. They are
    regenerated in the buid process.
 
- -- Thomas Girard <thomas.g.girard@free.fr>, Sun, 24 Jul 2011 18:47:59 +0200
+ -- Thomas Girard <thomas.g.girard@free.fr>, Sun, 30 Dec 2012 23:57:15 +0100
 
 = New releases =
 
 When preparing a new release, there are several things to remember:
-
- - Update patch 34-bts386713 (change soversions)
 
  - Regenerate the list of include files for libace-inet-dev and
    libace-inet-ssl-dev:
