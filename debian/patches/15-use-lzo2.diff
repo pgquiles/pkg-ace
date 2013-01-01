@@ -1,5 +1,10 @@
---- TAO/tao/Compression/lzo/LzoCompressor.mpc-	2012-12-30 21:11:06.804107332 +0100
-+++ TAO/tao/Compression/lzo/LzoCompressor.mpc	2012-12-30 21:11:16.840157098 +0100
+Description: use lzo2 instead of lzo1 for LzoCompressor
+Forwarded: no
+Author: Thomas Girard <thomas.g.girard@free.fr>
+Last-Update: 2012-12-31
+
+--- a/TAO/tao/Compression/lzo/LzoCompressor.mpc
++++ b/TAO/tao/Compression/lzo/LzoCompressor.mpc
 @@ -1,7 +1,7 @@
  //$Id: LzoCompressor.mpc 91840 2010-09-17 20:23:03Z mitza $
  

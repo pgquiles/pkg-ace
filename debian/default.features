@@ -33,5 +33,5 @@ tao_foxresource = 1
 zlib          = 1
 zzip          = 1
 bzip2         = 1
-lzo1          = 1
+lzo2          = 1
 xerces3       = 1

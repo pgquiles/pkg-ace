@@ -12,7 +12,10 @@ ace (6.1.7-1) experimental; urgency=low
     and installation.
 
   [ Thomas Girard ]
-  * debian/README.source: remove obsolete instructions.
+  * debian/README.source: update instructions.
+  * debian/patches/15-use-lzo2.diff: rework this patch.
+  * debian/fix_doxygen.sh: adapt to latest changes.
+  * debian/patches/reduce-doxygen-doc.diff: regenerate.
   * debian/control lintian fixes:
     o Bump Standards-Version: to 3.9.4.
     o Tighen dependency on debhelper to be on par with debian/compat.
