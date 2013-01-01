@@ -13,7 +13,8 @@ ace (6.1.7-1) experimental; urgency=low
 
   [ Thomas Girard ]
   * debian/README.source: update instructions.
-  * debian/patches/15-use-lzo2.diff: rework this patch.
+  * debian/patches/15-use-lzo2.diff: rework this patch, and force lzo2 in
+    debian/rules.
   * debian/fix_doxygen.sh: adapt to latest changes.
   * debian/patches/reduce-doxygen-doc.diff: regenerate.
   * debian/control lintian fixes:
@@ -22,8 +23,9 @@ ace (6.1.7-1) experimental; urgency=low
     o Drop obsolete DM-Upload-Allowed: section. For the record, details
       on how to do this now is available from:
       https://lists.debian.org/debian-devel-announce/2012/09/msg00008.html
+  * Add *_RLECompressor and ACE_Compressor libraries.
 
- -- Thomas Girard <thomas.g.girard@free.fr>  Mon, 31 Dec 2012 22:00:48 +0100
+ -- Thomas Girard <thomas.g.girard@free.fr>  Tue, 01 Jan 2013 14:53:42 +0100
 
 ace (6.1.2-1) experimental; urgency=low
 
