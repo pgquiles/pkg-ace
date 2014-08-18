@@ -11,15 +11,6 @@ DSO_MAKE_FLAG := versioned_so=2
 INSTALL_FLAGS := DESTDIR=$(CURDIR)/debian/tmp INSTALL_PREFIX=/usr install_rpath=0 $(DSO_MAKE_FLAG)
 
 MAN1 := debian/ace_netsvcs.1 \
-	debian/tao_catior.1 \
-	debian/tao_nslist.1 \
-	debian/tao_nsadd.1 \
-	debian/tao_nsdel.1 \
-	debian/tao_tls_basic.1 \
-	debian/tao_tls_event.1 \
-	debian/tao_tls_notify.1 \
-	debian/tao_tls_rtevent.1 \
-	debian/TAO_ORB_Options.1 \
 	debian/mpc-ace.1
 # Where we install every file before calling dh_install
 DT := debian/tmp
@@ -30,12 +21,10 @@ DOXYGEN_FILES_TO_REMOVE := -name '*.md5' -o \
 
 # Package names, used when overriding dh_installchangelogs
 ALL_PACKAGES := $(shell dh_listpackages)
-ALL_TAO      := $(filter tao% libtao%,$(ALL_PACKAGES))
 ALL_ACEXML   := $(filter libacexml%,$(ALL_PACKAGES))
 
 export ACE_ROOT := $(shell pwd)
 export MPC_ROOT := $(ACE_ROOT)/MPC
-export TAO_ROOT := $(ACE_ROOT)/TAO
 export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(ACE_ROOT)/lib
 export QTDIR := /usr/share/qt4
 
@@ -52,17 +41,13 @@ configure-stamp:
 	cp debian/default.features $(ACE_ROOT)/bin/MakeProjectCreator/config
 	cp debian/ACE-DPKG.mwc $(ACE_ROOT)
 	cd $(ACE_ROOT) && $(ACE_ROOT)/bin/mwc.pl $(MWCFLAGS) ACE-DPKG.mwc
-	cp debian/TAO-DPKG.mwc $(TAO_ROOT)
-	cd $(TAO_ROOT) && $(ACE_ROOT)/bin/mwc.pl $(MWCFLAGS) TAO-DPKG.mwc
 	touch $@
 
 override_dh_auto_build-arch: configure-stamp
 	$(MAKE) -C $(ACE_ROOT) $(DSO_MAKE_FLAG) $(FIXUP)
-	$(MAKE) -C $(TAO_ROOT) $(DSO_MAKE_FLAG) $(FIXUP)
 
 override_dh_auto_install-arch: manpages-stamp
 	$(MAKE) -C $(ACE_ROOT) install $(INSTALL_FLAGS) $(FIXUP)
-	$(MAKE) -C $(TAO_ROOT) install $(INSTALL_FLAGS) $(FIXUP)
 	mkdir -p $(DT)/usr/share/man/man1
 	cp $(ACE_ROOT)/apps/gperf/ace_gperf.1 $(DT)/usr/share/man/man1
 #	Relocate .idl and .pidl files
@@ -71,22 +56,16 @@ override_dh_auto_install-arch: manpages-stamp
 	   mkdir -p $$(dirname $$g) ; \
 	   mv $$f $$g ; \
 	   done
-#	We provide scripts replacement for tao_idl and tao_ifr; they
-#	automatically define ACE_ROOT and TAO_ROOT
-	mkdir -p $(DT)/usr/lib/ace/TAO
-	mv $(DT)/usr/bin/tao_idl $(DT)/usr/bin/tao_ifr $(DT)/usr/lib/ace/TAO
-	cp debian/tao_idl debian/tao_ifr $(DT)/usr/bin
 
 override_dh_auto_install-indep:
 
 override_dh_auto_clean-arch:
 	[ -f $(ACE_ROOT)/GNUmakefile ] && $(MAKE) -C $(ACE_ROOT) realclean $(DSO_MAKE_FLAG) $(FIXUP) || true
-	[ -f $(TAO_ROOT)/GNUmakefile ] && $(MAKE) -C $(TAO_ROOT) realclean $(DSO_MAKE_FLAG) $(FIXUP) || true
 	find $(ACE_ROOT) -name 'GNUmakefile*' -o -name '.depend.*' | xargs -r rm
 	rm -f $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 	rm -f $(ACE_ROOT)/bin/MakeProjectCreator/config/default.features
 	rm -f $(ACE_ROOT)/ace/config.h $(ACE_ROOT)/ace/config-hurd.h
-	rm -f $(ACE_ROOT)/ACE-DPKG.mwc $(TAO_ROOT)/TAO-DPKG.mwc
+	rm -f $(ACE_ROOT)/ACE-DPKG.mwc 
 	rm -f debian/*.1 debian/mpc-ace.sgml
 	rm -f *-stamp
 # Remove stubs that get generated during TAO compilation but for some reason
@@ -94,7 +73,7 @@ override_dh_auto_clean-arch:
 	rm -f `cat debian/TOREMOVE`
 
 override_dh_auto_clean-indep:
-	rm -Rf $(ACE_ROOT)/html/libace-doc $(ACE_ROOT)/html/libtao-doc $(ACE_ROOT)/html/libacexml-doc
+	rm -Rf $(ACE_ROOT)/html/libace-doc  $(ACE_ROOT)/html/libacexml-doc
 
 override_dh_compress:
 	dh_compress -Xexamples
@@ -107,17 +86,11 @@ override_dh_install:
 override_dh_installchangelogs:
 	dh_installchangelogs -pace-gperf -pgperf-ace apps/gperf/ChangeLog
 	dh_installchangelogs -pmpc-ace MPC/ChangeLog
-	dh_installchangelogs $(addprefix -p,$(ALL_TAO)) TAO/ChangeLog
 	dh_installchangelogs $(addprefix -p,$(ALL_ACEXML)) ACEXML/ChangeLog
 	dh_installchangelogs --remaining-packages ChangeLog
 
 override_dh_fixperms:
-ifneq (,$(filter libtao-doc, $(shell dh_listpackages)))
-	chmod -x debian/libtao-doc/usr/share/doc/libtao-doc/examples/RTCORBA/Activity/svc.conf.client
-	chmod -x debian/libtao-doc/usr/share/doc/libtao-doc/examples/RTCORBA/Activity/svc.conf.server
-	chmod -x debian/libtao-doc/usr/share/doc/libtao-doc/examples/Simulator/DOVEBrowser/make.bat
-endif
-ifneq (,$(filter libace-doc libtao-doc, $(shell dh_listpackages)))
+ifneq (,$(filter libace-doc, $(shell dh_listpackages)))
 	find debian -name '*.pl' | xargs -r sed -i -e '1i#!/usr/bin/perl'
 endif
 	dh_fixperms
