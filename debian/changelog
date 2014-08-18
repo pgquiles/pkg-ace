@@ -39,6 +39,26 @@ ace (6.1.2-1) experimental; urgency=low
 
  -- Thomas Girard <thomas.g.girard@free.fr>  Sat, 16 Jun 2012 20:51:01 +0200
 
+ace (6.0.3+dfsg-0.1) unstable; urgency=low
+
+  * NMU with maintainers blessing.
+  * Remove upstream files with nonfree licence (closes: #697848) or
+    without source (closes: #697847):
+    - repack the orig tarball by removing:
+        bin/LabVIEW_RT/*.exe
+        examples/{C++NPv2,C++NPv1,APG}/
+        TAO/
+    - debian/control: drop all packages named *tao*
+    - debian/rules: drop everything related to tao
+    - remove all hunks applying to TAO files in patch reduce-doxygen-doc.diff
+    - drop patch 34-bts386713.diff since it applies only to TAO files.
+    - debian/copyright: remove copyright entries of TAO/, and of the 
+      directories under examples/ that have been removed.
+  * Bump version in build-dependency on debhelper to >=9 since we are using
+    debhelper compatibility level 9.
+
+ -- Ralf Treinen <treinen@debian.org>  Wed, 23 Jan 2013 21:27:40 +0100
+
 ace (6.0.3-5) unstable; urgency=low
 
   * debian/control:
