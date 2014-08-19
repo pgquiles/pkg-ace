@@ -339,7 +339,7 @@ Description: ACE-GUI reactor integration for FLTK
 Package: libace-flreactor-dev
 Architecture: any
 Section: libdevel
-Depends: libace-flreactor-6.2.7 (= ${binary:Version}), libace-dev (= ${binary:Version}), libfltk1.1-dev (>= 6.2.7), ${misc:Depends}
+Depends: libace-flreactor-6.2.7 (= ${binary:Version}), libace-dev (= ${binary:Version}), libfltk1.1-dev (>= 1.1.4), ${misc:Depends}
 Description: ACE-GUI reactor integration for FLTK - development files
  This package contains header files and static library for the ACE-FLTK
  reactor integration.
