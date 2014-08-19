@@ -5,6 +5,15 @@
 # Modified August 2003 by Brian Nelson <pyro@debian.org>
 # Copyright (C) 2004  Raphael Bossek <bossekr@debian.org>
 # Copyright © 2005-2012 Thomas Girard <thomas.g.girard@free.fr>
+# Copyright © 2009-2014 Pau Garcia i Quiles <pgquiles@elpauer.org>
+# Copyright © 2010-2014 Johnny Willemsen <jwillemsen@remedy.nl>
+
+#export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_BUILD_MAINT_OPTIONS = hardening=+format,+fortify,+stackprotector,+relro,+bindnow,-pie
+DPKG_EXPORT_BUILDFLAGS = 1
+include /usr/share/dpkg/buildflags.mk
+CFLAGS+=$(CPPFLAGS)
+CXXFLAGS+=$(CPPFLAGS)
 
 MWCFLAGS := -type gnuace -noreldefs
 DSO_MAKE_FLAG := versioned_so=2
@@ -67,7 +76,7 @@ override_dh_auto_clean-arch:
 	rm -f $(ACE_ROOT)/include/makeinclude/platform_macros.GNU
 	rm -f $(ACE_ROOT)/bin/MakeProjectCreator/config/default.features
 	rm -f $(ACE_ROOT)/ace/config.h $(ACE_ROOT)/ace/config-hurd.h
-	rm -f $(ACE_ROOT)/ACE-DPKG.mwc 
+	rm -f $(ACE_ROOT)/ACE-DPKG.mwc
 	rm -f debian/*.1 debian/mpc-ace.sgml
 	rm -f *-stamp
 # Remove stubs that get generated during TAO compilation but for some reason
@@ -75,7 +84,7 @@ override_dh_auto_clean-arch:
 	rm -f `cat debian/TOREMOVE`
 
 override_dh_auto_clean-indep:
-	rm -Rf $(ACE_ROOT)/html/libace-doc  $(ACE_ROOT)/html/libacexml-doc
+	rm -Rf $(ACE_ROOT)/html/libace-doc $(ACE_ROOT)/html/libacexml-doc
 
 override_dh_compress:
 	dh_compress -Xexamples

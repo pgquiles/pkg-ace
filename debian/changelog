@@ -1,3 +1,22 @@
+ace (6.2.7+dfsg-1) unstable; urgency=low
+
+  [ Johnny Willemsen ]
+  * New upstream release
+
+  [ Pau Garcia i Quiles ]
+  * Enable hardening
+  * Add Large File Support
+  * Add lintian overrides for safe-to-be-ignored issues
+  * Add patch 36-fix-typos (submitted upstream)
+  * Add patch 37-remove-google-tracking
+  * Update standards to 3.9.5.0
+  * Repack upstream source using get-orig-source.sh and add usage note to
+    README.source
+  * Remove all TAO-related stuff due to DFSG-incompatibility
+  * Remove deprecated DM-Upload-Allowed field
+
+ -- Pau Garcia i Quiles <pgquiles@elpauer.org>  Sun, 29 Jun 2014 12:40:36 +0200
+
 ace (6.1.7-1) experimental; urgency=low
 
   [ Pau Garcia i Quiles ]
@@ -39,6 +58,12 @@ ace (6.1.2-1) experimental; urgency=low
 
  -- Thomas Girard <thomas.g.girard@free.fr>  Sat, 16 Jun 2012 20:51:01 +0200
 
+ace (6.0.3+dfsg-0.2) unstable; urgency=low
+
+  * NMU to rebuild with up-to-date tool chain (closes: #723856)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Tue, 08 Oct 2013 10:24:20 +0100
+
 ace (6.0.3+dfsg-0.1) unstable; urgency=low
 
   * NMU with maintainers blessing.
@@ -50,7 +75,8 @@ ace (6.0.3+dfsg-0.1) unstable; urgency=low
         TAO/
     - debian/control: drop all packages named *tao*
     - debian/rules: drop everything related to tao
-    - remove all hunks applying to TAO files in patch reduce-doxygen-doc.diff
+    - remove all hunks applying to TAO files in patch
+    - reduce-doxygen-doc.diff
     - drop patch 34-bts386713.diff since it applies only to TAO files.
     - debian/copyright: remove copyright entries of TAO/, and of the 
       directories under examples/ that have been removed.
@@ -665,7 +691,7 @@ ace (5.4.2.1.0-4) unstable; urgency=high
         reported by lintian.
       - debian/libciao-dev.install: add missing .idl and .pidl files.
         (Closes: #307258)
-  
+
  -- Thomas Girard <thomas.g.girard@free.fr>  Mon,  2 May 2005 19:30:01 +0200
 
 ace (5.4.2.1.0-3) unstable; urgency=high

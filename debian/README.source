@@ -1,11 +1,19 @@
 = Compiling ACE+TAO Debian packages =
 
+= Repackaged source = 
+
+This version of ACE was downloaded as a big tarball from the ACE FTP
+and repackaged as using uscan:
+
+$ uscan --force-download --repack --verbose --watchfile debian/watch
+
  * ACE+TAO-src-<version>.tar.bz2 is retrieved from:
      http://download.dre.vanderbilt.edu/previous_versions/
    The -src version does not contain pre-generated Makefiles. They are
    regenerated in the buid process.
 
  -- Thomas Girard <thomas.g.girard@free.fr>, Tue,  1 Jan 2013 20:32:49 +0100
+ -- Pau Garcia i Quiles <pgquiles@elpauer.org>, Mon, 18 Aug 2014 22:58:18 +0200
 
 = New releases =
 
