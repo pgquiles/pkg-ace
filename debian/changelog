@@ -1,7 +1,7 @@
 ace (6.2.7+dfsg-1) unstable; urgency=low
 
   [ Johnny Willemsen ]
-  * New upstream release
+  * New upstream release. Closes: #746825, #724774, #734393
 
   [ Pau Garcia i Quiles ]
   * Enable hardening
@@ -17,7 +17,7 @@ ace (6.2.7+dfsg-1) unstable; urgency=low
 
  -- Pau Garcia i Quiles <pgquiles@elpauer.org>  Sun, 29 Jun 2014 12:40:36 +0200
 
-ace (6.1.7-1) experimental; urgency=low
+ace (6.1.7-1) UNRELEASED; urgency=low
 
   [ Pau Garcia i Quiles ]
   * New upstream release
