@@ -113,7 +113,7 @@ debian/%.1: debian/%.sgml
 	docbook-to-man $< > $@
 
 override_dh_auto_build-indep:
-	cd $(ACE_ROOT) && bin/generate_doxygen.pl -is_release -exclude_ciao -exclude_dance
+	cd $(ACE_ROOT) && bin/generate_doxygen.pl -is_release -exclude_tao -exclude_ciao -exclude_dance
 	find $(ACE_ROOT)/html $(DOXYGEN_FILES_TO_REMOVE) | xargs -r rm -f
 
 .PHONY: manpages
