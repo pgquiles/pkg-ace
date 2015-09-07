@@ -1,3 +1,10 @@
+ace (6.3.0+dfsg-1) UNRELEASED; urgency=medium
+
+  * New upstream version
+  * Update standards to 3.9.6.0 (no changes needed)
+
+ -- Pau Garcia i Quiles <pgquiles@elpauer.org>  Sat, 15 Nov 2014 01:47:59 +0100
+
 ace (6.2.8+dfsg-1) UNRELEASED; urgency=medium
 
   * New upstream version
