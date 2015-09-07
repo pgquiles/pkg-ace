@@ -1,3 +1,19 @@
+ace (6.2.8+dfsg-1) UNRELEASED; urgency=medium
+
+  * New upstream version
+  * Drop patch 25-versioned_so.diff (applied upstream)
+  * Drop patch 36-fix-typos.diff (applied upstream)
+  * Drop patch 38-fix-predictable-filename-in-tmp.diff (applied upstream)
+  * Drop patch largefile.diff (applied upstream)
+
+ -- Pau Garcia i Quiles <pgquiles@elpauer.org>  Wed, 01 Oct 2014 19:27:00 +0200
+
+ace (6.2.7+dfsg-2) unstable; urgency=medium
+
+  * Add patch 38-fix-predictable-filename-in-tmp. Closes: #760709
+
+ -- Pau Garcia i Quiles <pgquiles@elpauer.org>  Sun, 07 Sep 2014 14:35:23 +0200
+
 ace (6.2.7+dfsg-1) unstable; urgency=low
 
   [ Johnny Willemsen ]
