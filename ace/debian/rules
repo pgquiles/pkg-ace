@@ -84,7 +84,9 @@ override_dh_auto_clean-arch:
 	rm -f `cat debian/TOREMOVE`
 
 override_dh_auto_clean-indep:
-	rm -Rf $(ACE_ROOT)/html/libace-doc $(ACE_ROOT)/html/libacexml-doc
+	rm -Rf $(ACE_ROOT)/html/libace-doc \
+		$(ACE_ROOT)/html/libacexml-doc \
+		$(ACE_ROOT)/doxygen_sqlite3.db
 
 override_dh_compress:
 	dh_compress -Xexamples
@@ -98,7 +100,7 @@ override_dh_installchangelogs:
 	dh_installchangelogs -pace-gperf -pgperf-ace apps/gperf/ChangeLog
 	dh_installchangelogs -pmpc-ace MPC/ChangeLog
 	dh_installchangelogs $(addprefix -p,$(ALL_ACEXML)) ACEXML/ChangeLog
-	dh_installchangelogs --remaining-packages ChangeLog
+	dh_installchangelogs --remaining-packages ChangeLogs/ACE-6_3_2
 
 override_dh_fixperms:
 ifneq (,$(filter libace-doc, $(shell dh_listpackages)))

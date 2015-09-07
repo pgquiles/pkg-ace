@@ -1,3 +1,14 @@
+ace (6.3.2+dfsg-1) unstable; urgency=medium
+
+  * New upstream version
+  * Use new ChangeLog filename and location instead of the old
+    <root>/ChangeLog
+  * Update get-orig-source.sh to remove .gitignore files (reported upstream)
+  * Delete stale doxygen_sqlite3.db file left by recent versions of Doxygen
+  * Update standards to 3.9.6.1 (no changes needed)
+
+ -- Pau Garcia i Quiles <pgquiles@elpauer.org>  Thu, 02 Jul 2015 21:53:49 +0200
+
 ace (6.3.0+dfsg-1) UNRELEASED; urgency=medium
 
   * New upstream version

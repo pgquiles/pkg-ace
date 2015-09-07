@@ -26,6 +26,7 @@ rm -rf rpmbuild debian
 rm -rf websvcs
 rm bin/LabVIEW_RT/*.exe
 rm -rf examples/{C++NPv2,C++NPv1,APG}
+find . -name .gitignore -delete
 
 GZIP=-9 tar --remove-files -czf ${ORIG_TARBALL_DFSG} ${ORIG_TARBALL_DIR} || exit 1
 
